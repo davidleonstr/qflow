@@ -210,6 +210,65 @@ class AnyClass:
 
 </details>
 
+## Definition of stores
+
+<details>
+<summary>Click to expand full stores definitions.</summary>
+
+## Use Subscribeable
+
+```python
+import QFlow
+
+def printNewCounterValue(newValue):
+    print(newValue)
+
+counter = QFlow.stores.Subscribeable(0)
+counter.subscribe(printNewCounterValue) 
+
+def incrementCounter():
+    counter.value = counter.value + 1
+
+incrementCounter()
+
+'''
+If you want to unsubscribe from any feature:
+counter.unsubscribe(printNewCounterValue)
+'''
+```
+
+## Use state
+
+```python
+import QFlow
+
+def onCountChange(newValue):
+    print(newValue)
+
+count, setCount, subscribeCount, unSubscribeCount = QFlow.stores.useState(0)
+
+subscribeCount(onCountChange)
+
+def incrementCount():
+    setCount(count() + 1)
+
+incrementCount()
+
+'''
+If you want to unsubscribe from any feature:
+unSubscribeCount(printNewCounterValue)
+'''
+```
+
+</details>
+
+## Definition of widgets
+
+<details>
+<summary>Click to expand full widgets definitions.</summary>
+
+</details>
+
 ## How to run the examples
 
 <details>

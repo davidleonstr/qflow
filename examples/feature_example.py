@@ -206,8 +206,8 @@ class StoreScreen(QFlow.Screen):
         super().__init__(parent)
         self.screenParent = parent
         
-        self.count, self.setCount, self.subscribeCount = useState(0)
-        self.text, self.setText, self.subscribeText = useState("Hello from useState!")
+        self.count, self.setCount, self.subscribeCount, _ = useState(0)
+        self.text, self.setText, self.subscribeText, _ = useState("Hello from useState!")
         
         counter.subscribe(self.onCounterChange)
         

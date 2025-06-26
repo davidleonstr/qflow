@@ -96,6 +96,7 @@ def useState(initialValue: Any) -> Tuple[Callable[[], Any], Callable[[Any], None
             - A function to get the current state value
             - A function to set a new state value
             - A function to subscribe to state changes
+            - A function to unsubscribe to state changes
     """
     state = State(initialValue)
-    return state.get, state.set, state.subscribe
+    return state.get, state.set, state.subscribe, state.unsubscribe
