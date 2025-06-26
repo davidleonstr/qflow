@@ -1,1 +1,3 @@
-from .notify import *
+from .notify import Notify
+
+__all__ = ['Notify']

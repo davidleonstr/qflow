@@ -52,7 +52,7 @@ class MyApp(QFlow.MainWindow):
     def __init__(self):
         super().__init__()
         self.Config: Config
-        self.SessionStorage: QFlow.SessionStorage
+        self.SessionStorage: QFlow.typing.SessionStorage
 
         mainScreen = MainScreen(self)
         otherScreen = OtherScreen(self)

@@ -205,7 +205,7 @@ import QFlow
 
 @QFlow.useSessionStorage()
 class AnyClass:
-    SessionStorage: QFlow.SessionStorage # Object <SessionStorage>
+    SessionStorage: QFlow.typing.SessionStorage # Object <SessionStorage>
 ```
 
 </details>

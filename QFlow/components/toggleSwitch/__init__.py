@@ -1,1 +1,3 @@
-from .toggleSwitch import *
+from .toggleSwitch import ToggleSwitch
+
+__all__ = ['ToggleSwitch']

@@ -1,3 +1,5 @@
-from .dialog import *
-from .notify import *
-from .toggleSwitch import *
+from .dialog import Dialog
+from .notify import Notify
+from .toggleSwitch import ToggleSwitch
+
+__all__ = ['Dialog', 'Notify', 'ToggleSwitch']
