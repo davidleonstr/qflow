@@ -1,9 +1,6 @@
 """
 This module defines a decorator that assigns window properties and screen management capabilities
 to a class.
-   
-The decorator initializes window properties and screen management attributes before calling
-the original __init__ method to ensure all required attributes are available when needed.
 """
 
 from PyQt5.QtGui import QIcon
@@ -11,12 +8,14 @@ from PyQt5.QtWidgets import QStackedWidget, QWidget
 from PyQt5.QtCore import QEvent, Qt
 from PyQt5.QtCore import QTimer
 from typing import Dict
+from typing import Callable
+from ..screen import ScreenTyping
 
 def window(
         name: str, 
         title: str, 
         geometry: list[int], 
-        icon: QIcon, 
+        icon: Callable[[], QIcon], 
         resizable: bool = True,
         opacity: float = 1.0,
         animatedEvents: Dict[str, bool] = {},
@@ -32,20 +31,11 @@ def window(
         name (str): The name of the window.
         title (str): The title of the window.
         geometry (list): The geometry of the window (ax: int, ay: int, aw: int, ah: int).
-        icon (QIcon): The icon of the window.
+        icon (QIcon): Callable to make the icon to set for the window.
         resizable (bool, optional): The ability to resize the window. Defaults to True.
         opacity: (float, optional): The opacity of the window.
         animatedEvents: (Dict[str, bool], optional): Default animations for events to {'fadeIn': False, 'fadeOut': False}.
         animationValues: (Dict[str, bool], optional): Default values for animations {'opacityIncreasedIn': 0.02, 'opacityReductionOut': 0.02}.
-    
-    Returns:
-        function: A decorator that adds the following to the decorated class:
-            - Window properties (name, title, geometry, icon)
-            - Screen management attributes (screenHistory, screens, stackedScreens)
-            - `addScreen(screen)` method: Adds a screen to the window
-            - `setScreen(name)` method: Sets the current screen
-            - `goBack()` method: Navigates back to the previous screen
-            - `setWindowName(name)` method: Changes the window name
     """
     def decorator(cls):
         """
@@ -75,11 +65,14 @@ def window(
             self.name = name
             self.title = title
             self.windowGeometry = geometry
+            self.icon = icon
             
             # Initialize screen management
             self.screenHistory = []
             self.screens = {}  # Initialize screens dictionary
             self.stackedScreens = QStackedWidget()  # Initialize stacked widget
+
+            self.msRenderTime = 16
             
             # Initialize parent class
             originalInit(self, *args, **kwargs)
@@ -92,7 +85,7 @@ def window(
                 ah, aw = geometry[-2:]
                 self.setFixedSize(ah, aw)
 
-            self.setWindowIcon(icon)
+            self.setWindowIcon(icon())
             self.setCentralWidget(self.stackedScreens)  # Set central widget
 
             if opacity != 1.0:
@@ -111,8 +104,6 @@ def window(
                 'fadeOut': False
             }
             self._animatedEvents.update(animatedEvents)
-
-            self.msRenderTime = 16
 
         def addScreen(self, screen: QWidget):
             """
@@ -229,6 +220,37 @@ def window(
                     else:
                         self.setWindowOpacity(self.opacity)
 
+        def existScreen(self, name: str) -> bool:
+            """
+            Checks if a screen exists in a window.
+
+            Args:
+                name (str): The name of the window.
+            Returns:
+                exist (bool): True if the screen exists, false if it does not exist.
+            """
+            return name in self.screens
+
+        def reloadScreens(self) -> None:
+            """
+            Reloads all window screens.
+            """
+            for name, screen in self.screens.items():
+                screen: ScreenTyping
+                if existScreen(self, name):
+                    screen.reloadUI()
+        
+        def reloadScreen(self, name: str) -> None:
+            """
+            Reloads a screen of a specific window.
+
+            Args:
+                name (str): The name of the screen to reload.
+            """
+            if existScreen(self, name):
+                screen: ScreenTyping = self.screens[name]
+                screen.reloadUI()
+
         cls.__init__ = newInit
 
         # Add instance methods
@@ -236,6 +258,9 @@ def window(
         cls.setScreen = setScreen
         cls.goBack = goBack
         cls.setWindowName = setWindowName
+        cls.existScreen = existScreen
+        cls.reloadScreens = reloadScreens
+        cls.reloadScreen = reloadScreen
 
         if animatedEvents is not None:
             cls.changeEvent = changeEvent

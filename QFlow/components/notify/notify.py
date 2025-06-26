@@ -121,7 +121,7 @@ class Notify(QWidget):
         if color in STYLE_THEME_COLOR:
             self.messageLabel.setObjectName(STYLE_THEME_COLOR[color]['QLabel'])
         else:
-            raise KeyboardInterrupt(f"The color does not exist in Notify: '{color}'")
+            raise KeyError(f"The color does not exist in Notify: '{color}'")
 
         self.progressBar = QProgressBar(self.container)
 
@@ -149,7 +149,8 @@ class Notify(QWidget):
 
         if self.items is not None:
             for widget in items:
-                self.containerLayout.addWidget(widget)
+                if isinstance(widget, QWidget):
+                    self.containerLayout.addWidget(widget)
 
         self.containerLayout.setContentsMargins(20, 10, 20, 10)
 

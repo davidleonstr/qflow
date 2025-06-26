@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QWidget, QStackedWidget, QMainWindow
 from PyQt5.QtGui import QIcon
 from typing import Protocol
-from typing import Dict, List
+from typing import Dict, List, Callable
 
 class WindowTyping(Protocol):
     """
@@ -10,7 +10,7 @@ class WindowTyping(Protocol):
     name: str
     title: str
     windowGeometry: List
-    icon: QIcon
+    icon: Callable[[], QIcon]
     screenHistory: List[str]
     stackedScreens: QStackedWidget
     screens: Dict[str, QWidget]
@@ -21,6 +21,9 @@ class WindowTyping(Protocol):
     def addScreen(self, screen: QWidget) -> None: ...
     def setWindowName(self, name: str) -> None: ...
     def goBack(self) -> None: ...
+    def existScreen(self, name: str) -> bool: ...
+    def reloadScreens(self) -> None: ...
+    def reloadScreen(self, name: str) -> None: ...
 
 class Window(QMainWindow):
     """

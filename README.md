@@ -1,3 +1,11 @@
+<p align="center">
+  <img src="assets/icons/QFlow-white-icon.svg" alt="Icon" width="200"/>
+</p>
+
+<p align="center">
+  <img src="assets/icons/QFlow-white-text-icon.svg" alt="Text Icon" width="200"/>
+</p>
+
 # QFlow
 
 **QFlow** is a Python microframework for building modern PyQt5 applications with a focus on simplicity and maintainability. It provides a comprehensive set of decorators and utilities that streamline the development of desktop interfaces by abstracting away common patterns and boilerplate code.
@@ -36,12 +44,12 @@ The microframework is designed to address the challenges of managing multiple wi
   - Persistent data management during application runtime.
 
 - **UI Components**:
-  - **Notifications**: Customizable notification system with different types (success, error, info) and progress bars.
-  - **Floating Dialogs**: Modal dialog system with customizable backdrop, supporting both white and black themes.
-  - **Toggle Switch**: Animated toggle switch component with customizable appearance.
+  - **Notifications**: Customizable notification.
+  - **Floating Dialogs**: Modal dialog system.
+  - **Toggle Switch**: Animated toggle switch component.
 
 - **State Management**:
-  - **Use State**: React-like state management with getter, setter, and subscriber functions.
+  - **Use State**: Reactive state management with getter, setter, and subscriber functions.
   - **Subscribeable**: Observable pattern implementation for global state management.
   - **Session Storage**: In-memory storage for temporary data between screens.
   - **Configuration**: Global configuration injection for application settings.
@@ -55,9 +63,9 @@ The microframework is designed to address the challenges of managing multiple wi
 > - It is recommended to use a virtual environment (such as `venv`, `virtualenv`, or `conda`) to avoid dependency conflicts.
 
 ```bash
-# (Optional) Create and activate a virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows use: venv\Scripts\activate
+# On Linux use: source venv/bin/activate
+./venv/Scripts/activate 
 ```
 
 You can install **QFlow** directly from the source code by cloning the repository:
@@ -91,67 +99,45 @@ pip install -e .
 ```python
 import QFlow
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QMainWindow, QWidget, QStackedWidget
-from typing import Callable, Dict, List
 
 @QFlow.mainWindow(
     title='Main Window', 
     geometry=[100, 100, 600, 400], 
-    icon=QIcon(), 
+    icon=lambda:QIcon(), 
     resizable=True, 
     maximizable=True
 )
-class MainWindowClass(QMainWindow):
-    # Type hints for better IDE support
-    title: str
-    windowGeometry: List
-    icon: QIcon
-    screenHistory: List[str]
-    stackedScreens: QStackedWidget
-    addScreen: Callable[[QWidget], None]
-    setScreen: Callable[[str], None]
-    createWindow: Callable[[QMainWindow], None]
-    setWindow: Callable[[str], None]
-    closeWindow: Callable[[str], None]
-    onWindowClose: Callable[[], None]
-    removeWindow: Callable[[str], None]
-    goBack: Callable[[], None]
-    screens: Dict[str, QWidget]
-    windows: Dict[str, QMainWindow]
-
+class MainWindowClass(QFlow.MainWindow):
     def __init__(self):
         super().__init__() # Necessary for initialization
 
         # Add screen
         screen = ScreenClass(self)
-        self.addScreen(screen)
+        self.cls.addScreen(screen)
 
         # Set the initial screen
-        self.setScreen(screen.name)
+        self.cls.setScreen(screen.name)
 ```
 
 ### Screen Definition
 
 ```python
 import QFlow
-from PyQt5.QtWidgets import QWidget
-from typing import Callable
 
 @QFlow.screen(name='screen', autoreloadUI=False) 
-class ScreenClass(QWidget):
-    # Type hints for better IDE support
-    name: str
-    screenName: str
-    reloadUI: Callable[[], None]
-    setScreenName: Callable[[str], None]
-    removeAllLayouts: Callable[[], None]
-
-    def __init__(self, parent): # Necessary for initialization
+class ScreenClass(QFlow.Screen):
+    def __init__(
+            self, 
+            parent: QFlow.typing.MainWindowTyping # Or QFlow.typing.WindowTyping
+        ): # Necessary for initialization
         super().__init__(parent) # Necessary for initialization
-        self.widgetParent = parent # Necessary if you want to be able to recharge your screen
+        self.screenParent = parent # Necessary if you want to be able to recharge your screen
         self.UI(parent) # Necessary if you want to be able to recharge your screen
 
-    def UI(self, parent) -> None: # Necessary if you want to be able to recharge your screen
+    def UI(
+            self, 
+            parent: QFlow.typing.MainWindowTyping # Or QFlow.typing.WindowTyping
+        ) -> None: # Necessary if you want to be able to recharge your screen
         """
         The entire UI is loaded here.
         """
@@ -163,40 +149,28 @@ class ScreenClass(QWidget):
 ```python
 import QFlow
 from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QMainWindow, QWidget, QStackedWidget
-from typing import Callable, List, Dict
 
 @QFlow.window(
     name='window', 
     title='Other Window', 
     geometry=[710, 100, 400, 150], 
-    icon=QIcon(), 
+    icon=lambda:QIcon(), 
     resizable=False
 )
-class WindowClass(QMainWindow):
-    # Type hints for better IDE support
-    title: str
-    name: str
-    windowGeometry: List
-    icon: QIcon
-    screenHistory: List[str]
-    stackedScreens: QStackedWidget
-    addScreen: Callable[[QWidget], None]
-    setScreen: Callable[[str], None]
-    setWindowName: Callable[[str], None]
-    goBack: Callable[[], None]
-    screens: Dict[str, QWidget]
-
-    def __init__(self, parent=None): # When parent is None, it means it is an independent window
+class WindowClass(QFlow.Window):
+    def __init__(
+            self, 
+            parent: QFlow.typing.MainWindowTyping = None
+        ): # When parent is None, it means it is an independent window
         super().__init__(parent) # Necessary for initialization
         self.mainWindow = parent # Necessary when it is a window dependent on the main window
 
         # Add screen
         screen = ScreenClass(self)
-        self.addScreen(screen)
+        self.cls.addScreen(screen)
 
         # Set the initial screen
-        self.setScreen(screen.name)
+        self.cls.setScreen(screen.name)
 ```
 
 ### Style Definition
@@ -228,17 +202,10 @@ class AnyClass:
 
 ```python
 import QFlow
-from PyQt5.QtWidgets import QWidget
-from typing import Callable, Any
-
-class SessionStorage:
-    setItem: Callable[[str, Any], None]
-    getItem: Callable[[str], Any]
-    removeItem: Callable[[str], Any]
 
 @QFlow.useSessionStorage()
 class AnyClass:
-    SessionStorage: SessionStorage # Object <SessionStorage>
+    SessionStorage: QFlow.SessionStorage # Object <SessionStorage>
 ```
 
 </details>
@@ -253,11 +220,11 @@ You can find usage examples in the [`examples`](./examples) folder.
 To run an example, use the following command in your terminal from the project root:
 
 ```bash
-python examples/feature_sample.py
+python examples/feature_example.py
 ```
 
 **Example descriptions:**
-- <code>feature_sample.py</code>: Shows how to handle screens, windows, states, widgets, notifications, etc.
+- <code>feature_example.py</code>: Shows how to handle screens, windows, states, widgets, notifications, etc.
 
 </details>
 

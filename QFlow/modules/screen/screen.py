@@ -1,13 +1,6 @@
 """
-This module defines a decorator used to add a `name` attribute to screen classes.
-
-The `screen` decorator is used to assign a unique name to a screen class. This name can 
-be accessed through the `name` attribute of the decorated screen class. It also adds a 
-`screenName` class-level attribute to the decorated class. Additionally, when `autoreloadUI`
-is enabled, it ensures that the UI is properly reloaded upon screen display.
-   
-Note: The UI reload uses QTimer.singleShot with a delay of 0ms, which may introduce
-a slight delay in UI updates as it processes the event in the next event loop cycle.
+This module defines a decorator that assigns screen properties and screen management capabilities
+to a class.
 """
 
 from PyQt5.QtWidgets import QWidget
@@ -15,31 +8,13 @@ from PyQt5.QtCore import QTimer
 
 def screen(name: str, autoreloadUI: bool = False):
     """
-    A decorator that adds a `name` attribute and showEvent method to a screen class.
-
-    This decorator assigns a unique `name` to a screen class. The `name` is set as 
-    both an instance attribute (`self.name`) and a class-level attribute (`screenName`).
-    It also ensures that `showEvent` is added to execute the reloadUI method when the 
-    screen is displayed. If `autoreloadUI` is enabled, it ensures that the UI method
-    is properly called upon screen display.
-
     Args:
         name (str): The name to assign to the screen class.
         autoreloadUI (bool): If True, ensures the class has a `UI` method and reloads it on show.
-
-    Returns:
-        decorator: A class decorator that adds the following to the decorated class:
-            - `name` attribute: The screen name as an instance attribute
-            - `screenName` attribute: The screen name as a class attribute
-            - `reloadUI()` method: Reloads the user interface
-            - `setScreenName(name)` method: Changes the screen name
-            - `showEvent` method: If autoreloadUI is True, reloads UI on show
     """
 
     def decorator(cls):
         """
-        Decorates a class to add a `name` attribute and optionally reload the UI.
-
         Args:
             cls: The class to decorate.
 
@@ -62,11 +37,13 @@ def screen(name: str, autoreloadUI: bool = False):
                 **kwargs: Keyword arguments passed to the original class initializer.
             """
             self.name = name
+            self.screenName = self.name
+
             originalInit(self, *args, **kwargs)
 
-            # Check if the class has a widgetParent
-            if autoreloadUI and not hasattr(self, 'widgetParent'):
-                raise TypeError(f'The class {cls.__name__} must have a widgetParent attribute')
+            # Check if the class has a screenParent
+            if autoreloadUI and not hasattr(self, 'screenParent'):
+                raise TypeError(f'The class {cls.__name__} must have a screenParent attribute')
         
         def removeAllLayouts(widget: QWidget):
             """
@@ -89,20 +66,15 @@ def screen(name: str, autoreloadUI: bool = False):
         
         def reloadUI(self):
             """
-            Reloads the user interface by removing all existing layouts and
-            re-executing the UI method after a short delay.
-            
-            Note: The delay is implemented using QTimer.singleShot(0, ...) which
-            may introduce a slight delay in UI updates as it processes the event
-            in the next event loop cycle.
+            Reloads the interface.
             """
-            if not hasattr(self, 'widgetParent'):
-                raise TypeError(f'The class {cls.__name__} must have a widgetParent attribute')
+            if not hasattr(self, 'screenParent'):
+                raise TypeError(f'The class {cls.__name__} must have a screenParent attribute')
             if not hasattr(cls, 'UI') or not callable(getattr(cls, 'UI')):
                 raise TypeError(f'The class {cls.__name__} must have a UI() method')
             
             removeAllLayouts(self)
-            QTimer.singleShot(0, lambda: self.UI(self.widgetParent))
+            QTimer.singleShot(0, lambda: self.UI(self.screenParent))
         
         def setScreenName(self, name: str) -> None:
             """
@@ -118,10 +90,8 @@ def screen(name: str, autoreloadUI: bool = False):
                 raise ValueError("Screen name must be a non-empty string")
             
             self.name = name
-            cls.screenName = name
 
         cls.__init__ = newInit
-        cls.screenName = name
         cls.reloadUI = reloadUI
         cls.setScreenName = setScreenName
 
