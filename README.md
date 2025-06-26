@@ -237,7 +237,7 @@ counter.unsubscribe(printNewCounterValue)
 '''
 ```
 
-## Use state
+## Use State
 
 ```python
 import QFlow
