@@ -215,7 +215,7 @@ class AnyClass:
 <details>
 <summary>Click to expand full stores definitions.</summary>
 
-## Use Subscribeable
+### Use Subscribeable Definition
 
 ```python
 import QFlow
@@ -237,7 +237,7 @@ counter.unsubscribe(printNewCounterValue)
 '''
 ```
 
-## Use State
+### Use State Definition
 
 ```python
 import QFlow
@@ -267,6 +267,53 @@ unSubscribeCount(printNewCounterValue)
 <details>
 <summary>Click to expand full widgets definitions.</summary>
 
+### Notify Definition
+
+```python
+import QFlow
+
+# The notification appears as soon as the object is created.
+QFlow.components.Notify(
+    message='This is a notification!', 
+    duration=3000, 
+    parent=parent # Parent is necessarily a window object
+)
+```
+
+### Dialog Definition
+
+```python
+import QFlow
+
+dialog = QFlow.components.Dialog(
+    parent=parent, # Parent is necessarily a window object
+    childrenLayout=dialogLayout # A complete layout, if you have prepared it previously
+)
+
+closeDialogButton = QPushButton('Close Dialog')
+closeDialogButton.clicked.connect(
+    dialog.close # Function to close the dialog
+)
+
+# To add any widget to the dialog
+dialog.addWidget(buttonDialog)
+
+dialog.show() # Function to show the dialog
+```
+
+### Toggle Switch Definition
+
+```python
+import QFlow
+
+toggle = QFlow.components.ToggleSwitch(
+    parent=parent, # The parent of the element
+    checked=True # Initial state
+)
+
+anyLayout.addWidget(toggle)
+```
+
 </details>
 
 ## How to run the examples
@@ -279,11 +326,11 @@ You can find usage examples in the [`examples`](./examples) folder.
 To run an example, use the following command in your terminal from the project root:
 
 ```bash
-python examples/feature_example.py
+python examples/features_example.py
 ```
 
 **Example descriptions:**
-- <code>feature_example.py</code>: Shows how to handle screens, windows, states, widgets, notifications, etc.
+- <code>features_example.py</code>: Shows how to handle screens, windows, states, widgets, notifications, etc.
 
 </details>
 
