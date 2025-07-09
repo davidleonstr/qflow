@@ -50,7 +50,10 @@ def style(style: str, path: bool = False):
             if path:
                 styleSheet = readStyleSheet(style)
 
-            self.setStyleSheet(styleSheet if path else style)
+            try:
+                self.setStyleSheet(styleSheet if path else style)
+            except:
+                raise TypeError(f"{self} is not a stylizable object")
 
         cls.__init__ = newInit
 

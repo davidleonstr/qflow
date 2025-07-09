@@ -6,9 +6,7 @@ It supports adding child layouts or individual widgets dynamically.
 A decorator is used to apply styles from an external file.
 """
 
-from PyQt5.QtWidgets import (
-    QVBoxLayout, QFrame, QHBoxLayout, QWidget
-)
+from ...core import QVBoxLayout, QFrame, QHBoxLayout, QWidget
 from .properties import STYLE_PATH, STYLE_THEME_COLOR
 from ...modules.style import style
 

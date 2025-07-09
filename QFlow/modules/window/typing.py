@@ -1,5 +1,4 @@
-from PyQt5.QtWidgets import QWidget, QStackedWidget, QMainWindow
-from PyQt5.QtGui import QIcon
+from ...core import QWidget, QStackedWidget, QMainWindow, QIcon
 from typing import Protocol
 from typing import Dict, List, Callable
 

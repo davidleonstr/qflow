@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QWidget
+from ...core import QWidget
 from typing import Protocol
 
 class ScreenTyping(Protocol):

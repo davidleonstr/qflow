@@ -5,9 +5,7 @@ The class handles displaying messages with custom icons, progress bars, and pred
 A decorator is used to apply styles from an external file.
 """
 
-from PyQt5.QtWidgets import QLabel, QVBoxLayout, QWidget, QProgressBar, QHBoxLayout, QFrame
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtCore import Qt, QTimer
+from ...core import QLabel, QVBoxLayout, QWidget, QProgressBar, QHBoxLayout, QFrame, QPixmap, QTimer, QWindowType, QWidgetAttribute, QAlignmentFlag
 from typing import List, Dict
 
 # Decorator for applying styles to PyQt5 widgets
@@ -92,8 +90,8 @@ class Notify(QWidget):
         if len(message) > characterLimit:
             self.message = message[:characterLimit - 1] + '...'
 
-        self.setWindowFlags(Qt.FramelessWindowHint | Qt.Tool)
-        self.setAttribute(Qt.WA_TranslucentBackground)
+        self.setWindowFlags(QWindowType.FramelessWindowHint | QWindowType.Tool)
+        self.setAttribute(QWidgetAttribute.WA_TranslucentBackground)
 
         self.container = QFrame(self)
         self.container.setMinimumWidth(270)
@@ -140,8 +138,8 @@ class Notify(QWidget):
         self.contentLayout = QHBoxLayout()
         self.contentLayout.setContentsMargins(0, 0, 0, 0)
         self.contentLayout.setSpacing(8)
-        self.contentLayout.addWidget(self.iconLabel, 0, Qt.AlignVCenter)  
-        self.contentLayout.addWidget(self.messageLabel, 1, Qt.AlignVCenter)
+        self.contentLayout.addWidget(self.iconLabel, 0, QAlignmentFlag.AlignVCenter)  
+        self.contentLayout.addWidget(self.messageLabel, 1, QAlignmentFlag.AlignVCenter)
 
         self.containerLayout = QVBoxLayout(self.container)
         self.containerLayout.addLayout(self.contentLayout)

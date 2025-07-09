@@ -3,10 +3,7 @@ This module defines a decorator that assigns window properties and screen manage
 to a class.
 """
 
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QStackedWidget, QWidget
-from PyQt5.QtCore import QEvent, Qt
-from PyQt5.QtCore import QTimer
+from ...core import QIcon, QStackedWidget, QWidget, QTimer, xQEvent, xQt
 from typing import Dict
 from typing import Callable
 from ..screen import ScreenTyping
@@ -210,11 +207,11 @@ def window(
             timer.start(self.msRenderTime)
 
         def changeEvent(self, event):
-            if event.type() == QEvent.WindowStateChange:
-                if self.windowState() == Qt.WindowMinimized:
+            if event.type() == xQEvent.EventType.WindowStateChange:
+                if self.windowState() == xQt.WindowState.WindowMinimized:
                     if self._animatedEvents['fadeOut']:
                         _animateFadeOut(self)
-                elif self.windowState() == Qt.WindowNoState:
+                elif self.windowState() == xQt.WindowState.WindowNoState:
                     if self._animatedEvents['fadeIn']:
                         _animateFadeIn(self)
                     else:

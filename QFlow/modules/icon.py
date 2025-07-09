@@ -6,8 +6,7 @@ it initializes an empty QPixmap.
 """
 
 import os
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtCore import Qt
+from ..core import QPixmap, xQt
 
 class Icon(QPixmap):
     """
@@ -30,7 +29,7 @@ class Icon(QPixmap):
             h (int): The desired height of the icon.
         """
         if os.path.exists(path):
-            pixmap = QPixmap(path).scaled(w, h, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+            pixmap = QPixmap(path).scaled(w, h, xQt.AspectRatioMode.KeepAspectRatio, xQt.TransformationMode.SmoothTransformation)
             super().__init__(pixmap)
         else:
             super().__init__()

@@ -3,9 +3,7 @@ This module defines a decorator that can be used to create a main window with su
 multiple screens and window management.
 """
 
-from PyQt5.QtWidgets import QWidget, QStackedWidget, QMainWindow
-from PyQt5.QtCore import QTimer, Qt
-from PyQt5.QtGui import QIcon
+from ...core import QWidget, QStackedWidget, QMainWindow, QTimer, QIcon, xQt
 from typing import Callable
 from ..window import WindowTyping
 from ..screen import ScreenTyping
@@ -73,10 +71,10 @@ def mainWindow(
                 # The last two indices of the geometry are obtained
                 ah, aw = self.windowGeometry[-2:]
                 self.setFixedSize(ah, aw)
-                self.setWindowFlags(Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint)
+                self.setWindowFlags(xQt.WindowType.WindowMinimizeButtonHint | xQt.WindowType.WindowCloseButtonHint)
             
             if not maximizable:
-                self.setWindowFlags(Qt.WindowMinimizeButtonHint | Qt.WindowCloseButtonHint)
+                self.setWindowFlags(xQt.WindowType.WindowMinimizeButtonHint | xQt.WindowType.WindowCloseButtonHint)
 
             self.setCentralWidget(self.stackedScreens)
 
@@ -331,6 +329,7 @@ def mainWindow(
         cls.removeScreen = removeScreen
         cls.existScreen = existScreen
         cls.closeEvent = onAppClose
+        cls.removeWindow = removeWindow
         cls.reloadWindowScreens = reloadWindowScreens
         cls.reloadWindowScreen = reloadWindowScreen
         cls.reloadScreens = reloadScreens

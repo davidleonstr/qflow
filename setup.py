@@ -5,12 +5,9 @@ setup(
     version="0.1.0",
     packages=find_packages(),
     install_requires=[
-        "PyQt5",
-        "PyQt5-Qt5",
-        "PyQt5_sip",
-        "setuptools",
+        "setuptools"
     ],
-    description="Python microframework designed to simplify the management of PyQt5 applications.",
+    description="Python microframework designed to simplify the management of PyQt/PySide applications.",
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
     author="David León",
