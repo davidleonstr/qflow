@@ -17,7 +17,6 @@ from ...modules.icon import *
 # Importing style properties and configuration
 from .properties import STYLE_BAR, STYLE_PATH, STYLE_THEME_COLOR, ICONS
 
-
 @style(STYLE_PATH, True)
 class Notify(QWidget):
     """
@@ -34,7 +33,8 @@ class Notify(QWidget):
     def __init__(
             self, 
             message: str, 
-            duration: int = 3000, 
+            duration: int = 3000,
+            delay: int = 0,
             parent=None, 
             type: str = 'success', 
             color: str = 'black', 
@@ -45,7 +45,8 @@ class Notify(QWidget):
             items: List[QWidget] = None,
             opacity: float = 1.0,
             animatedEvents: Dict[str, bool] = {},
-            animationValues: Dict[str, float] = {}
+            animationValues: Dict[str, float] = {},
+            autoShow: bool = True
         ):
         """
         Initializes a Notify object.
@@ -53,6 +54,7 @@ class Notify(QWidget):
         Args:
             message (str): The notification message.
             duration (int, optional): Duration before the notification disappears (in milliseconds). Default is 3000ms.
+            delay (int, optional): Delay before showing the notification (in milliseconds). Default is 0ms.
             parent (QWidget, optional): The parent widget where the notification will be displayed. It's usually the window.
             type (str, optional): The type of notification ('success', 'error', 'info'). Default is 'success'.
             color (str, optional): The theme color ('black' or 'white'). Default is 'black'.
@@ -64,16 +66,22 @@ class Notify(QWidget):
             opacity: (float, optional): The opacity of the notify.
             animatedEvents: (Dict[str, bool], optional): Default animations for events to {'fadeIn': True, 'fadeOut': True}.
             animationValues: (Dict[str, bool], optional): Default values for animations {'opacityIncreasedIn': 0.05, 'opacityReductionOut': 0.05}.
+            autoShow: (bool, optional): Whether to show the notification automatically after creation. Default is True.
         """
         super().__init__(parent)
         self.parent = parent
         self.duration = duration
+        self.delay = delay
         self.elapsedTime = 0
         self.message = message
         self.position = position
         self.items = items
         self.opacity = opacity
         self.msRenderTime = 16
+        self.isVisible = False
+        self.isShown = False
+        self.autoShow = autoShow
+        self.notificationsLimit = notificationsLimit
 
         self._animationValues = {
             'opacityIncreasedIn': 0.05,
@@ -155,15 +163,15 @@ class Notify(QWidget):
         self.container.setLayout(self.containerLayout)
         self.container.adjustSize()
 
+        # Check notification limit before incrementing counter
         if self.parent in Notify.cont:
-            Notify.cont[self.parent] += 1
+            if Notify.cont[self.parent] >= notificationsLimit:
+                self.limitExceeded = True
+                return  # Don't create notification if limit exceeded
         else:
-            Notify.cont[self.parent] = 1
-
-        self.notificationCount = Notify.cont[self.parent]
-
-        if self.notificationCount > notificationsLimit:
-            return
+            Notify.cont[self.parent] = 0
+        
+        self.limitExceeded = False
 
         self.mainLayout = QVBoxLayout(self)
         self.mainLayout.addWidget(self.container)
@@ -171,26 +179,58 @@ class Notify(QWidget):
         self.setLayout(self.mainLayout)
         self.adjustSize()
 
-        self.updatePosition()
-
-        # Dynamic update of notifications position
+        # Initialize timers but don't start them yet
         self.positionTimer = QTimer(self)
         self.positionTimer.timeout.connect(self.updatePosition)
-        self.positionTimer.start(self.msRenderTime) # Approximately 60 fps
-
+        
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.updateProgress)
-        self.timer.start(self.msRenderTime) # Approximately 60 fps
 
-        QTimer.singleShot(duration, self.close)
+        # Handle auto-show behavior
+        if self.autoShow:
+            self.show()
 
+    def show(self) -> None:
+        """Shows the notification. Can be called manually to control when the notification appears."""
+        if self.isShown or self.limitExceeded:
+            return  # Don't show if already shown or limit exceeded
+        
+        self.isShown = True
+        
+        # Handle delay
+        if self.delay > 0:
+            # Schedule the notification to show after delay
+            QTimer.singleShot(self.delay, self._showNotification)
+        else:
+            # Show immediately if no delay
+            self._showNotification()
+
+    def _showNotification(self) -> None:
+        """Shows the notification after the delay period."""
+        # Increment counter only when actually showing
+        Notify.cont[self.parent] += 1
+        self.notificationCount = Notify.cont[self.parent]
+        
+        self.updatePosition()
+        
+        # Start timers
+        self.positionTimer.start(self.msRenderTime)  # Approximately 60 fps
+        self.timer.start(self.msRenderTime)  # Approximately 60 fps
+        
+        # Schedule auto-close
+        QTimer.singleShot(self.duration, self.close)
+        
+        # Set opacity
         if self.opacity != 1.0:
-            self.setWindowOpacity(opacity)
-
+            self.setWindowOpacity(self.opacity)
+        
+        # Handle fade-in animation
         if self._animatedEvents['fadeIn']:
             self._animateFadeIn()
-
-        self.show()
+        
+        # Mark as visible and show
+        self.isVisible = True
+        super().show()  # Call the parent's show method
 
     def _animateFadeOut(self) -> None:
         timer = QTimer(self)
@@ -260,8 +300,26 @@ class Notify(QWidget):
             else:
                 self.close()
 
+    def hide(self) -> None:
+        """Hides the notification without closing it."""
+        if self.isVisible:
+            super().hide()
+            self.isVisible = False
+            if self.positionTimer.isActive():
+                self.positionTimer.stop()
+            if self.timer.isActive():
+                self.timer.stop()
+
+    def isNotificationVisible(self) -> bool:
+        """Returns True if the notification is currently visible."""
+        return self.isVisible
+
+    def isNotificationShown(self) -> bool:
+        """Returns True if show() has been called on this notification."""
+        return self.isShown
+
     def close(self) -> None:
         """Closes the notification and updates the notification count."""
-        if self.parent in Notify.cont and Notify.cont[self.parent] > 0:
+        if self.isVisible and self.parent in Notify.cont and Notify.cont[self.parent] > 0:
             Notify.cont[self.parent] -= 1
         super().close()

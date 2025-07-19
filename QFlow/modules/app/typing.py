@@ -2,9 +2,9 @@ from ...core import QWidget, QStackedWidget, QMainWindow, QIcon
 from typing import Protocol
 from typing import Dict, List, Callable
 
-class MainWindowTyping(Protocol):
+class AppTyping(Protocol):
     """
-    # Includes self-typing of Qurderer MainScreen.
+    # Includes self-typing of QFlow App.
     """
     title: str
     windowGeometry: List
@@ -15,8 +15,13 @@ class MainWindowTyping(Protocol):
     windows: Dict[str, QMainWindow]
     strictClosingWindows: bool
 
+    # For complete typing
+    name: str
+    "This property is only available in windows"
+
     def setScreen(self, screen: QWidget) -> None: ...
     def addScreen(self, screen: QWidget) -> None: ...
+    def removeWindow(self, name) -> None: ...
     def setWindow(self, name: str) -> None: ...
     def createWindow(self, window: QMainWindow) -> None: ...
     def onWindowClose(self, event, name): ...
@@ -30,18 +35,22 @@ class MainWindowTyping(Protocol):
     def onAppClose(self, event) -> None: ...
     def removeWindow(self, name) -> None: ...
     def existWindow(self, name: str) -> bool: ...
-
-class MainWindow(QMainWindow):
+    def __effect__(self) -> None: ...
+    
+class App(QMainWindow):
     """
-    # All attributes and methods can be used directly from self. This class is intended for typing using cls only.
+    # All attributes and methods can be used directly from self. This class is intended for typing using typ only.
 
     Attributes:
-        cls (MainWindowTyping): A type-casted version of self for use in autocompletion tools.
+        typ (MainWindowTyping): A type-casted version of self for use in autocompletion tools.
     
     Inherited class of PyQt5 QMainWindow used for typing.
 
     Not required, recommended use only for developers with good knowledge of the package.
     """
     @property
-    def cls(self) -> MainWindowTyping:
+    def typ(self) -> AppTyping:
+        """
+        Property to access the class typing.
+        """
         return self

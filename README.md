@@ -18,7 +18,7 @@ The microframework is designed to address the challenges of managing multiple wi
 
 - **Window Management**:
   - Create and manage multiple windows with the `@window` decorator.
-  - Build main application windows with the `@mainWindow` decorator.
+  - Build main application windows with the `@app` decorator.
   - Navigate between windows with history tracking.
   - Customize window properties.
 
@@ -133,29 +133,29 @@ pip install -e .
 <details>
 <summary>Click to expand full decorator definitions.</summary>
 
-### Main Window Definition
+### App (Main) Definition
 
 ```python
 import QFlow
 from QFlow.core import QIcon
 
-@QFlow.mainWindow(
+@QFlow.app(
     title='Main Window', 
     geometry=[100, 100, 600, 400], 
     icon=lambda:QIcon(), 
     resizable=True, 
     maximizable=True
 )
-class MainWindowClass(QFlow.MainWindow):
+class AppClass(QFlow.App):
     def __init__(self):
         super().__init__() # Necessary for initialization
 
         # Add screen
         screen = ScreenClass(self)
-        self.cls.addScreen(screen)
+        self.typ.addScreen(screen)
 
         # Set the initial screen
-        self.cls.setScreen(screen.name)
+        self.typ.setScreen(screen.name)
 ```
 
 ### Screen Definition
@@ -167,19 +167,18 @@ import QFlow
 class ScreenClass(QFlow.Screen):
     def __init__(
             self, 
-            parent: QFlow.typing.MainWindowTyping # Or QFlow.typing.WindowTyping
+            parent: QFlow.typing.AppTyping # Or QFlow.typing.WindowTyping
         ): # Necessary for initialization
         super().__init__(parent) # Necessary for initialization
-        self.screenParent = parent # Necessary if you want to be able to recharge your screen
-        self.UI(parent) # Necessary if you want to be able to recharge your screen
+        self.UI() # Necessary if you want to be able to recharge your screen
 
     def UI(
             self, 
-            parent: QFlow.typing.MainWindowTyping # Or QFlow.typing.WindowTyping
         ) -> None: # Necessary if you want to be able to recharge your screen
         """
         The entire UI is loaded here.
         """
+        parent = self.typ.parent() # If you want to get the parent as AppTyping
         pass
 ```
 
@@ -199,17 +198,16 @@ from QFlow.core import QIcon
 class WindowClass(QFlow.Window):
     def __init__(
             self, 
-            parent: QFlow.typing.MainWindowTyping = None
+            parent: QFlow.typing.AppTyping = None # Or QFlow.typing.WindowTyping
         ): # When parent is None, it means it is an independent window
         super().__init__(parent) # Necessary for initialization
-        self.mainWindow = parent # Necessary when it is a window dependent on the main window
 
         # Add screen
         screen = ScreenClass(self)
-        self.cls.addScreen(screen)
+        self.typ.addScreen(screen)
 
         # Set the initial screen
-        self.cls.setScreen(screen.name)
+        self.typ.setScreen(screen.name)
 ```
 
 ### Style Definition
@@ -311,7 +309,7 @@ unSubscribeCount(printNewCounterValue)
 ```python
 import QFlow
 
-# The notification appears as soon as the object is created.
+# The notification appears as soon as the object is created if autoShow: bool = True else use the .show method.
 QFlow.components.Notify(
     message='This is a notification!', 
     duration=3000, 

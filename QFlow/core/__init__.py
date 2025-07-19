@@ -16,6 +16,7 @@ allowing QFlow to work with either framework seamlessly.
 from .detection import getQtFramework, isPyqt, isPyside, getQtVersion, getAvailableFrameworks
 from .imports import *
 from .compatibility import xQt, xQEvent
+from .config import QFlowDevConfiguration
 
 __all__ = [
     # Widgets
@@ -29,5 +30,8 @@ __all__ = [
     'QIcon', 'QPixmap', 'QColor', 'QPainter', 'QBrush',
     
     # Framework detection
-    'getQtFramework', 'isPyqt', 'isPyside', 'getQtVersion', 'getAvailableFrameworks'
+    'getQtFramework', 'isPyqt', 'isPyside', 'getQtVersion', 'getAvailableFrameworks',
+
+    #Config
+    'QFlowDevConfiguration'
 ]

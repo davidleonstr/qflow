@@ -1,23 +1,23 @@
-from .mainWindow import mainWindow, MainWindow
+from .app import app, App
 from .screen import screen, Screen
 from .window import window, Window
 from .style import style
 from .useConfig import useConfig
 from .icon import Icon
 from .useSessionStorage import useSessionStorage, SessionStorage
-from .typing import MainWindowTyping, ScreenTyping, WindowTyping
+from .typing import AppTyping, ScreenTyping, WindowTyping
 
 __all__ = [
     'style', 
     'useConfig', 
     'Icon', 
     'useSessionStorage', 
-    'MainWindow', 'Screen', 'Window',
-    'mainWindow',
+    'App', 'Screen', 'Window',
+    'app',
     'screen',
     'window',
     'SessionStorage',
-    'MainWindowTyping',
+    'AppTyping',
     'ScreenTyping',
     'WindowTyping'
 ]

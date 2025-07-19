@@ -7,6 +7,7 @@ from ...core import QIcon, QStackedWidget, QWidget, QTimer, xQEvent, xQt
 from typing import Dict
 from typing import Callable
 from ..screen import ScreenTyping
+from .typing import WindowTyping, QMainWindow
 
 def window(
         name: str, 
@@ -14,6 +15,7 @@ def window(
         geometry: list[int], 
         icon: Callable[[], QIcon], 
         resizable: bool = True,
+        strictClosingWindows: bool = True,
         opacity: float = 1.0,
         animatedEvents: Dict[str, bool] = {},
         animationValues: Dict[str, float] = {}
@@ -30,6 +32,7 @@ def window(
         geometry (list): The geometry of the window (ax: int, ay: int, aw: int, ah: int).
         icon (QIcon): Callable to make the icon to set for the window.
         resizable (bool, optional): The ability to resize the window. Defaults to True.
+        strictClosingWindows (bool, optional): Determines whether all windows should be closed when the window is closed. Defaults to True.
         opacity: (float, optional): The opacity of the window.
         animatedEvents: (Dict[str, bool], optional): Default animations for events to {'fadeIn': False, 'fadeOut': False}.
         animationValues: (Dict[str, bool], optional): Default values for animations {'opacityIncreasedIn': 0.02, 'opacityReductionOut': 0.02}.
@@ -68,6 +71,8 @@ def window(
             self.screenHistory = []
             self.screens = {}  # Initialize screens dictionary
             self.stackedScreens = QStackedWidget()  # Initialize stacked widget
+            self.windows = {}
+            self.strictClosingWindows = strictClosingWindows
 
             self.msRenderTime = 16
             
@@ -248,6 +253,152 @@ def window(
                 screen: ScreenTyping = self.screens[name]
                 screen.reloadUI()
 
+        def createWindow(self, window: QMainWindow) -> None:
+            """
+            Creates a new window and adds it to the windows dictionary for management.
+
+            The window is created using the attributes 'windowGeometry', 'title', and 'name' 
+            of the specified QMainWindow instance.
+
+            Args:
+                window (QMainWindow): The window to create.
+
+            Raises:
+                Exception: If the window is missing any of the required attributes.
+            """
+            geometry = getattr(window, 'windowGeometry', None)
+            title = getattr(window, 'title', None)
+            name = getattr(window, 'name', None)
+
+            if not geometry:
+                raise Exception(f"The window '{window}' does not have a valid <windowGeometry>.")
+            if not title:
+                raise Exception(f"The window '{window}' does not have a valid <title>.")
+            if not name:
+                raise Exception(f"The window '{window}' does not have a valid <name>.")
+
+            if not hasattr(self, 'windows'):
+                self.windows = {}
+            
+            if not self.windows.get(name):
+                window.closeEvent = lambda event: onWindowClose(self, event, name)
+                self.windows[name] = window
+                window.setGeometry(*geometry)
+                window.setWindowTitle(title)
+
+                if hasattr(window, '__effect__'):
+                    window.__effect__()
+
+                window.show()
+            else:                
+                print(f"The window '{name}' is already exist.")
+
+        def onWindowClose(self, event, name):
+            """
+            Handles the window close event and removes the window from the windows list.
+
+            Args:
+                event: The close event.
+                name (str): The name of the window being closed.
+            """
+            if self.strictClosingWindows:
+                for _, window in self.windows.items():
+                    window.close()
+
+            QTimer.singleShot(0, lambda: removeWindow(self, name))
+            event.accept()
+
+        def removeWindow(self, name) -> None:
+            """
+            Removes a window from the windows list.
+
+            Args:
+                name (str): The name of the window to remove.
+            """
+            if name in self.windows:
+                del self.windows[name]
+
+        def setWindow(self, name: str) -> None:
+            """
+            Brings a specified window to the front and activates it.
+
+            Args:
+                name (str): The name of the window to bring to the front.
+
+            Raises:
+                Exception: If the specified window does not exist.
+            """
+            if name in self.windows:
+                self.windows[name].raise_()
+                self.windows[name].activateWindow()
+            else:
+                raise Exception(f"The window '{name}' does not exist.")
+            
+        def closeWindow(self, name: str) -> None:
+            """
+            Closes a specified window.
+
+            Args:
+                name (str): The name of the window to close.
+
+            Raises:
+                Exception: If the specified window does not exist.
+            """
+            if name in self.windows:
+                self.windows[name].close()
+                del self.windows[name]
+            else:
+                raise Exception(f"The window '{name}' does not exist.")
+        
+        def removeScreen(self, name: str) -> None:
+            """
+            Removes a screes from the screens list.
+
+            Args:
+                name (str): The name of the screen to remove.
+            """
+            if not self.screens[name]:
+                raise Exception(f"The window '{name}' does not exist.")
+            
+            if hasattr(self, 'stackedScreens'):
+                self.stackedScreens.removeWidget(self.screens[name])
+            
+            self.screens.pop(name)
+
+        def existWindow(self, name: str) -> bool:
+            """
+            Checks if a window exists in the main window.
+
+            Args:
+                name (str): The name of the window.
+            Returns:
+                exist (bool): True if the window exists, false if it does not exist.
+            """
+            return name in self.windows
+
+        def reloadWindowScreens(self, window: str) -> None:
+            """
+            Reloads the screens of a window.
+
+            Args:
+                window (str): The name of the window to reload.
+            """
+            window: WindowTyping = self.windows[window] if window in self.windows else False
+            if window:
+                window.reloadScreens()
+        
+        def reloadWindowScreen(self, window: str, screen: str) -> None:
+            """
+            Reloads a screen of a window.
+
+            Args:
+                window (str): The name of the window to reload.
+                screen (str): The name of the screen to reload.
+            """
+            window: WindowTyping = self.windows[window] if window in self.windows else False
+            if window:
+                window.reloadScreen(screen)
+
         cls.__init__ = newInit
 
         # Add instance methods
@@ -257,7 +408,16 @@ def window(
         cls.setWindowName = setWindowName
         cls.existScreen = existScreen
         cls.reloadScreens = reloadScreens
+        cls.removeScreen = removeScreen
         cls.reloadScreen = reloadScreen
+        cls.createWindow = createWindow
+        cls.setWindow = setWindow
+        cls.closeWindow = closeWindow
+        cls.onWindowClose = onWindowClose
+        cls.removeWindow = removeWindow
+        cls.reloadWindowScreens = reloadWindowScreens
+        cls.reloadWindowScreen = reloadWindowScreen
+        cls.existWindow = existWindow
 
         if animatedEvents is not None:
             cls.changeEvent = changeEvent

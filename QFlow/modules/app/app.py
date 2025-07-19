@@ -1,14 +1,14 @@
 """
-This module defines a decorator that can be used to create a main window with support for
+This module defines a decorator that can be used to create a app with support for
 multiple screens and window management.
 """
 
-from ...core import QWidget, QStackedWidget, QMainWindow, QTimer, QIcon, xQt
+from ...core import QWidget, QStackedWidget, QMainWindow, QTimer, QIcon, xQt, QFlowDevConfiguration
 from typing import Callable
 from ..window import WindowTyping
 from ..screen import ScreenTyping
 
-def mainWindow(
+def app(
         title: str, 
         geometry: list[int], 
         icon: Callable[[], QIcon], 
@@ -168,9 +168,14 @@ def mainWindow(
                 self.windows[name] = window
                 window.setGeometry(*geometry)
                 window.setWindowTitle(title)
+
+                if hasattr(window, '__effect__'):
+                    window.__effect__()
+
                 window.show()
             else:
-                print(f"The window '{name}' is already exist.")
+                if QFlowDevConfiguration.USE_CONSOLE:         
+                    print(f"The window '{name}' is already exist.")
 
         def onWindowClose(self, event, name):
             """
@@ -180,6 +185,11 @@ def mainWindow(
                 event: The close event.
                 name (str): The name of the window being closed.
             """
+            windowParent = self.windows[name]
+            if windowParent.strictClosingWindows:
+                for _, window in windowParent.windows.items():
+                    window.close()
+
             QTimer.singleShot(0, lambda: removeWindow(self, name))
             event.accept()
 

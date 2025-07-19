@@ -40,9 +40,9 @@ def screen(name: str, autoreloadUI: bool = False):
 
             originalInit(self, *args, **kwargs)
 
-            # Check if the class has a screenParent
-            if autoreloadUI and not hasattr(self, 'screenParent'):
-                raise TypeError(f'The class {cls.__name__} must have a screenParent attribute')
+            # Get the real parent, not the QStackedWidget
+            parent = self.parent()
+            self.parent = lambda: parent
         
         def removeAllLayouts(widget: QWidget):
             """
@@ -67,13 +67,11 @@ def screen(name: str, autoreloadUI: bool = False):
             """
             Reloads the interface.
             """
-            if not hasattr(self, 'screenParent'):
-                raise TypeError(f'The class {cls.__name__} must have a screenParent attribute')
             if not hasattr(cls, 'UI') or not callable(getattr(cls, 'UI')):
                 raise TypeError(f'The class {cls.__name__} must have a UI() method')
             
             removeAllLayouts(self)
-            QTimer.singleShot(0, lambda: self.UI(self.screenParent))
+            QTimer.singleShot(0, lambda: self.UI())
         
         def setScreenName(self, name: str) -> None:
             """
@@ -100,6 +98,20 @@ def screen(name: str, autoreloadUI: bool = False):
             def showEvent(self, event):
                 # Reload the UI after a short delay. Note: This line cost me 5 hours of debugging.
                 QTimer.singleShot(0, lambda: reloadUI(self))
+
+                if hasattr(self, '__effect__'):
+                    self.__effect__()
+
+                originalShowEvent(self, event)
+
+            cls.showEvent = showEvent
+        else:
+            originalShowEvent = getattr(cls, 'showEvent', QWidget.showEvent)
+
+            def showEvent(self, event):
+                if hasattr(self, '__effect__'):
+                    self.__effect__()
+
                 originalShowEvent(self, event)
 
             cls.showEvent = showEvent
