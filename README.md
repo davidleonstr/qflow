@@ -363,11 +363,11 @@ You can find usage examples in the [`examples`](./examples) folder.
 To run an example, use the following command in your terminal from the project root:
 
 ```bash
-python examples/features_example.py
+python examples/example.py
 ```
 
 **Example descriptions:**
-- <code>features_example.py</code>: Shows how to handle screens, windows, states, widgets, notifications, etc.
+- <code>example.py</code>: Shows how to handle screens, windows, states, widgets, notifications, etc.
 
 </details>
 
