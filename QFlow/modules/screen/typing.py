@@ -1,4 +1,4 @@
-from ...core import QWidget
+from qtpy.QtWidgets import QWidget
 from ..app.typing import AppTyping
 from typing import Protocol
 

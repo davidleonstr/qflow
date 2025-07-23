@@ -30,7 +30,7 @@ Available types:
 STYLE_THEME_COLOR = {
     'black': {
         'QFrame': 'black-QFrame',
-        "QLabel": 'white-QLabel',
+        'QLabel': 'white-QLabel',
     },
     'white': {
         'QFrame': 'white-QFrame',

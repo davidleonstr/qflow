@@ -3,7 +3,8 @@ This module defines a decorator that assigns screen properties and screen manage
 to a class.
 """
 
-from ...core import QWidget, QTimer
+from qtpy.QtCore import QTimer
+from qtpy.QtWidgets import QWidget
 
 def screen(name: str, autoreloadUI: bool = False):
     """

@@ -5,7 +5,9 @@ The class provides a clickable switch that toggles between ON and OFF states wit
 It supports color customization and state querying.
 """
 
-from ...core import QWidget, Qt, QPropertyAnimation, pyqtProperty, QColor, QPainter, QBrush, QCursorShape, getQtFramework
+from qtpy.QtCore import Qt, QPropertyAnimation, Property
+from qtpy.QtGui import QColor, QPainter, QBrush, QCursor
+from qtpy.QtWidgets import QWidget
 
 class ToggleSwitch(QWidget):
     """
@@ -48,13 +50,9 @@ class ToggleSwitch(QWidget):
         self._bgColorOff = QColor(bgColor[0])
         self._circleColor = QColor(circleColor)
 
-        self.QtVersion = getQtFramework()
-
-        self.PointingHandCursor = QCursorShape.PointingHandCursor
-
         self.setChecked(checked)
 
-        self.setCursor(self.PointingHandCursor)
+        self.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
 
     def mousePressEvent(self, event):
         """
@@ -87,11 +85,11 @@ class ToggleSwitch(QWidget):
             event (QPaintEvent): The paint event.
         """
         painter = QPainter(self)
-        painter.setRenderHint(QPainter.Antialiasing if self.QtVersion == 'PySide2' or self.QtVersion == 'PyQt5' else QPainter.RenderHint.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
 
         bg_color = self._bgColorOn if self._checked else self._bgColorOff
         painter.setBrush(QBrush(bg_color))
-        painter.setPen(Qt.NoPen if self.QtVersion == 'PySide2' or self.QtVersion == 'PyQt5' in self.QtVersion else Qt.PenStyle.NoPen)
+        painter.setPen(Qt.PenStyle.NoPen)
         painter.drawRoundedRect(0, 0, self.width(), self.height(), self.height() / 2, self.height() / 2)
 
         painter.setBrush(QBrush(self._circleColor))
@@ -132,4 +130,4 @@ class ToggleSwitch(QWidget):
         self._circlePosition = pos
         self.update()
 
-    circlePosition = pyqtProperty(int, fget=getCirclePosition, fset=setCirclePosition)
+    circlePosition = Property(int, fget=getCirclePosition, fset=setCirclePosition)

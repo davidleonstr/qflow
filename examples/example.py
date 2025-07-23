@@ -1,12 +1,15 @@
 import os
+import sys
+from dataclasses import dataclass
 
-# Usually in configuration
-os.environ['QFLOW_QT_FRAMEWORK'] = 'PyQt6'
+os.environ['QT_API'] = 'pyqt6'
+
+# Using QtPy for Qt bindings abstraction
+from qtpy.QtWidgets import QApplication, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit, QPushButton
+from qtpy.QtCore import Qt
+from qtpy.QtGui import QIcon
 
 import QFlow
-import sys
-from QFlow.core import QApplication, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit, QIcon, xQt, QPushButton, getQtFramework, QTimer
-from dataclasses import dataclass
 from QFlow.stores import useState, Subscribeable
 
 style = '''
@@ -76,7 +79,9 @@ class MyApp(QFlow.App):
         self.typ.createWindow(other_popup_window)
         self.typ.createWindow(independent_window)
 
-        QFlow.components.Notify(parent=self, message=f'Welcome to QFlow. {getQtFramework()}.', type='info', customIcon=QFlow.Icon('assets/icons/QFlow-white-icon.png', 40, 40), duration=4000, delay=500)
+        # Get Qt framework info - will need to be adapted based on QFlow's getQtFramework function
+        qt_info = "QtPy with available binding"
+        QFlow.components.Notify(parent=self, message=f'Welcome to QFlow. {qt_info}.', type='info', customIcon=QFlow.Icon('assets/icons/QFlow-white-icon.png', 40, 40), duration=4000, delay=500)
 
 @QFlow.screen('main')
 @QFlow.useConfig(config)
@@ -97,14 +102,14 @@ class MainScreen(QFlow.Screen):
         layout = QVBoxLayout()
 
         label = QLabel('Main Screen')
-        label.setAlignment(xQt.AlignmentFlag.AlignCenter)
+        label.setAlignment(Qt.AlignCenter)
 
         self.SessionStorage.setItem('test<1>', 'hello world!')
         sessionLabel = QLabel(f"Session data: {self.SessionStorage.getItem('test<1>')}")
-        sessionLabel.setAlignment(xQt.AlignmentFlag.AlignCenter)
+        sessionLabel.setAlignment(Qt.AlignCenter)
 
         configLabel = QLabel(f'Configuration data: {self.Config.message}')
-        configLabel.setAlignment(xQt.AlignmentFlag.AlignCenter)
+        configLabel.setAlignment(Qt.AlignCenter)
 
         buttonNotify = QPushButton('Show Notification')
         buttonNotify.clicked.connect(lambda: QFlow.components.Notify('This is a notification!', 3000, parent=parent))
@@ -178,13 +183,13 @@ class OtherScreen(QFlow.Screen):
         layout = QVBoxLayout()
 
         label = QLabel('Other Screen')
-        label.setAlignment(xQt.AlignmentFlag.AlignCenter)
+        label.setAlignment(Qt.AlignCenter)
 
         sessionLabel = QLabel(f"Session data test<1>: {self.SessionStorage.getItem('test<1>')}")
-        sessionLabel.setAlignment(xQt.AlignmentFlag.AlignCenter)
+        sessionLabel.setAlignment(Qt.AlignCenter)
 
         sessionTestReload = QLabel(f"Session data test<2>: {self.SessionStorage.getItem('test<2>')}")
-        sessionTestReload.setAlignment(xQt.AlignmentFlag.AlignCenter)
+        sessionTestReload.setAlignment(Qt.AlignCenter)
 
         buttonReloadUI = QPushButton('Reload UI')
         buttonReloadUI.clicked.connect(self.typ.reloadUI)
@@ -239,12 +244,12 @@ class StoreScreen(QFlow.Screen):
         mainLayout = QVBoxLayout()
         
         title = QLabel('Store Examples')
-        title.setAlignment(xQt.AlignmentFlag.AlignCenter)
+        title.setAlignment(Qt.AlignCenter)
         mainLayout.addWidget(title)
         
         useStateSection = QVBoxLayout()
         useStateTitle = QLabel('useState Example')
-        useStateTitle.setAlignment(xQt.AlignmentFlag.AlignCenter)
+        useStateTitle.setAlignment(Qt.AlignCenter)
         useStateSection.addWidget(useStateTitle)
         
         countLayout = QHBoxLayout()
@@ -267,7 +272,7 @@ class StoreScreen(QFlow.Screen):
         
         subscribeableSection = QVBoxLayout()
         subscribeableTitle = QLabel('Subscribeable Example')
-        subscribeableTitle.setAlignment(xQt.AlignmentFlag.AlignCenter)
+        subscribeableTitle.setAlignment(Qt.AlignCenter)
         subscribeableSection.addWidget(subscribeableTitle)
         
         counterLayout = QHBoxLayout()
@@ -344,7 +349,7 @@ class PopupMainScreen(QFlow.Screen):
         mainLayout = QVBoxLayout()
 
         label = QLabel('This is a popup window')
-        label.setAlignment(xQt.AlignmentFlag.AlignCenter)
+        label.setAlignment(Qt.AlignCenter)
 
         buttonClose = QPushButton('Close Popup')
         buttonClose.clicked.connect(parent.closePopup)
@@ -437,7 +442,7 @@ class OtherNoneScreen(QFlow.Screen):
         self.mainLayout = QVBoxLayout()
 
         label = QLabel('Other-none Screen')
-        label.setAlignment(xQt.AlignmentFlag.AlignCenter)
+        label.setAlignment(Qt.AlignCenter)
 
         buttonReloadUI = QPushButton('Reload UI')
         buttonReloadUI.clicked.connect(self.typ.reloadUI)
@@ -461,7 +466,7 @@ class OtherSimpleNoneScreen(QFlow.Screen):
         self.mainLayout = QVBoxLayout()
 
         label = QLabel('Other-none Screen')
-        label.setAlignment(xQt.AlignmentFlag.AlignCenter)
+        label.setAlignment(Qt.AlignCenter)
 
         buttonReloadUI = QPushButton('Reload UI')
         buttonReloadUI.clicked.connect(self.typ.reloadUI)

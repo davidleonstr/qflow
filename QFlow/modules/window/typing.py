@@ -1,4 +1,5 @@
-from ...core import QWidget, QStackedWidget, QMainWindow, QIcon
+from qtpy.QtWidgets import QWidget, QStackedWidget, QMainWindow
+from qtpy.QtGui import QIcon
 from typing import Protocol
 from ..app.typing import AppTyping
 from typing import Dict, List, Callable

@@ -61,7 +61,7 @@ The microframework is designed to address the challenges of managing multiple wi
 > **Requirements:**
 > - Python 3.11.3 or higher is required.
 > - It is recommended to use a virtual environment (such as `venv`, `virtualenv`, or `conda`) to avoid dependency conflicts.
-> - One of the following Qt frameworks: PyQt5, PyQt6, PySide2, or PySide6
+> - One of the following Qt frameworks: pyqt5, pyqt6, pyside2, or pyside6
 
 ### Qt Framework Compatibility
 
@@ -76,17 +76,17 @@ You only need to install one of these frameworks. QFlow will automatically detec
 
 #### Setting Qt Framework via Environment Variable
 
-If you prefer to explicitly specify which Qt framework to use, you can set the `QFLOW_QT_FRAMEWORK` environment variable:
+If you prefer to explicitly specify which Qt framework to use, you can set the `QT_API` environment variable:
 
 **Linux/macOS:**
 ```bash
-export QFLOW_QT_FRAMEWORK=PySide6
+export QT_API=pyside6
 python your_app.py
 ```
 
 **Windows:**
 ```cmd
-set QFLOW_QT_FRAMEWORK=PySide6
+set QT_API=pyside6
 python your_app.py
 ```
 
@@ -94,12 +94,12 @@ python your_app.py
 ```python
 import os
 
-os.environ['QFLOW_QT_FRAMEWORK'] = 'PySide6'
+os.environ['QT_API'] = 'pyside6'
 
 import QFlow
 ```
 
-Valid values: `PyQt5`, `PyQt6`, `PySide2`, `PySide6`
+Valid values: `pyqt5`, `pyqt6`, `pyside2`, `pyside6`
 
 ```cmd
 python -m venv venv
@@ -137,7 +137,7 @@ pip install -e .
 
 ```python
 import QFlow
-from QFlow.core import QIcon
+from qtpy.QtGui import QIcon
 
 @QFlow.app(
     title='Main Window', 
@@ -186,7 +186,7 @@ class ScreenClass(QFlow.Screen):
 
 ```python
 import QFlow
-from QFlow.core import QIcon
+from qtpy.QtGui import QIcon
 
 @QFlow.window(
     name='window', 
@@ -214,7 +214,7 @@ class WindowClass(QFlow.Window):
 
 ```python
 import QFlow
-from QFlow.core import QWidget
+from qtpy.QtWidgets import QWidget
 
 # If style is a file path, use path = True
 @QFlow.style(style='', path=True)
@@ -226,7 +226,7 @@ class AnyWidget(QWidget):
 
 ```python
 import QFlow
-from QFlow.core import QWidget
+from qtpy.QtWidgets import QWidget
 
 config = object() # Any initialized object
 

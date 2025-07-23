@@ -2,8 +2,10 @@
 This module defines a decorator that can be used to create a app with support for
 multiple screens and window management.
 """
-
-from ...core import QWidget, QStackedWidget, QMainWindow, QTimer, QIcon, xQt, QFlowDevConfiguration
+from qtpy.QtWidgets import QWidget, QStackedWidget, QMainWindow
+from qtpy.QtCore import QTimer, Qt
+from qtpy.QtGui import QIcon
+from ...core import QFlowDevConfiguration
 from typing import Callable
 from ..window import WindowTyping
 from ..screen import ScreenTyping
@@ -71,10 +73,10 @@ def app(
                 # The last two indices of the geometry are obtained
                 ah, aw = self.windowGeometry[-2:]
                 self.setFixedSize(ah, aw)
-                self.setWindowFlags(xQt.WindowType.WindowMinimizeButtonHint | xQt.WindowType.WindowCloseButtonHint)
+                self.setWindowFlags(Qt.WindowType.WindowMinimizeButtonHint | Qt.WindowType.WindowCloseButtonHint)
             
             if not maximizable:
-                self.setWindowFlags(xQt.WindowType.WindowMinimizeButtonHint | xQt.WindowType.WindowCloseButtonHint)
+                self.setWindowFlags(Qt.WindowType.WindowMinimizeButtonHint | Qt.WindowType.WindowCloseButtonHint)
 
             self.setCentralWidget(self.stackedScreens)
 
