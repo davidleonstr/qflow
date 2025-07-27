@@ -2,16 +2,16 @@ from .app import app, App
 from .screen import screen, Screen
 from .window import window, Window
 from .style import style
-from .useConfig import useConfig
+from .insertConfig import insertConfig
 from .icon import Icon
-from .useSessionStorage import useSessionStorage, SessionStorage
+from .insertSessionStorage import insertSessionStorage, SessionStorage
 from .typing import AppTyping, ScreenTyping, WindowTyping
 
 __all__ = [
     'style', 
-    'useConfig', 
+    'insertConfig', 
     'Icon', 
-    'useSessionStorage', 
+    'insertSessionStorage', 
     'App', 'Screen', 'Window',
     'app',
     'screen',

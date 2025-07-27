@@ -51,8 +51,8 @@ counter = Subscribeable(0)
 
 @QFlow.app('Main Window', [100, 100, 600, 520], lambda: QIcon('assets/icons/QFlow-white-icon.png'))
 @QFlow.style(style)
-@QFlow.useConfig(config)
-@QFlow.useSessionStorage()
+@QFlow.insertConfig(config)
+@QFlow.insertSessionStorage()
 class MyApp(QFlow.App):
     def __init__(self):
         super().__init__()
@@ -84,8 +84,8 @@ class MyApp(QFlow.App):
         QFlow.components.Notify(parent=self, message=f'Welcome to QFlow. {qt_info}.', type='info', customIcon=QFlow.Icon('assets/icons/QFlow-white-icon.png', 40, 40), duration=4000, delay=500)
 
 @QFlow.screen('main')
-@QFlow.useConfig(config)
-@QFlow.useSessionStorage()
+@QFlow.insertConfig(config)
+@QFlow.insertSessionStorage()
 class MainScreen(QFlow.Screen):
     def __init__(self, parent):
         super().__init__(parent)
@@ -170,7 +170,7 @@ class MainScreen(QFlow.Screen):
         self.setLayout(layout)
 
 @QFlow.screen('other', autoreloadUI=True)
-@QFlow.useSessionStorage()
+@QFlow.insertSessionStorage()
 class OtherScreen(QFlow.Screen):
     def __init__(self, parent):
         super().__init__(parent)
@@ -314,7 +314,7 @@ class StoreScreen(QFlow.Screen):
         QFlow.components.Notify(f"Counter changed to {newValue}", 1000, parent=self.parent())
 
 @QFlow.window('popup', 'Popup Window', [710, 100, 400, 150], lambda: QIcon('assets/icons/QFlow-white-icon.png'), resizable=False, animatedEvents={'fadeOut': True, 'fadeIn': True})
-@QFlow.useSessionStorage()
+@QFlow.insertSessionStorage()
 class PopupWindow(QFlow.Window):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -336,7 +336,7 @@ class PopupWindow(QFlow.Window):
         self.typ.parent().closeWindow(self.typ.name)
 
 @QFlow.screen('popup-main')
-@QFlow.useSessionStorage()
+@QFlow.insertSessionStorage()
 class PopupMainScreen(QFlow.Screen):
     def __init__(self, parent):
         super().__init__(parent)
@@ -371,7 +371,7 @@ class PopupMainScreen(QFlow.Screen):
         QFlow.components.Notify(f'Session data: {value}', 3000, parent=self.parent())
 
 @QFlow.window('otherpopup', 'Other Popup Window', [710, 285, 400, 150], lambda: QIcon('assets/icons/QFlow-white-icon.png'), resizable=False)
-@QFlow.useSessionStorage()
+@QFlow.insertSessionStorage()
 class OtherPopupWindow(QFlow.Window):
     def __init__(self, parent):
         super().__init__(parent)
@@ -416,7 +416,7 @@ QSpinBox, QLineEdit {
 
 @QFlow.window('independent-window', 'Independent Window', [710, 470, 400, 150], lambda: QIcon('assets/icons/QFlow-white-icon.png'), resizable=False)
 @QFlow.style(independentStyle)
-@QFlow.useSessionStorage()
+@QFlow.insertSessionStorage()
 class IndependentWindow(QFlow.Window):
     def __init__(self, parent=None):
         super().__init__(parent=parent)
@@ -431,7 +431,7 @@ class IndependentWindow(QFlow.Window):
         self.typ.setScreen(self.mainScreen.typ.name)
 
 @QFlow.screen('other-none', autoreloadUI=True)
-@QFlow.useSessionStorage()
+@QFlow.insertSessionStorage()
 class OtherNoneScreen(QFlow.Screen):
     def __init__(self, parent):
         super().__init__(parent)
@@ -453,7 +453,7 @@ class OtherNoneScreen(QFlow.Screen):
         self.setLayout(self.mainLayout)
 
 @QFlow.screen('other-screen', autoreloadUI=True)
-@QFlow.useSessionStorage()
+@QFlow.insertSessionStorage()
 class OtherSimpleNoneScreen(QFlow.Screen):
     def __init__(self, parent):
         super().__init__(parent)

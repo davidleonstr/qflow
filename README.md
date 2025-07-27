@@ -34,12 +34,12 @@ The microframework is designed to address the challenges of managing multiple wi
   - Theme color customization for consistent UI.
 
 - **Configuration Management**:
-  - Inject global configurations with the `@useConfig` decorator.
+  - Inject global configurations with the `@insertConfig` decorator.
   - Access application settings from any component.
   - Centralized configuration management.
 
 - **Session Storage**:
-  - In-memory session storage with the `@useSessionStorage` decorator.
+  - In-memory session storage with the `@insertSessionStorage` decorator.
   - Store and retrieve temporary data between screens.
   - Persistent data management during application runtime.
 
@@ -230,7 +230,7 @@ from qtpy.QtWidgets import QWidget
 
 config = object() # Any initialized object
 
-@QFlow.useConfig(config)
+@QFlow.insertConfig(config)
 class AnyClass:
     Config: object
 ```
@@ -240,7 +240,7 @@ class AnyClass:
 ```python
 import QFlow
 
-@QFlow.useSessionStorage()
+@QFlow.insertSessionStorage()
 class AnyClass:
     SessionStorage: QFlow.typing.SessionStorage # Object <SessionStorage>
 ```

@@ -58,7 +58,7 @@ class SessionStorage:
 # Create a global sessionStorage instance
 sessionStorage = SessionStorage()
 
-def useSessionStorage():
+def insertSessionStorage():
     """
     A decorator that injects session storage into a class.
 
