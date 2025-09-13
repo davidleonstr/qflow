@@ -118,7 +118,7 @@ pip install .
 Or using git + pip to install **QFlow** using the link to the repository:
 
 ```bash
-pip install git+clone https://github.com/davidleonstr/QFlow.git
+pip install git+https://github.com/davidleonstr/QFlow.git
 ```
 
 **For development:**
