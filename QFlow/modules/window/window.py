@@ -16,6 +16,7 @@ def window(
         title: str, 
         geometry: list[int], 
         icon: Callable[[], QIcon], 
+        parentType = None,
         resizable: bool = True,
         strictClosingWindows: bool = True,
         opacity: float = 1.0,
@@ -108,6 +109,14 @@ def window(
                 'fadeOut': False
             }
             self._animatedEvents.update(animatedEvents)
+
+            parent = self.parent()
+
+            if parentType is not None:
+                if parent.__class__.__bases__[0] != parentType:
+                    raise TypeError(
+                        f"Window '{name}' only accepts the parentType '{parentType}' not '{parent.__class__.__bases__[0]}'"
+                    )
 
         def addScreen(self, screen: QWidget):
             """

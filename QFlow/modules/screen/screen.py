@@ -6,7 +6,7 @@ to a class.
 from qtpy.QtCore import QTimer
 from qtpy.QtWidgets import QWidget
 
-def screen(name: str, autoreloadUI: bool = False):
+def screen(name: str, autoreloadUI: bool = False, parentType = None):
     """
     Args:
         name (str): The name to assign to the screen class.
@@ -44,6 +44,14 @@ def screen(name: str, autoreloadUI: bool = False):
             # Get the real parent, not the QStackedWidget
             parent = self.parent()
             self.parent = lambda: parent
+
+            self.parentType = parentType
+
+            if parentType is not None:
+                if parent.__class__.__bases__[0] != parentType:
+                    raise TypeError(
+                        f"Screen '{name}' only accepts the parentType '{parentType}' not '{parent.__class__.__bases__[0]}'"
+                    )
         
         def removeAllLayouts(widget: QWidget):
             """

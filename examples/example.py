@@ -83,7 +83,7 @@ class MyApp(QFlow.App):
         qt_info = "QtPy with available binding"
         QFlow.components.Notify(parent=self, message=f'Welcome to QFlow. {qt_info}.', type='info', customIcon=QFlow.Icon('assets/icons/QFlow-white-icon.png', 40, 40), duration=4000, delay=500)
 
-@QFlow.screen('main')
+@QFlow.screen('main', parentType=QFlow.App)
 @QFlow.insertConfig(config)
 @QFlow.insertSessionStorage()
 class MainScreen(QFlow.Screen):
@@ -169,7 +169,7 @@ class MainScreen(QFlow.Screen):
 
         self.setLayout(layout)
 
-@QFlow.screen('other', autoreloadUI=True)
+@QFlow.screen('other', autoreloadUI=True, parentType=QFlow.App)
 @QFlow.insertSessionStorage()
 class OtherScreen(QFlow.Screen):
     def __init__(self, parent):
@@ -313,13 +313,12 @@ class StoreScreen(QFlow.Screen):
         self.counterLabel.setText(f"Counter: {newValue}")
         QFlow.components.Notify(f"Counter changed to {newValue}", 1000, parent=self.parent())
 
-@QFlow.window('popup', 'Popup Window', [710, 100, 400, 150], lambda: QIcon('assets/icons/QFlow-white-icon.png'), resizable=False, animatedEvents={'fadeOut': True, 'fadeIn': True})
+@QFlow.window('popup', 'Popup Window', [710, 100, 400, 150], lambda: QIcon('assets/icons/QFlow-white-icon.png'), resizable=False, animatedEvents={'fadeOut': True, 'fadeIn': True}, parentType=QFlow.App)
 @QFlow.insertSessionStorage()
 class PopupWindow(QFlow.Window):
     def __init__(self, parent=None):
         super().__init__(parent)
         self.SessionStorage: QFlow.SessionStorage
-        self.wind = parent
 
         # Initialize screen with variable
         self.mainScreen = PopupMainScreen(self)
@@ -430,7 +429,7 @@ class IndependentWindow(QFlow.Window):
         self.typ.addScreen(self.otherScreen)
         self.typ.setScreen(self.mainScreen.typ.name)
 
-@QFlow.screen('other-none', autoreloadUI=True)
+@QFlow.screen('other-none', autoreloadUI=True, )
 @QFlow.insertSessionStorage()
 class OtherNoneScreen(QFlow.Screen):
     def __init__(self, parent):
