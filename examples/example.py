@@ -429,7 +429,7 @@ class IndependentWindow(QFlow.Window):
         self.typ.addScreen(self.otherScreen)
         self.typ.setScreen(self.mainScreen.typ.name)
 
-@QFlow.screen('other-none', autoreloadUI=True, )
+@QFlow.screen('other-none', autoreloadUI=True)
 @QFlow.insertSessionStorage()
 class OtherNoneScreen(QFlow.Screen):
     def __init__(self, parent):

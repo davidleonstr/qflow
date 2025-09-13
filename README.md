@@ -163,12 +163,9 @@ class AppClass(QFlow.App):
 ```python
 import QFlow
 
-@QFlow.screen(name='screen', autoreloadUI=False) 
+@QFlow.screen(name='screen', autoreloadUI=False, parentType=QFlow.App) 
 class ScreenClass(QFlow.Screen):
-    def __init__(
-            self, 
-            parent: QFlow.typing.AppTyping # Or QFlow.typing.WindowTyping
-        ): # Necessary for initialization
+    def __init__(self, parent):
         super().__init__(parent) # Necessary for initialization
         self.UI() # Necessary if you want to be able to recharge your screen
 
@@ -193,13 +190,11 @@ from qtpy.QtGui import QIcon
     title='Other Window', 
     geometry=[710, 100, 400, 150], 
     icon=lambda:QIcon(), 
-    resizable=False
+    resizable=False,
+    parentType=QFlow.App
 )
 class WindowClass(QFlow.Window):
-    def __init__(
-            self, 
-            parent: QFlow.typing.AppTyping = None # Or QFlow.typing.WindowTyping
-        ): # When parent is None, it means it is an independent window
+    def __init__(self, parent): # When parent is None, it means it is an independent window
         super().__init__(parent) # Necessary for initialization
 
         # Add screen
