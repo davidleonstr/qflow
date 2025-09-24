@@ -11,6 +11,7 @@ from qtpy.QtGui import QIcon
 
 import QFlow
 from QFlow.stores import useState, Subscribeable
+from QFlow.hooks import Params
 
 style = '''
 QPushButton {
@@ -68,7 +69,7 @@ class MyApp(QFlow.App):
         self.typ.addScreen(other_screen)
         self.typ.addScreen(store_screen)
 
-        self.typ.setScreen(main_screen.typ.name)
+        self.typ.setScreen(main_screen.typ.name, args={'screen-name': main_screen.typ.name})
 
         # Initialize windows with variables
         self.popupWindow = PopupWindow(self)
@@ -83,7 +84,7 @@ class MyApp(QFlow.App):
         qt_info = "QtPy with available binding"
         QFlow.components.Notify(parent=self, message=f'Welcome to QFlow. {qt_info}.', type='info', customIcon=QFlow.Icon('assets/icons/QFlow-white-icon.png', 40, 40), duration=4000, delay=500)
 
-@QFlow.screen('main', parentType=QFlow.App)
+@QFlow.screen('main', parentType=QFlow.App, autoreloadUI=True)
 @QFlow.insertConfig(config)
 @QFlow.insertSessionStorage()
 class MainScreen(QFlow.Screen):
@@ -97,6 +98,9 @@ class MainScreen(QFlow.Screen):
         print(self.typ.parent().title, ':', 'The effect of the screen main')
 
     def UI(self) -> None:
+        self.params = Params(self)
+        print(self.params.get())
+        
         parent = self.typ.parent()
 
         layout = QVBoxLayout()

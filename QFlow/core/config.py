@@ -4,4 +4,3 @@ import os
 @dataclass
 class QFlowDevConfiguration:
     USE_CONSOLE: bool = os.environ.get('QFLOW_USE_CONSOLE', True) in ['true', 'True', 'TRUE']
-    QT_API: str = os.environ.get('QT_API', 'auto')

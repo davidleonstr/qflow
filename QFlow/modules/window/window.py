@@ -10,6 +10,7 @@ from typing import Dict
 from typing import Callable
 from ..screen import ScreenTyping
 from .typing import WindowTyping, QMainWindow
+from ...core import INSTANCEARGS
 
 def window(
         name: str, 
@@ -138,7 +139,7 @@ def window(
             self.screens[name] = screen
             self.stackedScreens.addWidget(screen)
 
-        def setScreen(self, name: str) -> None:
+        def setScreen(self, name: str, args: dict = None) -> None:
             """
             Sets the current screen to display based on the screen name.
 
@@ -147,6 +148,7 @@ def window(
 
             Args:
                 name (str): The name of the screen to display.
+                args (dict): Arguments for the screen.
 
             Raises:
                 Exception: If the specified screen does not exist.
@@ -159,6 +161,9 @@ def window(
                 screen = self.screens[name]
                 if not hasattr(screen, 'screenName'):
                     raise Exception(f'The screen {screen} does not have screenName attribute.')
+                
+                if args:
+                    INSTANCEARGS.setArgs(instance=screen, args=args)
                 
                 self.stackedScreens.setCurrentWidget(screen)      
             else:

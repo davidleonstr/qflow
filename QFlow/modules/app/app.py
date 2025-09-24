@@ -9,6 +9,7 @@ from ...core import QFlowDevConfiguration
 from typing import Callable
 from ..window import WindowTyping
 from ..screen import ScreenTyping
+from ...core import INSTANCEARGS
 
 def app(
         title: str, 
@@ -115,7 +116,7 @@ def app(
                 # If the screen already exists, do not duplicate it
                 self.stackedScreens.addWidget(screen)
 
-        def setScreen(self, name: str) -> None:
+        def setScreen(self, name: str, args: dict = None) -> None:
             """
             Sets the current screen to display based on the screen name.
 
@@ -124,17 +125,24 @@ def app(
 
             Args:
                 name (str): The name of the screen to display.
+                args (dict): Arguments for the screen.
 
             Raises:
                 Exception: If the specified screen does not exist.
             """
             if name in self.screens:
-                if hasattr(self, 'stackedScreens'):
-                    currentScreen = self.stackedScreens.currentWidget()
-                    if currentScreen:
-                        self.screenHistory.append(currentScreen)
+                currentScreen = self.stackedScreens.currentWidget()
+                if currentScreen:
+                    self.screenHistory.append(currentScreen)
 
-                    self.stackedScreens.setCurrentWidget(self.screens[name])      
+                screen = self.screens[name]
+                if not hasattr(screen, 'screenName'):
+                    raise Exception(f'The screen {screen} does not have screenName attribute.')
+                    
+                if args:
+                    INSTANCEARGS.setArgs(instance=screen, args=args)
+
+                self.stackedScreens.setCurrentWidget(self.screens[name])      
             else:
                 raise Exception(f"The screen '{name}' does not exist.")
 

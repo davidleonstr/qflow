@@ -155,13 +155,14 @@ class AppClass(QFlow.App):
         self.typ.addScreen(screen)
 
         # Set the initial screen
-        self.typ.setScreen(screen.name)
+        self.typ.setScreen(screen.name, args={})
 ```
 
 ### Screen Definition
 
 ```python
 import QFlow
+from QFlow.hooks import Params
 
 @QFlow.screen(name='screen', autoreloadUI=False, parentType=QFlow.App) 
 class ScreenClass(QFlow.Screen):
@@ -175,6 +176,7 @@ class ScreenClass(QFlow.Screen):
         """
         The entire UI is loaded here.
         """
+        self.params = Params(self) # To manage screen parameters
         parent = self.typ.parent() # If you want to get the parent as AppTyping
         pass
 ```
