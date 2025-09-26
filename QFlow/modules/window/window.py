@@ -7,7 +7,6 @@ from qtpy.QtGui import QIcon
 from qtpy.QtWidgets import QStackedWidget, QWidget, QMainWindow
 from qtpy.QtCore import QTimer, Qt, QEvent
 from typing import Dict, Callable
-from ..screen import Screen
 from ...core.temp import INSTANCE_ARGS
 
 class Window(QMainWindow):
@@ -265,7 +264,6 @@ class Window(QMainWindow):
         """
         for name, screen in self.screens.items():
             if self.existScreen(name):
-                screen: Screen
                 screen.reloadUI()
     
     def reloadScreen(self, name: str) -> None:
@@ -277,7 +275,6 @@ class Window(QMainWindow):
         """
         if self.existScreen(name):
             screen = self.screens[name]
-            screen: Screen
             screen.reloadUI()
 
     def createWindow(self, window: "Window") -> None:

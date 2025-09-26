@@ -78,7 +78,7 @@ class QFlowMainScreen(QFlow.Screen):
         self.args['parent'] = parent
         super().__init__(**self.args)
 
-    def __effect__(self):
+    def effect(self):
         """
         It runs whenever the screen is mounted
         """
@@ -126,7 +126,7 @@ class QFlowSecondaryScreen(QFlow.Screen):
         self.args['parent'] = parent
         super().__init__(**self.args)
 
-    def __effect__(self):
+    def effect(self):
         """
         It runs whenever the screen is mounted
         """
@@ -154,7 +154,7 @@ class QFlowSecondMovementScreen(QFlow.Screen):
         self.args['parent'] = parent
         super().__init__(**self.args)
 
-    def __effect__(self):
+    def effect(self):
         """
         It runs whenever the screen is mounted
         """

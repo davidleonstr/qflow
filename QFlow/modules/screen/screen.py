@@ -115,8 +115,8 @@ class Screen(QWidget):
             # Reload the UI after a short delay. Note: This line cost me 5 hours of debugging.
             QTimer.singleShot(0, lambda: self.reloadUI())
 
-        if hasattr(self, '__effect__'):
-            self.__effect__()
+        if hasattr(self, 'effect'):
+            self.effect()
 
         # Call parent's showEvent if it exists
         if hasattr(super(), 'showEvent'):
