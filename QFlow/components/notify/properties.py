@@ -4,8 +4,8 @@ This file contains the constants and properties for the Notify object in this mo
 Modifying any property in this file requires making the same changes in related files.
 """
 
-# Import a class to create Pixmap icons easily
-from ...modules import Icon
+# Class for creating Pixmap icons
+from ...helpers.icon import Icon
 
 # Location of the file with the styles for the Notify object
 STYLE_PATH = 'QFlow/components/notify/notify.css'

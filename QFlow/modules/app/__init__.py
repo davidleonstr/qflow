@@ -1,4 +1,4 @@
-from .app import app
-from .typing import App, AppTyping
+from .app import App
+from .decorator import app
 
-__all__ = ['app', 'App', 'AppTyping']
+__all__ = ['app', 'App']

@@ -1,4 +1,4 @@
-from .window import window
-from .typing import Window, WindowTyping
+from .window import Window
+from .decorator import window
 
-__all__ = ['window', 'Window', 'WindowTyping']
+__all__ = ['window', 'Window']

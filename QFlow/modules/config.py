@@ -1,12 +1,12 @@
 """
 This module defines a decorator for injecting a configuration object into a class.
 
-The `insertConfig` decorator adds a `Config` attribute to a class, making the provided 
+The `config` decorator adds a `Config` attribute to a class, making the provided 
 configuration available within the class. The configuration is passed during initialization 
 and is accessible through the `Config` attribute.
 """
 
-def insertConfig(config: object):
+def config(config: object):
     """
     A decorator that injects a configuration object into a class.
 

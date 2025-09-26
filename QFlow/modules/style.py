@@ -6,7 +6,7 @@ or directly as a string. It modifies the `__init__` method of the decorated clas
 the stylesheet application.
 """
 
-from ..utils.files import GenericFile
+from ..utils.genericFile import GenericFile
 
 def style(style: str, path: bool = False):
     """
@@ -48,30 +48,14 @@ def style(style: str, path: bool = False):
             originalInit(self, *args, **kwargs)
 
             if path:
-                styleSheet = readStyleSheet(style)
+                styleSheet = GenericFile(style).readFile()
 
             try:
                 self.setStyleSheet(styleSheet if path else style)
             except:
-                raise TypeError(f"{self} is not a stylizable object")
+                raise TypeError(f'{self} is not a stylizable object')
 
         cls.__init__ = newInit
-
-        @staticmethod
-        def readStyleSheet(style: str) -> str:
-            """
-            Reads the stylesheet from a file.
-
-            This method reads the content of the given file and returns it as a string.
-            It uses the GenericFile utility class to read the file content.
-
-            Args:
-                style (str): The file path to the stylesheet.
-
-            Returns:
-                str: The content of the stylesheet file.
-            """
-            return GenericFile(style).readFile()
 
         return cls
     

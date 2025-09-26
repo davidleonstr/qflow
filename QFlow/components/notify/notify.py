@@ -13,9 +13,6 @@ from typing import List, Dict
 # Decorator for applying styles to PyQt5 widgets
 from ...modules.style import *
 
-# Class for creating Pixmap icons
-from ...modules.icon import *
-
 # Importing style properties and configuration
 from .properties import STYLE_BAR, STYLE_PATH, STYLE_THEME_COLOR, ICONS
 

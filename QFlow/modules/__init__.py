@@ -1,23 +1,18 @@
-from .app import app, App
-from .screen import screen, Screen
-from .window import window, Window
+from .app import App
+from .app.decorator import app
+from .window import Window
+from .window.decorator import window
 from .style import style
-from .insertConfig import insertConfig
-from .icon import Icon
-from .insertSessionStorage import insertSessionStorage, SessionStorage
-from .typing import AppTyping, ScreenTyping, WindowTyping
+from .config import config
+from .session import session
+from .screen import Screen
+from .screen.decorator import screen
 
 __all__ = [
     'style', 
-    'insertConfig', 
-    'Icon', 
-    'insertSessionStorage', 
-    'App', 'Screen', 'Window',
-    'app',
-    'screen',
-    'window',
-    'SessionStorage',
-    'AppTyping',
-    'ScreenTyping',
-    'WindowTyping'
+    'config', 
+    'session', 
+    'App', 'Window',
+    'app', 'window',
+    'screen', 'Screen'
 ]

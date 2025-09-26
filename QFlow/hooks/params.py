@@ -1,4 +1,4 @@
-from ..core import INSTANCEARGS
+from ..core.temp import INSTANCE_ARGS
 from typing import Any
 
 class Params:
@@ -7,15 +7,15 @@ class Params:
 
     def get(self, name: str = None) -> dict | Any:
         if name is not None:
-            return INSTANCEARGS.getArg(instance=self.identity, name=name)
+            return INSTANCE_ARGS.getArg(instance=self.identity, name=name)
         else:
-            return INSTANCEARGS.getArgs(instance=self.identity)
+            return INSTANCE_ARGS.getArgs(instance=self.identity)
     
     def set(self, name: str = None, value: Any = None, args: dict = None) -> None:
         if args:
-            INSTANCEARGS.setArgs(instance=self.identity, args=args)
+            INSTANCE_ARGS.setArgs(instance=self.identity, args=args)
         else: 
-            INSTANCEARGS.setArg(instance=self.identity, name=name, value=value)
+            INSTANCE_ARGS.setArg(instance=self.identity, name=name, value=value)
     
     def exist(self, name: str) -> bool:
-        return INSTANCEARGS.existArg(instance=self.identity, name=name)
+        return INSTANCE_ARGS.existArg(instance=self.identity, name=name)

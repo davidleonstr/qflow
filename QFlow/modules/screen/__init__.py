@@ -1,4 +1,4 @@
-from .screen import screen
-from .typing import Screen, ScreenTyping
+from .screen import Screen
+from .decorator import screen
 
-__all__ = ['screen', 'Screen', 'ScreenTyping']
+__all__ = ['Screen', 'screen']
