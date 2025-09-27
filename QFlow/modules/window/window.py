@@ -277,7 +277,7 @@ class Window(QMainWindow):
             screen = self.screens[name]
             screen.reloadUI()
 
-    def createWindow(self, window: "Window") -> None:
+    def createWindow(self, window: "Window", args: dict = None) -> None:
         """
         Creates a new window and adds it to the windows dictionary for management.
 
@@ -286,6 +286,7 @@ class Window(QMainWindow):
 
         Args:
             window (Window): The window to create.
+            args (dict): Arguments for the window.
 
         Raises:
             Exception: If the window is missing any of the required attributes.
@@ -310,8 +311,12 @@ class Window(QMainWindow):
             window.setGeometry(*geometry)
             window.setWindowTitle(title)
 
-            if hasattr(window, '__effect__'):
-                window.__effect__()
+            if args:
+                INSTANCE_ARGS.setArgs(instance=window, args=args)
+
+            # Execute effect
+            if hasattr(window, 'effect'):
+                window.effect()
 
             window.show()
         else:                
@@ -342,12 +347,13 @@ class Window(QMainWindow):
         if name in self.windows:
             del self.windows[name]
 
-    def setWindow(self, name: str) -> None:
+    def setWindow(self, name: str, args: dict = None) -> None:
         """
         Brings a specified window to the front and activates it.
 
         Args:
             name (str): The name of the window to bring to the front.
+            args (dict): Arguments for the window.
 
         Raises:
             Exception: If the specified window does not exist.
@@ -355,6 +361,13 @@ class Window(QMainWindow):
         if name in self.windows:
             self.windows[name].raise_()
             self.windows[name].activateWindow()
+
+            if args:
+                INSTANCE_ARGS.setArgs(instance=self.windows[name], args=args)
+
+            # Execute effect
+            if hasattr(self.windows[name], 'effect'):
+                self.windows[name].effect()
         else:
             raise Exception(f"The window '{name}' does not exist.")
             

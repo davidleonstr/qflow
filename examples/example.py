@@ -1,6 +1,9 @@
 import os
 import sys
 
+# For debug
+import json
+
 os.environ['QT_API'] = 'pyqt6'
 
 from qtpy.QtWidgets import (
@@ -33,10 +36,16 @@ class QFlowApp(QFlow.App):
         self.addScreen(screen=self.secondMovementScreen)
 
         # The main screen is set
-        self.setScreen(name=self.mainScreen.name)
+        self.setScreen(name=self.mainScreen.name, args={
+            'from': self.name,
+            'to': self.mainScreen.name
+        })
 
         # Creation of windows
-        self.createWindow(self.secondaryWindow)
+        self.createWindow(self.secondaryWindow, args={
+            'from': self.name,
+            'to': self.secondaryWindow.name
+        })
 
 @QFlow.window(
     name='secondaryWindow',
@@ -67,6 +76,13 @@ class QFlowSecondaryWindow(QFlow.Window):
 
         # The main screen is set
         self.setScreen(name=self.secondaryScreen.name)
+    
+    def effect(self):
+        """
+        It runs whenever the screen is created or set
+        """
+        self.params = QFlow.hooks.Params(self)
+        print(json.dumps(self.params.get(), indent=4))
 
 @QFlow.screen(
     name='mainScreen',
@@ -82,7 +98,8 @@ class QFlowMainScreen(QFlow.Screen):
         """
         It runs whenever the screen is mounted
         """
-        pass
+        self.params = QFlow.hooks.Params(self)
+        print(json.dumps(self.params.get(), indent=4))
     
     def UI(self):
         self.label = QLabel('Hello!')
