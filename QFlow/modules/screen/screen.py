@@ -13,13 +13,14 @@ class Screen(QWidget):
     Can be used as a base class or through composition.
     """
     
-    def __init__(self, name: str, autoreloadUI: bool = False, parentType = None, *args, **kwargs):
+    def __init__(self, name: str, autoreloadUI: bool = False, autoUI: bool = True, parentType = None, *args, **kwargs):
         """
         Initialize the Screen object.
         
         Args:
             name (str): The name to assign to the screen.
             autoreloadUI (bool): If True, ensures the class has a `UI` method and reloads it on show.
+            autoUI (bool): Executes the UI function during __init__ without having to call it.
             parentType: Expected parent type for validation.
             *args: Additional positional arguments.
             **kwargs: Additional keyword arguments.
@@ -34,6 +35,7 @@ class Screen(QWidget):
         self.screenName = self.name
         self.parentType = parentType
         self._autoreloadUI = autoreloadUI
+        self._autoUI = autoUI
         
         if autoreloadUI:
             # Check if the class has a UI method
@@ -55,6 +57,11 @@ class Screen(QWidget):
                     raise TypeError(
                         f"Screen '{name}' only accepts the parentType '{parentType}' not '{parent.__class__.__bases__[0]}'"
                     )
+
+        # Auto-execute UI
+        if not autoreloadUI and autoUI:
+            # Wait for the next cycle     
+            QTimer.singleShot(0, lambda: self.UI())
                        
     def parent(self) -> Window: ...
     
