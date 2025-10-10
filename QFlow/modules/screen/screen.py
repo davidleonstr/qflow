@@ -36,6 +36,7 @@ class Screen(QWidget):
         self.parentType = parentType
         self._autoreloadUI = autoreloadUI
         self._autoUI = autoUI
+        self._loaded = False
         
         if autoreloadUI:
             # Check if the class has a UI method
@@ -57,11 +58,6 @@ class Screen(QWidget):
                     raise TypeError(
                         f"Screen '{name}' only accepts the parentType '{parentType}' not '{parent.__class__.__bases__[0]}'"
                     )
-
-        # Auto-execute UI
-        if not autoreloadUI and autoUI:
-            # Wait for the next cycle     
-            QTimer.singleShot(0, lambda: self.UI())
                        
     def parent(self) -> Window: ...
     
@@ -121,6 +117,12 @@ class Screen(QWidget):
         if self._autoreloadUI:
             # Reload the UI after a short delay. Note: This line cost me 5 hours of debugging.
             QTimer.singleShot(0, lambda: self.reloadUI())
+
+        if not self._autoreloadUI and self._autoUI and not self._loaded:
+            # Execute the UI if autoUI
+            QTimer.singleShot(0, lambda: self.UI())
+            # Specifies that the screen has already been loaded
+            self._loaded = True
 
         if hasattr(self, 'effect'):
             self.effect()
