@@ -41,7 +41,7 @@ def session():
                 **kwargs: Keyword arguments passed to the original class initializer.
             """
             originalInit(self, *args, **kwargs)
-            self.Session = session
+            self.Session = SESSION_STORAGE
 
         cls.__init__ = newInit
 
