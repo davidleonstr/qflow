@@ -70,3 +70,7 @@ class Params:
             bool: True if the parameter exists, False otherwise.
         """
         return INSTANCE_ARGS.existArg(instance=self.identity, name=name)
+    
+    def clear(self) -> None:
+        """Clear all parameters"""
+        INSTANCE_ARGS.clearArgs(instance=self.identity)

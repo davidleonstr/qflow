@@ -106,3 +106,12 @@ class InstanceArgs:
         
         for key, value in args.items():
             self.args[id(instance)][key] = value
+    
+    def clearArgs(self, instance: Any) -> None:
+        """
+        Clears all arguments.
+
+        Args:
+            instance (Any): The object instance to set arguments for.
+        """
+        self.args[id(instance)] = {}
