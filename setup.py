@@ -20,6 +20,7 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.11.3",
+    include_package_data=True,
 )
 
 # I use Python 3.13.1.

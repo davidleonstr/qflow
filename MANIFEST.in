@@ -1,0 +1,1 @@
+recursive-include * *.css *.png *.jpg *.jpeg *.svg *.js *.html *.json
