@@ -4,10 +4,11 @@ This file contains the constants and properties for the Dialog object in this mo
 Modifying any property in this file requires making the same changes in related files.
 """
 
-from pathlib import Path
+import importlib.resources as res
+import QFlow
 
 # Location of the file with the styles for the Notify object
-STYLE_PATH = Path('QFlow/components/dialog/dialog.css').resolve()
+STYLE_PATH = str(res.files(QFlow).joinpath('components/dialog/dialog.css'))
 """Path to the file containing the styles for the Dialog object."""
 
 # Object names for each style

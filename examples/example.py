@@ -12,6 +12,7 @@ from qtpy.QtWidgets import (
 from qtpy.QtGui import QIcon
 
 import QFlow
+from QFlow.components import Notify
 
 @QFlow.app(
     title='QFlow App Title', 
@@ -46,6 +47,8 @@ class QFlowApp(QFlow.App):
             'from': self.name,
             'to': self.secondaryWindow.name
         })
+
+        Notify(message='Hello', parent=self)
 
 @QFlow.window(
     name='secondaryWindow',
