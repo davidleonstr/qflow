@@ -73,13 +73,6 @@ Or using git + pip to install **QFlow** using the link to the repository:
 pip install git+https://github.com/davidleonstr/QFlow.git
 ```
 
-**For development:**
-```bash
-git clone https://github.com/davidleonstr/QFlow.git
-cd QFlow
-pip install -e .
-```
-
 ## Coding Style
 
 <details>
