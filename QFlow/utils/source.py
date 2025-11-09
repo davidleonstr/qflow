@@ -11,18 +11,35 @@ class Source:
     This class automatically detects whether the code is running
     in a frozen (PyInstaller) environment or in a normal Python environment,
     and returns the correct absolute path to the requested resource.
+    
+    All paths are resolved from the project root, just like normal Python behavior.
     """
 
-    def __init__(self, path: str):
+    def __init__(self, path: str | Path, frozen: bool):
         """
         Initialize a Source object.
 
         Args:
-            path (str): The relative path of the resource inside the project/package.
+            path (str | Path): The path of the resource from project root.
+                Examples: "QFlow/resources/icon.png", "config/settings.yaml"
         """
-        self.frozen = QFlow.core.FROZEN_LIB
-        self.basePath = sys._MEIPASS if self.frozen else str(res.files(QFlow))
-        self.resolvedPath = str(Path(self.basePath, *Path(path).parts))
+        self.frozen = frozen
+        self.input_path = Path(path)
+        
+        # Check if it's an absolute path
+        if self.input_path.is_absolute():
+            self.resolvedPath = str(self.input_path)
+        else:
+            # Always resolve from project root
+            if self.frozen:
+                # In frozen mode, project root is sys._MEIPASS
+                project_root = Path(sys._MEIPASS)
+            else:
+                # In dev mode, go up from QFlow package to project root
+                package_path = Path(res.files(QFlow))
+                project_root = package_path.parent
+            
+            self.resolvedPath = str(project_root / self.input_path)
 
     def get(self) -> str:
         """
@@ -32,3 +49,12 @@ class Source:
             str: The absolute path to the requested resource.
         """
         return self.resolvedPath
+    
+    def exists(self) -> bool:
+        """
+        Check if the resolved path exists.
+
+        Returns:
+            bool: True if the path exists, False otherwise.
+        """
+        return Path(self.resolvedPath).exists()

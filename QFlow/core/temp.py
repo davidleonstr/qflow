@@ -8,5 +8,5 @@ Global constant that stores session data.
 
 INSTANCE_ARGS = InstanceArgs()
 """
-Global constant that stores parameters passed to objects
+Global constant that stores parameters passed to objects.
 """

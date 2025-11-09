@@ -9,15 +9,25 @@ from ...utils import Source
 # Class for creating Pixmap icons
 from ...helpers.icon import Icon
 
+from ...core.flags import FROZEN_LIB
+
 # Location of the file with the styles for the Notify object
-STYLE_PATH = Source('components/notify/notify.css').get()
+STYLE_PATH = Source('QFlow/components/notify/notify.css', frozen=FROZEN_LIB).get()
 """Path to the file containing the styles for the Notify object."""
 
 # References to create the default icons of the Notify class
 ICONS = {
-    'success': lambda: Icon(Source('components/notify/icons/check.png').get(), 25, 25),
-    'error': lambda: Icon(Source('components/notify/icons/close.png').get(), 25, 25),
-    'info': lambda: Icon(Source('components/notify/icons/information.png').get(), 25, 25),
+    'success': lambda: Icon(
+        Source('QFlow/components/notify/icons/check.png', frozen=FROZEN_LIB).get(), 
+        25, 25
+    ),
+    'error': lambda: Icon(
+        Source('QFlow/components/notify/icons/close.png', frozen=FROZEN_LIB).get(), 
+        25, 25
+    ),
+    'info': lambda: Icon(
+        Source('QFlow/components/notify/icons/information.png', frozen=FROZEN_LIB).get(), 
+    25, 25),
 }
 """
 Dictionary mapping notification types to their default icons.
