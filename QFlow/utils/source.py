@@ -33,13 +33,13 @@ class Source:
             # Always resolve from project root
             if self.frozen:
                 # In frozen mode, project root is sys._MEIPASS
-                project_root = Path(sys._MEIPASS)
+                projectRoot = Path(sys._MEIPASS)
             else:
                 # In dev mode, go up from QFlow package to project root
-                package_path = Path(res.files(QFlow))
-                project_root = package_path.parent
+                packagePath = Path(res.files(QFlow))
+                projectRoot = packagePath.parent
             
-            self.resolvedPath = str(project_root / self.inputPath)
+            self.resolvedPath = str(projectRoot / self.inputPath)
 
     def get(self) -> str:
         """
