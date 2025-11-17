@@ -48,20 +48,3 @@ os.environ['QT_API'] = 'pyside6'
 
 import QFlow
 ```
-
-## Coding Style
-
-<details>
-<summary>QFlow follows the PyQt/PySide coding conventions and naming patterns.</summary>
-<br>
-
-- **Class Names**: Use PascalCase for class names.
-- **Method Names**: Use camelCase for method names.
-- **Variable Names**: Use camelCase for variable names.
-- **Signal Names**: Use camelCase and start with a verb.
-- **Slot Names**: Use camelCase and start with a verb.
-- **Constants**: Use UPPER_CASE for constants.
-- **Private Members**: Use underscore prefix for private members.
-
-This consistent style makes the code more readable and maintainable, while following the established PyQt/PySide conventions.
-</details>
