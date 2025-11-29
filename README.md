@@ -21,12 +21,6 @@
 ## Installation
 
 ```bash
-git clone https://github.com/davidleonstr/QFlow.git
-cd QFlow
-pip install .
-```
-
-```bash
 pip install git+https://github.com/davidleonstr/QFlow.git
 ```
 
