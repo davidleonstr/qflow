@@ -23,22 +23,3 @@
 ```bash
 pip install git+https://github.com/davidleonstr/QFlow.git
 ```
-
-## Qt Framework Compatibility
-
-QFlow supports multiple Qt frameworks automatically. The framework is detected at runtime and the appropriate imports are used:
-
-- **PyQt5**: `pip install PyQt5`
-- **PyQt6**: `pip install PyQt6`
-- **PySide2**: `pip install PySide2`
-- **PySide6**: `pip install PySide6`
-
-If you prefer to explicitly specify which Qt framework to use, you can set the QT_API environment variable:
-
-```python
-import os
-
-os.environ['QT_API'] = 'pyside6'
-
-import QFlow
-```
