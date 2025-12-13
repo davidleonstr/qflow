@@ -5,6 +5,7 @@ import sys
 import json
 
 os.environ['QT_API'] = 'pyqt6'
+# The library that will be used internally is assigned.
 
 from qtpy.QtWidgets import (
     QApplication, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QLineEdit
@@ -12,7 +13,10 @@ from qtpy.QtWidgets import (
 from qtpy.QtGui import QIcon
 
 import QFlow
+# The package is imported
+
 from QFlow.components import Notify
+# The notification class is imported from QFlow components
 
 @QFlow.app(
     title='QFlow App Title', 
@@ -23,31 +27,33 @@ from QFlow.components import Notify
         'fadeOut': True
     }
 )
+# The class is initialized with predefined arguments using the decorator corresponding to the class
 class QFlowApp(QFlow.App):
     def __init__(self):
-        # Definition of windows
+        # Definition of window
         self.secondaryWindow = QFlowSecondaryWindow()
 
         # Definition of screens
         self.mainScreen = QFlowMainScreen(parent=self)
         self.secondMovementScreen = QFlowSecondMovementScreen(parent=self)
 
-        # Adding screensThe main screen is set
+        # Adding screens
         self.addScreen(screen=self.mainScreen)
         self.addScreen(screen=self.secondMovementScreen)
 
-        # The main screen is set
+        # The main screen is set with parameters
         self.setScreen(name=self.mainScreen.name, args={
             'from': self.name,
             'to': self.mainScreen.name
         })
 
-        # Creation of windows
+        # Creation of window with parameters
         self.createWindow(self.secondaryWindow, args={
             'from': self.name,
             'to': self.secondaryWindow.name
         })
 
+        # A notification is created
         Notify(message='Hello', parent=self)
 
 @QFlow.window(
@@ -60,21 +66,13 @@ class QFlowApp(QFlow.App):
         'fadeOut': True
     }
 )
+# The class is initialized with predefined arguments using the decorator corresponding to the class
 class QFlowSecondaryWindow(QFlow.Window):
     def __init__(self):
-        """
-        If you want to change any decorator argument at instance creation, 
-        modify the argument dictionary (args).
-
-        Example:
-        >>> self.args['geometry'] = [2, 4, 8, 16]
-        >>> self.args['parent'] = parent
-        >>> super().__init__(**self.args)
-        """
-        # Definition of screens
+        # Definition of screen
         self.secondaryScreen = QFlowSecondaryScreen(self)
 
-        # Adding screensThe main screen is set
+        # Adding screen
         self.addScreen(screen=self.secondaryScreen)
 
         # The main screen is set
@@ -82,9 +80,12 @@ class QFlowSecondaryWindow(QFlow.Window):
     
     def effect(self):
         """
-        It runs whenever the screen is created or set
+        It runs whenever the screen is created or set.
         """
+        # The parameters that were previously passed to the object are obtained
         self.params = QFlow.hooks.Params(self)
+
+        # For debug
         print(json.dumps(self.params.get(), indent=4))
 
 @QFlow.screen(
@@ -92,19 +93,31 @@ class QFlowSecondaryWindow(QFlow.Window):
     autoreloadUI=True,
     parentType=QFlow.App
 )
+# The class is initialized with predefined arguments using the decorator corresponding to the class
 class QFlowMainScreen(QFlow.Screen):
     def __init__(self, parent):
         self.args['parent'] = parent
+        """
+        The 'parent' argument is added to the predefined arguments using the 
+        'args' property on each object using the 'screen' decorator.
+        """
+        # The arguments are passed to super init
         super().__init__(**self.args)
 
     def effect(self):
         """
-        It runs whenever the screen is mounted
+        It runs whenever the screen is created or set.
         """
+        # The parameters that were previously passed to the object are obtained
         self.params = QFlow.hooks.Params(self)
+
+        # For debug
         print(json.dumps(self.params.get(), indent=4))
     
     def UI(self):
+        """
+        Function where the entire screen UI is executed and must be initialized
+        """
         self.label = QLabel('Hello!')
         self.nameLabel = QLabel(f'Screen: {self.name}')
 
@@ -112,6 +125,8 @@ class QFlowMainScreen(QFlow.Screen):
         self.screenSelectionInput.setPlaceholderText('Screen Name')
 
         self.moveToButton = QPushButton('Move to')
+
+        # The parent (window || app) is obtained and a screen is set
         self.moveToButton.clicked.connect(
             lambda: self.parent()
             .setScreen(
@@ -134,6 +149,7 @@ class QFlowMainScreen(QFlow.Screen):
         self.mainLayout.addLayout(self.screenSelectionLayout)
         self.mainLayout.addWidget(self.reloadButton)
 
+        # The main layout is established
         self.setLayout(self.mainLayout)
 
 @QFlow.screen(
@@ -141,18 +157,21 @@ class QFlowMainScreen(QFlow.Screen):
     autoreloadUI=True,
     parentType=QFlow.Window
 )
+# The class is initialized with predefined arguments using the decorator corresponding to the class
 class QFlowSecondaryScreen(QFlow.Screen):
     def __init__(self, parent):
         self.args['parent'] = parent
+        """
+        The 'parent' argument is added to the predefined arguments using the 
+        'args' property on each object using the 'screen' decorator.
+        """
+        # The arguments are passed to super init
         super().__init__(**self.args)
-
-    def effect(self):
-        """
-        It runs whenever the screen is mounted
-        """
-        pass
     
     def UI(self):
+        """
+        Function where the entire screen UI is executed and must be initialized
+        """
         self.label = QLabel('Hello!')
         self.nameLabel = QLabel(f'Screen: {self.name}')
         self.reloadButton = QPushButton('Reload UI')
@@ -163,24 +182,29 @@ class QFlowSecondaryScreen(QFlow.Screen):
         self.mainLayout.addWidget(self.nameLabel)
         self.mainLayout.addWidget(self.reloadButton) 
 
+        # The main layout is established
         self.setLayout(self.mainLayout)
 
 @QFlow.screen(
     name='secondMovementScreen',
     autoreloadUI=True
 )
+# The class is initialized with predefined arguments using the decorator corresponding to the class
 class QFlowSecondMovementScreen(QFlow.Screen):
     def __init__(self, parent):
         self.args['parent'] = parent
+        """
+        The 'parent' argument is added to the predefined arguments using the 
+        'args' property on each object using the 'screen' decorator.
+        """
+        # The arguments are passed to super init
         super().__init__(**self.args)
-
-    def effect(self):
-        """
-        It runs whenever the screen is mounted
-        """
-        pass
     
     def UI(self):
+        """
+        Function where the entire screen UI is executed and must be initialized
+        """
+
         self.nameLabel = QLabel(f'Screen: {self.name}')
         self.reloadButton = QPushButton('Go back')
         self.reloadButton.clicked.connect(self.parent().goBack)
@@ -189,6 +213,7 @@ class QFlowSecondMovementScreen(QFlow.Screen):
         self.mainLayout.addWidget(self.nameLabel)
         self.mainLayout.addWidget(self.reloadButton) 
 
+        # The main layout is established
         self.setLayout(self.mainLayout)
 
 if __name__ == '__main__':

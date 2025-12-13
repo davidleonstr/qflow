@@ -1,0 +1,2342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>QFlow.modules API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>QFlow.modules</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="QFlow.modules.app"><code class="name flex">
+<span>def <span class="ident">app</span></span>(<span>title: str,<br>geometry: list[int],<br>icon: Callable[[], PyQt6.QtGui.QIcon],<br>name: str = 'App',<br>resizable: bool = True,<br>maximizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>animatedEvents: Dict[str, bool] = None,<br>animationValues: Dict[str, float] = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def app(
+    title: str,
+    geometry: list[int],
+    icon: Callable[[], QIcon],
+    name: str = &#39;App&#39;,
+    resizable: bool = True,
+    maximizable: bool = True,
+    strictClosingWindows: bool = True,
+    opacity: float = 1.0,
+    animatedEvents: Dict[str, bool] = None,
+    animationValues: Dict[str, float] = None
+):
+    &#34;&#34;&#34;
+    Initializes the App with application-specific settings.
+
+    Args:
+        title (str): The title to set for the application window.
+        geometry (list): The window geometry as a list [x, y, width, height].
+        icon (Callable[[], QIcon]): Callable to make the icon to set for the window.
+        name (str, optional): The name of the application window. Defaults to &#34;App&#34;.
+        resizable (bool, optional): Determines whether the window can be resized. Defaults to True.
+        maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
+        strictClosingWindows (bool, optional): Determines whether all windows should be closed when the main window is closed. Defaults to True.
+        opacity (float, optional): The opacity of the window. Defaults to 1.0.
+        animatedEvents (Dict[str, bool], optional): Default animations for events.
+        animationValues (Dict[str, float], optional): Default values for animations.
+    &#34;&#34;&#34;
+    def decorator(cls):
+        originit = getattr(cls, &#39;__init__&#39;, None)
+
+        def newinit(self, *args, **kwargs):
+            super(cls, self).__init__(
+                title=title,
+                geometry=geometry if geometry is not None else [],
+                icon=icon,
+                name=name,
+                resizable=resizable,
+                maximizable=maximizable,
+                strictClosingWindows=strictClosingWindows,
+                opacity=opacity,
+                animatedEvents=animatedEvents if animatedEvents is not None else {
+                    &#39;fadeIn&#39;: False, &#39;fadeOut&#39;: False
+                },
+                animationValues=animationValues if animationValues is not None else {
+                    &#39;opacityIncreasedIn&#39;: 0.02, &#39;opacityReductionOut&#39;: 0.02
+                }
+            )
+
+            if originit:
+                originit(self, *args, **kwargs)
+
+        cls.__init__ = newinit
+        return cls
+    return decorator</code></pre>
+</details>
+<div class="desc"><p>Initializes the App with application-specific settings.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>title</code></strong> :&ensp;<code>str</code></dt>
+<dd>The title to set for the application window.</dd>
+<dt><strong><code>geometry</code></strong> :&ensp;<code>list</code></dt>
+<dd>The window geometry as a list [x, y, width, height].</dd>
+<dt><strong><code>icon</code></strong> :&ensp;<code>Callable[[], QIcon]</code></dt>
+<dd>Callable to make the icon to set for the window.</dd>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The name of the application window. Defaults to "App".</dd>
+<dt><strong><code>resizable</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Determines whether the window can be resized. Defaults to True.</dd>
+<dt><strong><code>maximizable</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Determines whether the window can be maximized. Defaults to True.</dd>
+<dt><strong><code>strictClosingWindows</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Determines whether all windows should be closed when the main window is closed. Defaults to True.</dd>
+<dt><strong><code>opacity</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>The opacity of the window. Defaults to 1.0.</dd>
+<dt><strong><code>animatedEvents</code></strong> :&ensp;<code>Dict[str, bool]</code>, optional</dt>
+<dd>Default animations for events.</dd>
+<dt><strong><code>animationValues</code></strong> :&ensp;<code>Dict[str, float]</code>, optional</dt>
+<dd>Default values for animations.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.config"><code class="name flex">
+<span>def <span class="ident">config</span></span>(<span>config: object)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def config(config: object):
+    &#34;&#34;&#34;
+    A decorator that injects a configuration object into a class.
+
+    This decorator adds a `Config` attribute to the class, providing access to the 
+    given configuration object.
+
+    Args:
+        config (object): The configuration object to be added to the class.
+
+    Returns:
+        decorator: A class decorator that adds the `Config` attribute.
+    &#34;&#34;&#34;
+
+    def decorator(cls):
+        &#34;&#34;&#34;
+        Decorates the class to add the configuration object as the `Config` attribute.
+
+        Args:
+            cls: The class to decorate.
+
+        Returns:
+            cls: The decorated class with the `Config` attribute.
+        &#34;&#34;&#34;
+        originalInit = cls.__init__
+
+        def newInit(self, *args, **kwargs):
+            &#34;&#34;&#34;
+            Initializes the decorated class and adds the configuration.
+
+            Args:
+                *args: Positional arguments passed to the original class initializer.
+                **kwargs: Keyword arguments passed to the original class initializer.
+            &#34;&#34;&#34;
+            originalInit(self, *args, **kwargs)
+            self.Config = config
+
+        cls.__init__ = newInit
+
+        cls.Config = config
+
+        return cls
+    
+    return decorator</code></pre>
+</details>
+<div class="desc"><p>A decorator that injects a configuration object into a class.</p>
+<p>This decorator adds a <code>Config</code> attribute to the class, providing access to the
+given configuration object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>config</code></strong> :&ensp;<code>object</code></dt>
+<dd>The configuration object to be added to the class.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>decorator</code></dt>
+<dd>A class decorator that adds the <code>Config</code> attribute.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.screen"><code class="name flex">
+<span>def <span class="ident">screen</span></span>(<span>name: str, autoreloadUI: bool = False, autoUI: bool = True, parentType=None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def screen(name: str, autoreloadUI: bool = False, autoUI: bool = True, parentType = None):
+    &#34;&#34;&#34;
+    Initialize the Screen object.
+        
+    Args:
+        name (str): The name to assign to the screen.
+        autoreloadUI (bool): If True, ensures the class has a `UI` method and reloads it on show.
+        autoUI (bool): Executes the UI function during the showEvent without having to call it.
+        parentType: Expected parent type for validation.
+        *args: Additional positional arguments.
+        **kwargs: Additional keyword arguments.
+    &#34;&#34;&#34;
+    def decorator(cls):
+        originit = getattr(cls, &#39;__init__&#39;, None)
+
+        def newinit(self, *args, **kwargs):
+            super(cls, self).__init__(
+                name=name,
+                autoreloadUI=autoreloadUI,
+                autoUI=autoUI,
+                parentType=parentType
+            )
+
+            self.args = {
+                &#39;name&#39;: name,
+                &#39;autoreloadUI&#39;: autoreloadUI,
+                &#39;autoUI&#39;: autoUI,
+                &#39;parentType&#39;: parentType
+            }
+
+            if originit:
+                originit(self, *args, **kwargs)
+
+        cls.__init__ = newinit
+        return cls
+    return decorator</code></pre>
+</details>
+<div class="desc"><p>Initialize the Screen object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name to assign to the screen.</dd>
+<dt><strong><code>autoreloadUI</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, ensures the class has a <code>UI</code> method and reloads it on show.</dd>
+<dt><strong><code>autoUI</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Executes the UI function during the showEvent without having to call it.</dd>
+<dt><strong><code>parentType</code></strong></dt>
+<dd>Expected parent type for validation.</dd>
+<dt><strong><code>*args</code></strong></dt>
+<dd>Additional positional arguments.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Additional keyword arguments.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.session"><code class="name flex">
+<span>def <span class="ident">session</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def session():
+    &#34;&#34;&#34;
+    A decorator that injects session storage into a class.
+
+    This decorator adds a `Session` attribute to the class, making it 
+    accessible from instances of the class.
+
+    Returns:
+        decorator: A class decorator that adds the `Session` attribute.
+    &#34;&#34;&#34;
+
+    def decorator(cls):
+        &#34;&#34;&#34;
+        Decorates a class to inject session storage.
+
+        Args:
+            cls: The class to decorate.
+
+        Returns:
+            cls: The decorated class with the `Session` attribute.
+        &#34;&#34;&#34;
+        originalInit = cls.__init__
+
+        def newInit(self, *args, **kwargs):
+            &#34;&#34;&#34;
+            Initializes the decorated class and adds session storage.
+
+            Args:
+                *args: Positional arguments passed to the original class initializer.
+                **kwargs: Keyword arguments passed to the original class initializer.
+            &#34;&#34;&#34;
+            originalInit(self, *args, **kwargs)
+            self.Session = SESSION_STORAGE
+
+        cls.__init__ = newInit
+
+        cls.Session = SESSION_STORAGE
+
+        return cls
+    
+    return decorator</code></pre>
+</details>
+<div class="desc"><p>A decorator that injects session storage into a class.</p>
+<p>This decorator adds a <code>Session</code> attribute to the class, making it
+accessible from instances of the class.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>decorator</code></dt>
+<dd>A class decorator that adds the <code>Session</code> attribute.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.style"><code class="name flex">
+<span>def <span class="ident">style</span></span>(<span>style: str, path: bool = False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def style(style: str, path: bool = False):
+    &#34;&#34;&#34;
+    A decorator that applies a stylesheet to a widget or window.
+
+    This decorator either applies a style from a file path or directly as a string to 
+    the widget or window that the decorator is applied to. If `path` is set to `True`, 
+    the `style` is treated as a file path, and the stylesheet is read from the file. 
+    Otherwise, the `style` is applied directly as a string.
+
+    Args:
+        style (str): The stylesheet or the path to the stylesheet file.
+        path (bool): Whether the `style` argument is a file path. Defaults to `False`.
+
+    Returns:
+        decorator: A class decorator that applies the given style to the widget/window.
+    &#34;&#34;&#34;
+
+    def decorator(cls):
+        &#34;&#34;&#34;
+        Decorates the class to apply the given stylesheet.
+
+        Args:
+            cls: The class to decorate.
+
+        Returns:
+            cls: The decorated class with the stylesheet applied.
+        &#34;&#34;&#34;
+        originalInit = cls.__init__
+
+        def newInit(self, *args, **kwargs):
+            &#34;&#34;&#34;
+            Initializes the decorated class and applies the stylesheet.
+
+            Args:
+                *args: Positional arguments passed to the original class initializer.
+                **kwargs: Keyword arguments passed to the original class initializer.
+            &#34;&#34;&#34;
+            originalInit(self, *args, **kwargs)
+
+            if path:
+                styleSheet = GenericFile(style).readFile()
+
+            try:
+                self.setStyleSheet(styleSheet if path else style)
+            except:
+                raise TypeError(f&#39;{self} is not a stylizable object&#39;)
+
+        cls.__init__ = newInit
+
+        return cls
+    
+    return decorator</code></pre>
+</details>
+<div class="desc"><p>A decorator that applies a stylesheet to a widget or window.</p>
+<p>This decorator either applies a style from a file path or directly as a string to
+the widget or window that the decorator is applied to. If <code>path</code> is set to <code>True</code>,
+the <code><a title="QFlow.modules.style" href="#QFlow.modules.style">style()</a></code> is treated as a file path, and the stylesheet is read from the file.
+Otherwise, the <code><a title="QFlow.modules.style" href="#QFlow.modules.style">style()</a></code> is applied directly as a string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>style</code></strong> :&ensp;<code>str</code></dt>
+<dd>The stylesheet or the path to the stylesheet file.</dd>
+<dt><strong><code>path</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Whether the <code><a title="QFlow.modules.style" href="#QFlow.modules.style">style()</a></code> argument is a file path. Defaults to <code>False</code>.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>decorator</code></dt>
+<dd>A class decorator that applies the given style to the widget/window.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.window"><code class="name flex">
+<span>def <span class="ident">window</span></span>(<span>name: str = '',<br>title: str = '',<br>geometry: list[int] = None,<br>maximizable: bool = True,<br>icon: Callable[[], PyQt6.QtGui.QIcon] = None,<br>parentType=None,<br>resizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>animatedEvents: Dict[str, bool] = None,<br>animationValues: Dict[str, float] = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def window(
+    name: str = &#39;&#39;,
+    title: str = &#39;&#39;,
+    geometry: list[int] = None,
+    maximizable: bool = True,
+    icon: Callable[[], QIcon] = None,
+    parentType=None,
+    resizable: bool = True,
+    strictClosingWindows: bool = True,
+    opacity: float = 1.0,
+    animatedEvents: Dict[str, bool] = None,
+    animationValues: Dict[str, float] = None
+):
+    &#34;&#34;&#34;
+    Initializes the Window with specified properties and screen management.
+
+    Args:
+        name (str): The name of the window.
+        title (str): The title of the window.
+        geometry (list): The geometry of the window (ax: int, ay: int, aw: int, ah: int).
+        maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
+        icon (Callable[[], QIcon]): Callable to make the icon to set for the window.
+        parentType: Expected parent type for validation.
+        resizable (bool, optional): The ability to resize the window. Defaults to True.
+        strictClosingWindows (bool, optional): Determines whether all windows should be closed when the window is closed. Defaults to True.
+        opacity (float, optional): The opacity of the window.
+        animatedEvents (Dict[str, bool], optional): Default animations for events.
+        animationValues (Dict[str, float], optional): Default values for animations.
+    &#34;&#34;&#34;
+    def decorator(cls):
+        originit = getattr(cls, &#39;__init__&#39;, None)
+
+        def newinit(self, *args, **kwargs):
+            super(cls, self).__init__(
+                name=name,
+                title=title,
+                geometry=geometry if geometry is not None else [],
+                maximizable=maximizable,
+                icon=icon,
+                parent=None,
+                parentType=parentType,
+                resizable=resizable,
+                strictClosingWindows=strictClosingWindows,
+                opacity=opacity,
+                animatedEvents=animatedEvents if animatedEvents is not None else {
+                    &#39;fadeIn&#39;: False, &#39;fadeOut&#39;: False
+                },
+                animationValues=animationValues if animationValues is not None else {
+                    &#39;opacityIncreasedIn&#39;: 0.02, &#39;opacityReductionOut&#39;: 0.02
+                }
+            )
+
+            self.args = {
+                &#39;name&#39;: name,
+                &#39;title&#39;: title,
+                &#39;geometry&#39;: geometry if geometry is not None else [],
+                &#39;maximizable&#39;: maximizable,
+                &#39;icon&#39;: icon,
+                &#39;parentType&#39;: parentType,
+                &#39;resizable&#39;: resizable,
+                &#39;strictClosingWindows&#39;: strictClosingWindows,
+                &#39;opacity&#39;: opacity,
+                &#39;animatedEvents&#39;: animatedEvents if animatedEvents is not None else {
+                    &#39;fadeIn&#39;: False, &#39;fadeOut&#39;: False
+                },
+                &#39;animationValues&#39;: animationValues if animationValues is not None else {
+                    &#39;opacityIncreasedIn&#39;: 0.02, &#39;opacityReductionOut&#39;: 0.02
+                }
+            }
+
+            if originit:
+                originit(self, *args, **kwargs)
+
+        cls.__init__ = newinit
+        return cls
+    return decorator</code></pre>
+</details>
+<div class="desc"><p>Initializes the Window with specified properties and screen management.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the window.</dd>
+<dt><strong><code>title</code></strong> :&ensp;<code>str</code></dt>
+<dd>The title of the window.</dd>
+<dt><strong><code>geometry</code></strong> :&ensp;<code>list</code></dt>
+<dd>The geometry of the window (ax: int, ay: int, aw: int, ah: int).</dd>
+<dt><strong><code>maximizable</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Determines whether the window can be maximized. Defaults to True.</dd>
+<dt><strong><code>icon</code></strong> :&ensp;<code>Callable[[], QIcon]</code></dt>
+<dd>Callable to make the icon to set for the window.</dd>
+<dt><strong><code>parentType</code></strong></dt>
+<dd>Expected parent type for validation.</dd>
+<dt><strong><code>resizable</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>The ability to resize the window. Defaults to True.</dd>
+<dt><strong><code>strictClosingWindows</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Determines whether all windows should be closed when the window is closed. Defaults to True.</dd>
+<dt><strong><code>opacity</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>The opacity of the window.</dd>
+<dt><strong><code>animatedEvents</code></strong> :&ensp;<code>Dict[str, bool]</code>, optional</dt>
+<dd>Default animations for events.</dd>
+<dt><strong><code>animationValues</code></strong> :&ensp;<code>Dict[str, float]</code>, optional</dt>
+<dd>Default values for animations.</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="QFlow.modules.App"><code class="flex name class">
+<span>class <span class="ident">App</span></span>
+<span>(</span><span>title: str,<br>geometry: list[int],<br>icon: Callable[[], PyQt6.QtGui.QIcon],<br>name: str = 'App',<br>resizable: bool = True,<br>maximizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>animatedEvents: Dict[str, bool] = None,<br>animationValues: Dict[str, float] = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class App(Window):
+    &#34;&#34;&#34;
+    An application class that extends Window functionality for main application windows.
+    
+    This class provides all the functionality of a Window plus additional application-level
+    features like strict window management and enhanced screen handling.
+    &#34;&#34;&#34;
+    
+    def __init__(
+        self,
+        title: str,
+        geometry: list[int],
+        icon: Callable[[], QIcon],
+        name: str = &#39;App&#39;,
+        resizable: bool = True,
+        maximizable: bool = True,
+        strictClosingWindows: bool = True,
+        opacity: float = 1.0,
+        animatedEvents: Dict[str, bool] = None,
+        animationValues: Dict[str, float] = None
+    ):
+        &#34;&#34;&#34;
+        Initializes the App with application-specific settings.
+
+        Args:
+            title (str): The title to set for the application window.
+            geometry (list): The window geometry as a list [x, y, width, height].
+            icon (Callable[[], QIcon]): Callable to make the icon to set for the window.
+            name (str, optional): The name of the application window. Defaults to &#34;App&#34;.
+            resizable (bool, optional): Determines whether the window can be resized. Defaults to True.
+            maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
+            strictClosingWindows (bool, optional): Determines whether all windows should be closed when the main window is closed. Defaults to True.
+            opacity (float, optional): The opacity of the window. Defaults to 1.0.
+            animatedEvents (Dict[str, bool], optional): Default animations for events.
+            animationValues (Dict[str, float], optional): Default values for animations.
+        &#34;&#34;&#34;
+        # Initialize the parent Window class
+        super().__init__(
+            name=name,
+            title=title,
+            geometry=geometry,
+            icon=icon,
+            parent=None,
+            parentType=None,
+            resizable=resizable,
+            strictClosingWindows=strictClosingWindows,
+            opacity=opacity,
+            animatedEvents=animatedEvents,
+            animationValues=animationValues,
+            maximizable=maximizable
+        )
+        
+        # Application-specific properties
+        self.maximizable = maximizable
+        
+        # Configure window properties
+        self._configureWindowProperties(resizable, maximizable, geometry)
+        
+        # Set up close event handler
+        self.closeEvent = self._onAppClose
+
+    def _configureWindowProperties(self, resizable: bool, maximizable: bool, geometry: list[int]) -&gt; None:
+        &#34;&#34;&#34;
+        Configures window properties based on the provided settings.
+        
+        Args:
+            resizable (bool): Whether the window should be resizable.
+            maximizable (bool): Whether the window should be maximizable.
+            geometry (list[int]): The window geometry.
+        &#34;&#34;&#34;
+        if not resizable:
+            # The last two indices of the geometry are width and height
+            width, height = geometry[-2:]
+            self.setFixedSize(width, height)
+            self.setWindowFlags(Qt.WindowType.WindowMinimizeButtonHint | Qt.WindowType.WindowCloseButtonHint)
+        
+        if not maximizable:
+            currentFlags = self.windowFlags()
+            # Remove maximize button while keeping other flags
+            newFlags = currentFlags &amp; ~Qt.WindowType.WindowMaximizeButtonHint
+            self.setWindowFlags(newFlags | Qt.WindowType.WindowMinimizeButtonHint | Qt.WindowType.WindowCloseButtonHint)
+
+    def _onWindowClose(self, event, name: str) -&gt; None:
+        &#34;&#34;&#34;
+        Handles window close events with application-specific logic.
+
+        Args:
+            event: The close event.
+            name (str): The name of the window being closed.
+        &#34;&#34;&#34;
+        if self.strictClosingWindows:
+            # Close all child windows when any window is closed
+            for windowName, window_instance in list(self.windows.items()):
+                if windowName != name:  # Don&#39;t close the window that&#39;s already closing
+                    window_instance.close()
+
+        # Remove the window from management after a short delay
+        QTimer.singleShot(0, lambda: self.removeWindow(name))
+        event.accept()
+
+    def _onAppClose(self, event) -&gt; None:
+        &#34;&#34;&#34;
+        Handles the main application close event.
+
+        Args:
+            event: The close event.
+        &#34;&#34;&#34;
+        if self.strictClosingWindows:
+            # Close all managed windows when the main application closes
+            for _, window in self.windows.items():
+                window.close()
+
+        event.accept()
+    
+    def run(self, QApp: QApplication):
+        self.show()
+        sys.exit(QApp.exec())</code></pre>
+</details>
+<div class="desc"><p>An application class that extends Window functionality for main application windows.</p>
+<p>This class provides all the functionality of a Window plus additional application-level
+features like strict window management and enhanced screen handling.</p>
+<p>Initializes the App with application-specific settings.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>title</code></strong> :&ensp;<code>str</code></dt>
+<dd>The title to set for the application window.</dd>
+<dt><strong><code>geometry</code></strong> :&ensp;<code>list</code></dt>
+<dd>The window geometry as a list [x, y, width, height].</dd>
+<dt><strong><code>icon</code></strong> :&ensp;<code>Callable[[], QIcon]</code></dt>
+<dd>Callable to make the icon to set for the window.</dd>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The name of the application window. Defaults to "App".</dd>
+<dt><strong><code>resizable</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Determines whether the window can be resized. Defaults to True.</dd>
+<dt><strong><code>maximizable</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Determines whether the window can be maximized. Defaults to True.</dd>
+<dt><strong><code>strictClosingWindows</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Determines whether all windows should be closed when the main window is closed. Defaults to True.</dd>
+<dt><strong><code>opacity</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>The opacity of the window. Defaults to 1.0.</dd>
+<dt><strong><code>animatedEvents</code></strong> :&ensp;<code>Dict[str, bool]</code>, optional</dt>
+<dd>Default animations for events.</dd>
+<dt><strong><code>animationValues</code></strong> :&ensp;<code>Dict[str, float]</code>, optional</dt>
+<dd>Default values for animations.</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>QFlow.modules.window.window.Window</li>
+<li>PyQt6.QtWidgets.QMainWindow</li>
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="examples.example.QFlowApp" href="../../examples/example.html#examples.example.QFlowApp">QFlowApp</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.modules.App.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self, QApp: PyQt6.QtWidgets.QApplication)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self, QApp: QApplication):
+    self.show()
+    sys.exit(QApp.exec())</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="QFlow.modules.Screen"><code class="flex name class">
+<span>class <span class="ident">Screen</span></span>
+<span>(</span><span>name: str,<br>autoreloadUI: bool = False,<br>autoUI: bool = True,<br>parentType=None,<br>*args,<br>**kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Screen(QWidget):
+    &#34;&#34;&#34;
+    A class that provides screen properties and screen management capabilities.
+    Can be used as a base class or through composition.
+    &#34;&#34;&#34;
+    
+    def __init__(self, name: str, autoreloadUI: bool = False, autoUI: bool = True, parentType = None, *args, **kwargs):
+        &#34;&#34;&#34;
+        Initialize the Screen object.
+        
+        Args:
+            name (str): The name to assign to the screen.
+            autoreloadUI (bool): If True, ensures the class has a `UI` method and reloads it on show.
+            autoUI (bool): Executes the UI function during __init__ without having to call it.
+            parentType: Expected parent type for validation.
+            *args: Additional positional arguments.
+            **kwargs: Additional keyword arguments.
+        &#34;&#34;&#34;
+        super().__init__(*args, **kwargs)
+        
+        self.name = name
+        self.args = {}
+        &#34;&#34;&#34;
+        Dictionary with the arguments passed from the screen decorator.
+        &#34;&#34;&#34;
+        self.screenName = self.name
+        self.parentType = parentType
+        self._autoreloadUI = autoreloadUI
+        self._autoUI = autoUI
+        self._loaded = False
+        
+        if autoreloadUI:
+            # Check if the class has a UI method
+            if not hasattr(self, &#39;UI&#39;) or not callable(getattr(self, &#39;UI&#39;)):
+                raise TypeError(f&#39;The class {self.__class__.__name__} must have a UI() method&#39;)
+        
+        # Store original parent method if it exists
+        if hasattr(super(), &#39;parent&#39;):
+            originalParent = super().parent
+            # Get the real parent, not the QStackedWidget
+            parent = originalParent()
+            self.parent = lambda: parent
+        
+        # Validate parent type if specified
+        if parentType is not None and hasattr(self, &#39;parent&#39;):
+            parent = self.parent()
+            if parent and hasattr(parent, &#39;__class__&#39;) and hasattr(parent.__class__, &#39;__bases__&#39;):
+                if parent.__class__.__bases__[0] != parentType:
+                    raise TypeError(
+                        f&#34;Screen &#39;{name}&#39; only accepts the parentType &#39;{parentType}&#39; not &#39;{parent.__class__.__bases__[0]}&#39;&#34;
+                    )
+                       
+    def parent(self) -&gt; Window: ...
+    
+    @staticmethod
+    def removeAllLayouts(widget: QWidget):
+        &#34;&#34;&#34;
+        Recursively removes all layouts and widgets from a given QWidget.
+
+        Args:
+            widget (QWidget): The widget from which all layouts and child widgets will be removed.
+        &#34;&#34;&#34;
+        layout = widget.layout()
+        
+        if layout is not None:
+            while layout.count():
+                item = layout.takeAt(0)
+                if item.widget():
+                    item.widget().setParent(None)
+                if item.layout():
+                    Screen.removeAllLayouts(item.layout())
+
+            layout.deleteLater()
+    
+    def reloadUI(self):
+        &#34;&#34;&#34;
+        Reloads the interface.
+        &#34;&#34;&#34;
+        if not hasattr(self, &#39;UI&#39;) or not callable(getattr(self, &#39;UI&#39;)):
+            raise TypeError(f&#39;The class {self.__class__.__name__} must have a UI() method&#39;)
+        
+        Screen.removeAllLayouts(self)
+        QTimer.singleShot(0, lambda: self.UI())
+    
+    def setScreenName(self, name: str) -&gt; None:
+        &#34;&#34;&#34;
+        Changes the name of the screen.
+        
+        Args:
+            name (str): The new name for the screen.
+            
+        Raises:
+            ValueError: If name is empty or not a string.
+        &#34;&#34;&#34;
+        if not name:
+            raise ValueError(&#34;Screen name must be a non-empty string&#34;)
+        
+        self.name = name
+        self.screenName = name
+    
+    def showEvent(self, event):
+        &#34;&#34;&#34;
+        Override showEvent to handle UI reloading and effects.
+        
+        Args:
+            event: The show event.
+        &#34;&#34;&#34;
+        if self._autoreloadUI:
+            # Reload the UI after a short delay. Note: This line cost me 5 hours of debugging.
+            QTimer.singleShot(0, lambda: self.reloadUI())
+
+        if not self._autoreloadUI and self._autoUI and not self._loaded:
+            # Execute the UI if autoUI
+            QTimer.singleShot(0, lambda: self.UI())
+            # Specifies that the screen has already been loaded
+            self._loaded = True
+
+        if hasattr(self, &#39;effect&#39;):
+            self.effect()
+
+        # Call parent&#39;s showEvent if it exists
+        if hasattr(super(), &#39;showEvent&#39;):
+            super().showEvent(event)</code></pre>
+</details>
+<div class="desc"><p>A class that provides screen properties and screen management capabilities.
+Can be used as a base class or through composition.</p>
+<p>Initialize the Screen object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name to assign to the screen.</dd>
+<dt><strong><code>autoreloadUI</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True, ensures the class has a <code>UI</code> method and reloads it on show.</dd>
+<dt><strong><code>autoUI</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Executes the UI function during <strong>init</strong> without having to call it.</dd>
+<dt><strong><code>parentType</code></strong></dt>
+<dd>Expected parent type for validation.</dd>
+<dt><strong><code>*args</code></strong></dt>
+<dd>Additional positional arguments.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Additional keyword arguments.</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="examples.example.QFlowMainScreen" href="../../examples/example.html#examples.example.QFlowMainScreen">QFlowMainScreen</a></li>
+<li><a title="examples.example.QFlowSecondMovementScreen" href="../../examples/example.html#examples.example.QFlowSecondMovementScreen">QFlowSecondMovementScreen</a></li>
+<li><a title="examples.example.QFlowSecondaryScreen" href="../../examples/example.html#examples.example.QFlowSecondaryScreen">QFlowSecondaryScreen</a></li>
+</ul>
+<h3>Static methods</h3>
+<dl>
+<dt id="QFlow.modules.Screen.removeAllLayouts"><code class="name flex">
+<span>def <span class="ident">removeAllLayouts</span></span>(<span>widget: PyQt6.QtWidgets.QWidget)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def removeAllLayouts(widget: QWidget):
+    &#34;&#34;&#34;
+    Recursively removes all layouts and widgets from a given QWidget.
+
+    Args:
+        widget (QWidget): The widget from which all layouts and child widgets will be removed.
+    &#34;&#34;&#34;
+    layout = widget.layout()
+    
+    if layout is not None:
+        while layout.count():
+            item = layout.takeAt(0)
+            if item.widget():
+                item.widget().setParent(None)
+            if item.layout():
+                Screen.removeAllLayouts(item.layout())
+
+        layout.deleteLater()</code></pre>
+</details>
+<div class="desc"><p>Recursively removes all layouts and widgets from a given QWidget.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>widget</code></strong> :&ensp;<code>QWidget</code></dt>
+<dd>The widget from which all layouts and child widgets will be removed.</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="QFlow.modules.Screen.args"><code class="name">var <span class="ident">args</span></code></dt>
+<dd>
+<div class="desc"><p>Dictionary with the arguments passed from the screen decorator.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.modules.Screen.parent"><code class="name flex">
+<span>def <span class="ident">parent</span></span>(<span>self) ‑> QFlow.modules.window.window.Window</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def parent(self) -&gt; Window: ...</code></pre>
+</details>
+<div class="desc"><p>parent(self) -&gt; Optional[QObject]</p></div>
+</dd>
+<dt id="QFlow.modules.Screen.reloadUI"><code class="name flex">
+<span>def <span class="ident">reloadUI</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reloadUI(self):
+    &#34;&#34;&#34;
+    Reloads the interface.
+    &#34;&#34;&#34;
+    if not hasattr(self, &#39;UI&#39;) or not callable(getattr(self, &#39;UI&#39;)):
+        raise TypeError(f&#39;The class {self.__class__.__name__} must have a UI() method&#39;)
+    
+    Screen.removeAllLayouts(self)
+    QTimer.singleShot(0, lambda: self.UI())</code></pre>
+</details>
+<div class="desc"><p>Reloads the interface.</p></div>
+</dd>
+<dt id="QFlow.modules.Screen.setScreenName"><code class="name flex">
+<span>def <span class="ident">setScreenName</span></span>(<span>self, name: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setScreenName(self, name: str) -&gt; None:
+    &#34;&#34;&#34;
+    Changes the name of the screen.
+    
+    Args:
+        name (str): The new name for the screen.
+        
+    Raises:
+        ValueError: If name is empty or not a string.
+    &#34;&#34;&#34;
+    if not name:
+        raise ValueError(&#34;Screen name must be a non-empty string&#34;)
+    
+    self.name = name
+    self.screenName = name</code></pre>
+</details>
+<div class="desc"><p>Changes the name of the screen.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The new name for the screen.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If name is empty or not a string.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Screen.showEvent"><code class="name flex">
+<span>def <span class="ident">showEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def showEvent(self, event):
+    &#34;&#34;&#34;
+    Override showEvent to handle UI reloading and effects.
+    
+    Args:
+        event: The show event.
+    &#34;&#34;&#34;
+    if self._autoreloadUI:
+        # Reload the UI after a short delay. Note: This line cost me 5 hours of debugging.
+        QTimer.singleShot(0, lambda: self.reloadUI())
+
+    if not self._autoreloadUI and self._autoUI and not self._loaded:
+        # Execute the UI if autoUI
+        QTimer.singleShot(0, lambda: self.UI())
+        # Specifies that the screen has already been loaded
+        self._loaded = True
+
+    if hasattr(self, &#39;effect&#39;):
+        self.effect()
+
+    # Call parent&#39;s showEvent if it exists
+    if hasattr(super(), &#39;showEvent&#39;):
+        super().showEvent(event)</code></pre>
+</details>
+<div class="desc"><p>Override showEvent to handle UI reloading and effects.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>event</code></strong></dt>
+<dd>The show event.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+<dt id="QFlow.modules.Window"><code class="flex name class">
+<span>class <span class="ident">Window</span></span>
+<span>(</span><span>name: str = '',<br>title: str = '',<br>geometry: list[int] = [],<br>maximizable=True,<br>icon: Callable[[], QIcon] = [],<br>parent=None,<br>parentType=None,<br>resizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>animatedEvents: Dict[str, bool] = None,<br>animationValues: Dict[str, float] = None)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Window(QMainWindow):
+    &#34;&#34;&#34;
+    A window class that provides window properties and screen management capabilities.
+
+    This class allows you to configure the title, geometry, and icon of a window,
+    while also providing built-in screen management functionality.
+    &#34;&#34;&#34;
+    
+    def __init__(
+        self,
+        name: str = &#39;&#39;,
+        title: str = &#39;&#39;,
+        geometry: list[int] = [],
+        maximizable=True,
+        icon: Callable[[], QIcon] = [],
+        parent=None,
+        parentType=None,
+        resizable: bool = True,
+        strictClosingWindows: bool = True,
+        opacity: float = 1.0,
+        animatedEvents: Dict[str, bool] = None,
+        animationValues: Dict[str, float] = None
+    ):
+        &#34;&#34;&#34;
+        Initializes the Window with specified properties and screen management.
+
+        Args:
+            name (str): The name of the window.
+            title (str): The title of the window.
+            geometry (list): The geometry of the window (ax: int, ay: int, aw: int, ah: int).
+            maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
+            icon (Callable[[], QIcon]): Callable to make the icon to set for the window.
+            parent: Parent widget.
+            parentType: Expected parent type for validation.
+            resizable (bool, optional): The ability to resize the window. Defaults to True.
+            strictClosingWindows (bool, optional): Determines whether all windows should be closed when the window is closed. Defaults to True.
+            opacity (float, optional): The opacity of the window.
+            animatedEvents (Dict[str, bool], optional): Default animations for events to {&#39;fadeIn&#39;: False, &#39;fadeOut&#39;: False}.
+            animationValues (Dict[str, float], optional): Default values for animations {&#39;opacityIncreasedIn&#39;: 0.02, &#39;opacityReductionOut&#39;: 0.02}.
+        &#34;&#34;&#34;
+        super().__init__(parent)
+        
+        # Initialize window properties
+        self.name = name
+        self.title = title
+        self.windowGeometry = geometry
+        self.icon = icon
+
+        self.args = {}
+        &#34;&#34;&#34;
+        Dictionary with the arguments passed from the window decorator.
+        &#34;&#34;&#34;
+        
+        # Initialize screen management
+        self.screenHistory = []
+        self.screens = {}
+        self.stackedScreens = QStackedWidget()
+        self.windows = {}
+        self.strictClosingWindows = strictClosingWindows
+        self.msRenderTime = 16
+        
+        # Configure window
+        self.setWindowTitle(self.title)
+        self.setGeometry(*self.windowGeometry)
+
+        if not resizable:
+            # The last two indices of the geometry are width and height
+            width, height = geometry[-2:]
+            self.setFixedSize(width, height)
+            self.setWindowFlags(Qt.WindowType.WindowMinimizeButtonHint | Qt.WindowType.WindowCloseButtonHint)
+
+        if not maximizable:
+            currentFlags = self.windowFlags()
+            # Remove maximize button while keeping other flags
+            newFlags = currentFlags &amp; ~Qt.WindowType.WindowMaximizeButtonHint
+            self.setWindowFlags(newFlags | Qt.WindowType.WindowMinimizeButtonHint | Qt.WindowType.WindowCloseButtonHint)
+
+        self.setWindowIcon(icon())
+        self.setCentralWidget(self.stackedScreens)
+
+        if opacity != 1.0:
+            self.setWindowOpacity(opacity)
+
+        self.opacity = opacity
+
+        # Initialize animation settings
+        self._animationValues = {
+            &#39;opacityIncreasedIn&#39;: 0.02,
+            &#39;opacityReductionOut&#39;: 0.02
+        }
+        if animationValues:
+            self._animationValues.update(animationValues)
+
+        self._animatedEvents = {
+            &#39;fadeIn&#39;: False,
+            &#39;fadeOut&#39;: False
+        }
+        if animatedEvents:
+            self._animatedEvents.update(animatedEvents)
+
+        # Validate parent type if specified
+        if parentType is not None and parent is not None:
+            if type(parent) != parentType:
+                raise TypeError(
+                    f&#34;Window &#39;{name}&#39; only accepts the parentType &#39;{parentType}&#39; not &#39;{type(parent)}&#39;&#34;
+                )
+
+    def addScreen(self, screen: QWidget) -&gt; None:
+        &#34;&#34;&#34;
+        Adds a screen widget to the window&#39;s stacked widget.
+
+        This method checks that the screen has a valid &#39;screenName&#39; attribute and adds it 
+        to the stacked widget for navigation.
+
+        Args:
+            screen (QWidget): The screen widget to add to the stacked widget.
+
+        Raises:
+            Exception: If the screen does not have a &#39;screenName&#39; attribute.
+        &#34;&#34;&#34;
+        if not hasattr(screen, &#39;screenName&#39;):
+            raise Exception(f&#39;{screen} does not have screenName attribute.&#39;)
+        
+        name = screen.screenName
+        self.screens[name] = screen
+        self.stackedScreens.addWidget(screen)
+
+    def setScreen(self, name: str, args: dict = None) -&gt; None:
+        &#34;&#34;&#34;
+        Sets the current screen to display based on the screen name.
+
+        This method accepts a string name that must match the &#39;screenName&#39; attribute
+        of a previously added screen.
+
+        Args:
+            name (str): The name of the screen to display.
+            args (dict): Arguments for the screen.
+
+        Raises:
+            Exception: If the specified screen does not exist.
+        &#34;&#34;&#34;
+        if name in self.screens:
+            currentScreen = self.stackedScreens.currentWidget()
+            if currentScreen:
+                self.screenHistory.append(currentScreen)
+
+            screen = self.screens[name]
+            if not hasattr(screen, &#39;screenName&#39;):
+                raise Exception(f&#39;The screen `{screen}` does not have screenName attribute.&#39;)
+            
+            if args:
+                INSTANCE_ARGS.setArgs(instance=screen, args=args)
+            
+            self.stackedScreens.setCurrentWidget(screen)      
+        else:
+            raise Exception(f&#39;The screen `{name}` does not exist.&#39;)
+            
+    def goBack(self) -&gt; None:
+        &#34;&#34;&#34;
+        Navigates back to the previous screen in the screen history.
+        &#34;&#34;&#34;
+        if self.screenHistory:
+            previousScreen = self.screenHistory.pop()
+            self.stackedScreens.setCurrentWidget(previousScreen)
+    
+    def setWindowName(self, name: str) -&gt; None:
+        &#34;&#34;&#34;
+        Changes the name of the window.
+        
+        Args:
+            name (str): The new name for the window.
+            
+        Raises:
+            ValueError: If name is empty or not a string.
+        &#34;&#34;&#34;
+        if not name:
+            raise ValueError(&#34;Window name must be a non-empty string&#34;)
+        
+        self.name = name
+    
+    def _animateFadeOut(self) -&gt; None:
+        &#34;&#34;&#34;
+        Animates the window fade out effect.
+        &#34;&#34;&#34;
+        timer = QTimer(self)
+        opacity = self.windowOpacity()
+
+        def _modifyOpacity():
+            nonlocal opacity
+            opacity -= self._animationValues[&#39;opacityReductionOut&#39;]
+
+            if opacity &lt;= 0.2:
+                timer.stop()
+                
+            self.setWindowOpacity(opacity)
+
+        timer.timeout.connect(_modifyOpacity)
+        timer.start(self.msRenderTime)
+
+    def _animateFadeIn(self) -&gt; None:
+        &#34;&#34;&#34;
+        Animates the window fade in effect.
+        &#34;&#34;&#34;
+        if not self._animatedEvents[&#39;fadeOut&#39;]:
+            self.setWindowOpacity(0.2)
+
+        timer = QTimer(self)
+        opacity = self.windowOpacity()
+
+        def _modifyOpacity():
+            nonlocal opacity
+            opacity += self._animationValues[&#39;opacityIncreasedIn&#39;]
+
+            if opacity &gt;= self.opacity:
+                timer.stop()
+                
+            self.setWindowOpacity(opacity)
+
+        timer.timeout.connect(_modifyOpacity)
+        timer.start(self.msRenderTime)
+
+    def changeEvent(self, event):
+        &#34;&#34;&#34;
+        Handles window state change events for animations.
+        
+        Args:
+            event: The change event.
+        &#34;&#34;&#34;
+        if event.type() == QEvent.Type.WindowStateChange:
+            if self.windowState() == Qt.WindowState.WindowMinimized:
+                if self._animatedEvents[&#39;fadeOut&#39;]:
+                    self._animateFadeOut()
+            elif self.windowState() == Qt.WindowState.WindowNoState:
+                if self._animatedEvents[&#39;fadeIn&#39;]:
+                    self._animateFadeIn()
+                else:
+                    self.setWindowOpacity(self.opacity)
+
+    def existScreen(self, name: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Checks if a screen exists in the window.
+
+        Args:
+            name (str): The name of the screen.
+        Returns:
+            bool: True if the screen exists, False if it does not exist.
+        &#34;&#34;&#34;
+        return name in self.screens
+
+    def reloadScreens(self) -&gt; None:
+        &#34;&#34;&#34;
+        Reloads all window screens.
+        &#34;&#34;&#34;
+        for name, screen in self.screens.items():
+            if self.existScreen(name):
+                screen.reloadUI()
+    
+    def reloadScreen(self, name: str) -&gt; None:
+        &#34;&#34;&#34;
+        Reloads a screen of the window.
+
+        Args:
+            name (str): The name of the screen to reload.
+        &#34;&#34;&#34;
+        if self.existScreen(name):
+            screen = self.screens[name]
+            screen.reloadUI()
+
+    def createWindow(self, window: &#34;Window&#34;, args: dict = None) -&gt; None:
+        &#34;&#34;&#34;
+        Creates a new window and adds it to the windows dictionary for management.
+
+        The window is created using the attributes &#39;windowGeometry&#39;, &#39;title&#39;, and &#39;name&#39; 
+        of the specified Window instance.
+
+        Args:
+            window (Window): The window to create.
+            args (dict): Arguments for the window.
+
+        Raises:
+            Exception: If the window is missing any of the required attributes.
+        &#34;&#34;&#34;
+        geometry = getattr(window, &#39;windowGeometry&#39;, None)
+        title = getattr(window, &#39;title&#39;, None)
+        name = getattr(window, &#39;name&#39;, None)
+
+        if not geometry:
+            raise Exception(f&#34;The window &#39;{window}&#39; does not have a valid &lt;windowGeometry&gt;.&#34;)
+        if not title:
+            raise Exception(f&#34;The window &#39;{window}&#39; does not have a valid &lt;title&gt;.&#34;)
+        if not name:
+            raise Exception(f&#34;The window &#39;{window}&#39; does not have a valid &lt;name&gt;.&#34;)
+
+        if not hasattr(self, &#39;windows&#39;):
+            self.windows = {}
+        
+        if not self.windows.get(name):
+            window.closeEvent = lambda event: self.onWindowClose(event, name)
+            self.windows[name] = window
+            window.setGeometry(*geometry)
+            window.setWindowTitle(title)
+
+            if args:
+                INSTANCE_ARGS.setArgs(instance=window, args=args)
+
+            # Execute effect
+            if hasattr(window, &#39;effect&#39;):
+                window.effect()
+
+            window.show()
+        else:                
+            print(f&#34;The window &#39;{name}&#39; already exists.&#34;)
+
+    def onWindowClose(self, event, name: str) -&gt; None:
+        &#34;&#34;&#34;
+        Handles the window close event and removes the window from the windows list.
+
+        Args:
+            event: The close event.
+            name (str): The name of the window being closed.
+        &#34;&#34;&#34;
+        if self.strictClosingWindows:
+            for _, window in self.windows.items():
+                window.close()
+
+        QTimer.singleShot(0, lambda: self.removeWindow(name))
+        event.accept()
+
+    def removeWindow(self, name: str) -&gt; None:
+        &#34;&#34;&#34;
+        Removes a window from the windows list.
+
+        Args:
+            name (str): The name of the window to remove.
+        &#34;&#34;&#34;
+        if name in self.windows:
+            del self.windows[name]
+
+    def setWindow(self, name: str, args: dict = None) -&gt; None:
+        &#34;&#34;&#34;
+        Brings a specified window to the front and activates it.
+
+        Args:
+            name (str): The name of the window to bring to the front.
+            args (dict): Arguments for the window.
+
+        Raises:
+            Exception: If the specified window does not exist.
+        &#34;&#34;&#34;
+        if name in self.windows:
+            self.windows[name].raise_()
+            self.windows[name].activateWindow()
+
+            if args:
+                INSTANCE_ARGS.setArgs(instance=self.windows[name], args=args)
+
+            # Execute effect
+            if hasattr(self.windows[name], &#39;effect&#39;):
+                self.windows[name].effect()
+        else:
+            raise Exception(f&#34;The window &#39;{name}&#39; does not exist.&#34;)
+            
+    def closeWindow(self, name: str) -&gt; None:
+        &#34;&#34;&#34;
+        Closes a specified window.
+
+        Args:
+            name (str): The name of the window to close.
+
+        Raises:
+            Exception: If the specified window does not exist.
+        &#34;&#34;&#34;
+        if name in self.windows:
+            self.windows[name].close()
+            del self.windows[name]
+        else:
+            raise Exception(f&#34;The window &#39;{name}&#39; does not exist.&#34;)
+    
+    def removeScreen(self, name: str) -&gt; None:
+        &#34;&#34;&#34;
+        Removes a screen from the screens list.
+
+        Args:
+            name (str): The name of the screen to remove.
+            
+        Raises:
+            Exception: If the screen does not exist.
+        &#34;&#34;&#34;
+        if name not in self.screens:
+            raise Exception(f&#34;The screen &#39;{name}&#39; does not exist.&#34;)
+        
+        if hasattr(self, &#39;stackedScreens&#39;):
+            self.stackedScreens.removeWidget(self.screens[name])
+        
+        self.screens.pop(name)
+
+    def existWindow(self, name: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Checks if a window exists in the main window.
+
+        Args:
+            name (str): The name of the window.
+        Returns:
+            bool: True if the window exists, False if it does not exist.
+        &#34;&#34;&#34;
+        return name in self.windows
+
+    def reloadWindowScreens(self, window: str) -&gt; None:
+        &#34;&#34;&#34;
+        Reloads the screens of a window.
+
+        Args:
+            window (str): The name of the window to reload.
+        &#34;&#34;&#34;
+        targetWindow: Window = self.windows.get(window)
+        if targetWindow:
+            targetWindow.reloadScreens()
+    
+    def reloadWindowScreen(self, window: str, screen: str) -&gt; None:
+        &#34;&#34;&#34;
+        Reloads a screen of a window.
+
+        Args:
+            window (str): The name of the window to reload.
+            screen (str): The name of the screen to reload.
+        &#34;&#34;&#34;
+        targetWindow: Window = self.windows.get(window)
+        if targetWindow:
+            targetWindow.reloadScreen(screen)
+        
+    def getScreenHistory(self) -&gt; list:
+        &#34;&#34;&#34;
+        Returns the current screen navigation history.
+        
+        Returns:
+            list: List of screens in navigation history.
+        &#34;&#34;&#34;
+        return self.screenHistory.copy()
+
+    def clearScreenHistory(self) -&gt; None:
+        &#34;&#34;&#34;
+        Clears the screen navigation history.
+        &#34;&#34;&#34;
+        self.screenHistory.clear()
+
+    def getCurrentScreen(self) -&gt; QWidget:
+        &#34;&#34;&#34;
+        Gets the currently active screen.
+        
+        Returns:
+            QWidget: The currently active screen widget.
+        &#34;&#34;&#34;
+        return self.stackedScreens.currentWidget()
+
+    def getAllScreens(self) -&gt; Dict[str, QWidget]:
+        &#34;&#34;&#34;
+        Gets all registered screens.
+        
+        Returns:
+            Dict[str, QWidget]: Dictionary of all registered screens.
+        &#34;&#34;&#34;
+        return self.screens.copy()
+
+    def getAllWindows(self) -&gt; Dict[str, &#34;Window&#34;]:
+        &#34;&#34;&#34;
+        Gets all managed windows.
+        
+        Returns:
+            Dict[str, Window]: Dictionary of all managed windows.
+        &#34;&#34;&#34;
+        return self.windows.copy()</code></pre>
+</details>
+<div class="desc"><p>A window class that provides window properties and screen management capabilities.</p>
+<p>This class allows you to configure the title, geometry, and icon of a window,
+while also providing built-in screen management functionality.</p>
+<p>Initializes the Window with specified properties and screen management.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the window.</dd>
+<dt><strong><code>title</code></strong> :&ensp;<code>str</code></dt>
+<dd>The title of the window.</dd>
+<dt><strong><code>geometry</code></strong> :&ensp;<code>list</code></dt>
+<dd>The geometry of the window (ax: int, ay: int, aw: int, ah: int).</dd>
+<dt><strong><code>maximizable</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Determines whether the window can be maximized. Defaults to True.</dd>
+<dt><strong><code>icon</code></strong> :&ensp;<code>Callable[[], QIcon]</code></dt>
+<dd>Callable to make the icon to set for the window.</dd>
+<dt><strong><code>parent</code></strong></dt>
+<dd>Parent widget.</dd>
+<dt><strong><code>parentType</code></strong></dt>
+<dd>Expected parent type for validation.</dd>
+<dt><strong><code>resizable</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>The ability to resize the window. Defaults to True.</dd>
+<dt><strong><code>strictClosingWindows</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>Determines whether all windows should be closed when the window is closed. Defaults to True.</dd>
+<dt><strong><code>opacity</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>The opacity of the window.</dd>
+<dt><strong><code>animatedEvents</code></strong> :&ensp;<code>Dict[str, bool]</code>, optional</dt>
+<dd>Default animations for events to {'fadeIn': False, 'fadeOut': False}.</dd>
+<dt><strong><code>animationValues</code></strong> :&ensp;<code>Dict[str, float]</code>, optional</dt>
+<dd>Default values for animations {'opacityIncreasedIn': 0.02, 'opacityReductionOut': 0.02}.</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>PyQt6.QtWidgets.QMainWindow</li>
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li>QFlow.modules.app.app.App</li>
+<li><a title="examples.example.QFlowSecondaryWindow" href="../../examples/example.html#examples.example.QFlowSecondaryWindow">QFlowSecondaryWindow</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="QFlow.modules.Window.args"><code class="name">var <span class="ident">args</span></code></dt>
+<dd>
+<div class="desc"><p>Dictionary with the arguments passed from the window decorator.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.modules.Window.addScreen"><code class="name flex">
+<span>def <span class="ident">addScreen</span></span>(<span>self, screen: QWidget) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addScreen(self, screen: QWidget) -&gt; None:
+    &#34;&#34;&#34;
+    Adds a screen widget to the window&#39;s stacked widget.
+
+    This method checks that the screen has a valid &#39;screenName&#39; attribute and adds it 
+    to the stacked widget for navigation.
+
+    Args:
+        screen (QWidget): The screen widget to add to the stacked widget.
+
+    Raises:
+        Exception: If the screen does not have a &#39;screenName&#39; attribute.
+    &#34;&#34;&#34;
+    if not hasattr(screen, &#39;screenName&#39;):
+        raise Exception(f&#39;{screen} does not have screenName attribute.&#39;)
+    
+    name = screen.screenName
+    self.screens[name] = screen
+    self.stackedScreens.addWidget(screen)</code></pre>
+</details>
+<div class="desc"><p>Adds a screen widget to the window's stacked widget.</p>
+<p>This method checks that the screen has a valid 'screenName' attribute and adds it
+to the stacked widget for navigation.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>screen</code></strong> :&ensp;<code>QWidget</code></dt>
+<dd>The screen widget to add to the stacked widget.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>Exception</code></dt>
+<dd>If the screen does not have a 'screenName' attribute.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.changeEvent"><code class="name flex">
+<span>def <span class="ident">changeEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def changeEvent(self, event):
+    &#34;&#34;&#34;
+    Handles window state change events for animations.
+    
+    Args:
+        event: The change event.
+    &#34;&#34;&#34;
+    if event.type() == QEvent.Type.WindowStateChange:
+        if self.windowState() == Qt.WindowState.WindowMinimized:
+            if self._animatedEvents[&#39;fadeOut&#39;]:
+                self._animateFadeOut()
+        elif self.windowState() == Qt.WindowState.WindowNoState:
+            if self._animatedEvents[&#39;fadeIn&#39;]:
+                self._animateFadeIn()
+            else:
+                self.setWindowOpacity(self.opacity)</code></pre>
+</details>
+<div class="desc"><p>Handles window state change events for animations.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>event</code></strong></dt>
+<dd>The change event.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.clearScreenHistory"><code class="name flex">
+<span>def <span class="ident">clearScreenHistory</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clearScreenHistory(self) -&gt; None:
+    &#34;&#34;&#34;
+    Clears the screen navigation history.
+    &#34;&#34;&#34;
+    self.screenHistory.clear()</code></pre>
+</details>
+<div class="desc"><p>Clears the screen navigation history.</p></div>
+</dd>
+<dt id="QFlow.modules.Window.closeWindow"><code class="name flex">
+<span>def <span class="ident">closeWindow</span></span>(<span>self, name: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def closeWindow(self, name: str) -&gt; None:
+    &#34;&#34;&#34;
+    Closes a specified window.
+
+    Args:
+        name (str): The name of the window to close.
+
+    Raises:
+        Exception: If the specified window does not exist.
+    &#34;&#34;&#34;
+    if name in self.windows:
+        self.windows[name].close()
+        del self.windows[name]
+    else:
+        raise Exception(f&#34;The window &#39;{name}&#39; does not exist.&#34;)</code></pre>
+</details>
+<div class="desc"><p>Closes a specified window.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the window to close.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>Exception</code></dt>
+<dd>If the specified window does not exist.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.createWindow"><code class="name flex">
+<span>def <span class="ident">createWindow</span></span>(<span>self,<br>window: "'<a title="QFlow.modules.Window" href="#QFlow.modules.Window">Window</a>'",<br>args: dict = None) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def createWindow(self, window: &#34;Window&#34;, args: dict = None) -&gt; None:
+    &#34;&#34;&#34;
+    Creates a new window and adds it to the windows dictionary for management.
+
+    The window is created using the attributes &#39;windowGeometry&#39;, &#39;title&#39;, and &#39;name&#39; 
+    of the specified Window instance.
+
+    Args:
+        window (Window): The window to create.
+        args (dict): Arguments for the window.
+
+    Raises:
+        Exception: If the window is missing any of the required attributes.
+    &#34;&#34;&#34;
+    geometry = getattr(window, &#39;windowGeometry&#39;, None)
+    title = getattr(window, &#39;title&#39;, None)
+    name = getattr(window, &#39;name&#39;, None)
+
+    if not geometry:
+        raise Exception(f&#34;The window &#39;{window}&#39; does not have a valid &lt;windowGeometry&gt;.&#34;)
+    if not title:
+        raise Exception(f&#34;The window &#39;{window}&#39; does not have a valid &lt;title&gt;.&#34;)
+    if not name:
+        raise Exception(f&#34;The window &#39;{window}&#39; does not have a valid &lt;name&gt;.&#34;)
+
+    if not hasattr(self, &#39;windows&#39;):
+        self.windows = {}
+    
+    if not self.windows.get(name):
+        window.closeEvent = lambda event: self.onWindowClose(event, name)
+        self.windows[name] = window
+        window.setGeometry(*geometry)
+        window.setWindowTitle(title)
+
+        if args:
+            INSTANCE_ARGS.setArgs(instance=window, args=args)
+
+        # Execute effect
+        if hasattr(window, &#39;effect&#39;):
+            window.effect()
+
+        window.show()
+    else:                
+        print(f&#34;The window &#39;{name}&#39; already exists.&#34;)</code></pre>
+</details>
+<div class="desc"><p>Creates a new window and adds it to the windows dictionary for management.</p>
+<p>The window is created using the attributes 'windowGeometry', 'title', and 'name'
+of the specified Window instance.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>window</code></strong> :&ensp;<code><a title="QFlow.modules.Window" href="#QFlow.modules.Window">Window</a></code></dt>
+<dd>The window to create.</dd>
+<dt><strong><code>args</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Arguments for the window.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>Exception</code></dt>
+<dd>If the window is missing any of the required attributes.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.existScreen"><code class="name flex">
+<span>def <span class="ident">existScreen</span></span>(<span>self, name: str) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def existScreen(self, name: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Checks if a screen exists in the window.
+
+    Args:
+        name (str): The name of the screen.
+    Returns:
+        bool: True if the screen exists, False if it does not exist.
+    &#34;&#34;&#34;
+    return name in self.screens</code></pre>
+</details>
+<div class="desc"><p>Checks if a screen exists in the window.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the screen.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the screen exists, False if it does not exist.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.existWindow"><code class="name flex">
+<span>def <span class="ident">existWindow</span></span>(<span>self, name: str) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def existWindow(self, name: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Checks if a window exists in the main window.
+
+    Args:
+        name (str): The name of the window.
+    Returns:
+        bool: True if the window exists, False if it does not exist.
+    &#34;&#34;&#34;
+    return name in self.windows</code></pre>
+</details>
+<div class="desc"><p>Checks if a window exists in the main window.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the window.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the window exists, False if it does not exist.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.getAllScreens"><code class="name flex">
+<span>def <span class="ident">getAllScreens</span></span>(<span>self) ‑> Dict[str, PyQt6.QtWidgets.QWidget]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAllScreens(self) -&gt; Dict[str, QWidget]:
+    &#34;&#34;&#34;
+    Gets all registered screens.
+    
+    Returns:
+        Dict[str, QWidget]: Dictionary of all registered screens.
+    &#34;&#34;&#34;
+    return self.screens.copy()</code></pre>
+</details>
+<div class="desc"><p>Gets all registered screens.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict[str, QWidget]</code></dt>
+<dd>Dictionary of all registered screens.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.getAllWindows"><code class="name flex">
+<span>def <span class="ident">getAllWindows</span></span>(<span>self) ‑> Dict[str, QFlow.modules.window.window.Window]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAllWindows(self) -&gt; Dict[str, &#34;Window&#34;]:
+    &#34;&#34;&#34;
+    Gets all managed windows.
+    
+    Returns:
+        Dict[str, Window]: Dictionary of all managed windows.
+    &#34;&#34;&#34;
+    return self.windows.copy()</code></pre>
+</details>
+<div class="desc"><p>Gets all managed windows.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict[str, <a title="QFlow.modules.Window" href="#QFlow.modules.Window">Window</a>]</code></dt>
+<dd>Dictionary of all managed windows.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.getCurrentScreen"><code class="name flex">
+<span>def <span class="ident">getCurrentScreen</span></span>(<span>self) ‑> PyQt6.QtWidgets.QWidget</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getCurrentScreen(self) -&gt; QWidget:
+    &#34;&#34;&#34;
+    Gets the currently active screen.
+    
+    Returns:
+        QWidget: The currently active screen widget.
+    &#34;&#34;&#34;
+    return self.stackedScreens.currentWidget()</code></pre>
+</details>
+<div class="desc"><p>Gets the currently active screen.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>QWidget</code></dt>
+<dd>The currently active screen widget.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.getScreenHistory"><code class="name flex">
+<span>def <span class="ident">getScreenHistory</span></span>(<span>self) ‑> list</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getScreenHistory(self) -&gt; list:
+    &#34;&#34;&#34;
+    Returns the current screen navigation history.
+    
+    Returns:
+        list: List of screens in navigation history.
+    &#34;&#34;&#34;
+    return self.screenHistory.copy()</code></pre>
+</details>
+<div class="desc"><p>Returns the current screen navigation history.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>List of screens in navigation history.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.goBack"><code class="name flex">
+<span>def <span class="ident">goBack</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def goBack(self) -&gt; None:
+    &#34;&#34;&#34;
+    Navigates back to the previous screen in the screen history.
+    &#34;&#34;&#34;
+    if self.screenHistory:
+        previousScreen = self.screenHistory.pop()
+        self.stackedScreens.setCurrentWidget(previousScreen)</code></pre>
+</details>
+<div class="desc"><p>Navigates back to the previous screen in the screen history.</p></div>
+</dd>
+<dt id="QFlow.modules.Window.onWindowClose"><code class="name flex">
+<span>def <span class="ident">onWindowClose</span></span>(<span>self, event, name: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def onWindowClose(self, event, name: str) -&gt; None:
+    &#34;&#34;&#34;
+    Handles the window close event and removes the window from the windows list.
+
+    Args:
+        event: The close event.
+        name (str): The name of the window being closed.
+    &#34;&#34;&#34;
+    if self.strictClosingWindows:
+        for _, window in self.windows.items():
+            window.close()
+
+    QTimer.singleShot(0, lambda: self.removeWindow(name))
+    event.accept()</code></pre>
+</details>
+<div class="desc"><p>Handles the window close event and removes the window from the windows list.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>event</code></strong></dt>
+<dd>The close event.</dd>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the window being closed.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.reloadScreen"><code class="name flex">
+<span>def <span class="ident">reloadScreen</span></span>(<span>self, name: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reloadScreen(self, name: str) -&gt; None:
+    &#34;&#34;&#34;
+    Reloads a screen of the window.
+
+    Args:
+        name (str): The name of the screen to reload.
+    &#34;&#34;&#34;
+    if self.existScreen(name):
+        screen = self.screens[name]
+        screen.reloadUI()</code></pre>
+</details>
+<div class="desc"><p>Reloads a screen of the window.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the screen to reload.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.reloadScreens"><code class="name flex">
+<span>def <span class="ident">reloadScreens</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reloadScreens(self) -&gt; None:
+    &#34;&#34;&#34;
+    Reloads all window screens.
+    &#34;&#34;&#34;
+    for name, screen in self.screens.items():
+        if self.existScreen(name):
+            screen.reloadUI()</code></pre>
+</details>
+<div class="desc"><p>Reloads all window screens.</p></div>
+</dd>
+<dt id="QFlow.modules.Window.reloadWindowScreen"><code class="name flex">
+<span>def <span class="ident">reloadWindowScreen</span></span>(<span>self, window: str, screen: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reloadWindowScreen(self, window: str, screen: str) -&gt; None:
+    &#34;&#34;&#34;
+    Reloads a screen of a window.
+
+    Args:
+        window (str): The name of the window to reload.
+        screen (str): The name of the screen to reload.
+    &#34;&#34;&#34;
+    targetWindow: Window = self.windows.get(window)
+    if targetWindow:
+        targetWindow.reloadScreen(screen)</code></pre>
+</details>
+<div class="desc"><p>Reloads a screen of a window.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>window</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the window to reload.</dd>
+<dt><strong><code>screen</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the screen to reload.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.reloadWindowScreens"><code class="name flex">
+<span>def <span class="ident">reloadWindowScreens</span></span>(<span>self, window: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reloadWindowScreens(self, window: str) -&gt; None:
+    &#34;&#34;&#34;
+    Reloads the screens of a window.
+
+    Args:
+        window (str): The name of the window to reload.
+    &#34;&#34;&#34;
+    targetWindow: Window = self.windows.get(window)
+    if targetWindow:
+        targetWindow.reloadScreens()</code></pre>
+</details>
+<div class="desc"><p>Reloads the screens of a window.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>window</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the window to reload.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.removeScreen"><code class="name flex">
+<span>def <span class="ident">removeScreen</span></span>(<span>self, name: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def removeScreen(self, name: str) -&gt; None:
+    &#34;&#34;&#34;
+    Removes a screen from the screens list.
+
+    Args:
+        name (str): The name of the screen to remove.
+        
+    Raises:
+        Exception: If the screen does not exist.
+    &#34;&#34;&#34;
+    if name not in self.screens:
+        raise Exception(f&#34;The screen &#39;{name}&#39; does not exist.&#34;)
+    
+    if hasattr(self, &#39;stackedScreens&#39;):
+        self.stackedScreens.removeWidget(self.screens[name])
+    
+    self.screens.pop(name)</code></pre>
+</details>
+<div class="desc"><p>Removes a screen from the screens list.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the screen to remove.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>Exception</code></dt>
+<dd>If the screen does not exist.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.removeWindow"><code class="name flex">
+<span>def <span class="ident">removeWindow</span></span>(<span>self, name: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def removeWindow(self, name: str) -&gt; None:
+    &#34;&#34;&#34;
+    Removes a window from the windows list.
+
+    Args:
+        name (str): The name of the window to remove.
+    &#34;&#34;&#34;
+    if name in self.windows:
+        del self.windows[name]</code></pre>
+</details>
+<div class="desc"><p>Removes a window from the windows list.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the window to remove.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.setScreen"><code class="name flex">
+<span>def <span class="ident">setScreen</span></span>(<span>self, name: str, args: dict = None) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setScreen(self, name: str, args: dict = None) -&gt; None:
+    &#34;&#34;&#34;
+    Sets the current screen to display based on the screen name.
+
+    This method accepts a string name that must match the &#39;screenName&#39; attribute
+    of a previously added screen.
+
+    Args:
+        name (str): The name of the screen to display.
+        args (dict): Arguments for the screen.
+
+    Raises:
+        Exception: If the specified screen does not exist.
+    &#34;&#34;&#34;
+    if name in self.screens:
+        currentScreen = self.stackedScreens.currentWidget()
+        if currentScreen:
+            self.screenHistory.append(currentScreen)
+
+        screen = self.screens[name]
+        if not hasattr(screen, &#39;screenName&#39;):
+            raise Exception(f&#39;The screen `{screen}` does not have screenName attribute.&#39;)
+        
+        if args:
+            INSTANCE_ARGS.setArgs(instance=screen, args=args)
+        
+        self.stackedScreens.setCurrentWidget(screen)      
+    else:
+        raise Exception(f&#39;The screen `{name}` does not exist.&#39;)</code></pre>
+</details>
+<div class="desc"><p>Sets the current screen to display based on the screen name.</p>
+<p>This method accepts a string name that must match the 'screenName' attribute
+of a previously added screen.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the screen to display.</dd>
+<dt><strong><code>args</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Arguments for the screen.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>Exception</code></dt>
+<dd>If the specified screen does not exist.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.setWindow"><code class="name flex">
+<span>def <span class="ident">setWindow</span></span>(<span>self, name: str, args: dict = None) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setWindow(self, name: str, args: dict = None) -&gt; None:
+    &#34;&#34;&#34;
+    Brings a specified window to the front and activates it.
+
+    Args:
+        name (str): The name of the window to bring to the front.
+        args (dict): Arguments for the window.
+
+    Raises:
+        Exception: If the specified window does not exist.
+    &#34;&#34;&#34;
+    if name in self.windows:
+        self.windows[name].raise_()
+        self.windows[name].activateWindow()
+
+        if args:
+            INSTANCE_ARGS.setArgs(instance=self.windows[name], args=args)
+
+        # Execute effect
+        if hasattr(self.windows[name], &#39;effect&#39;):
+            self.windows[name].effect()
+    else:
+        raise Exception(f&#34;The window &#39;{name}&#39; does not exist.&#34;)</code></pre>
+</details>
+<div class="desc"><p>Brings a specified window to the front and activates it.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the window to bring to the front.</dd>
+<dt><strong><code>args</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Arguments for the window.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>Exception</code></dt>
+<dd>If the specified window does not exist.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.modules.Window.setWindowName"><code class="name flex">
+<span>def <span class="ident">setWindowName</span></span>(<span>self, name: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setWindowName(self, name: str) -&gt; None:
+    &#34;&#34;&#34;
+    Changes the name of the window.
+    
+    Args:
+        name (str): The new name for the window.
+        
+    Raises:
+        ValueError: If name is empty or not a string.
+    &#34;&#34;&#34;
+    if not name:
+        raise ValueError(&#34;Window name must be a non-empty string&#34;)
+    
+    self.name = name</code></pre>
+</details>
+<div class="desc"><p>Changes the name of the window.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The new name for the window.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If name is empty or not a string.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="QFlow" href="../index.html">QFlow</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="QFlow.modules.app" href="#QFlow.modules.app">app</a></code></li>
+<li><code><a title="QFlow.modules.config" href="#QFlow.modules.config">config</a></code></li>
+<li><code><a title="QFlow.modules.screen" href="#QFlow.modules.screen">screen</a></code></li>
+<li><code><a title="QFlow.modules.session" href="#QFlow.modules.session">session</a></code></li>
+<li><code><a title="QFlow.modules.style" href="#QFlow.modules.style">style</a></code></li>
+<li><code><a title="QFlow.modules.window" href="#QFlow.modules.window">window</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="QFlow.modules.App" href="#QFlow.modules.App">App</a></code></h4>
+<ul class="">
+<li><code><a title="QFlow.modules.App.run" href="#QFlow.modules.App.run">run</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="QFlow.modules.Screen" href="#QFlow.modules.Screen">Screen</a></code></h4>
+<ul class="two-column">
+<li><code><a title="QFlow.modules.Screen.args" href="#QFlow.modules.Screen.args">args</a></code></li>
+<li><code><a title="QFlow.modules.Screen.parent" href="#QFlow.modules.Screen.parent">parent</a></code></li>
+<li><code><a title="QFlow.modules.Screen.reloadUI" href="#QFlow.modules.Screen.reloadUI">reloadUI</a></code></li>
+<li><code><a title="QFlow.modules.Screen.removeAllLayouts" href="#QFlow.modules.Screen.removeAllLayouts">removeAllLayouts</a></code></li>
+<li><code><a title="QFlow.modules.Screen.setScreenName" href="#QFlow.modules.Screen.setScreenName">setScreenName</a></code></li>
+<li><code><a title="QFlow.modules.Screen.showEvent" href="#QFlow.modules.Screen.showEvent">showEvent</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="QFlow.modules.Window" href="#QFlow.modules.Window">Window</a></code></h4>
+<ul class="two-column">
+<li><code><a title="QFlow.modules.Window.addScreen" href="#QFlow.modules.Window.addScreen">addScreen</a></code></li>
+<li><code><a title="QFlow.modules.Window.args" href="#QFlow.modules.Window.args">args</a></code></li>
+<li><code><a title="QFlow.modules.Window.changeEvent" href="#QFlow.modules.Window.changeEvent">changeEvent</a></code></li>
+<li><code><a title="QFlow.modules.Window.clearScreenHistory" href="#QFlow.modules.Window.clearScreenHistory">clearScreenHistory</a></code></li>
+<li><code><a title="QFlow.modules.Window.closeWindow" href="#QFlow.modules.Window.closeWindow">closeWindow</a></code></li>
+<li><code><a title="QFlow.modules.Window.createWindow" href="#QFlow.modules.Window.createWindow">createWindow</a></code></li>
+<li><code><a title="QFlow.modules.Window.existScreen" href="#QFlow.modules.Window.existScreen">existScreen</a></code></li>
+<li><code><a title="QFlow.modules.Window.existWindow" href="#QFlow.modules.Window.existWindow">existWindow</a></code></li>
+<li><code><a title="QFlow.modules.Window.getAllScreens" href="#QFlow.modules.Window.getAllScreens">getAllScreens</a></code></li>
+<li><code><a title="QFlow.modules.Window.getAllWindows" href="#QFlow.modules.Window.getAllWindows">getAllWindows</a></code></li>
+<li><code><a title="QFlow.modules.Window.getCurrentScreen" href="#QFlow.modules.Window.getCurrentScreen">getCurrentScreen</a></code></li>
+<li><code><a title="QFlow.modules.Window.getScreenHistory" href="#QFlow.modules.Window.getScreenHistory">getScreenHistory</a></code></li>
+<li><code><a title="QFlow.modules.Window.goBack" href="#QFlow.modules.Window.goBack">goBack</a></code></li>
+<li><code><a title="QFlow.modules.Window.onWindowClose" href="#QFlow.modules.Window.onWindowClose">onWindowClose</a></code></li>
+<li><code><a title="QFlow.modules.Window.reloadScreen" href="#QFlow.modules.Window.reloadScreen">reloadScreen</a></code></li>
+<li><code><a title="QFlow.modules.Window.reloadScreens" href="#QFlow.modules.Window.reloadScreens">reloadScreens</a></code></li>
+<li><code><a title="QFlow.modules.Window.reloadWindowScreen" href="#QFlow.modules.Window.reloadWindowScreen">reloadWindowScreen</a></code></li>
+<li><code><a title="QFlow.modules.Window.reloadWindowScreens" href="#QFlow.modules.Window.reloadWindowScreens">reloadWindowScreens</a></code></li>
+<li><code><a title="QFlow.modules.Window.removeScreen" href="#QFlow.modules.Window.removeScreen">removeScreen</a></code></li>
+<li><code><a title="QFlow.modules.Window.removeWindow" href="#QFlow.modules.Window.removeWindow">removeWindow</a></code></li>
+<li><code><a title="QFlow.modules.Window.setScreen" href="#QFlow.modules.Window.setScreen">setScreen</a></code></li>
+<li><code><a title="QFlow.modules.Window.setWindow" href="#QFlow.modules.Window.setWindow">setWindow</a></code></li>
+<li><code><a title="QFlow.modules.Window.setWindowName" href="#QFlow.modules.Window.setWindowName">setWindowName</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

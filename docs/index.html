@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <title>QFlow Docs</title>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: white;
+            font-family: -apple-system,
+                        BlinkMacSystemFont,
+                        "Segoe UI",
+                        Helvetica,
+                        Arial,
+                        sans-serif;
+            padding: 10px 20px 10px 20px
+        }
+
+        a {
+            color: #58a6ff;
+        }
+
+        pre, code {
+            background-color: #161b22;
+            border-radius: 2px;
+            padding: 1em 1em;
+        }
+
+        .navbar {
+            background: #0d1117;
+            padding: 10px 20px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu > li {
+            position: relative;
+            display: inline-block;
+        }
+
+        .menu a {
+            color: #c9d1d9;
+            text-decoration: none;
+            padding: 8px 12px;
+            display: block;
+        }
+
+        .menu a:hover {
+            color: #ffffff;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background: #161b22;
+            list-style: none;
+            padding: 5px 0;
+            margin: 0;
+            min-width: 160px;
+            border-radius: 2px;
+            box-shadow: 0 8px 24px rgba(0,0,0,.3);
+        }
+
+        .dropdown-menu li a {
+            padding: 8px 14px;
+        }
+
+        .dropdown-menu li a:hover {
+            background: #21262d;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+    <link rel="icon" href="assets/icons/QFlow-white-icon.png">
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="menu">
+            <li class="dropdown">
+                <a href="#">Docs ▾</a> <!-- # No Icon -->
+                <ul class="dropdown-menu">
+                    <li><a href="QFlow/index.html">QFlow</a></li>
+                    <li><a href="examples/example.html">Example</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div align="center">
+  <img src="assets/icons/QFlow-white-icon.svg" alt="QFlow Icon" width="180"/>
+  <br/>
+  <img src="assets/icons/QFlow-white-text-icon.svg" alt="QFlow Logo" width="220"/>
+  <h3>A modern Python microframework for PyQt/PySide applications</h3>
+<p><a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.11+-blue.svg" alt="Python 3.11+" /></a>
+<a href="LICENSE"><img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License" /></a></p>
+<p><a href="https://pypi.org/project/PyQt5/"><img src="https://img.shields.io/badge/PyQt5-supported-brightgreen.svg" alt="PyQt5" /></a>
+<a href="https://pypi.org/project/PyQt6/"><img src="https://img.shields.io/badge/PyQt6-supported-brightgreen.svg" alt="PyQt6" /></a>
+<a href="https://pypi.org/project/PySide2/"><img src="https://img.shields.io/badge/PySide2-supported-brightgreen.svg" alt="PySide2" /></a>
+<a href="https://pypi.org/project/PySide6/"><img src="https://img.shields.io/badge/PySide6-supported-brightgreen.svg" alt="PySide6" /></a></p>
+</div>
+<h1>QFlow</h1>
+<p><strong>QFlow</strong> is a Python microframework for building modern PyQt/PySide applications with a focus on simplicity and maintainability. It provides a comprehensive set of decorators and utilities that streamline the development of desktop interfaces by abstracting away common patterns and boilerplate code.</p>
+<h2>Installation</h2>
+<pre><code class="language-bash">pip install git+https://github.com/davidleonstr/QFlow.git
+</code></pre>
+
+</body>
+</html>

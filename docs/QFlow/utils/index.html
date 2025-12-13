@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>QFlow.utils API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>QFlow.utils</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="QFlow.utils.genericFile" href="genericFile.html">QFlow.utils.genericFile</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="QFlow.utils.source" href="source.html">QFlow.utils.source</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="QFlow.utils.GenericFile"><code class="flex name class">
+<span>class <span class="ident">GenericFile</span></span>
+<span>(</span><span>filepath)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GenericFile:
+    &#34;&#34;&#34;
+    A generic file handler for reading, writing, and deleting files.
+    
+    This class provides a simple interface for common file operations with
+    configurable read/write modes and encoding.
+    
+    Attributes:
+        filepath (str): The path to the file to be managed.
+        readType (str): The mode for reading files. Defaults to &#39;r&#39;.
+        encoding (str): The encoding used for file operations. Defaults to &#39;utf-8&#39;.
+        writeType (str): The mode for writing files. Defaults to &#39;w&#39;.
+    &#34;&#34;&#34;
+    
+    def __init__(self, filepath) -&gt; None:
+        &#34;&#34;&#34;
+        Initializes the file handler with a specific filepath.
+        
+        Args:
+            filepath (str): The path to the file to be managed.
+        &#34;&#34;&#34;
+        self.filepath: str = filepath
+        self.readType: str = &#39;r&#39;
+        self.encoding: str = &#39;utf-8&#39;
+        self.writeType: str = &#39;w&#39;
+
+    def readFile(self, lines: bool = False) -&gt; str | list | None:
+        &#34;&#34;&#34;
+        Reads the content of the file.
+        
+        Args:
+            lines (bool, optional): If True, returns content as a list of lines.
+                If False, returns content as a single string. Defaults to False.
+        
+        Returns:
+            str | list | None: The file content as a string or list of lines,
+                depending on the lines parameter.
+        
+        Raises:
+            Exception: If the file is not found or an unexpected error occurs.
+        &#34;&#34;&#34;
+        try:
+            with open(file=self.filepath, mode=self.readType, encoding=self.encoding) as file:
+                return file.read() if not lines else file.readlines()
+        except FileNotFoundError:
+            raise Exception(f&#34;Error: File &#39;{self.filepath}&#39; does not exist.&#34;)
+        except Exception as e:
+            raise Exception(f&#39;Unexpected error reading file: {e}&#39;)
+
+    def writeFile(self, data: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Writes data to the file.
+        
+        Args:
+            data (str): The content to write to the file.
+        
+        Returns:
+            bool: True if the write operation was successful.
+        
+        Raises:
+            Exception: If there are permission issues or an unexpected error occurs.
+        &#34;&#34;&#34;
+        try:
+            with open(file=self.filepath, mode=self.writeType, encoding=self.encoding) as file:
+                file.write(data)
+
+            return True
+        except PermissionError:
+            raise Exception(f&#34;Error: You do not have permissions to write to &#39;{self.filepath}&#39;.&#34;)
+        except Exception as e:
+            raise Exception(f&#39;Unexpected error writing to file: {e}&#39;)
+
+    def deleteFile(self) -&gt; bool:
+        &#34;&#34;&#34;
+        Deletes the file if it exists.
+        
+        Returns:
+            bool: True if the file was successfully deleted, False if the file
+                does not exist.
+        &#34;&#34;&#34;
+        if os.path.exists(self.filepath):
+            os.remove(self.filepath)
+            return True
+        
+        return False</code></pre>
+</details>
+<div class="desc"><p>A generic file handler for reading, writing, and deleting files.</p>
+<p>This class provides a simple interface for common file operations with
+configurable read/write modes and encoding.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>filepath</code></strong> :&ensp;<code>str</code></dt>
+<dd>The path to the file to be managed.</dd>
+<dt><strong><code>readType</code></strong> :&ensp;<code>str</code></dt>
+<dd>The mode for reading files. Defaults to 'r'.</dd>
+<dt><strong><code>encoding</code></strong> :&ensp;<code>str</code></dt>
+<dd>The encoding used for file operations. Defaults to 'utf-8'.</dd>
+<dt><strong><code>writeType</code></strong> :&ensp;<code>str</code></dt>
+<dd>The mode for writing files. Defaults to 'w'.</dd>
+</dl>
+<p>Initializes the file handler with a specific filepath.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>filepath</code></strong> :&ensp;<code>str</code></dt>
+<dd>The path to the file to be managed.</dd>
+</dl></div>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.utils.GenericFile.deleteFile"><code class="name flex">
+<span>def <span class="ident">deleteFile</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def deleteFile(self) -&gt; bool:
+    &#34;&#34;&#34;
+    Deletes the file if it exists.
+    
+    Returns:
+        bool: True if the file was successfully deleted, False if the file
+            does not exist.
+    &#34;&#34;&#34;
+    if os.path.exists(self.filepath):
+        os.remove(self.filepath)
+        return True
+    
+    return False</code></pre>
+</details>
+<div class="desc"><p>Deletes the file if it exists.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the file was successfully deleted, False if the file
+does not exist.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.utils.GenericFile.readFile"><code class="name flex">
+<span>def <span class="ident">readFile</span></span>(<span>self, lines: bool = False) ‑> str | list | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def readFile(self, lines: bool = False) -&gt; str | list | None:
+    &#34;&#34;&#34;
+    Reads the content of the file.
+    
+    Args:
+        lines (bool, optional): If True, returns content as a list of lines.
+            If False, returns content as a single string. Defaults to False.
+    
+    Returns:
+        str | list | None: The file content as a string or list of lines,
+            depending on the lines parameter.
+    
+    Raises:
+        Exception: If the file is not found or an unexpected error occurs.
+    &#34;&#34;&#34;
+    try:
+        with open(file=self.filepath, mode=self.readType, encoding=self.encoding) as file:
+            return file.read() if not lines else file.readlines()
+    except FileNotFoundError:
+        raise Exception(f&#34;Error: File &#39;{self.filepath}&#39; does not exist.&#34;)
+    except Exception as e:
+        raise Exception(f&#39;Unexpected error reading file: {e}&#39;)</code></pre>
+</details>
+<div class="desc"><p>Reads the content of the file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>lines</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If True, returns content as a list of lines.
+If False, returns content as a single string. Defaults to False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str | list | None</code></dt>
+<dd>The file content as a string or list of lines,
+depending on the lines parameter.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>Exception</code></dt>
+<dd>If the file is not found or an unexpected error occurs.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.utils.GenericFile.writeFile"><code class="name flex">
+<span>def <span class="ident">writeFile</span></span>(<span>self, data: str) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def writeFile(self, data: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Writes data to the file.
+    
+    Args:
+        data (str): The content to write to the file.
+    
+    Returns:
+        bool: True if the write operation was successful.
+    
+    Raises:
+        Exception: If there are permission issues or an unexpected error occurs.
+    &#34;&#34;&#34;
+    try:
+        with open(file=self.filepath, mode=self.writeType, encoding=self.encoding) as file:
+            file.write(data)
+
+        return True
+    except PermissionError:
+        raise Exception(f&#34;Error: You do not have permissions to write to &#39;{self.filepath}&#39;.&#34;)
+    except Exception as e:
+        raise Exception(f&#39;Unexpected error writing to file: {e}&#39;)</code></pre>
+</details>
+<div class="desc"><p>Writes data to the file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>str</code></dt>
+<dd>The content to write to the file.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the write operation was successful.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>Exception</code></dt>
+<dd>If there are permission issues or an unexpected error occurs.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+<dt id="QFlow.utils.Source"><code class="flex name class">
+<span>class <span class="ident">Source</span></span>
+<span>(</span><span>path: str | pathlib._local.Path, frozen: bool)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Source:
+    &#34;&#34;&#34;
+    A helper class to resolve file paths correctly in both
+    development mode and when the application is bundled with PyInstaller.
+
+    This class automatically detects whether the code is running
+    in a frozen (PyInstaller) environment or in a normal Python environment,
+    and returns the correct absolute path to the requested resource.
+    
+    All paths are resolved from the project root, just like normal Python behavior.
+    &#34;&#34;&#34;
+
+    def __init__(self, path: str | Path, frozen: bool):
+        &#34;&#34;&#34;
+        Initialize a Source object.
+
+        Args:
+            path (str | Path): The path of the resource from project root.
+                Examples: &#34;QFlow/resources/icon.png&#34;, &#34;config/settings.yaml&#34;
+        &#34;&#34;&#34;
+        self.frozen = frozen
+        self.inputPath = Path(path)
+        
+        # Check if it&#39;s an absolute path
+        if self.inputPath.is_absolute():
+            self.resolvedPath = str(self.inputPath)
+        else:
+            # Always resolve from project root
+            if self.frozen:
+                # In frozen mode, project root is sys._MEIPASS
+                projectRoot = Path(sys._MEIPASS)
+            else:
+                # In dev mode, go up from QFlow package to project root
+                packagePath = Path(res.files(QFlow))
+                projectRoot = packagePath.parent
+            
+            self.resolvedPath = str(projectRoot / self.inputPath)
+
+    def get(self) -&gt; str:
+        &#34;&#34;&#34;
+        Get the resolved absolute path of the resource.
+
+        Returns:
+            str: The absolute path to the requested resource.
+        &#34;&#34;&#34;
+        return self.resolvedPath
+    
+    def exists(self) -&gt; bool:
+        &#34;&#34;&#34;
+        Check if the resolved path exists.
+
+        Returns:
+            bool: True if the path exists, False otherwise.
+        &#34;&#34;&#34;
+        return Path(self.resolvedPath).exists()</code></pre>
+</details>
+<div class="desc"><p>A helper class to resolve file paths correctly in both
+development mode and when the application is bundled with PyInstaller.</p>
+<p>This class automatically detects whether the code is running
+in a frozen (PyInstaller) environment or in a normal Python environment,
+and returns the correct absolute path to the requested resource.</p>
+<p>All paths are resolved from the project root, just like normal Python behavior.</p>
+<p>Initialize a Source object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>str | Path</code></dt>
+<dd>The path of the resource from project root.
+Examples: "QFlow/resources/icon.png", "config/settings.yaml"</dd>
+</dl></div>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.utils.Source.exists"><code class="name flex">
+<span>def <span class="ident">exists</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exists(self) -&gt; bool:
+    &#34;&#34;&#34;
+    Check if the resolved path exists.
+
+    Returns:
+        bool: True if the path exists, False otherwise.
+    &#34;&#34;&#34;
+    return Path(self.resolvedPath).exists()</code></pre>
+</details>
+<div class="desc"><p>Check if the resolved path exists.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the path exists, False otherwise.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.utils.Source.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>self) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get(self) -&gt; str:
+    &#34;&#34;&#34;
+    Get the resolved absolute path of the resource.
+
+    Returns:
+        str: The absolute path to the requested resource.
+    &#34;&#34;&#34;
+    return self.resolvedPath</code></pre>
+</details>
+<div class="desc"><p>Get the resolved absolute path of the resource.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The absolute path to the requested resource.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="QFlow" href="../index.html">QFlow</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="QFlow.utils.genericFile" href="genericFile.html">QFlow.utils.genericFile</a></code></li>
+<li><code><a title="QFlow.utils.source" href="source.html">QFlow.utils.source</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="QFlow.utils.GenericFile" href="#QFlow.utils.GenericFile">GenericFile</a></code></h4>
+<ul class="">
+<li><code><a title="QFlow.utils.GenericFile.deleteFile" href="#QFlow.utils.GenericFile.deleteFile">deleteFile</a></code></li>
+<li><code><a title="QFlow.utils.GenericFile.readFile" href="#QFlow.utils.GenericFile.readFile">readFile</a></code></li>
+<li><code><a title="QFlow.utils.GenericFile.writeFile" href="#QFlow.utils.GenericFile.writeFile">writeFile</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="QFlow.utils.Source" href="#QFlow.utils.Source">Source</a></code></h4>
+<ul class="">
+<li><code><a title="QFlow.utils.Source.exists" href="#QFlow.utils.Source.exists">exists</a></code></li>
+<li><code><a title="QFlow.utils.Source.get" href="#QFlow.utils.Source.get">get</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

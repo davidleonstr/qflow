@@ -1,0 +1,1183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>QFlow.components API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>QFlow.components</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="QFlow.components.dialog" href="dialog/index.html">QFlow.components.dialog</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="QFlow.components.notify" href="notify/index.html">QFlow.components.notify</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="QFlow.components.toggleSwitch" href="toggleSwitch/index.html">QFlow.components.toggleSwitch</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="QFlow.components.Dialog"><code class="flex name class">
+<span>class <span class="ident">Dialog</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@style(STYLE_PATH, True)
+class Dialog(QFrame):
+    &#34;&#34;&#34;
+    Represents a floating dialog window.
+
+    This class creates a centered pop-up dialog with an optional backdrop.
+    It supports adding widgets dynamically and adjusting its size.
+    &#34;&#34;&#34;
+
+    def __init__(
+            self, 
+            parent, 
+            childrenLayout: QVBoxLayout | QHBoxLayout = None, 
+            color: str = &#39;white&#39;, 
+            fixedSize: list[int] = [300, 200],
+            backdrop: str = &#39;background-color: rgba(0, 0, 0, 0.5);&#39;
+        ):
+        &#34;&#34;&#34;
+        Initializes a Dialog object.
+
+        Args:
+            parent (QWidget): The parent widget where the dialog will appear. It&#39;s usually the window.
+            childrenLayout (QVBoxLayout | QHBoxLayout, optional): The layout to add as children. Default is None.
+            color (str, optional): The theme color. Default is &#39;white&#39;.
+            fixedSize (list, optional): The fixed size of the dialog [width, height]. Default is [300, 200].
+            backdrop (str, optional): CSS style for the backdrop overlay. Default is a semi-transparent black.
+        &#34;&#34;&#34;
+
+        super().__init__(parent)
+
+        self.setObjectName(STYLE_THEME_COLOR[color][&#39;floatingDialog&#39;])
+        
+        self.backdrop = QFrame(parent)
+        self.backdrop.setStyleSheet(backdrop)
+        self.backdrop.setGeometry(0, 0, parent.width(), parent.height())
+
+        self.backdrop.hide()
+
+        self.backdrop.mousePressEvent = self.close
+
+        self.childrenLayout = childrenLayout
+        self.fixedSize = fixedSize
+
+        self.setFixedSize(*self.fixedSize)
+
+        self.mainLayout = QVBoxLayout(self)
+
+        if self.childrenLayout is not None:
+            self.mainLayout.addLayout(self.childrenLayout)
+
+        self.hide()
+    
+    def addWidget(self, widget: QWidget) -&gt; None:
+        &#34;&#34;&#34;
+        Adds a widget to the dialog.
+
+        Args:
+            widget (QWidget): The widget to add to the dialog.
+        &#34;&#34;&#34;
+
+        self.mainLayout.addWidget(widget)
+
+    def addLayout(self, layout: QHBoxLayout | QVBoxLayout) -&gt; None:
+        &#34;&#34;&#34;
+        Adds a layout to the dialog.
+
+        Args:
+            layout (QHBoxLayout | QVBoxLayout): The layout to add to the dialog.
+        &#34;&#34;&#34;
+
+        self.mainLayout.addLayout(layout)
+
+    def show(self) -&gt; None:
+        &#34;&#34;&#34;
+        Displays the dialog, centering it relative to its parent.
+        &#34;&#34;&#34;
+
+        if self.parent():
+            w, h = self.parent().width(), self.parent().height()
+            self.move((w - self.width()) // 2, (h - self.height()) // 2)
+            self.backdrop.setGeometry(0, 0, w, h)
+
+        self.backdrop.show()
+        self.backdrop.raise_()
+        self.raise_()
+        super().show()
+
+    # Close uses event, but doesn&#39;t need it
+    def close(self, event=None) -&gt; None:
+        &#34;&#34;&#34;
+        Closes the dialog and hides the backdrop.
+        &#34;&#34;&#34;
+        self.backdrop.hide()
+        self.hide()</code></pre>
+</details>
+<div class="desc"><p>Represents a floating dialog window.</p>
+<p>This class creates a centered pop-up dialog with an optional backdrop.
+It supports adding widgets dynamically and adjusting its size.</p>
+<p>Initializes the decorated class and applies the stylesheet.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>*args</code></strong></dt>
+<dd>Positional arguments passed to the original class initializer.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Keyword arguments passed to the original class initializer.</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>PyQt6.QtWidgets.QFrame</li>
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.components.Dialog.addLayout"><code class="name flex">
+<span>def <span class="ident">addLayout</span></span>(<span>self, layout: PyQt6.QtWidgets.QHBoxLayout | PyQt6.QtWidgets.QVBoxLayout) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addLayout(self, layout: QHBoxLayout | QVBoxLayout) -&gt; None:
+    &#34;&#34;&#34;
+    Adds a layout to the dialog.
+
+    Args:
+        layout (QHBoxLayout | QVBoxLayout): The layout to add to the dialog.
+    &#34;&#34;&#34;
+
+    self.mainLayout.addLayout(layout)</code></pre>
+</details>
+<div class="desc"><p>Adds a layout to the dialog.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>layout</code></strong> :&ensp;<code>QHBoxLayout | QVBoxLayout</code></dt>
+<dd>The layout to add to the dialog.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.components.Dialog.addWidget"><code class="name flex">
+<span>def <span class="ident">addWidget</span></span>(<span>self, widget: PyQt6.QtWidgets.QWidget) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def addWidget(self, widget: QWidget) -&gt; None:
+    &#34;&#34;&#34;
+    Adds a widget to the dialog.
+
+    Args:
+        widget (QWidget): The widget to add to the dialog.
+    &#34;&#34;&#34;
+
+    self.mainLayout.addWidget(widget)</code></pre>
+</details>
+<div class="desc"><p>Adds a widget to the dialog.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>widget</code></strong> :&ensp;<code>QWidget</code></dt>
+<dd>The widget to add to the dialog.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.components.Dialog.close"><code class="name flex">
+<span>def <span class="ident">close</span></span>(<span>self, event=None) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close(self, event=None) -&gt; None:
+    &#34;&#34;&#34;
+    Closes the dialog and hides the backdrop.
+    &#34;&#34;&#34;
+    self.backdrop.hide()
+    self.hide()</code></pre>
+</details>
+<div class="desc"><p>Closes the dialog and hides the backdrop.</p></div>
+</dd>
+<dt id="QFlow.components.Dialog.show"><code class="name flex">
+<span>def <span class="ident">show</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def show(self) -&gt; None:
+    &#34;&#34;&#34;
+    Displays the dialog, centering it relative to its parent.
+    &#34;&#34;&#34;
+
+    if self.parent():
+        w, h = self.parent().width(), self.parent().height()
+        self.move((w - self.width()) // 2, (h - self.height()) // 2)
+        self.backdrop.setGeometry(0, 0, w, h)
+
+    self.backdrop.show()
+    self.backdrop.raise_()
+    self.raise_()
+    super().show()</code></pre>
+</details>
+<div class="desc"><p>Displays the dialog, centering it relative to its parent.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="QFlow.components.Notify"><code class="flex name class">
+<span>class <span class="ident">Notify</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@style(STYLE_PATH, True)
+class Notify(QWidget):
+    &#34;&#34;&#34;
+    Represents an on-screen notification within a parent window.
+
+    This class allows displaying messages with different notification types 
+    (success, error, info) and customizable styles. It also includes a progress bar 
+    indicating the notification duration.
+    &#34;&#34;&#34;
+
+    cont = {}
+    &#34;&#34;&#34;Dictionary tracking the number of notifications per parent window.&#34;&#34;&#34;
+
+    def __init__(
+            self, 
+            message: str, 
+            duration: int = 3000,
+            delay: int = 0,
+            parent=None, 
+            type: str = &#39;success&#39;, 
+            color: str = &#39;black&#39;, 
+            customIcon: QPixmap = None,
+            notificationsLimit: int = 7,
+            characterLimit: int = 60,
+            position: str = &#39;top-right&#39;,
+            items: List[QWidget] = None,
+            opacity: float = 1.0,
+            animatedEvents: Dict[str, bool] = {},
+            animationValues: Dict[str, float] = {},
+            autoShow: bool = True
+        ):
+        &#34;&#34;&#34;
+        Initializes a Notify object.
+
+        Args:
+            message (str): The notification message.
+            duration (int, optional): Duration before the notification disappears (in milliseconds). Default is 3000ms.
+            delay (int, optional): Delay before showing the notification (in milliseconds). Default is 0ms.
+            parent (QWidget, optional): The parent widget where the notification will be displayed. It&#39;s usually the window.
+            type (str, optional): The type of notification (&#39;success&#39;, &#39;error&#39;, &#39;info&#39;). Default is &#39;success&#39;.
+            color (str, optional): The theme color (&#39;black&#39; or &#39;white&#39;). Default is &#39;black&#39;.
+            customIcon (QPixmap, optional): A custom icon to use instead of the default.
+            notificationsLimit (int, optional): Parent notification limiter. Default is 7.
+            characterLimit (int, optional): Character limit in the notification. Default is 60.
+            position (str, optional): Position of the notification (&#39;top-right&#39;, &#39;top-left&#39;, &#39;bottom-right&#39;, &#39;bottom-left&#39;). Default is &#39;top-right&#39;.
+            items (List[QWidget], optional): Widgets to add to the notification. Default is None.
+            opacity: (float, optional): The opacity of the notify.
+            animatedEvents: (Dict[str, bool], optional): Default animations for events to {&#39;fadeIn&#39;: True, &#39;fadeOut&#39;: True}.
+            animationValues: (Dict[str, bool], optional): Default values for animations {&#39;opacityIncreasedIn&#39;: 0.05, &#39;opacityReductionOut&#39;: 0.05}.
+            autoShow: (bool, optional): Whether to show the notification automatically after creation. Default is True.
+        &#34;&#34;&#34;
+        super().__init__(parent)
+        self.parent = parent
+        self.duration = duration
+        self.delay = delay
+        self.elapsedTime = 0
+        self.message = message
+        self.position = position
+        self.items = items
+        self.opacity = opacity
+        self.msRenderTime = 16
+        self.isVisible = False
+        self.isShown = False
+        self.autoShow = autoShow
+        self.notificationsLimit = notificationsLimit
+
+        self._animationValues = {
+            &#39;opacityIncreasedIn&#39;: 0.05,
+            &#39;opacityReductionOut&#39;: 0.05
+        } 
+        self._animationValues.update(animationValues)
+
+        self._animatedEvents = {
+            &#39;fadeIn&#39;: True,
+            &#39;fadeOut&#39;: True
+        }
+        self._animatedEvents.update(animatedEvents)
+
+        if len(message) &gt; characterLimit:
+            self.message = message[:characterLimit - 1] + &#39;...&#39;
+
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.Tool)
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
+
+        self.container = QFrame(self)
+        self.container.setMinimumWidth(270)
+        self.container.setMaximumWidth(self.parent.width())
+
+        if color in STYLE_THEME_COLOR:
+            self.containerStyle = STYLE_THEME_COLOR[color][&#39;QFrame&#39;]
+        else:
+            raise KeyError(f&#34;The color does not exist in Notify: &#39;{color}&#39;&#34;)
+
+        self.container.setObjectName(self.containerStyle)
+
+        self.iconLabel = QLabel(self.container)
+
+        if type in ICONS:
+            self.icon = ICONS[type]()
+
+        if customIcon is not None:
+            self.icon = customIcon
+
+        self.iconLabel.setPixmap(self.icon)
+
+        self.messageLabel = QLabel(self.message, self.container)
+
+        if color in STYLE_THEME_COLOR:
+            self.messageLabel.setObjectName(STYLE_THEME_COLOR[color][&#39;QLabel&#39;])
+        else:
+            raise KeyError(f&#34;The color does not exist in Notify: &#39;{color}&#39;&#34;)
+
+        self.progressBar = QProgressBar(self.container)
+
+        if type in STYLE_BAR:
+            self.progressBarStyle = STYLE_BAR[type]
+        else:
+            raise KeyError(f&#34;The type does not exist in Notify: &#39;{type}&#39;&#34;)
+
+        self.progressBar.setObjectName(self.progressBarStyle)
+
+        self.progressBar.setFixedHeight(10)
+        self.progressBar.setTextVisible(False)
+        self.progressBar.setMaximum(self.duration)
+        self.progressBar.setValue(0)
+
+        self.contentLayout = QHBoxLayout()
+        self.contentLayout.setContentsMargins(0, 0, 0, 0)
+        self.contentLayout.setSpacing(8)
+        self.contentLayout.addWidget(self.iconLabel, 0, Qt.AlignmentFlag.AlignVCenter)  
+        self.contentLayout.addWidget(self.messageLabel, 1, Qt.AlignmentFlag.AlignVCenter)
+
+        self.containerLayout = QVBoxLayout(self.container)
+        self.containerLayout.addLayout(self.contentLayout)
+        self.containerLayout.addWidget(self.progressBar)
+
+        if self.items is not None:
+            for widget in items:
+                if isinstance(widget, QWidget):
+                    self.containerLayout.addWidget(widget)
+
+        self.containerLayout.setContentsMargins(20, 10, 20, 10)
+
+        self.container.setLayout(self.containerLayout)
+        self.container.adjustSize()
+
+        # Check notification limit before incrementing counter
+        if self.parent in Notify.cont:
+            if Notify.cont[self.parent] &gt;= notificationsLimit:
+                self.limitExceeded = True
+                return  # Don&#39;t create notification if limit exceeded
+        else:
+            Notify.cont[self.parent] = 0
+        
+        self.limitExceeded = False
+
+        self.mainLayout = QVBoxLayout(self)
+        self.mainLayout.addWidget(self.container)
+        self.mainLayout.setContentsMargins(0, 0, 0, 0)
+        self.setLayout(self.mainLayout)
+        self.adjustSize()
+
+        # Initialize timers but don&#39;t start them yet
+        self.positionTimer = QTimer(self)
+        self.positionTimer.timeout.connect(self.updatePosition)
+        
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.updateProgress)
+
+        # Handle auto-show behavior
+        if self.autoShow:
+            self.show()
+
+    def show(self) -&gt; None:
+        &#34;&#34;&#34;Shows the notification. Can be called manually to control when the notification appears.&#34;&#34;&#34;
+        if self.isShown or self.limitExceeded:
+            return  # Don&#39;t show if already shown or limit exceeded
+        
+        self.isShown = True
+        
+        # Handle delay
+        if self.delay &gt; 0:
+            # Schedule the notification to show after delay
+            QTimer.singleShot(self.delay, self._showNotification)
+        else:
+            # Show immediately if no delay
+            self._showNotification()
+
+    def _showNotification(self) -&gt; None:
+        &#34;&#34;&#34;Shows the notification after the delay period.&#34;&#34;&#34;
+        # Increment counter only when actually showing
+        Notify.cont[self.parent] += 1
+        self.notificationCount = Notify.cont[self.parent]
+        
+        self.updatePosition()
+        
+        # Start timers
+        self.positionTimer.start(self.msRenderTime)  # Approximately 60 fps
+        self.timer.start(self.msRenderTime)  # Approximately 60 fps
+        
+        # Schedule auto-close
+        QTimer.singleShot(self.duration, self.close)
+        
+        # Set opacity
+        if self.opacity != 1.0:
+            self.setWindowOpacity(self.opacity)
+        
+        # Handle fade-in animation
+        if self._animatedEvents[&#39;fadeIn&#39;]:
+            self._animateFadeIn()
+        
+        # Mark as visible and show
+        self.isVisible = True
+        super().show()  # Call the parent&#39;s show method
+
+    def _animateFadeOut(self) -&gt; None:
+        timer = QTimer(self)
+        opacity = self.windowOpacity()
+
+        def _modifyOpacity():
+            nonlocal opacity
+            opacity -= self._animationValues[&#39;opacityReductionOut&#39;]
+
+            if opacity &lt;= 0.1:
+                timer.stop()
+                    
+            self.setWindowOpacity(opacity)
+
+        timer.timeout.connect(_modifyOpacity)
+        timer.start(self.msRenderTime)
+
+    def _animateFadeIn(self) -&gt; None:
+        self.setWindowOpacity(0.1)
+        timer = QTimer(self)
+        opacity = self.windowOpacity()
+
+        def _modifyOpacity():
+            nonlocal opacity
+            opacity += self._animationValues[&#39;opacityIncreasedIn&#39;]
+
+            if opacity &gt;= self.opacity:
+                timer.stop()
+                    
+            self.setWindowOpacity(opacity)
+
+        timer.timeout.connect(_modifyOpacity)
+        timer.start(self.msRenderTime)
+
+    def updatePosition(self) -&gt; None:
+        &#34;&#34;&#34;Updates the notification&#39;s position relative to its parent window based on the specified position.&#34;&#34;&#34;
+        if self.parent:
+            if not self.parent.isVisible():
+                self.close()
+                
+            margin = 20
+            betweenMargin = 20
+            notificationHeight = self.height() + betweenMargin
+            
+            if &#39;right&#39; in self.position:
+                x = self.parent.x() + self.parent.width() - self.width() - margin
+            else:
+                x = self.parent.x() + margin
+            
+            if &#39;top&#39; in self.position:
+                y = self.parent.y() + 40 + (self.notificationCount - 1) * notificationHeight
+            else:
+                y = (self.parent.y() + self.parent.height() - self.notificationCount * notificationHeight)
+            
+            self.move(x, y)
+
+    def updateProgress(self) -&gt; None:
+        &#34;&#34;&#34;Updates the progress bar and closes the notification when the duration ends.&#34;&#34;&#34;
+        self.elapsedTime += 30
+        self.progressBar.setValue(self.elapsedTime)
+
+        if self.elapsedTime &gt;= self.duration:
+            self.timer.stop()
+            if self._animatedEvents[&#39;fadeOut&#39;]:
+                self._animateFadeOut()
+                QTimer.singleShot(200, self.close)
+            else:
+                self.close()
+
+    def hide(self) -&gt; None:
+        &#34;&#34;&#34;Hides the notification without closing it.&#34;&#34;&#34;
+        if self.isVisible:
+            super().hide()
+            self.isVisible = False
+            if self.positionTimer.isActive():
+                self.positionTimer.stop()
+            if self.timer.isActive():
+                self.timer.stop()
+
+    def isNotificationVisible(self) -&gt; bool:
+        &#34;&#34;&#34;Returns True if the notification is currently visible.&#34;&#34;&#34;
+        return self.isVisible
+
+    def isNotificationShown(self) -&gt; bool:
+        &#34;&#34;&#34;Returns True if show() has been called on this notification.&#34;&#34;&#34;
+        return self.isShown
+
+    def close(self) -&gt; None:
+        &#34;&#34;&#34;Closes the notification and updates the notification count.&#34;&#34;&#34;
+        if self.isVisible and self.parent in Notify.cont and Notify.cont[self.parent] &gt; 0:
+            Notify.cont[self.parent] -= 1
+        super().close()</code></pre>
+</details>
+<div class="desc"><p>Represents an on-screen notification within a parent window.</p>
+<p>This class allows displaying messages with different notification types
+(success, error, info) and customizable styles. It also includes a progress bar
+indicating the notification duration.</p>
+<p>Initializes the decorated class and applies the stylesheet.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>*args</code></strong></dt>
+<dd>Positional arguments passed to the original class initializer.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Keyword arguments passed to the original class initializer.</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="QFlow.components.Notify.cont"><code class="name">var <span class="ident">cont</span></code></dt>
+<dd>
+<div class="desc"><p>Dictionary tracking the number of notifications per parent window.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.components.Notify.close"><code class="name flex">
+<span>def <span class="ident">close</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close(self) -&gt; None:
+    &#34;&#34;&#34;Closes the notification and updates the notification count.&#34;&#34;&#34;
+    if self.isVisible and self.parent in Notify.cont and Notify.cont[self.parent] &gt; 0:
+        Notify.cont[self.parent] -= 1
+    super().close()</code></pre>
+</details>
+<div class="desc"><p>Closes the notification and updates the notification count.</p></div>
+</dd>
+<dt id="QFlow.components.Notify.hide"><code class="name flex">
+<span>def <span class="ident">hide</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hide(self) -&gt; None:
+    &#34;&#34;&#34;Hides the notification without closing it.&#34;&#34;&#34;
+    if self.isVisible:
+        super().hide()
+        self.isVisible = False
+        if self.positionTimer.isActive():
+            self.positionTimer.stop()
+        if self.timer.isActive():
+            self.timer.stop()</code></pre>
+</details>
+<div class="desc"><p>Hides the notification without closing it.</p></div>
+</dd>
+<dt id="QFlow.components.Notify.isNotificationShown"><code class="name flex">
+<span>def <span class="ident">isNotificationShown</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isNotificationShown(self) -&gt; bool:
+    &#34;&#34;&#34;Returns True if show() has been called on this notification.&#34;&#34;&#34;
+    return self.isShown</code></pre>
+</details>
+<div class="desc"><p>Returns True if show() has been called on this notification.</p></div>
+</dd>
+<dt id="QFlow.components.Notify.isNotificationVisible"><code class="name flex">
+<span>def <span class="ident">isNotificationVisible</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isNotificationVisible(self) -&gt; bool:
+    &#34;&#34;&#34;Returns True if the notification is currently visible.&#34;&#34;&#34;
+    return self.isVisible</code></pre>
+</details>
+<div class="desc"><p>Returns True if the notification is currently visible.</p></div>
+</dd>
+<dt id="QFlow.components.Notify.show"><code class="name flex">
+<span>def <span class="ident">show</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def show(self) -&gt; None:
+    &#34;&#34;&#34;Shows the notification. Can be called manually to control when the notification appears.&#34;&#34;&#34;
+    if self.isShown or self.limitExceeded:
+        return  # Don&#39;t show if already shown or limit exceeded
+    
+    self.isShown = True
+    
+    # Handle delay
+    if self.delay &gt; 0:
+        # Schedule the notification to show after delay
+        QTimer.singleShot(self.delay, self._showNotification)
+    else:
+        # Show immediately if no delay
+        self._showNotification()</code></pre>
+</details>
+<div class="desc"><p>Shows the notification. Can be called manually to control when the notification appears.</p></div>
+</dd>
+<dt id="QFlow.components.Notify.updatePosition"><code class="name flex">
+<span>def <span class="ident">updatePosition</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def updatePosition(self) -&gt; None:
+    &#34;&#34;&#34;Updates the notification&#39;s position relative to its parent window based on the specified position.&#34;&#34;&#34;
+    if self.parent:
+        if not self.parent.isVisible():
+            self.close()
+            
+        margin = 20
+        betweenMargin = 20
+        notificationHeight = self.height() + betweenMargin
+        
+        if &#39;right&#39; in self.position:
+            x = self.parent.x() + self.parent.width() - self.width() - margin
+        else:
+            x = self.parent.x() + margin
+        
+        if &#39;top&#39; in self.position:
+            y = self.parent.y() + 40 + (self.notificationCount - 1) * notificationHeight
+        else:
+            y = (self.parent.y() + self.parent.height() - self.notificationCount * notificationHeight)
+        
+        self.move(x, y)</code></pre>
+</details>
+<div class="desc"><p>Updates the notification's position relative to its parent window based on the specified position.</p></div>
+</dd>
+<dt id="QFlow.components.Notify.updateProgress"><code class="name flex">
+<span>def <span class="ident">updateProgress</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def updateProgress(self) -&gt; None:
+    &#34;&#34;&#34;Updates the progress bar and closes the notification when the duration ends.&#34;&#34;&#34;
+    self.elapsedTime += 30
+    self.progressBar.setValue(self.elapsedTime)
+
+    if self.elapsedTime &gt;= self.duration:
+        self.timer.stop()
+        if self._animatedEvents[&#39;fadeOut&#39;]:
+            self._animateFadeOut()
+            QTimer.singleShot(200, self.close)
+        else:
+            self.close()</code></pre>
+</details>
+<div class="desc"><p>Updates the progress bar and closes the notification when the duration ends.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="QFlow.components.ToggleSwitch"><code class="flex name class">
+<span>class <span class="ident">ToggleSwitch</span></span>
+<span>(</span><span>parent,<br>width: int = 50,<br>height: int = 25,<br>bgColor: list[str] = ['#ccc', '#00c853'],<br>circleColor: str = '#fff',<br>checked: bool = False)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ToggleSwitch(QWidget):
+    &#34;&#34;&#34;
+    Represents a custom animated toggle switch.
+
+    This widget mimics a modern switch with animation and customizable colors.
+    The circle smoothly slides between ON and OFF states upon click, and
+    emits visual feedback based on the internal boolean state.
+    &#34;&#34;&#34;
+
+    def __init__(
+            self, 
+            parent, 
+            width: int = 50, 
+            height: int = 25,
+            # num ≠ 0 ⇔ True: It&#39;s the same as on or off
+            bgColor: list[str] = [&#39;#ccc&#39;, &#39;#00c853&#39;],
+            circleColor: str = &#39;#fff&#39;,
+            checked: bool = False
+        ):
+        &#34;&#34;&#34;
+        Initializes the ToggleSwitch object.
+
+        Args:
+            parent (QWidget): The parent widget.
+            width (int, optional): The width of the toggle. Default is 50.
+            height (int, optional): The height of the toggle. Default is 25.
+            bgColor (list, optional): List of two colors [offColor, onColor] in hex format.
+            circleColor (str, optional): Color of the sliding circle in hex format.
+        &#34;&#34;&#34;
+        super().__init__(parent)
+        self.setFixedSize(width, height)
+        self._checked = False
+        self._circlePosition = 2
+
+        self._animation = QPropertyAnimation(self, b&#34;circlePosition&#34;)
+        self._animation.setDuration(150)
+
+        self._bgColorOn = QColor(bgColor[1])
+        self._bgColorOff = QColor(bgColor[0])
+        self._circleColor = QColor(circleColor)
+
+        self.setChecked(checked)
+
+        self.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+
+    def mousePressEvent(self, event):
+        &#34;&#34;&#34;
+        Handles the mouse press event to toggle the switch state.
+
+        Args:
+            event (QMouseEvent): The mouse event.
+        &#34;&#34;&#34;
+        self._checked = not self._checked
+        self._animate()
+        self.update()
+        super().mousePressEvent(event)
+
+    def _animate(self):
+        &#34;&#34;&#34;
+        Performs the circle sliding animation based on the current state.
+        &#34;&#34;&#34;
+        start = self._circlePosition
+        end = self.width() - self.height() + 2 if self._checked else 2
+        self._animation.stop()
+        self._animation.setStartValue(start)
+        self._animation.setEndValue(end)
+        self._animation.start()
+
+    def paintEvent(self, event):
+        &#34;&#34;&#34;
+        Paints the switch background and sliding circle.
+
+        Args:
+            event (QPaintEvent): The paint event.
+        &#34;&#34;&#34;
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+
+        bg_color = self._bgColorOn if self._checked else self._bgColorOff
+        painter.setBrush(QBrush(bg_color))
+        painter.setPen(Qt.PenStyle.NoPen)
+        painter.drawRoundedRect(0, 0, self.width(), self.height(), self.height() / 2, self.height() / 2)
+
+        painter.setBrush(QBrush(self._circleColor))
+        painter.drawEllipse(self._circlePosition, 2, self.height() - 4, self.height() - 4)
+
+    def isChecked(self):
+        &#34;&#34;&#34;
+        Returns:
+            bool: The current checked state of the switch.
+        &#34;&#34;&#34;
+        return self._checked
+
+    def setChecked(self, checked: bool):
+        &#34;&#34;&#34;
+        Sets the checked state of the switch and updates its position immediately.
+
+        Args:
+            checked (bool): The desired checked state.
+        &#34;&#34;&#34;
+        self._checked = checked
+        self._animate()
+        self.update()
+
+    def getCirclePosition(self):
+        &#34;&#34;&#34;
+        Returns:
+            int: The current X position of the circle.
+        &#34;&#34;&#34;
+        return self._circlePosition
+
+    def setCirclePosition(self, pos):
+        &#34;&#34;&#34;
+        Updates the X position of the circle (used by the animation).
+
+        Args:
+            pos (int): The new position.
+        &#34;&#34;&#34;
+        self._circlePosition = pos
+        self.update()
+
+    circlePosition = Property(int, fget=getCirclePosition, fset=setCirclePosition)</code></pre>
+</details>
+<div class="desc"><p>Represents a custom animated toggle switch.</p>
+<p>This widget mimics a modern switch with animation and customizable colors.
+The circle smoothly slides between ON and OFF states upon click, and
+emits visual feedback based on the internal boolean state.</p>
+<p>Initializes the ToggleSwitch object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>parent</code></strong> :&ensp;<code>QWidget</code></dt>
+<dd>The parent widget.</dd>
+<dt><strong><code>width</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>The width of the toggle. Default is 50.</dd>
+<dt><strong><code>height</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>The height of the toggle. Default is 25.</dd>
+<dt><strong><code>bgColor</code></strong> :&ensp;<code>list</code>, optional</dt>
+<dd>List of two colors [offColor, onColor] in hex format.</dd>
+<dt><strong><code>circleColor</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Color of the sliding circle in hex format.</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="QFlow.components.ToggleSwitch.circlePosition"><code class="name">var <span class="ident">circlePosition</span></code></dt>
+<dd>
+<div class="desc"><p>pyqtProperty(type, fget=None, fset=None, freset=None, fdel=None, doc=None,
+designable=True, scriptable=True, stored=True, user=False,
+constant=False, final=False, notify=None,
+revision=0) -&gt; property attribute</p>
+<p>type is the type of the property.
+It is either a type object or a string
+that is the name of a C++ type.
+freset is a function for resetting an attribute to its default value.
+designable sets the DESIGNABLE flag (the default is True for writable
+properties and False otherwise).
+scriptable sets the SCRIPTABLE flag.
+stored sets the STORED flag.
+user sets the USER flag.
+constant sets the CONSTANT flag.
+final sets the FINAL flag.
+notify is the NOTIFY signal.
+revision is the REVISION.
+The other parameters are the same as those required by the standard Python
+property type.
+Properties defined using pyqtProperty behave as both Python
+and Qt properties.
+Decorators can be used to define new properties or to modify existing ones.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.components.ToggleSwitch.getCirclePosition"><code class="name flex">
+<span>def <span class="ident">getCirclePosition</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getCirclePosition(self):
+    &#34;&#34;&#34;
+    Returns:
+        int: The current X position of the circle.
+    &#34;&#34;&#34;
+    return self._circlePosition</code></pre>
+</details>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>The current X position of the circle.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.components.ToggleSwitch.isChecked"><code class="name flex">
+<span>def <span class="ident">isChecked</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isChecked(self):
+    &#34;&#34;&#34;
+    Returns:
+        bool: The current checked state of the switch.
+    &#34;&#34;&#34;
+    return self._checked</code></pre>
+</details>
+<div class="desc"><h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>The current checked state of the switch.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.components.ToggleSwitch.mousePressEvent"><code class="name flex">
+<span>def <span class="ident">mousePressEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mousePressEvent(self, event):
+    &#34;&#34;&#34;
+    Handles the mouse press event to toggle the switch state.
+
+    Args:
+        event (QMouseEvent): The mouse event.
+    &#34;&#34;&#34;
+    self._checked = not self._checked
+    self._animate()
+    self.update()
+    super().mousePressEvent(event)</code></pre>
+</details>
+<div class="desc"><p>Handles the mouse press event to toggle the switch state.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>event</code></strong> :&ensp;<code>QMouseEvent</code></dt>
+<dd>The mouse event.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.components.ToggleSwitch.paintEvent"><code class="name flex">
+<span>def <span class="ident">paintEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def paintEvent(self, event):
+    &#34;&#34;&#34;
+    Paints the switch background and sliding circle.
+
+    Args:
+        event (QPaintEvent): The paint event.
+    &#34;&#34;&#34;
+    painter = QPainter(self)
+    painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+
+    bg_color = self._bgColorOn if self._checked else self._bgColorOff
+    painter.setBrush(QBrush(bg_color))
+    painter.setPen(Qt.PenStyle.NoPen)
+    painter.drawRoundedRect(0, 0, self.width(), self.height(), self.height() / 2, self.height() / 2)
+
+    painter.setBrush(QBrush(self._circleColor))
+    painter.drawEllipse(self._circlePosition, 2, self.height() - 4, self.height() - 4)</code></pre>
+</details>
+<div class="desc"><p>Paints the switch background and sliding circle.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>event</code></strong> :&ensp;<code>QPaintEvent</code></dt>
+<dd>The paint event.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.components.ToggleSwitch.setChecked"><code class="name flex">
+<span>def <span class="ident">setChecked</span></span>(<span>self, checked: bool)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setChecked(self, checked: bool):
+    &#34;&#34;&#34;
+    Sets the checked state of the switch and updates its position immediately.
+
+    Args:
+        checked (bool): The desired checked state.
+    &#34;&#34;&#34;
+    self._checked = checked
+    self._animate()
+    self.update()</code></pre>
+</details>
+<div class="desc"><p>Sets the checked state of the switch and updates its position immediately.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>checked</code></strong> :&ensp;<code>bool</code></dt>
+<dd>The desired checked state.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.components.ToggleSwitch.setCirclePosition"><code class="name flex">
+<span>def <span class="ident">setCirclePosition</span></span>(<span>self, pos)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setCirclePosition(self, pos):
+    &#34;&#34;&#34;
+    Updates the X position of the circle (used by the animation).
+
+    Args:
+        pos (int): The new position.
+    &#34;&#34;&#34;
+    self._circlePosition = pos
+    self.update()</code></pre>
+</details>
+<div class="desc"><p>Updates the X position of the circle (used by the animation).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>pos</code></strong> :&ensp;<code>int</code></dt>
+<dd>The new position.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="QFlow" href="../index.html">QFlow</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="QFlow.components.dialog" href="dialog/index.html">QFlow.components.dialog</a></code></li>
+<li><code><a title="QFlow.components.notify" href="notify/index.html">QFlow.components.notify</a></code></li>
+<li><code><a title="QFlow.components.toggleSwitch" href="toggleSwitch/index.html">QFlow.components.toggleSwitch</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="QFlow.components.Dialog" href="#QFlow.components.Dialog">Dialog</a></code></h4>
+<ul class="">
+<li><code><a title="QFlow.components.Dialog.addLayout" href="#QFlow.components.Dialog.addLayout">addLayout</a></code></li>
+<li><code><a title="QFlow.components.Dialog.addWidget" href="#QFlow.components.Dialog.addWidget">addWidget</a></code></li>
+<li><code><a title="QFlow.components.Dialog.close" href="#QFlow.components.Dialog.close">close</a></code></li>
+<li><code><a title="QFlow.components.Dialog.show" href="#QFlow.components.Dialog.show">show</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="QFlow.components.Notify" href="#QFlow.components.Notify">Notify</a></code></h4>
+<ul class="">
+<li><code><a title="QFlow.components.Notify.close" href="#QFlow.components.Notify.close">close</a></code></li>
+<li><code><a title="QFlow.components.Notify.cont" href="#QFlow.components.Notify.cont">cont</a></code></li>
+<li><code><a title="QFlow.components.Notify.hide" href="#QFlow.components.Notify.hide">hide</a></code></li>
+<li><code><a title="QFlow.components.Notify.isNotificationShown" href="#QFlow.components.Notify.isNotificationShown">isNotificationShown</a></code></li>
+<li><code><a title="QFlow.components.Notify.isNotificationVisible" href="#QFlow.components.Notify.isNotificationVisible">isNotificationVisible</a></code></li>
+<li><code><a title="QFlow.components.Notify.show" href="#QFlow.components.Notify.show">show</a></code></li>
+<li><code><a title="QFlow.components.Notify.updatePosition" href="#QFlow.components.Notify.updatePosition">updatePosition</a></code></li>
+<li><code><a title="QFlow.components.Notify.updateProgress" href="#QFlow.components.Notify.updateProgress">updateProgress</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="QFlow.components.ToggleSwitch" href="#QFlow.components.ToggleSwitch">ToggleSwitch</a></code></h4>
+<ul class="two-column">
+<li><code><a title="QFlow.components.ToggleSwitch.circlePosition" href="#QFlow.components.ToggleSwitch.circlePosition">circlePosition</a></code></li>
+<li><code><a title="QFlow.components.ToggleSwitch.getCirclePosition" href="#QFlow.components.ToggleSwitch.getCirclePosition">getCirclePosition</a></code></li>
+<li><code><a title="QFlow.components.ToggleSwitch.isChecked" href="#QFlow.components.ToggleSwitch.isChecked">isChecked</a></code></li>
+<li><code><a title="QFlow.components.ToggleSwitch.mousePressEvent" href="#QFlow.components.ToggleSwitch.mousePressEvent">mousePressEvent</a></code></li>
+<li><code><a title="QFlow.components.ToggleSwitch.paintEvent" href="#QFlow.components.ToggleSwitch.paintEvent">paintEvent</a></code></li>
+<li><code><a title="QFlow.components.ToggleSwitch.setChecked" href="#QFlow.components.ToggleSwitch.setChecked">setChecked</a></code></li>
+<li><code><a title="QFlow.components.ToggleSwitch.setCirclePosition" href="#QFlow.components.ToggleSwitch.setCirclePosition">setCirclePosition</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

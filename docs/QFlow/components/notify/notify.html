@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>QFlow.components.notify.notify API documentation</title>
+<meta name="description" content="This module defines the Notify class, which represents an on-screen notification in a PyQt5 application …">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>QFlow.components.notify.notify</code></h1>
+</header>
+<section id="section-intro">
+<p>This module defines the Notify class, which represents an on-screen notification in a PyQt5 application.</p>
+<p>The class handles displaying messages with custom icons, progress bars, and predefined styles.
+A decorator is used to apply styles from an external file.</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="QFlow.components.notify.notify.Notify"><code class="flex name class">
+<span>class <span class="ident">Notify</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@style(STYLE_PATH, True)
+class Notify(QWidget):
+    &#34;&#34;&#34;
+    Represents an on-screen notification within a parent window.
+
+    This class allows displaying messages with different notification types 
+    (success, error, info) and customizable styles. It also includes a progress bar 
+    indicating the notification duration.
+    &#34;&#34;&#34;
+
+    cont = {}
+    &#34;&#34;&#34;Dictionary tracking the number of notifications per parent window.&#34;&#34;&#34;
+
+    def __init__(
+            self, 
+            message: str, 
+            duration: int = 3000,
+            delay: int = 0,
+            parent=None, 
+            type: str = &#39;success&#39;, 
+            color: str = &#39;black&#39;, 
+            customIcon: QPixmap = None,
+            notificationsLimit: int = 7,
+            characterLimit: int = 60,
+            position: str = &#39;top-right&#39;,
+            items: List[QWidget] = None,
+            opacity: float = 1.0,
+            animatedEvents: Dict[str, bool] = {},
+            animationValues: Dict[str, float] = {},
+            autoShow: bool = True
+        ):
+        &#34;&#34;&#34;
+        Initializes a Notify object.
+
+        Args:
+            message (str): The notification message.
+            duration (int, optional): Duration before the notification disappears (in milliseconds). Default is 3000ms.
+            delay (int, optional): Delay before showing the notification (in milliseconds). Default is 0ms.
+            parent (QWidget, optional): The parent widget where the notification will be displayed. It&#39;s usually the window.
+            type (str, optional): The type of notification (&#39;success&#39;, &#39;error&#39;, &#39;info&#39;). Default is &#39;success&#39;.
+            color (str, optional): The theme color (&#39;black&#39; or &#39;white&#39;). Default is &#39;black&#39;.
+            customIcon (QPixmap, optional): A custom icon to use instead of the default.
+            notificationsLimit (int, optional): Parent notification limiter. Default is 7.
+            characterLimit (int, optional): Character limit in the notification. Default is 60.
+            position (str, optional): Position of the notification (&#39;top-right&#39;, &#39;top-left&#39;, &#39;bottom-right&#39;, &#39;bottom-left&#39;). Default is &#39;top-right&#39;.
+            items (List[QWidget], optional): Widgets to add to the notification. Default is None.
+            opacity: (float, optional): The opacity of the notify.
+            animatedEvents: (Dict[str, bool], optional): Default animations for events to {&#39;fadeIn&#39;: True, &#39;fadeOut&#39;: True}.
+            animationValues: (Dict[str, bool], optional): Default values for animations {&#39;opacityIncreasedIn&#39;: 0.05, &#39;opacityReductionOut&#39;: 0.05}.
+            autoShow: (bool, optional): Whether to show the notification automatically after creation. Default is True.
+        &#34;&#34;&#34;
+        super().__init__(parent)
+        self.parent = parent
+        self.duration = duration
+        self.delay = delay
+        self.elapsedTime = 0
+        self.message = message
+        self.position = position
+        self.items = items
+        self.opacity = opacity
+        self.msRenderTime = 16
+        self.isVisible = False
+        self.isShown = False
+        self.autoShow = autoShow
+        self.notificationsLimit = notificationsLimit
+
+        self._animationValues = {
+            &#39;opacityIncreasedIn&#39;: 0.05,
+            &#39;opacityReductionOut&#39;: 0.05
+        } 
+        self._animationValues.update(animationValues)
+
+        self._animatedEvents = {
+            &#39;fadeIn&#39;: True,
+            &#39;fadeOut&#39;: True
+        }
+        self._animatedEvents.update(animatedEvents)
+
+        if len(message) &gt; characterLimit:
+            self.message = message[:characterLimit - 1] + &#39;...&#39;
+
+        self.setWindowFlags(Qt.WindowType.FramelessWindowHint | Qt.WindowType.Tool)
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
+
+        self.container = QFrame(self)
+        self.container.setMinimumWidth(270)
+        self.container.setMaximumWidth(self.parent.width())
+
+        if color in STYLE_THEME_COLOR:
+            self.containerStyle = STYLE_THEME_COLOR[color][&#39;QFrame&#39;]
+        else:
+            raise KeyError(f&#34;The color does not exist in Notify: &#39;{color}&#39;&#34;)
+
+        self.container.setObjectName(self.containerStyle)
+
+        self.iconLabel = QLabel(self.container)
+
+        if type in ICONS:
+            self.icon = ICONS[type]()
+
+        if customIcon is not None:
+            self.icon = customIcon
+
+        self.iconLabel.setPixmap(self.icon)
+
+        self.messageLabel = QLabel(self.message, self.container)
+
+        if color in STYLE_THEME_COLOR:
+            self.messageLabel.setObjectName(STYLE_THEME_COLOR[color][&#39;QLabel&#39;])
+        else:
+            raise KeyError(f&#34;The color does not exist in Notify: &#39;{color}&#39;&#34;)
+
+        self.progressBar = QProgressBar(self.container)
+
+        if type in STYLE_BAR:
+            self.progressBarStyle = STYLE_BAR[type]
+        else:
+            raise KeyError(f&#34;The type does not exist in Notify: &#39;{type}&#39;&#34;)
+
+        self.progressBar.setObjectName(self.progressBarStyle)
+
+        self.progressBar.setFixedHeight(10)
+        self.progressBar.setTextVisible(False)
+        self.progressBar.setMaximum(self.duration)
+        self.progressBar.setValue(0)
+
+        self.contentLayout = QHBoxLayout()
+        self.contentLayout.setContentsMargins(0, 0, 0, 0)
+        self.contentLayout.setSpacing(8)
+        self.contentLayout.addWidget(self.iconLabel, 0, Qt.AlignmentFlag.AlignVCenter)  
+        self.contentLayout.addWidget(self.messageLabel, 1, Qt.AlignmentFlag.AlignVCenter)
+
+        self.containerLayout = QVBoxLayout(self.container)
+        self.containerLayout.addLayout(self.contentLayout)
+        self.containerLayout.addWidget(self.progressBar)
+
+        if self.items is not None:
+            for widget in items:
+                if isinstance(widget, QWidget):
+                    self.containerLayout.addWidget(widget)
+
+        self.containerLayout.setContentsMargins(20, 10, 20, 10)
+
+        self.container.setLayout(self.containerLayout)
+        self.container.adjustSize()
+
+        # Check notification limit before incrementing counter
+        if self.parent in Notify.cont:
+            if Notify.cont[self.parent] &gt;= notificationsLimit:
+                self.limitExceeded = True
+                return  # Don&#39;t create notification if limit exceeded
+        else:
+            Notify.cont[self.parent] = 0
+        
+        self.limitExceeded = False
+
+        self.mainLayout = QVBoxLayout(self)
+        self.mainLayout.addWidget(self.container)
+        self.mainLayout.setContentsMargins(0, 0, 0, 0)
+        self.setLayout(self.mainLayout)
+        self.adjustSize()
+
+        # Initialize timers but don&#39;t start them yet
+        self.positionTimer = QTimer(self)
+        self.positionTimer.timeout.connect(self.updatePosition)
+        
+        self.timer = QTimer(self)
+        self.timer.timeout.connect(self.updateProgress)
+
+        # Handle auto-show behavior
+        if self.autoShow:
+            self.show()
+
+    def show(self) -&gt; None:
+        &#34;&#34;&#34;Shows the notification. Can be called manually to control when the notification appears.&#34;&#34;&#34;
+        if self.isShown or self.limitExceeded:
+            return  # Don&#39;t show if already shown or limit exceeded
+        
+        self.isShown = True
+        
+        # Handle delay
+        if self.delay &gt; 0:
+            # Schedule the notification to show after delay
+            QTimer.singleShot(self.delay, self._showNotification)
+        else:
+            # Show immediately if no delay
+            self._showNotification()
+
+    def _showNotification(self) -&gt; None:
+        &#34;&#34;&#34;Shows the notification after the delay period.&#34;&#34;&#34;
+        # Increment counter only when actually showing
+        Notify.cont[self.parent] += 1
+        self.notificationCount = Notify.cont[self.parent]
+        
+        self.updatePosition()
+        
+        # Start timers
+        self.positionTimer.start(self.msRenderTime)  # Approximately 60 fps
+        self.timer.start(self.msRenderTime)  # Approximately 60 fps
+        
+        # Schedule auto-close
+        QTimer.singleShot(self.duration, self.close)
+        
+        # Set opacity
+        if self.opacity != 1.0:
+            self.setWindowOpacity(self.opacity)
+        
+        # Handle fade-in animation
+        if self._animatedEvents[&#39;fadeIn&#39;]:
+            self._animateFadeIn()
+        
+        # Mark as visible and show
+        self.isVisible = True
+        super().show()  # Call the parent&#39;s show method
+
+    def _animateFadeOut(self) -&gt; None:
+        timer = QTimer(self)
+        opacity = self.windowOpacity()
+
+        def _modifyOpacity():
+            nonlocal opacity
+            opacity -= self._animationValues[&#39;opacityReductionOut&#39;]
+
+            if opacity &lt;= 0.1:
+                timer.stop()
+                    
+            self.setWindowOpacity(opacity)
+
+        timer.timeout.connect(_modifyOpacity)
+        timer.start(self.msRenderTime)
+
+    def _animateFadeIn(self) -&gt; None:
+        self.setWindowOpacity(0.1)
+        timer = QTimer(self)
+        opacity = self.windowOpacity()
+
+        def _modifyOpacity():
+            nonlocal opacity
+            opacity += self._animationValues[&#39;opacityIncreasedIn&#39;]
+
+            if opacity &gt;= self.opacity:
+                timer.stop()
+                    
+            self.setWindowOpacity(opacity)
+
+        timer.timeout.connect(_modifyOpacity)
+        timer.start(self.msRenderTime)
+
+    def updatePosition(self) -&gt; None:
+        &#34;&#34;&#34;Updates the notification&#39;s position relative to its parent window based on the specified position.&#34;&#34;&#34;
+        if self.parent:
+            if not self.parent.isVisible():
+                self.close()
+                
+            margin = 20
+            betweenMargin = 20
+            notificationHeight = self.height() + betweenMargin
+            
+            if &#39;right&#39; in self.position:
+                x = self.parent.x() + self.parent.width() - self.width() - margin
+            else:
+                x = self.parent.x() + margin
+            
+            if &#39;top&#39; in self.position:
+                y = self.parent.y() + 40 + (self.notificationCount - 1) * notificationHeight
+            else:
+                y = (self.parent.y() + self.parent.height() - self.notificationCount * notificationHeight)
+            
+            self.move(x, y)
+
+    def updateProgress(self) -&gt; None:
+        &#34;&#34;&#34;Updates the progress bar and closes the notification when the duration ends.&#34;&#34;&#34;
+        self.elapsedTime += 30
+        self.progressBar.setValue(self.elapsedTime)
+
+        if self.elapsedTime &gt;= self.duration:
+            self.timer.stop()
+            if self._animatedEvents[&#39;fadeOut&#39;]:
+                self._animateFadeOut()
+                QTimer.singleShot(200, self.close)
+            else:
+                self.close()
+
+    def hide(self) -&gt; None:
+        &#34;&#34;&#34;Hides the notification without closing it.&#34;&#34;&#34;
+        if self.isVisible:
+            super().hide()
+            self.isVisible = False
+            if self.positionTimer.isActive():
+                self.positionTimer.stop()
+            if self.timer.isActive():
+                self.timer.stop()
+
+    def isNotificationVisible(self) -&gt; bool:
+        &#34;&#34;&#34;Returns True if the notification is currently visible.&#34;&#34;&#34;
+        return self.isVisible
+
+    def isNotificationShown(self) -&gt; bool:
+        &#34;&#34;&#34;Returns True if show() has been called on this notification.&#34;&#34;&#34;
+        return self.isShown
+
+    def close(self) -&gt; None:
+        &#34;&#34;&#34;Closes the notification and updates the notification count.&#34;&#34;&#34;
+        if self.isVisible and self.parent in Notify.cont and Notify.cont[self.parent] &gt; 0:
+            Notify.cont[self.parent] -= 1
+        super().close()</code></pre>
+</details>
+<div class="desc"><p>Represents an on-screen notification within a parent window.</p>
+<p>This class allows displaying messages with different notification types
+(success, error, info) and customizable styles. It also includes a progress bar
+indicating the notification duration.</p>
+<p>Initializes the decorated class and applies the stylesheet.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>*args</code></strong></dt>
+<dd>Positional arguments passed to the original class initializer.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Keyword arguments passed to the original class initializer.</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="QFlow.components.notify.notify.Notify.cont"><code class="name">var <span class="ident">cont</span></code></dt>
+<dd>
+<div class="desc"><p>Dictionary tracking the number of notifications per parent window.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.components.notify.notify.Notify.close"><code class="name flex">
+<span>def <span class="ident">close</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close(self) -&gt; None:
+    &#34;&#34;&#34;Closes the notification and updates the notification count.&#34;&#34;&#34;
+    if self.isVisible and self.parent in Notify.cont and Notify.cont[self.parent] &gt; 0:
+        Notify.cont[self.parent] -= 1
+    super().close()</code></pre>
+</details>
+<div class="desc"><p>Closes the notification and updates the notification count.</p></div>
+</dd>
+<dt id="QFlow.components.notify.notify.Notify.hide"><code class="name flex">
+<span>def <span class="ident">hide</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def hide(self) -&gt; None:
+    &#34;&#34;&#34;Hides the notification without closing it.&#34;&#34;&#34;
+    if self.isVisible:
+        super().hide()
+        self.isVisible = False
+        if self.positionTimer.isActive():
+            self.positionTimer.stop()
+        if self.timer.isActive():
+            self.timer.stop()</code></pre>
+</details>
+<div class="desc"><p>Hides the notification without closing it.</p></div>
+</dd>
+<dt id="QFlow.components.notify.notify.Notify.isNotificationShown"><code class="name flex">
+<span>def <span class="ident">isNotificationShown</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isNotificationShown(self) -&gt; bool:
+    &#34;&#34;&#34;Returns True if show() has been called on this notification.&#34;&#34;&#34;
+    return self.isShown</code></pre>
+</details>
+<div class="desc"><p>Returns True if show() has been called on this notification.</p></div>
+</dd>
+<dt id="QFlow.components.notify.notify.Notify.isNotificationVisible"><code class="name flex">
+<span>def <span class="ident">isNotificationVisible</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isNotificationVisible(self) -&gt; bool:
+    &#34;&#34;&#34;Returns True if the notification is currently visible.&#34;&#34;&#34;
+    return self.isVisible</code></pre>
+</details>
+<div class="desc"><p>Returns True if the notification is currently visible.</p></div>
+</dd>
+<dt id="QFlow.components.notify.notify.Notify.show"><code class="name flex">
+<span>def <span class="ident">show</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def show(self) -&gt; None:
+    &#34;&#34;&#34;Shows the notification. Can be called manually to control when the notification appears.&#34;&#34;&#34;
+    if self.isShown or self.limitExceeded:
+        return  # Don&#39;t show if already shown or limit exceeded
+    
+    self.isShown = True
+    
+    # Handle delay
+    if self.delay &gt; 0:
+        # Schedule the notification to show after delay
+        QTimer.singleShot(self.delay, self._showNotification)
+    else:
+        # Show immediately if no delay
+        self._showNotification()</code></pre>
+</details>
+<div class="desc"><p>Shows the notification. Can be called manually to control when the notification appears.</p></div>
+</dd>
+<dt id="QFlow.components.notify.notify.Notify.updatePosition"><code class="name flex">
+<span>def <span class="ident">updatePosition</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def updatePosition(self) -&gt; None:
+    &#34;&#34;&#34;Updates the notification&#39;s position relative to its parent window based on the specified position.&#34;&#34;&#34;
+    if self.parent:
+        if not self.parent.isVisible():
+            self.close()
+            
+        margin = 20
+        betweenMargin = 20
+        notificationHeight = self.height() + betweenMargin
+        
+        if &#39;right&#39; in self.position:
+            x = self.parent.x() + self.parent.width() - self.width() - margin
+        else:
+            x = self.parent.x() + margin
+        
+        if &#39;top&#39; in self.position:
+            y = self.parent.y() + 40 + (self.notificationCount - 1) * notificationHeight
+        else:
+            y = (self.parent.y() + self.parent.height() - self.notificationCount * notificationHeight)
+        
+        self.move(x, y)</code></pre>
+</details>
+<div class="desc"><p>Updates the notification's position relative to its parent window based on the specified position.</p></div>
+</dd>
+<dt id="QFlow.components.notify.notify.Notify.updateProgress"><code class="name flex">
+<span>def <span class="ident">updateProgress</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def updateProgress(self) -&gt; None:
+    &#34;&#34;&#34;Updates the progress bar and closes the notification when the duration ends.&#34;&#34;&#34;
+    self.elapsedTime += 30
+    self.progressBar.setValue(self.elapsedTime)
+
+    if self.elapsedTime &gt;= self.duration:
+        self.timer.stop()
+        if self._animatedEvents[&#39;fadeOut&#39;]:
+            self._animateFadeOut()
+            QTimer.singleShot(200, self.close)
+        else:
+            self.close()</code></pre>
+</details>
+<div class="desc"><p>Updates the progress bar and closes the notification when the duration ends.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="QFlow.components.notify" href="index.html">QFlow.components.notify</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="QFlow.components.notify.notify.Notify" href="#QFlow.components.notify.notify.Notify">Notify</a></code></h4>
+<ul class="">
+<li><code><a title="QFlow.components.notify.notify.Notify.close" href="#QFlow.components.notify.notify.Notify.close">close</a></code></li>
+<li><code><a title="QFlow.components.notify.notify.Notify.cont" href="#QFlow.components.notify.notify.Notify.cont">cont</a></code></li>
+<li><code><a title="QFlow.components.notify.notify.Notify.hide" href="#QFlow.components.notify.notify.Notify.hide">hide</a></code></li>
+<li><code><a title="QFlow.components.notify.notify.Notify.isNotificationShown" href="#QFlow.components.notify.notify.Notify.isNotificationShown">isNotificationShown</a></code></li>
+<li><code><a title="QFlow.components.notify.notify.Notify.isNotificationVisible" href="#QFlow.components.notify.notify.Notify.isNotificationVisible">isNotificationVisible</a></code></li>
+<li><code><a title="QFlow.components.notify.notify.Notify.show" href="#QFlow.components.notify.notify.Notify.show">show</a></code></li>
+<li><code><a title="QFlow.components.notify.notify.Notify.updatePosition" href="#QFlow.components.notify.notify.Notify.updatePosition">updatePosition</a></code></li>
+<li><code><a title="QFlow.components.notify.notify.Notify.updateProgress" href="#QFlow.components.notify.notify.Notify.updateProgress">updateProgress</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
