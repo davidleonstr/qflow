@@ -1,6 +1,5 @@
 """
-Subscribeable module provides a base class for implementing the Observer pattern in Python.
-This module is part of the Qurderer framework and is used for state management and reactivity.
+Subscribeable module provides a base class for implementing Observer pattern.
 """
 
 from typing import Any, Callable, List, Optional
