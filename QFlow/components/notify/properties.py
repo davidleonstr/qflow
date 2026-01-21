@@ -12,7 +12,7 @@ from ...helpers.icon import Icon
 from ...core.flags import FROZEN_LIB
 
 # Location of the file with the styles for the Notify object
-STYLE_PATH = Source('QFlow/components/notify/notify.css', frozen=FROZEN_LIB).get()
+STYLE_PATH = Source('QFlow/components/notify/notify.qss', frozen=FROZEN_LIB).get()
 """Path to the file containing the styles for the Notify object."""
 
 # References to create the default icons of the Notify class

@@ -1,5 +1,5 @@
 """
-This module defines the Notify class, which represents an on-screen notification in a PyQt5 application.
+This module defines the Notify class, which represents an on-screen notification in a PyQt-PySide application.
 
 The class handles displaying messages with custom icons, progress bars, and predefined styles.
 A decorator is used to apply styles from an external file.
@@ -10,7 +10,7 @@ from qtpy.QtGui import QPixmap
 from qtpy.QtCore import QTimer, Qt
 from typing import List, Dict
 
-# Decorator for applying styles to PyQt5 widgets
+# Decorator for applying styles to PyQt-PySide widgets
 from ...modules.style import *
 
 # Importing style properties and configuration

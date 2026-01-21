@@ -141,7 +141,7 @@ class QFlowMainScreen(QFlow.Screen):
         self.params = QFlow.hooks.Params(self)
 
         # For debug
-        print(json.dumps(self.params.get(), indent=4))
+        print(&#39;Effect:&#39;, json.dumps(self.params.get(), indent=4))
     
     def UI(self):
         &#34;&#34;&#34;
@@ -258,7 +258,7 @@ Can be used as a base class or through composition.</p></div>
     self.params = QFlow.hooks.Params(self)
 
     # For debug
-    print(json.dumps(self.params.get(), indent=4))</code></pre>
+    print(&#39;Effect:&#39;, json.dumps(self.params.get(), indent=4))</code></pre>
 </details>
 <div class="desc"><p>It runs whenever the screen is created or set.</p></div>
 </dd>
@@ -468,7 +468,7 @@ class QFlowSecondaryWindow(QFlow.Window):
         self.params = QFlow.hooks.Params(self)
 
         # For debug
-        print(json.dumps(self.params.get(), indent=4))</code></pre>
+        print(&#39;Effect:&#39;, json.dumps(self.params.get(), indent=4))</code></pre>
 </details>
 <div class="desc"><p>A window class that provides window properties and screen management capabilities.</p>
 <p>This class allows you to configure the title, geometry, and icon of a window,
@@ -501,7 +501,7 @@ while also providing built-in screen management functionality.</p></div>
     self.params = QFlow.hooks.Params(self)
 
     # For debug
-    print(json.dumps(self.params.get(), indent=4))</code></pre>
+    print(&#39;Effect:&#39;, json.dumps(self.params.get(), indent=4))</code></pre>
 </details>
 <div class="desc"><p>It runs whenever the screen is created or set.</p></div>
 </dd>
