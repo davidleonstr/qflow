@@ -86,7 +86,7 @@ class QFlowSecondaryWindow(QFlow.Window):
         self.params = QFlow.hooks.Params(self)
 
         # For debug
-        print(json.dumps(self.params.get(), indent=4))
+        print('Effect:', json.dumps(self.params.get(), indent=4))
 
 @QFlow.screen(
     name='mainScreen',
@@ -112,7 +112,7 @@ class QFlowMainScreen(QFlow.Screen):
         self.params = QFlow.hooks.Params(self)
 
         # For debug
-        print(json.dumps(self.params.get(), indent=4))
+        print('Effect:', json.dumps(self.params.get(), indent=4))
     
     def UI(self):
         """

@@ -1,5 +1,5 @@
 """
-This module defines a decorator for applying stylesheets to PyQt5 widgets or windows.
+This module defines a decorator for applying stylesheets to PyQt-PySide widgets or windows.
 
 The `style` decorator is used to apply a style to a widget or window either from a file path 
 or directly as a string. It modifies the `__init__` method of the decorated class to include 
@@ -7,8 +7,10 @@ the stylesheet application.
 """
 
 from ..utils.genericFile import GenericFile
+from ..utils.source import Source
+from ..core.flags import FROZEN_LIB
 
-def style(style: str, path: bool = False):
+def style(style: str, path: bool = False, useFrozen: bool = False):
     """
     A decorator that applies a stylesheet to a widget or window.
 
@@ -20,6 +22,7 @@ def style(style: str, path: bool = False):
     Args:
         style (str): The stylesheet or the path to the stylesheet file.
         path (bool): Whether the `style` argument is a file path. Defaults to `False`.
+        useFrozen (bool): If you want to use styles in packaged files. Defaults to `False`. (use the flag `FROZEN_LIB`).
 
     Returns:
         decorator: A class decorator that applies the given style to the widget/window.
@@ -48,7 +51,10 @@ def style(style: str, path: bool = False):
             originalInit(self, *args, **kwargs)
 
             if path:
-                styleSheet = GenericFile(style).readFile()
+                if useFrozen:
+                    styleSheet = GenericFile(Source(style, FROZEN_LIB)).readFile()
+                else:
+                    styleSheet = GenericFile(style).readFile()
 
             try:
                 self.setStyleSheet(styleSheet if path else style)

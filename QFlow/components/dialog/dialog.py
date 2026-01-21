@@ -1,5 +1,5 @@
 """
-This module defines the Dialog class, which represents a floating dialog window in a PyQt5 application.
+This module defines the Dialog class, which represents a floating dialog window in a PyQt-PySide application.
 
 The class provides a customizable modal-like dialog with an optional backdrop.
 It supports adding child layouts or individual widgets dynamically.
