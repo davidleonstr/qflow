@@ -5,7 +5,7 @@ Modifying any property in this file requires making the same changes in related 
 """
 
 # Location of the file with the styles for the Notify object
-STYLE_PATH = 'QFlow/components/dialog/dialog.css'
+STYLE_PATH = 'QFlow/components/dialog/dialog.qss'
 """Path to the file containing the styles for the Dialog object."""
 
 # Object names for each style

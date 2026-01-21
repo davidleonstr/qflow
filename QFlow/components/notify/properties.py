@@ -10,7 +10,7 @@ from ...core import RESOURCE_PACKAGE
 from ...helpers.icon import Icon
 
 # Location of the file with the styles for the Notify object
-STYLE_PATH = 'QFlow/components/notify/notify.css'
+STYLE_PATH = 'QFlow/components/notify/notify.qss'
 """Path to the file containing the styles for the Notify object."""
 
 # References to create the default icons of the Notify class

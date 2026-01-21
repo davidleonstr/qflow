@@ -7,14 +7,14 @@ setup(
     install_requires=[
         "setuptools",
         "QtPy",
-        "git+https://github.com/davidleonstr/rpack.git@080667c3f9494afdb0c26c79fbb773422a1dc111"
+        "rpack @ git+https://github.com/davidleonstr/rpack.git@080667c3f9494afdb0c26c79fbb773422a1dc111"
     ],
     description="Python microframework designed to simplify the management of PyQt/PySide applications.",
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
     author="David León",
     author_email="davidalfonsoleoncarmona@gmail.com",
-    url="https://github.com/davidleonstr/QFlow",
+    url="https://github.com/davidleonstr/qflow",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: Apache License",

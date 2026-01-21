@@ -5,7 +5,7 @@
   
   <h3>A modern Python microframework for PyQt/PySide applications</h3>
   
-  [![Docs](https://img.shields.io/badge/docs-online-brightgreen)](https://davidleonstr.github.io/QFlow/)
+  [![Docs](https://img.shields.io/badge/docs-online-brightgreen)](https://davidleonstr.github.io/qflow/)
   [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
   [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
@@ -26,5 +26,5 @@ The `rpackservice` branch can be packaged into a single file more easily due to 
 ## Installation
 
 ```bash
-pip install git+https://github.com/davidleonstr/QFlow.git@rpackservice
+pip install git+https://github.com/davidleonstr/qflow.git@rpackservice
 ```

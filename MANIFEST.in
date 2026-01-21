@@ -1,1 +1,1 @@
-recursive-include * *.css *.png *.jpg *.jpeg *.svg *.json
+recursive-include * *.qss *.png *.jpg *.jpeg *.svg *.rpack

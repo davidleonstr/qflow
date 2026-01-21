@@ -1,5 +1,5 @@
 """
-This module defines the ToggleSwitch class, a customizable animated toggle switch widget for PyQt5.
+This module defines the ToggleSwitch class, a customizable animated toggle switch widget for PyQt-PySide.
 
 The class provides a clickable switch that toggles between ON and OFF states with smooth animations.
 It supports color customization and state querying.
