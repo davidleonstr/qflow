@@ -4,7 +4,7 @@ application-level functionality with support for multiple screens and window man
 """
 from qtpy.QtCore import QTimer, Qt
 from qtpy.QtGui import QIcon
-from typing import Callable, Dict
+from typing import Callable
 from ..window import Window
 from qtpy.QtWidgets import QApplication
 import sys
@@ -26,9 +26,7 @@ class App(Window):
         resizable: bool = True,
         maximizable: bool = True,
         strictClosingWindows: bool = True,
-        opacity: float = 1.0,
-        animatedEvents: Dict[str, bool] = None,
-        animationValues: Dict[str, float] = None
+        opacity: float = 1.0
     ):
         """
         Initializes the App with application-specific settings.
@@ -42,8 +40,6 @@ class App(Window):
             maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
             strictClosingWindows (bool, optional): Determines whether all windows should be closed when the main window is closed. Defaults to True.
             opacity (float, optional): The opacity of the window. Defaults to 1.0.
-            animatedEvents (Dict[str, bool], optional): Default animations for events.
-            animationValues (Dict[str, float], optional): Default values for animations.
         """
         # Initialize the parent Window class
         super().__init__(
@@ -56,8 +52,6 @@ class App(Window):
             resizable=resizable,
             strictClosingWindows=strictClosingWindows,
             opacity=opacity,
-            animatedEvents=animatedEvents,
-            animationValues=animationValues,
             maximizable=maximizable
         )
         
