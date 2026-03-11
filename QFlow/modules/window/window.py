@@ -64,7 +64,6 @@ class Window(QMainWindow):
         self.stackedScreens = QStackedWidget()
         self.windows = {}
         self.strictClosingWindows = strictClosingWindows
-        self.msRenderTime = 16
         
         # Configure window
         self.setWindowTitle(self.title)
