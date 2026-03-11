@@ -76,7 +76,7 @@ el.replaceWith(d);
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="QFlow.app"><code class="name flex">
-<span>def <span class="ident">app</span></span>(<span>title: str,<br>geometry: list[int],<br>icon: Callable[[], PyQt6.QtGui.QIcon],<br>name: str = 'App',<br>resizable: bool = True,<br>maximizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>animatedEvents: Dict[str, bool] = None,<br>animationValues: Dict[str, float] = None)</span>
+<span>def <span class="ident">app</span></span>(<span>title: str,<br>geometry: list[int],<br>icon: Callable[[], PyQt6.QtGui.QIcon],<br>name: str = 'App',<br>resizable: bool = True,<br>maximizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0)</span>
 </code></dt>
 <dd>
 <details class="source">
@@ -91,9 +91,7 @@ el.replaceWith(d);
     resizable: bool = True,
     maximizable: bool = True,
     strictClosingWindows: bool = True,
-    opacity: float = 1.0,
-    animatedEvents: Dict[str, bool] = None,
-    animationValues: Dict[str, float] = None
+    opacity: float = 1.0
 ):
     &#34;&#34;&#34;
     Initializes the App with application-specific settings.
@@ -107,8 +105,6 @@ el.replaceWith(d);
         maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
         strictClosingWindows (bool, optional): Determines whether all windows should be closed when the main window is closed. Defaults to True.
         opacity (float, optional): The opacity of the window. Defaults to 1.0.
-        animatedEvents (Dict[str, bool], optional): Default animations for events.
-        animationValues (Dict[str, float], optional): Default values for animations.
     &#34;&#34;&#34;
     def decorator(cls):
         originit = getattr(cls, &#39;__init__&#39;, None)
@@ -123,12 +119,6 @@ el.replaceWith(d);
                 maximizable=maximizable,
                 strictClosingWindows=strictClosingWindows,
                 opacity=opacity,
-                animatedEvents=animatedEvents if animatedEvents is not None else {
-                    &#39;fadeIn&#39;: False, &#39;fadeOut&#39;: False
-                },
-                animationValues=animationValues if animationValues is not None else {
-                    &#39;opacityIncreasedIn&#39;: 0.02, &#39;opacityReductionOut&#39;: 0.02
-                }
             )
 
             if originit:
@@ -157,10 +147,6 @@ el.replaceWith(d);
 <dd>Determines whether all windows should be closed when the main window is closed. Defaults to True.</dd>
 <dt><strong><code>opacity</code></strong> :&ensp;<code>float</code>, optional</dt>
 <dd>The opacity of the window. Defaults to 1.0.</dd>
-<dt><strong><code>animatedEvents</code></strong> :&ensp;<code>Dict[str, bool]</code>, optional</dt>
-<dd>Default animations for events.</dd>
-<dt><strong><code>animationValues</code></strong> :&ensp;<code>Dict[str, float]</code>, optional</dt>
-<dd>Default values for animations.</dd>
 </dl></div>
 </dd>
 <dt id="QFlow.screen"><code class="name flex">
@@ -226,7 +212,7 @@ el.replaceWith(d);
 </dl></div>
 </dd>
 <dt id="QFlow.window"><code class="name flex">
-<span>def <span class="ident">window</span></span>(<span>name: str = '',<br>title: str = '',<br>geometry: list[int] = None,<br>maximizable: bool = True,<br>icon: Callable[[], PyQt6.QtGui.QIcon] = None,<br>parentType=None,<br>resizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>animatedEvents: Dict[str, bool] = None,<br>animationValues: Dict[str, float] = None)</span>
+<span>def <span class="ident">window</span></span>(<span>name: str = '',<br>title: str = '',<br>geometry: list[int] = None,<br>maximizable: bool = True,<br>icon: Callable[[], PyQt6.QtGui.QIcon] = None,<br>parentType=None,<br>resizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0)</span>
 </code></dt>
 <dd>
 <details class="source">
@@ -242,9 +228,7 @@ el.replaceWith(d);
     parentType=None,
     resizable: bool = True,
     strictClosingWindows: bool = True,
-    opacity: float = 1.0,
-    animatedEvents: Dict[str, bool] = None,
-    animationValues: Dict[str, float] = None
+    opacity: float = 1.0
 ):
     &#34;&#34;&#34;
     Initializes the Window with specified properties and screen management.
@@ -259,8 +243,6 @@ el.replaceWith(d);
         resizable (bool, optional): The ability to resize the window. Defaults to True.
         strictClosingWindows (bool, optional): Determines whether all windows should be closed when the window is closed. Defaults to True.
         opacity (float, optional): The opacity of the window.
-        animatedEvents (Dict[str, bool], optional): Default animations for events.
-        animationValues (Dict[str, float], optional): Default values for animations.
     &#34;&#34;&#34;
     def decorator(cls):
         originit = getattr(cls, &#39;__init__&#39;, None)
@@ -276,13 +258,7 @@ el.replaceWith(d);
                 parentType=parentType,
                 resizable=resizable,
                 strictClosingWindows=strictClosingWindows,
-                opacity=opacity,
-                animatedEvents=animatedEvents if animatedEvents is not None else {
-                    &#39;fadeIn&#39;: False, &#39;fadeOut&#39;: False
-                },
-                animationValues=animationValues if animationValues is not None else {
-                    &#39;opacityIncreasedIn&#39;: 0.02, &#39;opacityReductionOut&#39;: 0.02
-                }
+                opacity=opacity
             )
 
             self.args = {
@@ -294,13 +270,7 @@ el.replaceWith(d);
                 &#39;parentType&#39;: parentType,
                 &#39;resizable&#39;: resizable,
                 &#39;strictClosingWindows&#39;: strictClosingWindows,
-                &#39;opacity&#39;: opacity,
-                &#39;animatedEvents&#39;: animatedEvents if animatedEvents is not None else {
-                    &#39;fadeIn&#39;: False, &#39;fadeOut&#39;: False
-                },
-                &#39;animationValues&#39;: animationValues if animationValues is not None else {
-                    &#39;opacityIncreasedIn&#39;: 0.02, &#39;opacityReductionOut&#39;: 0.02
-                }
+                &#39;opacity&#39;: opacity
             }
 
             if originit:
@@ -331,10 +301,6 @@ el.replaceWith(d);
 <dd>Determines whether all windows should be closed when the window is closed. Defaults to True.</dd>
 <dt><strong><code>opacity</code></strong> :&ensp;<code>float</code>, optional</dt>
 <dd>The opacity of the window.</dd>
-<dt><strong><code>animatedEvents</code></strong> :&ensp;<code>Dict[str, bool]</code>, optional</dt>
-<dd>Default animations for events.</dd>
-<dt><strong><code>animationValues</code></strong> :&ensp;<code>Dict[str, float]</code>, optional</dt>
-<dd>Default values for animations.</dd>
 </dl></div>
 </dd>
 </dl>
@@ -344,7 +310,7 @@ el.replaceWith(d);
 <dl>
 <dt id="QFlow.App"><code class="flex name class">
 <span>class <span class="ident">App</span></span>
-<span>(</span><span>title: str,<br>geometry: list[int],<br>icon: Callable[[], PyQt6.QtGui.QIcon],<br>name: str = 'App',<br>resizable: bool = True,<br>maximizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>animatedEvents: Dict[str, bool] = None,<br>animationValues: Dict[str, float] = None)</span>
+<span>(</span><span>title: str,<br>geometry: list[int],<br>icon: Callable[[], PyQt6.QtGui.QIcon],<br>name: str = 'App',<br>resizable: bool = True,<br>maximizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0)</span>
 </code></dt>
 <dd>
 <details class="source">
@@ -368,9 +334,7 @@ el.replaceWith(d);
         resizable: bool = True,
         maximizable: bool = True,
         strictClosingWindows: bool = True,
-        opacity: float = 1.0,
-        animatedEvents: Dict[str, bool] = None,
-        animationValues: Dict[str, float] = None
+        opacity: float = 1.0
     ):
         &#34;&#34;&#34;
         Initializes the App with application-specific settings.
@@ -384,8 +348,6 @@ el.replaceWith(d);
             maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
             strictClosingWindows (bool, optional): Determines whether all windows should be closed when the main window is closed. Defaults to True.
             opacity (float, optional): The opacity of the window. Defaults to 1.0.
-            animatedEvents (Dict[str, bool], optional): Default animations for events.
-            animationValues (Dict[str, float], optional): Default values for animations.
         &#34;&#34;&#34;
         # Initialize the parent Window class
         super().__init__(
@@ -398,8 +360,6 @@ el.replaceWith(d);
             resizable=resizable,
             strictClosingWindows=strictClosingWindows,
             opacity=opacity,
-            animatedEvents=animatedEvents,
-            animationValues=animationValues,
             maximizable=maximizable
         )
         
@@ -491,10 +451,6 @@ features like strict window management and enhanced screen handling.</p>
 <dd>Determines whether all windows should be closed when the main window is closed. Defaults to True.</dd>
 <dt><strong><code>opacity</code></strong> :&ensp;<code>float</code>, optional</dt>
 <dd>The opacity of the window. Defaults to 1.0.</dd>
-<dt><strong><code>animatedEvents</code></strong> :&ensp;<code>Dict[str, bool]</code>, optional</dt>
-<dd>Default animations for events.</dd>
-<dt><strong><code>animationValues</code></strong> :&ensp;<code>Dict[str, float]</code>, optional</dt>
-<dd>Default values for animations.</dd>
 </dl></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -851,7 +807,7 @@ def removeAllLayouts(widget: QWidget):
 </dd>
 <dt id="QFlow.Window"><code class="flex name class">
 <span>class <span class="ident">Window</span></span>
-<span>(</span><span>name: str = '',<br>title: str = '',<br>geometry: list[int] = [],<br>maximizable=True,<br>icon: Callable[[], QIcon] = [],<br>parent=None,<br>parentType=None,<br>resizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>animatedEvents: Dict[str, bool] = None,<br>animationValues: Dict[str, float] = None)</span>
+<span>(</span><span>name: str = '',<br>title: str = '',<br>geometry: list[int] = [],<br>maximizable=True,<br>icon: Callable[[], QIcon] = [],<br>parent=None,<br>parentType=None,<br>resizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0)</span>
 </code></dt>
 <dd>
 <details class="source">
@@ -877,9 +833,7 @@ def removeAllLayouts(widget: QWidget):
         parentType=None,
         resizable: bool = True,
         strictClosingWindows: bool = True,
-        opacity: float = 1.0,
-        animatedEvents: Dict[str, bool] = None,
-        animationValues: Dict[str, float] = None
+        opacity: float = 1.0
     ):
         &#34;&#34;&#34;
         Initializes the Window with specified properties and screen management.
@@ -895,8 +849,6 @@ def removeAllLayouts(widget: QWidget):
             resizable (bool, optional): The ability to resize the window. Defaults to True.
             strictClosingWindows (bool, optional): Determines whether all windows should be closed when the window is closed. Defaults to True.
             opacity (float, optional): The opacity of the window.
-            animatedEvents (Dict[str, bool], optional): Default animations for events to {&#39;fadeIn&#39;: False, &#39;fadeOut&#39;: False}.
-            animationValues (Dict[str, float], optional): Default values for animations {&#39;opacityIncreasedIn&#39;: 0.02, &#39;opacityReductionOut&#39;: 0.02}.
         &#34;&#34;&#34;
         super().__init__(parent)
         
@@ -942,21 +894,6 @@ def removeAllLayouts(widget: QWidget):
             self.setWindowOpacity(opacity)
 
         self.opacity = opacity
-
-        # Initialize animation settings
-        self._animationValues = {
-            &#39;opacityIncreasedIn&#39;: 0.02,
-            &#39;opacityReductionOut&#39;: 0.02
-        }
-        if animationValues:
-            self._animationValues.update(animationValues)
-
-        self._animatedEvents = {
-            &#39;fadeIn&#39;: False,
-            &#39;fadeOut&#39;: False
-        }
-        if animatedEvents:
-            self._animatedEvents.update(animatedEvents)
 
         # Validate parent type if specified
         if parentType is not None and parent is not None:
@@ -1037,64 +974,18 @@ def removeAllLayouts(widget: QWidget):
             raise ValueError(&#34;Window name must be a non-empty string&#34;)
         
         self.name = name
-    
-    def _animateFadeOut(self) -&gt; None:
-        &#34;&#34;&#34;
-        Animates the window fade out effect.
-        &#34;&#34;&#34;
-        timer = QTimer(self)
-        opacity = self.windowOpacity()
 
-        def _modifyOpacity():
-            nonlocal opacity
-            opacity -= self._animationValues[&#39;opacityReductionOut&#39;]
-
-            if opacity &lt;= 0.2:
-                timer.stop()
-                
-            self.setWindowOpacity(opacity)
-
-        timer.timeout.connect(_modifyOpacity)
-        timer.start(self.msRenderTime)
-
-    def _animateFadeIn(self) -&gt; None:
-        &#34;&#34;&#34;
-        Animates the window fade in effect.
-        &#34;&#34;&#34;
-        if not self._animatedEvents[&#39;fadeOut&#39;]:
-            self.setWindowOpacity(0.2)
-
-        timer = QTimer(self)
-        opacity = self.windowOpacity()
-
-        def _modifyOpacity():
-            nonlocal opacity
-            opacity += self._animationValues[&#39;opacityIncreasedIn&#39;]
-
-            if opacity &gt;= self.opacity:
-                timer.stop()
-                
-            self.setWindowOpacity(opacity)
-
-        timer.timeout.connect(_modifyOpacity)
-        timer.start(self.msRenderTime)
-
-    def changeEvent(self, event):
-        &#34;&#34;&#34;
-        Handles window state change events for animations.
-        
+    def showEvent(self, event):
+        &#34;&#34;&#34;   
         Args:
-            event: The change event.
+            event: The show event.
         &#34;&#34;&#34;
-        if event.type() == QEvent.Type.WindowStateChange:
-            if self.windowState() == Qt.WindowState.WindowMinimized:
-                if self._animatedEvents[&#39;fadeOut&#39;]:
-                    self._animateFadeOut()
-            elif self.windowState() == Qt.WindowState.WindowNoState:
-                if self._animatedEvents[&#39;fadeIn&#39;]:
-                    self._animateFadeIn()
-                else:
-                    self.setWindowOpacity(self.opacity)
+
+        if hasattr(self, &#39;effect&#39;):
+            self.effect()
+
+            # QMainWindow always has showEvent
+            super().showEvent(event)
 
     def existScreen(self, name: str) -&gt; bool:
         &#34;&#34;&#34;
@@ -1163,10 +1054,6 @@ def removeAllLayouts(widget: QWidget):
             if args:
                 INSTANCE_ARGS.setArgs(instance=window, args=args)
 
-            # Execute effect
-            if hasattr(window, &#39;effect&#39;):
-                window.effect()
-
             window.show()
         else:                
             print(f&#34;The window &#39;{name}&#39; already exists.&#34;)
@@ -1214,9 +1101,6 @@ def removeAllLayouts(widget: QWidget):
             if args:
                 INSTANCE_ARGS.setArgs(instance=self.windows[name], args=args)
 
-            # Execute effect
-            if hasattr(self.windows[name], &#39;effect&#39;):
-                self.windows[name].effect()
         else:
             raise Exception(f&#34;The window &#39;{name}&#39; does not exist.&#34;)
             
@@ -1356,10 +1240,6 @@ while also providing built-in screen management functionality.</p>
 <dd>Determines whether all windows should be closed when the window is closed. Defaults to True.</dd>
 <dt><strong><code>opacity</code></strong> :&ensp;<code>float</code>, optional</dt>
 <dd>The opacity of the window.</dd>
-<dt><strong><code>animatedEvents</code></strong> :&ensp;<code>Dict[str, bool]</code>, optional</dt>
-<dd>Default animations for events to {'fadeIn': False, 'fadeOut': False}.</dd>
-<dt><strong><code>animationValues</code></strong> :&ensp;<code>Dict[str, float]</code>, optional</dt>
-<dd>Default values for animations {'opacityIncreasedIn': 0.02, 'opacityReductionOut': 0.02}.</dd>
 </dl></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -1424,38 +1304,6 @@ to the stacked widget for navigation.</p>
 <dl>
 <dt><code>Exception</code></dt>
 <dd>If the screen does not have a 'screenName' attribute.</dd>
-</dl></div>
-</dd>
-<dt id="QFlow.Window.changeEvent"><code class="name flex">
-<span>def <span class="ident">changeEvent</span></span>(<span>self, event)</span>
-</code></dt>
-<dd>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def changeEvent(self, event):
-    &#34;&#34;&#34;
-    Handles window state change events for animations.
-    
-    Args:
-        event: The change event.
-    &#34;&#34;&#34;
-    if event.type() == QEvent.Type.WindowStateChange:
-        if self.windowState() == Qt.WindowState.WindowMinimized:
-            if self._animatedEvents[&#39;fadeOut&#39;]:
-                self._animateFadeOut()
-        elif self.windowState() == Qt.WindowState.WindowNoState:
-            if self._animatedEvents[&#39;fadeIn&#39;]:
-                self._animateFadeIn()
-            else:
-                self.setWindowOpacity(self.opacity)</code></pre>
-</details>
-<div class="desc"><p>Handles window state change events for animations.</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>event</code></strong></dt>
-<dd>The change event.</dd>
 </dl></div>
 </dd>
 <dt id="QFlow.Window.clearScreenHistory"><code class="name flex">
@@ -1554,10 +1402,6 @@ to the stacked widget for navigation.</p>
 
         if args:
             INSTANCE_ARGS.setArgs(instance=window, args=args)
-
-        # Execute effect
-        if hasattr(window, &#39;effect&#39;):
-            window.effect()
 
         window.show()
     else:                
@@ -2029,9 +1873,6 @@ of a previously added screen.</p>
         if args:
             INSTANCE_ARGS.setArgs(instance=self.windows[name], args=args)
 
-        # Execute effect
-        if hasattr(self.windows[name], &#39;effect&#39;):
-            self.windows[name].effect()
     else:
         raise Exception(f&#34;The window &#39;{name}&#39; does not exist.&#34;)</code></pre>
 </details>
@@ -2082,6 +1923,32 @@ of a previously added screen.</p>
 <dl>
 <dt><code>ValueError</code></dt>
 <dd>If name is empty or not a string.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.Window.showEvent"><code class="name flex">
+<span>def <span class="ident">showEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def showEvent(self, event):
+    &#34;&#34;&#34;   
+    Args:
+        event: The show event.
+    &#34;&#34;&#34;
+
+    if hasattr(self, &#39;effect&#39;):
+        self.effect()
+
+        # QMainWindow always has showEvent
+        super().showEvent(event)</code></pre>
+</details>
+<div class="desc"><h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>event</code></strong></dt>
+<dd>The show event.</dd>
 </dl></div>
 </dd>
 </dl>
@@ -2136,7 +2003,6 @@ of a previously added screen.</p>
 <ul class="two-column">
 <li><code><a title="QFlow.Window.addScreen" href="#QFlow.Window.addScreen">addScreen</a></code></li>
 <li><code><a title="QFlow.Window.args" href="#QFlow.Window.args">args</a></code></li>
-<li><code><a title="QFlow.Window.changeEvent" href="#QFlow.Window.changeEvent">changeEvent</a></code></li>
 <li><code><a title="QFlow.Window.clearScreenHistory" href="#QFlow.Window.clearScreenHistory">clearScreenHistory</a></code></li>
 <li><code><a title="QFlow.Window.closeWindow" href="#QFlow.Window.closeWindow">closeWindow</a></code></li>
 <li><code><a title="QFlow.Window.createWindow" href="#QFlow.Window.createWindow">createWindow</a></code></li>
@@ -2157,6 +2023,7 @@ of a previously added screen.</p>
 <li><code><a title="QFlow.Window.setScreen" href="#QFlow.Window.setScreen">setScreen</a></code></li>
 <li><code><a title="QFlow.Window.setWindow" href="#QFlow.Window.setWindow">setWindow</a></code></li>
 <li><code><a title="QFlow.Window.setWindowName" href="#QFlow.Window.setWindowName">setWindowName</a></code></li>
+<li><code><a title="QFlow.Window.showEvent" href="#QFlow.Window.showEvent">showEvent</a></code></li>
 </ul>
 </li>
 </ul>
