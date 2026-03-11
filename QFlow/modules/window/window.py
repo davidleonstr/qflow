@@ -5,7 +5,7 @@ This module defines a Window class that provides window properties and screen ma
 
 from qtpy.QtGui import QIcon
 from qtpy.QtWidgets import QStackedWidget, QWidget, QMainWindow
-from qtpy.QtCore import QTimer, Qt, QEvent
+from qtpy.QtCore import QTimer, Qt
 from typing import Dict, Callable
 from ...core.temp import INSTANCE_ARGS
 
