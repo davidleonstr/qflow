@@ -12,9 +12,7 @@ def window(
     parentType=None,
     resizable: bool = True,
     strictClosingWindows: bool = True,
-    opacity: float = 1.0,
-    animatedEvents: Dict[str, bool] = None,
-    animationValues: Dict[str, float] = None
+    opacity: float = 1.0
 ):
     """
     Initializes the Window with specified properties and screen management.
@@ -29,8 +27,6 @@ def window(
         resizable (bool, optional): The ability to resize the window. Defaults to True.
         strictClosingWindows (bool, optional): Determines whether all windows should be closed when the window is closed. Defaults to True.
         opacity (float, optional): The opacity of the window.
-        animatedEvents (Dict[str, bool], optional): Default animations for events.
-        animationValues (Dict[str, float], optional): Default values for animations.
     """
     def decorator(cls):
         originit = getattr(cls, '__init__', None)
@@ -46,13 +42,7 @@ def window(
                 parentType=parentType,
                 resizable=resizable,
                 strictClosingWindows=strictClosingWindows,
-                opacity=opacity,
-                animatedEvents=animatedEvents if animatedEvents is not None else {
-                    'fadeIn': False, 'fadeOut': False
-                },
-                animationValues=animationValues if animationValues is not None else {
-                    'opacityIncreasedIn': 0.02, 'opacityReductionOut': 0.02
-                }
+                opacity=opacity
             )
 
             self.args = {
@@ -64,13 +54,7 @@ def window(
                 'parentType': parentType,
                 'resizable': resizable,
                 'strictClosingWindows': strictClosingWindows,
-                'opacity': opacity,
-                'animatedEvents': animatedEvents if animatedEvents is not None else {
-                    'fadeIn': False, 'fadeOut': False
-                },
-                'animationValues': animationValues if animationValues is not None else {
-                    'opacityIncreasedIn': 0.02, 'opacityReductionOut': 0.02
-                }
+                'opacity': opacity
             }
 
             if originit:
