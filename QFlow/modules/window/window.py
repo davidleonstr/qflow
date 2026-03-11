@@ -5,7 +5,7 @@ This module defines a Window class that provides window properties and screen ma
 
 from qtpy.QtGui import QIcon
 from qtpy.QtWidgets import QStackedWidget, QWidget, QMainWindow
-from qtpy.QtCore import QTimer, Qt, QEvent
+from qtpy.QtCore import QTimer, Qt
 from typing import Dict, Callable
 from ...core.temp import INSTANCE_ARGS
 
@@ -28,9 +28,7 @@ class Window(QMainWindow):
         parentType=None,
         resizable: bool = True,
         strictClosingWindows: bool = True,
-        opacity: float = 1.0,
-        animatedEvents: Dict[str, bool] = None,
-        animationValues: Dict[str, float] = None
+        opacity: float = 1.0
     ):
         """
         Initializes the Window with specified properties and screen management.
@@ -46,8 +44,6 @@ class Window(QMainWindow):
             resizable (bool, optional): The ability to resize the window. Defaults to True.
             strictClosingWindows (bool, optional): Determines whether all windows should be closed when the window is closed. Defaults to True.
             opacity (float, optional): The opacity of the window.
-            animatedEvents (Dict[str, bool], optional): Default animations for events to {'fadeIn': False, 'fadeOut': False}.
-            animationValues (Dict[str, float], optional): Default values for animations {'opacityIncreasedIn': 0.02, 'opacityReductionOut': 0.02}.
         """
         super().__init__(parent)
         
@@ -68,7 +64,6 @@ class Window(QMainWindow):
         self.stackedScreens = QStackedWidget()
         self.windows = {}
         self.strictClosingWindows = strictClosingWindows
-        self.msRenderTime = 16
         
         # Configure window
         self.setWindowTitle(self.title)
@@ -93,21 +88,6 @@ class Window(QMainWindow):
             self.setWindowOpacity(opacity)
 
         self.opacity = opacity
-
-        # Initialize animation settings
-        self._animationValues = {
-            'opacityIncreasedIn': 0.02,
-            'opacityReductionOut': 0.02
-        }
-        if animationValues:
-            self._animationValues.update(animationValues)
-
-        self._animatedEvents = {
-            'fadeIn': False,
-            'fadeOut': False
-        }
-        if animatedEvents:
-            self._animatedEvents.update(animatedEvents)
 
         # Validate parent type if specified
         if parentType is not None and parent is not None:
@@ -188,64 +168,18 @@ class Window(QMainWindow):
             raise ValueError("Window name must be a non-empty string")
         
         self.name = name
-    
-    def _animateFadeOut(self) -> None:
-        """
-        Animates the window fade out effect.
-        """
-        timer = QTimer(self)
-        opacity = self.windowOpacity()
 
-        def _modifyOpacity():
-            nonlocal opacity
-            opacity -= self._animationValues['opacityReductionOut']
-
-            if opacity <= 0.2:
-                timer.stop()
-                
-            self.setWindowOpacity(opacity)
-
-        timer.timeout.connect(_modifyOpacity)
-        timer.start(self.msRenderTime)
-
-    def _animateFadeIn(self) -> None:
-        """
-        Animates the window fade in effect.
-        """
-        if not self._animatedEvents['fadeOut']:
-            self.setWindowOpacity(0.2)
-
-        timer = QTimer(self)
-        opacity = self.windowOpacity()
-
-        def _modifyOpacity():
-            nonlocal opacity
-            opacity += self._animationValues['opacityIncreasedIn']
-
-            if opacity >= self.opacity:
-                timer.stop()
-                
-            self.setWindowOpacity(opacity)
-
-        timer.timeout.connect(_modifyOpacity)
-        timer.start(self.msRenderTime)
-
-    def changeEvent(self, event):
-        """
-        Handles window state change events for animations.
-        
+    def showEvent(self, event):
+        """   
         Args:
-            event: The change event.
+            event: The show event.
         """
-        if event.type() == QEvent.Type.WindowStateChange:
-            if self.windowState() == Qt.WindowState.WindowMinimized:
-                if self._animatedEvents['fadeOut']:
-                    self._animateFadeOut()
-            elif self.windowState() == Qt.WindowState.WindowNoState:
-                if self._animatedEvents['fadeIn']:
-                    self._animateFadeIn()
-                else:
-                    self.setWindowOpacity(self.opacity)
+
+        if hasattr(self, 'effect'):
+            self.effect()
+
+            # QMainWindow always has showEvent
+            super().showEvent(event)
 
     def existScreen(self, name: str) -> bool:
         """
@@ -314,10 +248,6 @@ class Window(QMainWindow):
             if args:
                 INSTANCE_ARGS.setArgs(instance=window, args=args)
 
-            # Execute effect
-            if hasattr(window, 'effect'):
-                window.effect()
-
             window.show()
         else:                
             print(f"The window '{name}' already exists.")
@@ -365,9 +295,6 @@ class Window(QMainWindow):
             if args:
                 INSTANCE_ARGS.setArgs(instance=self.windows[name], args=args)
 
-            # Execute effect
-            if hasattr(self.windows[name], 'effect'):
-                self.windows[name].effect()
         else:
             raise Exception(f"The window '{name}' does not exist.")
             

@@ -9,9 +9,7 @@ def app(
     resizable: bool = True,
     maximizable: bool = True,
     strictClosingWindows: bool = True,
-    opacity: float = 1.0,
-    animatedEvents: Dict[str, bool] = None,
-    animationValues: Dict[str, float] = None
+    opacity: float = 1.0
 ):
     """
     Initializes the App with application-specific settings.
@@ -25,8 +23,6 @@ def app(
         maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
         strictClosingWindows (bool, optional): Determines whether all windows should be closed when the main window is closed. Defaults to True.
         opacity (float, optional): The opacity of the window. Defaults to 1.0.
-        animatedEvents (Dict[str, bool], optional): Default animations for events.
-        animationValues (Dict[str, float], optional): Default values for animations.
     """
     def decorator(cls):
         originit = getattr(cls, '__init__', None)
@@ -41,12 +37,6 @@ def app(
                 maximizable=maximizable,
                 strictClosingWindows=strictClosingWindows,
                 opacity=opacity,
-                animatedEvents=animatedEvents if animatedEvents is not None else {
-                    'fadeIn': False, 'fadeOut': False
-                },
-                animationValues=animationValues if animationValues is not None else {
-                    'opacityIncreasedIn': 0.02, 'opacityReductionOut': 0.02
-                }
             )
 
             if originit:
