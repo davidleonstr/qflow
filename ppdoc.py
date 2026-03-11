@@ -4,8 +4,10 @@ from markdown_it import MarkdownIt
 from pathlib import Path
 import shutil
 
+# Output dir (/docs)
 OUTPUT_DIR = Path('docs')
 
+# Included modules
 MODULES = [
     'QFlow',
     'examples.example'
@@ -14,6 +16,7 @@ MODULES = [
 import pdoc.cli
 import sys
 
+# Markdown renderer
 mdHTML = MarkdownIt(
     'commonmark',
     {
@@ -23,8 +26,10 @@ mdHTML = MarkdownIt(
     }
 )
 
+# Read project readme to insert the context in the index
 readmeHTML = mdHTML.render(open('README.md', encoding='utf-8').read())
 
+# Index
 indexHTML = \
 r'''
 <!DOCTYPE html>
@@ -127,21 +132,22 @@ r'''
 </html>
 '''
 
+# Function that write and index in the output folder
 def index() -> None:
     indexPath = OUTPUT_DIR / 'index.html'
     indexPath.write_text(indexHTML.replace(r'%readme%', readmeHTML), encoding='utf-8')
 
+    # Copy assets
     src = Path('assets')
     dst = Path('docs/assets')
-
     shutil.copytree(
         src,
         dst,
         dirs_exist_ok=True
     )
 
-
 def main():
+    # Set args to pdoc main
     sys.argv = [
         'pdoc',
         '--html',
@@ -152,7 +158,9 @@ def main():
 
     pdoc.cli.main()
 
+    # Write index
     index()
 
+# Entry point
 if __name__ == '__main__':
     main()
