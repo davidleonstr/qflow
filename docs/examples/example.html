@@ -57,8 +57,7 @@ el.replaceWith(d);
 </summary>
 <pre><code class="python">@QFlow.app(
     title=&#39;QFlow App Title&#39;, 
-    geometry=[100, 100, 800, 600], 
-    icon=lambda: QIcon()
+    geometry=[100, 100, 800, 600]
 )
 # The class is initialized with predefined arguments using the decorator corresponding to the class
 class QFlowApp(QFlow.App):
@@ -437,8 +436,7 @@ Can be used as a base class or through composition.</p></div>
 <pre><code class="python">@QFlow.window(
     name=&#39;secondaryWindow&#39;,
     title=&#39;QFlow Secondary Window&#39;,
-    geometry=[150, 150, 400, 300], 
-    icon=lambda: QIcon()
+    geometry=[150, 150, 400, 300]
 )
 # The class is initialized with predefined arguments using the decorator corresponding to the class
 class QFlowSecondaryWindow(QFlow.Window):

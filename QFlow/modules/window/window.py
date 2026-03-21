@@ -6,7 +6,7 @@ This module defines a Window class that provides window properties and screen ma
 from qtpy.QtGui import QIcon
 from qtpy.QtWidgets import QStackedWidget, QWidget, QMainWindow
 from qtpy.QtCore import QTimer, Qt
-from typing import Dict, Callable
+from typing import Dict
 from ...core.temp import INSTANCE_ARGS
 
 class Window(QMainWindow):
@@ -23,7 +23,7 @@ class Window(QMainWindow):
         title: str = '',
         geometry: list[int] = [],
         maximizable=True,
-        icon: Callable[[], QIcon] = [],
+        icon: QIcon = None,
         parent=None,
         parentType=None,
         resizable: bool = True,
@@ -39,7 +39,7 @@ class Window(QMainWindow):
             title (str): The title of the window.
             geometry (list): The geometry of the window (ax: int, ay: int, aw: int, ah: int).
             maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
-            icon (Callable[[], QIcon]): Callable to make the icon to set for the window.
+            icon (QIcon): The icon to set for the window.
             parent: Parent widget.
             parentType: Expected parent type for validation.
             resizable (bool, optional): The ability to resize the window. Defaults to True.
@@ -88,7 +88,9 @@ class Window(QMainWindow):
         if self.frameless:
             self.setWindowFlags(Qt.FramelessWindowHint)
 
-        self.setWindowIcon(icon())
+        if icon is not None:
+            self.setWindowIcon(icon)
+            
         self.setCentralWidget(self.stackedScreens)
 
         if opacity != 1.0:

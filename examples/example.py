@@ -20,8 +20,7 @@ from QFlow.components import Notify
 
 @QFlow.app(
     title='QFlow App Title', 
-    geometry=[100, 100, 800, 600], 
-    icon=lambda: QIcon()
+    geometry=[100, 100, 800, 600]
 )
 # The class is initialized with predefined arguments using the decorator corresponding to the class
 class QFlowApp(QFlow.App):
@@ -55,8 +54,7 @@ class QFlowApp(QFlow.App):
 @QFlow.window(
     name='secondaryWindow',
     title='QFlow Secondary Window',
-    geometry=[150, 150, 400, 300], 
-    icon=lambda: QIcon()
+    geometry=[150, 150, 400, 300]
 )
 # The class is initialized with predefined arguments using the decorator corresponding to the class
 class QFlowSecondaryWindow(QFlow.Window):
