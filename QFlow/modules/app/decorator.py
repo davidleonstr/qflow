@@ -1,11 +1,13 @@
-from typing import Callable
+from qtpy.QtWidgets import QWidget
 from qtpy.QtGui import QIcon
+from typing import Callable
 
 def app(
     title: str,
     geometry: list[int],
     icon: QIcon = None,
     name: str = 'App',
+    customTemplate: Callable[[], QWidget] = None,
     resizable: bool = True,
     maximizable: bool = True,
     strictClosingWindows: bool = True,
@@ -20,6 +22,7 @@ def app(
         geometry (list): The window geometry as a list [x, y, width, height].
         icon (QIcon): The icon to set for the window.
         name (str, optional): The name of the application window. Defaults to "App".
+        customTemplate (QWidget): Callable of custom QWidget as a template. It needs to have a QStackedWidgets named 'screens' in order to render the screens there.
         resizable (bool, optional): Determines whether the window can be resized. Defaults to True.
         maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
         strictClosingWindows (bool, optional): Determines whether all windows should be closed when the main window is closed. Defaults to True.
@@ -34,6 +37,7 @@ def app(
                 title=title,
                 geometry=geometry if geometry is not None else [],
                 icon=icon,
+                customTemplate=customTemplate,
                 name=name,
                 resizable=resizable,
                 maximizable=maximizable,

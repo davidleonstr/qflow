@@ -4,9 +4,9 @@ This module defines a Window class that provides window properties and screen ma
 """
 
 from qtpy.QtGui import QIcon
-from qtpy.QtWidgets import QStackedWidget, QWidget, QMainWindow
+from qtpy.QtWidgets import QStackedWidget, QWidget, QMainWindow, QHBoxLayout, QVBoxLayout
 from qtpy.QtCore import QTimer, Qt
-from typing import Dict
+from typing import Dict, Callable
 from ...core.temp import INSTANCE_ARGS
 
 class Window(QMainWindow):
@@ -24,6 +24,7 @@ class Window(QMainWindow):
         geometry: list[int] = [],
         maximizable=True,
         icon: QIcon = None,
+        customTemplate: Callable[[], QWidget] = None,
         parent=None,
         parentType=None,
         resizable: bool = True,
@@ -40,6 +41,7 @@ class Window(QMainWindow):
             geometry (list): The geometry of the window (ax: int, ay: int, aw: int, ah: int).
             maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
             icon (QIcon): The icon to set for the window.
+            customTemplate (QWidget): Callable of custom QWidget as a template. It needs to have a QStackedWidgets named 'screens' in order to render the screens there.
             parent: Parent widget.
             parentType: Expected parent type for validation.
             resizable (bool, optional): The ability to resize the window. Defaults to True.
@@ -55,6 +57,7 @@ class Window(QMainWindow):
         self.windowGeometry = geometry
         self.icon = icon
         self.frameless = frameless
+        self.customTemplate = customTemplate
 
         self.args = {}
         """
@@ -64,7 +67,6 @@ class Window(QMainWindow):
         # Initialize screen management
         self.screenHistory = []
         self.screens = {}
-        self.stackedScreens = QStackedWidget()
         self.windows = {}
         self.strictClosingWindows = strictClosingWindows
         
@@ -90,8 +92,23 @@ class Window(QMainWindow):
 
         if icon is not None:
             self.setWindowIcon(icon)
-            
-        self.setCentralWidget(self.stackedScreens)
+
+        # Find and set the QStackedWidget in the custom template
+        if self.customTemplate is not None:
+            # Initialize template
+            self.customTemplate: QWidget = customTemplate(self)
+
+            self.stackedScreens = self.customTemplate.findChild(QWidget, 'screens')
+
+            # Raise
+            if self.stackedScreens is None:
+                raise Exception("Undefined 'screens' in your template")
+
+            self.setCentralWidget(self.customTemplate)
+        else:
+            self.stackedScreens = QStackedWidget()
+            # Set normal
+            self.setCentralWidget(self.stackedScreens)
 
         if opacity != 1.0:
             self.setWindowOpacity(opacity)

@@ -1,6 +1,7 @@
 from .app import App
 from .app.decorator import app
 from .window import Window
+from .window.template import Template
 from .window.decorator import window
 from .style import style
 from .config import config
@@ -14,5 +15,6 @@ __all__ = [
     'session', 
     'App', 'Window',
     'app', 'window',
-    'screen', 'Screen'
+    'screen', 'Screen',
+    'Template'
 ]
