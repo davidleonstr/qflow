@@ -12,7 +12,8 @@ def window(
     parentType=None,
     resizable: bool = True,
     strictClosingWindows: bool = True,
-    opacity: float = 1.0
+    opacity: float = 1.0,
+    frameless: bool = False
 ):
     """
     Initializes the Window with specified properties and screen management.
@@ -42,7 +43,8 @@ def window(
                 parentType=parentType,
                 resizable=resizable,
                 strictClosingWindows=strictClosingWindows,
-                opacity=opacity
+                opacity=opacity,
+                frameless=frameless
             )
 
             self.args = {
@@ -54,7 +56,8 @@ def window(
                 'parentType': parentType,
                 'resizable': resizable,
                 'strictClosingWindows': strictClosingWindows,
-                'opacity': opacity
+                'opacity': opacity,
+                'frameless': frameless
             }
 
             if originit:

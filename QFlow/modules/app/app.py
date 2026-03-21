@@ -26,7 +26,8 @@ class App(Window):
         resizable: bool = True,
         maximizable: bool = True,
         strictClosingWindows: bool = True,
-        opacity: float = 1.0
+        opacity: float = 1.0,
+        frameless: bool = False
     ):
         """
         Initializes the App with application-specific settings.
@@ -40,6 +41,7 @@ class App(Window):
             maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
             strictClosingWindows (bool, optional): Determines whether all windows should be closed when the main window is closed. Defaults to True.
             opacity (float, optional): The opacity of the window. Defaults to 1.0.
+            frameless (bool, optional): It can delete the window frame.
         """
         # Initialize the parent Window class
         super().__init__(
@@ -52,7 +54,8 @@ class App(Window):
             resizable=resizable,
             strictClosingWindows=strictClosingWindows,
             opacity=opacity,
-            maximizable=maximizable
+            maximizable=maximizable,
+            frameless=frameless
         )
         
         # Application-specific properties
