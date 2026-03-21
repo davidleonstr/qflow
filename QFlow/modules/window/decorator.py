@@ -1,6 +1,3 @@
-from typing import Dict, Callable
-from qtpy.QtGui import QIcon
-from typing import Dict, Callable
 from qtpy.QtGui import QIcon
 
 def window(
@@ -8,7 +5,7 @@ def window(
     title: str = '',
     geometry: list[int] = None,
     maximizable: bool = True,
-    icon: Callable[[], QIcon] = None,
+    icon: QIcon = None,
     parentType=None,
     resizable: bool = True,
     strictClosingWindows: bool = True,
@@ -23,7 +20,7 @@ def window(
         title (str): The title of the window.
         geometry (list): The geometry of the window (ax: int, ay: int, aw: int, ah: int).
         maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
-        icon (Callable[[], QIcon]): Callable to make the icon to set for the window.
+        icon (QIcon): The icon to set for the window.
         parentType: Expected parent type for validation.
         resizable (bool, optional): The ability to resize the window. Defaults to True.
         strictClosingWindows (bool, optional): Determines whether all windows should be closed when the window is closed. Defaults to True.

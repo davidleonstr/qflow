@@ -4,7 +4,6 @@ application-level functionality with support for multiple screens and window man
 """
 from qtpy.QtCore import QTimer, Qt
 from qtpy.QtGui import QIcon
-from typing import Callable
 from ..window import Window
 from qtpy.QtWidgets import QApplication
 import sys
@@ -21,7 +20,7 @@ class App(Window):
         self,
         title: str,
         geometry: list[int],
-        icon: Callable[[], QIcon],
+        icon: QIcon = None,
         name: str = 'App',
         resizable: bool = True,
         maximizable: bool = True,
@@ -35,7 +34,7 @@ class App(Window):
         Args:
             title (str): The title to set for the application window.
             geometry (list): The window geometry as a list [x, y, width, height].
-            icon (Callable[[], QIcon]): Callable to make the icon to set for the window.
+            icon (QIcon): The icon to set for the window.
             name (str, optional): The name of the application window. Defaults to "App".
             resizable (bool, optional): Determines whether the window can be resized. Defaults to True.
             maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
