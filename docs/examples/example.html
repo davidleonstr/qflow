@@ -46,6 +46,47 @@ el.replaceWith(d);
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
+<dt id="examples.example.DefaultTemplate"><code class="flex name class">
+<span>class <span class="ident">DefaultTemplate</span></span>
+<span>(</span><span>parent)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DefaultTemplate(QFlow.Template):
+    def __init__(self, parent):
+        super().__init__(parent)
+
+        # Window bar
+        self.titleBar = QLabel(&#39;Hello from Template&#39;)
+
+        # Main layout
+        self.mainLayout = QVBoxLayout()
+
+        # Screens
+        self.screens = QStackedWidget()
+        self.screens.setObjectName(&#39;screens&#39;)
+
+        # Set every widget in the main layout
+        self.mainLayout.addWidget(self.titleBar)
+        self.mainLayout.addWidget(self.screens)
+
+        # Set main layout
+        self.setLayout(self.mainLayout)</code></pre>
+</details>
+<div class="desc"><p>A class that represents a custom template for screens; its main characteristic is having a parent Window.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>QFlow.modules.window.template.Template</li>
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+</dd>
 <dt id="examples.example.QFlowApp"><code class="flex name class">
 <span>class <span class="ident">QFlowApp</span></span>
 <span>(</span><span>*args, **kwargs)</span>
@@ -57,7 +98,8 @@ el.replaceWith(d);
 </summary>
 <pre><code class="python">@QFlow.app(
     title=&#39;QFlow App Title&#39;, 
-    geometry=[100, 100, 800, 600]
+    geometry=[100, 100, 800, 600],
+    customTemplate=DefaultTemplate
 )
 # The class is initialized with predefined arguments using the decorator corresponding to the class
 class QFlowApp(QFlow.App):
@@ -507,6 +549,9 @@ while also providing built-in screen management functionality.</p></div>
 <ul id="index">
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
+<li>
+<h4><code><a title="examples.example.DefaultTemplate" href="#examples.example.DefaultTemplate">DefaultTemplate</a></code></h4>
+</li>
 <li>
 <h4><code><a title="examples.example.QFlowApp" href="#examples.example.QFlowApp">QFlowApp</a></code></h4>
 </li>

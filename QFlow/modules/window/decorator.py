@@ -1,4 +1,6 @@
 from qtpy.QtGui import QIcon
+from qtpy.QtWidgets import QWidget
+from typing import Callable
 
 def window(
     name: str = '',
@@ -6,6 +8,7 @@ def window(
     geometry: list[int] = None,
     maximizable: bool = True,
     icon: QIcon = None,
+    customTemplate: Callable[[], QWidget] = None,
     parentType=None,
     resizable: bool = True,
     strictClosingWindows: bool = True,
@@ -21,7 +24,7 @@ def window(
         geometry (list): The geometry of the window (ax: int, ay: int, aw: int, ah: int).
         maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
         icon (QIcon): The icon to set for the window.
-        parentType: Expected parent type for validation.
+        customTemplate (QWidget): Callable of custom QWidget as a template. It needs to have a QStackedWidgets named 'screens' in order to render the screens there.        parentType: Expected parent type for validation.
         resizable (bool, optional): The ability to resize the window. Defaults to True.
         strictClosingWindows (bool, optional): Determines whether all windows should be closed when the window is closed. Defaults to True.
         opacity (float, optional): The opacity of the window.
@@ -36,6 +39,7 @@ def window(
                 geometry=geometry if geometry is not None else [],
                 maximizable=maximizable,
                 icon=icon,
+                customTemplate=customTemplate,
                 parent=None,
                 parentType=parentType,
                 resizable=resizable,
@@ -50,6 +54,7 @@ def window(
                 'geometry': geometry if geometry is not None else [],
                 'maximizable': maximizable,
                 'icon': icon,
+                'customTemplate': customTemplate,
                 'parentType': parentType,
                 'resizable': resizable,
                 'strictClosingWindows': strictClosingWindows,

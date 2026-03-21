@@ -5,8 +5,9 @@ application-level functionality with support for multiple screens and window man
 from qtpy.QtCore import QTimer, Qt
 from qtpy.QtGui import QIcon
 from ..window import Window
-from qtpy.QtWidgets import QApplication
+from qtpy.QtWidgets import QApplication, QWidget
 import sys
+from typing import Callable
 
 class App(Window):
     """
@@ -22,6 +23,7 @@ class App(Window):
         geometry: list[int],
         icon: QIcon = None,
         name: str = 'App',
+        customTemplate: Callable[[], QWidget] = None,
         resizable: bool = True,
         maximizable: bool = True,
         strictClosingWindows: bool = True,
@@ -36,6 +38,7 @@ class App(Window):
             geometry (list): The window geometry as a list [x, y, width, height].
             icon (QIcon): The icon to set for the window.
             name (str, optional): The name of the application window. Defaults to "App".
+            customTemplate (QWidget): Callable of custom QWidget as a template. It needs to have a QStackedWidgets named 'screens' in order to render the screens there.
             resizable (bool, optional): Determines whether the window can be resized. Defaults to True.
             maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
             strictClosingWindows (bool, optional): Determines whether all windows should be closed when the main window is closed. Defaults to True.
@@ -48,6 +51,7 @@ class App(Window):
             title=title,
             geometry=geometry,
             icon=icon,
+            customTemplate=customTemplate,
             parent=None,
             parentType=None,
             resizable=resizable,

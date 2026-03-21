@@ -8,9 +8,8 @@ os.environ['QT_API'] = 'pyqt6'
 # The library that will be used internally is assigned.
 
 from qtpy.QtWidgets import (
-    QApplication, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QLineEdit
+    QApplication, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QLineEdit, QWidget, QStackedWidget
 )
-from qtpy.QtGui import QIcon
 
 import QFlow
 # The package is imported
@@ -18,9 +17,32 @@ import QFlow
 from QFlow.components import Notify
 # The notification class is imported from QFlow components
 
+# Custom template
+class DefaultTemplate(QFlow.Template):
+    def __init__(self, parent):
+        super().__init__(parent)
+
+        # Window bar
+        self.titleBar = QLabel('Hello from Template')
+
+        # Main layout
+        self.mainLayout = QVBoxLayout()
+
+        # Screens
+        self.screens = QStackedWidget()
+        self.screens.setObjectName('screens')
+
+        # Set every widget in the main layout
+        self.mainLayout.addWidget(self.titleBar)
+        self.mainLayout.addWidget(self.screens)
+
+        # Set main layout
+        self.setLayout(self.mainLayout)
+
 @QFlow.app(
     title='QFlow App Title', 
-    geometry=[100, 100, 800, 600]
+    geometry=[100, 100, 800, 600],
+    customTemplate=DefaultTemplate
 )
 # The class is initialized with predefined arguments using the decorator corresponding to the class
 class QFlowApp(QFlow.App):
