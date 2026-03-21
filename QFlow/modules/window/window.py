@@ -28,7 +28,8 @@ class Window(QMainWindow):
         parentType=None,
         resizable: bool = True,
         strictClosingWindows: bool = True,
-        opacity: float = 1.0
+        opacity: float = 1.0,
+        frameless: bool = False
     ):
         """
         Initializes the Window with specified properties and screen management.
@@ -44,6 +45,7 @@ class Window(QMainWindow):
             resizable (bool, optional): The ability to resize the window. Defaults to True.
             strictClosingWindows (bool, optional): Determines whether all windows should be closed when the window is closed. Defaults to True.
             opacity (float, optional): The opacity of the window.
+            frameless (bool, optional): It can delete the window frame.
         """
         super().__init__(parent)
         
@@ -52,6 +54,7 @@ class Window(QMainWindow):
         self.title = title
         self.windowGeometry = geometry
         self.icon = icon
+        self.frameless = frameless
 
         self.args = {}
         """
@@ -80,6 +83,10 @@ class Window(QMainWindow):
             # Remove maximize button while keeping other flags
             newFlags = currentFlags & ~Qt.WindowType.WindowMaximizeButtonHint
             self.setWindowFlags(newFlags | Qt.WindowType.WindowMinimizeButtonHint | Qt.WindowType.WindowCloseButtonHint)
+
+        # Do that frameless
+        if self.frameless:
+            self.setWindowFlags(Qt.FramelessWindowHint)
 
         self.setWindowIcon(icon())
         self.setCentralWidget(self.stackedScreens)

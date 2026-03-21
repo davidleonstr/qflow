@@ -1,4 +1,4 @@
-from typing import Dict, Callable
+from typing import Callable
 from qtpy.QtGui import QIcon
 
 def app(
@@ -9,7 +9,8 @@ def app(
     resizable: bool = True,
     maximizable: bool = True,
     strictClosingWindows: bool = True,
-    opacity: float = 1.0
+    opacity: float = 1.0,
+    frameless: bool = False
 ):
     """
     Initializes the App with application-specific settings.
@@ -23,6 +24,7 @@ def app(
         maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
         strictClosingWindows (bool, optional): Determines whether all windows should be closed when the main window is closed. Defaults to True.
         opacity (float, optional): The opacity of the window. Defaults to 1.0.
+        frameless (bool, optional): It can delete the window frame.
     """
     def decorator(cls):
         originit = getattr(cls, '__init__', None)
@@ -37,6 +39,7 @@ def app(
                 maximizable=maximizable,
                 strictClosingWindows=strictClosingWindows,
                 opacity=opacity,
+                frameless=frameless
             )
 
             if originit:
