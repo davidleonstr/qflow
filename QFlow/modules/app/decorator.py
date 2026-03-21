@@ -5,7 +5,7 @@ from typing import Callable
 def app(
     title: str,
     geometry: list[int],
-    icon: QIcon = None,
+    icon: Callable[[], QIcon] = None,
     name: str = 'App',
     customTemplate: Callable[[], QWidget] = None,
     resizable: bool = True,
@@ -20,7 +20,7 @@ def app(
     Args:
         title (str): The title to set for the application window.
         geometry (list): The window geometry as a list [x, y, width, height].
-        icon (QIcon): The icon to set for the window.
+        icon (QIcon): Callable of the icon to set for the window.
         name (str, optional): The name of the application window. Defaults to "App".
         customTemplate (QWidget): Callable of custom QWidget as a template. It needs to have a QStackedWidgets named 'screens' in order to render the screens there.
         resizable (bool, optional): Determines whether the window can be resized. Defaults to True.

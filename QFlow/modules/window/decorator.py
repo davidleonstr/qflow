@@ -7,7 +7,7 @@ def window(
     title: str = '',
     geometry: list[int] = None,
     maximizable: bool = True,
-    icon: QIcon = None,
+    icon: Callable[[], QIcon] = None,
     customTemplate: Callable[[], QWidget] = None,
     parentType=None,
     resizable: bool = True,
@@ -23,7 +23,7 @@ def window(
         title (str): The title of the window.
         geometry (list): The geometry of the window (ax: int, ay: int, aw: int, ah: int).
         maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
-        icon (QIcon): The icon to set for the window.
+        icon (QIcon): Callable of the icon to set for the window.
         customTemplate (QWidget): Callable of custom QWidget as a template. It needs to have a QStackedWidgets named 'screens' in order to render the screens there.        parentType: Expected parent type for validation.
         resizable (bool, optional): The ability to resize the window. Defaults to True.
         strictClosingWindows (bool, optional): Determines whether all windows should be closed when the window is closed. Defaults to True.
