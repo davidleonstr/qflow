@@ -8,7 +8,7 @@ os.environ['QT_API'] = 'pyqt6'
 # The library that will be used internally is assigned.
 
 from qtpy.QtWidgets import (
-    QApplication, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QLineEdit, QWidget, QStackedWidget
+    QApplication, QVBoxLayout, QLabel, QPushButton, QHBoxLayout, QLineEdit, QStackedWidget
 )
 
 import QFlow
