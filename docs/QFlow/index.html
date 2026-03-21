@@ -76,7 +76,7 @@ el.replaceWith(d);
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
 <dt id="QFlow.app"><code class="name flex">
-<span>def <span class="ident">app</span></span>(<span>title: str,<br>geometry: list[int],<br>icon: PyQt6.QtGui.QIcon = None,<br>name: str = 'App',<br>customTemplate: Callable[[], PyQt6.QtWidgets.QWidget] = None,<br>resizable: bool = True,<br>maximizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>frameless: bool = False)</span>
+<span>def <span class="ident">app</span></span>(<span>title: str,<br>geometry: list[int],<br>icon: Callable[[], PyQt6.QtGui.QIcon] = None,<br>name: str = 'App',<br>customTemplate: Callable[[], PyQt6.QtWidgets.QWidget] = None,<br>resizable: bool = True,<br>maximizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>frameless: bool = False)</span>
 </code></dt>
 <dd>
 <details class="source">
@@ -86,7 +86,7 @@ el.replaceWith(d);
 <pre><code class="python">def app(
     title: str,
     geometry: list[int],
-    icon: QIcon = None,
+    icon: Callable[[], QIcon] = None,
     name: str = &#39;App&#39;,
     customTemplate: Callable[[], QWidget] = None,
     resizable: bool = True,
@@ -101,7 +101,7 @@ el.replaceWith(d);
     Args:
         title (str): The title to set for the application window.
         geometry (list): The window geometry as a list [x, y, width, height].
-        icon (QIcon): The icon to set for the window.
+        icon (QIcon): Callable of the icon to set for the window.
         name (str, optional): The name of the application window. Defaults to &#34;App&#34;.
         customTemplate (QWidget): Callable of custom QWidget as a template. It needs to have a QStackedWidgets named &#39;screens&#39; in order to render the screens there.
         resizable (bool, optional): Determines whether the window can be resized. Defaults to True.
@@ -142,7 +142,7 @@ el.replaceWith(d);
 <dt><strong><code>geometry</code></strong> :&ensp;<code>list</code></dt>
 <dd>The window geometry as a list [x, y, width, height].</dd>
 <dt><strong><code>icon</code></strong> :&ensp;<code>QIcon</code></dt>
-<dd>The icon to set for the window.</dd>
+<dd>Callable of the icon to set for the window.</dd>
 <dt><strong><code>name</code></strong> :&ensp;<code>str</code>, optional</dt>
 <dd>The name of the application window. Defaults to "App".</dd>
 <dt><strong><code>customTemplate</code></strong> :&ensp;<code>QWidget</code></dt>
@@ -222,7 +222,7 @@ el.replaceWith(d);
 </dl></div>
 </dd>
 <dt id="QFlow.window"><code class="name flex">
-<span>def <span class="ident">window</span></span>(<span>name: str = '',<br>title: str = '',<br>geometry: list[int] = None,<br>maximizable: bool = True,<br>icon: PyQt6.QtGui.QIcon = None,<br>customTemplate: Callable[[], PyQt6.QtWidgets.QWidget] = None,<br>parentType=None,<br>resizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>frameless: bool = False)</span>
+<span>def <span class="ident">window</span></span>(<span>name: str = '',<br>title: str = '',<br>geometry: list[int] = None,<br>maximizable: bool = True,<br>icon: Callable[[], PyQt6.QtGui.QIcon] = None,<br>customTemplate: Callable[[], PyQt6.QtWidgets.QWidget] = None,<br>parentType=None,<br>resizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>frameless: bool = False)</span>
 </code></dt>
 <dd>
 <details class="source">
@@ -234,7 +234,7 @@ el.replaceWith(d);
     title: str = &#39;&#39;,
     geometry: list[int] = None,
     maximizable: bool = True,
-    icon: QIcon = None,
+    icon: Callable[[], QIcon] = None,
     customTemplate: Callable[[], QWidget] = None,
     parentType=None,
     resizable: bool = True,
@@ -250,7 +250,7 @@ el.replaceWith(d);
         title (str): The title of the window.
         geometry (list): The geometry of the window (ax: int, ay: int, aw: int, ah: int).
         maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
-        icon (QIcon): The icon to set for the window.
+        icon (QIcon): Callable of the icon to set for the window.
         customTemplate (QWidget): Callable of custom QWidget as a template. It needs to have a QStackedWidgets named &#39;screens&#39; in order to render the screens there.        parentType: Expected parent type for validation.
         resizable (bool, optional): The ability to resize the window. Defaults to True.
         strictClosingWindows (bool, optional): Determines whether all windows should be closed when the window is closed. Defaults to True.
@@ -308,7 +308,7 @@ el.replaceWith(d);
 <dt><strong><code>maximizable</code></strong> :&ensp;<code>bool</code>, optional</dt>
 <dd>Determines whether the window can be maximized. Defaults to True.</dd>
 <dt><strong><code>icon</code></strong> :&ensp;<code>QIcon</code></dt>
-<dd>The icon to set for the window.</dd>
+<dd>Callable of the icon to set for the window.</dd>
 <dt><strong><code>customTemplate</code></strong> :&ensp;<code>QWidget</code></dt>
 <dd>Callable of custom QWidget as a template. It needs to have a QStackedWidgets named 'screens' in order to render the screens there.
 parentType: Expected parent type for validation.</dd>
@@ -327,7 +327,7 @@ parentType: Expected parent type for validation.</dd>
 <dl>
 <dt id="QFlow.App"><code class="flex name class">
 <span>class <span class="ident">App</span></span>
-<span>(</span><span>title: str,<br>geometry: list[int],<br>icon: PyQt6.QtGui.QIcon = None,<br>name: str = 'App',<br>customTemplate: Callable[[], PyQt6.QtWidgets.QWidget] = None,<br>resizable: bool = True,<br>maximizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>frameless: bool = False)</span>
+<span>(</span><span>title: str,<br>geometry: list[int],<br>icon: Callable[[], PyQt6.QtGui.QIcon] = None,<br>name: str = 'App',<br>customTemplate: Callable[[], PyQt6.QtWidgets.QWidget] = None,<br>resizable: bool = True,<br>maximizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>frameless: bool = False)</span>
 </code></dt>
 <dd>
 <details class="source">
@@ -346,7 +346,7 @@ parentType: Expected parent type for validation.</dd>
         self,
         title: str,
         geometry: list[int],
-        icon: QIcon = None,
+        icon: Callable[[], QIcon] = None,
         name: str = &#39;App&#39;,
         customTemplate: Callable[[], QWidget] = None,
         resizable: bool = True,
@@ -361,7 +361,7 @@ parentType: Expected parent type for validation.</dd>
         Args:
             title (str): The title to set for the application window.
             geometry (list): The window geometry as a list [x, y, width, height].
-            icon (QIcon): The icon to set for the window.
+            icon (QIcon): Callable of the icon to set for the window.
             name (str, optional): The name of the application window. Defaults to &#34;App&#34;.
             customTemplate (QWidget): Callable of custom QWidget as a template. It needs to have a QStackedWidgets named &#39;screens&#39; in order to render the screens there.
             resizable (bool, optional): Determines whether the window can be resized. Defaults to True.
@@ -463,7 +463,7 @@ features like strict window management and enhanced screen handling.</p>
 <dt><strong><code>geometry</code></strong> :&ensp;<code>list</code></dt>
 <dd>The window geometry as a list [x, y, width, height].</dd>
 <dt><strong><code>icon</code></strong> :&ensp;<code>QIcon</code></dt>
-<dd>The icon to set for the window.</dd>
+<dd>Callable of the icon to set for the window.</dd>
 <dt><strong><code>name</code></strong> :&ensp;<code>str</code>, optional</dt>
 <dd>The name of the application window. Defaults to "App".</dd>
 <dt><strong><code>customTemplate</code></strong> :&ensp;<code>QWidget</code></dt>
@@ -866,7 +866,7 @@ def removeAllLayouts(widget: QWidget):
 </dd>
 <dt id="QFlow.Window"><code class="flex name class">
 <span>class <span class="ident">Window</span></span>
-<span>(</span><span>name: str = '',<br>title: str = '',<br>geometry: list[int] = [],<br>maximizable=True,<br>icon: QIcon = None,<br>customTemplate: Callable[[], QWidget] = None,<br>parent=None,<br>parentType=None,<br>resizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>frameless: bool = False)</span>
+<span>(</span><span>name: str = '',<br>title: str = '',<br>geometry: list[int] = [],<br>maximizable=True,<br>icon: Callable[[], QIcon] = None,<br>customTemplate: Callable[[], QWidget] = None,<br>parent=None,<br>parentType=None,<br>resizable: bool = True,<br>strictClosingWindows: bool = True,<br>opacity: float = 1.0,<br>frameless: bool = False)</span>
 </code></dt>
 <dd>
 <details class="source">
@@ -887,7 +887,7 @@ def removeAllLayouts(widget: QWidget):
         title: str = &#39;&#39;,
         geometry: list[int] = [],
         maximizable=True,
-        icon: QIcon = None,
+        icon: Callable[[], QIcon] = None,
         customTemplate: Callable[[], QWidget] = None,
         parent=None,
         parentType=None,
@@ -904,7 +904,7 @@ def removeAllLayouts(widget: QWidget):
             title (str): The title of the window.
             geometry (list): The geometry of the window (ax: int, ay: int, aw: int, ah: int).
             maximizable (bool, optional): Determines whether the window can be maximized. Defaults to True.
-            icon (QIcon): The icon to set for the window.
+            icon (QIcon): Callable of the icon to set for the window.
             customTemplate (QWidget): Callable of custom QWidget as a template. It needs to have a QStackedWidgets named &#39;screens&#39; in order to render the screens there.
             parent: Parent widget.
             parentType: Expected parent type for validation.
@@ -955,7 +955,7 @@ def removeAllLayouts(widget: QWidget):
             self.setWindowFlags(Qt.FramelessWindowHint)
 
         if icon is not None:
-            self.setWindowIcon(icon)
+            self.setWindowIcon(icon())
 
         # Find and set the QStackedWidget in the custom template
         if self.customTemplate is not None:
@@ -1313,7 +1313,7 @@ while also providing built-in screen management functionality.</p>
 <dt><strong><code>maximizable</code></strong> :&ensp;<code>bool</code>, optional</dt>
 <dd>Determines whether the window can be maximized. Defaults to True.</dd>
 <dt><strong><code>icon</code></strong> :&ensp;<code>QIcon</code></dt>
-<dd>The icon to set for the window.</dd>
+<dd>Callable of the icon to set for the window.</dd>
 <dt><strong><code>customTemplate</code></strong> :&ensp;<code>QWidget</code></dt>
 <dd>Callable of custom QWidget as a template. It needs to have a QStackedWidgets named 'screens' in order to render the screens there.</dd>
 <dt><strong><code>parent</code></strong></dt>
