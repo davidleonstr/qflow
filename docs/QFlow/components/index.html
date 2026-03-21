@@ -48,6 +48,10 @@ el.replaceWith(d);
 <dd>
 <div class="desc"></div>
 </dd>
+<dt><code class="name"><a title="QFlow.components.titleBar" href="titleBar/index.html">QFlow.components.titleBar</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
 <dt><code class="name"><a title="QFlow.components.toggleSwitch" href="toggleSwitch/index.html">QFlow.components.toggleSwitch</a></code></dt>
 <dd>
 <div class="desc"></div>
@@ -772,6 +776,296 @@ indicating the notification duration.</p>
 </dd>
 </dl>
 </dd>
+<dt id="QFlow.components.TitleBar"><code class="flex name class">
+<span>class <span class="ident">TitleBar</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@style(STYLE_PATH, True)
+class TitleBar(QWidget):
+    &#34;&#34;&#34;
+    Custom window title bar widget.
+
+    This class replaces the default system title bar and provides
+    customizable controls such as minimize, maximize, and close buttons.
+    It also allows attaching custom callback functions to window events.
+    &#34;&#34;&#34;
+
+    def __init__(
+            self, 
+            parent, 
+            title: str, 
+            icons: dict = ICONS,
+            contentsMargins: list = [10, 0, 0, 0],
+            spacing: int = 0,
+            fixedHeight: int = 35,
+            onWindowClose: Callable = lambda: (), 
+            onWindowMinimize: Callable = lambda: (), 
+            onWindowMaximize: Callable = lambda: ()
+        ):
+        &#34;&#34;&#34;
+        Initializes the TitleBar.
+
+        Args:
+            parent (QWidget): The parent window where the title bar is attached.
+            title (str): The text displayed as the window title.
+            icons (dict, optional): Dictionary containing icon factory functions. Defaults to ICONS.
+            contentsMargins (list, optional): Layout margins [left, top, right, bottom]. Defaults to [10, 0, 0, 0].
+            spacing (int, optional): Spacing between widgets in the layout. Defaults to 0.
+            fixedHeight (int, optional): Fixed height of the title bar. Defaults to 35.
+            onWindowClose (Callable, optional): Callback executed before closing the window.
+            onWindowMinimize (Callable, optional): Callback executed before minimizing the window.
+            onWindowMaximize (Callable, optional): Callback executed before maximizing/restoring the window.
+        &#34;&#34;&#34;
+        super().__init__(parent)
+
+        self.onWindowClose = onWindowClose
+        self.onWindowMinimize = onWindowMinimize
+        self.onWindowMaximize = onWindowMaximize
+
+        self.icons = icons
+
+        self.parent = parent
+        self.layout = QHBoxLayout(self)
+        self.layout.setContentsMargins(*contentsMargins)
+        self.layout.setSpacing(spacing)
+        self.setFixedHeight(fixedHeight)
+
+        self.title = QLabel(title)
+        self.title.setObjectName(&#39;titleBarTitle&#39;)
+        
+        self.btnMinimize = QPushButton(icon=self.icons.get(&#39;minimize&#39;)())
+        self.btnMaximize = QPushButton(icon=self.icons.get(&#39;maximize-default&#39;)())
+        self.btnClose = QPushButton(icon=self.icons.get(&#39;close&#39;)())
+
+        self.btnClose.setObjectName(&#39;titleBarCloseBtn&#39;)
+        self.btnMinimize.setObjectName(&#39;titleBarDefaultBtn&#39;)
+        self.btnMaximize.setObjectName(&#39;titleBarDefaultBtn&#39;)
+
+        self.btnMinimize.clicked.connect(self.minimize)
+        self.btnMaximize.clicked.connect(self.maximize)
+        self.btnClose.clicked.connect(self.close)
+
+        self.layout.addWidget(self.title)
+        self.layout.addStretch()
+        self.layout.addWidget(self.btnMinimize)
+        self.layout.addWidget(self.btnMaximize)
+        self.layout.addWidget(self.btnClose)
+
+        self.startPos = None
+
+    def close(self):
+        &#34;&#34;&#34;
+        Closes the parent window.
+
+        This method first executes the custom `onWindowClose` callback,
+        then closes the parent widget.
+        &#34;&#34;&#34;
+        # Execute custom window close
+        self.onWindowClose()
+
+        # Close window
+        self.parent.close()
+
+    def minimize(self):
+        &#34;&#34;&#34;
+        Minimizes the parent window.
+
+        Executes the custom `onWindowMinimize` callback before minimizing.
+        &#34;&#34;&#34;
+        # Execute custom window minimize
+        self.onWindowMinimize()
+
+        # Minimize window
+        self.parent.showMinimized()
+
+    def maximize(self):
+        &#34;&#34;&#34;
+        Toggles between maximized and normal state.
+
+        Executes the custom `onWindowMaximize` callback before changing state.
+        Also updates the maximize button icon depending on the current state.
+        &#34;&#34;&#34;
+        # Execute custom window maximize
+        self.onWindowMaximize()
+
+        if self.parent.isMaximized():
+            self.parent.showNormal()
+            self.btnMaximize.setIcon(self.icons.get(&#39;maximize-default&#39;)())
+        else:
+            self.parent.showMaximized()
+            self.btnMaximize.setIcon(self.icons.get(&#39;maximize-minimize&#39;)())
+
+    def mousePressEvent(self, event):
+        &#34;&#34;&#34;
+        Handles mouse press events.
+
+        Stores the initial mouse position when the left button is pressed,
+        allowing the window to be dragged.
+        &#34;&#34;&#34;
+        if event.button() == Qt.LeftButton:
+            self.startPos = event.globalPosition().toPoint()
+
+    def mouseMoveEvent(self, event):
+        &#34;&#34;&#34;
+        Handles mouse move events.
+
+        Moves the parent window when dragging the title bar.
+        &#34;&#34;&#34;
+        if self.startPos:
+            delta = event.globalPosition().toPoint() - self.startPos
+            self.parent.move(self.parent.pos() + delta)
+            self.startPos = event.globalPosition().toPoint()</code></pre>
+</details>
+<div class="desc"><p>Custom window title bar widget.</p>
+<p>This class replaces the default system title bar and provides
+customizable controls such as minimize, maximize, and close buttons.
+It also allows attaching custom callback functions to window events.</p>
+<p>Initializes the decorated class and applies the stylesheet.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>*args</code></strong></dt>
+<dd>Positional arguments passed to the original class initializer.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Keyword arguments passed to the original class initializer.</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.components.TitleBar.close"><code class="name flex">
+<span>def <span class="ident">close</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close(self):
+    &#34;&#34;&#34;
+    Closes the parent window.
+
+    This method first executes the custom `onWindowClose` callback,
+    then closes the parent widget.
+    &#34;&#34;&#34;
+    # Execute custom window close
+    self.onWindowClose()
+
+    # Close window
+    self.parent.close()</code></pre>
+</details>
+<div class="desc"><p>Closes the parent window.</p>
+<p>This method first executes the custom <code>onWindowClose</code> callback,
+then closes the parent widget.</p></div>
+</dd>
+<dt id="QFlow.components.TitleBar.maximize"><code class="name flex">
+<span>def <span class="ident">maximize</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def maximize(self):
+    &#34;&#34;&#34;
+    Toggles between maximized and normal state.
+
+    Executes the custom `onWindowMaximize` callback before changing state.
+    Also updates the maximize button icon depending on the current state.
+    &#34;&#34;&#34;
+    # Execute custom window maximize
+    self.onWindowMaximize()
+
+    if self.parent.isMaximized():
+        self.parent.showNormal()
+        self.btnMaximize.setIcon(self.icons.get(&#39;maximize-default&#39;)())
+    else:
+        self.parent.showMaximized()
+        self.btnMaximize.setIcon(self.icons.get(&#39;maximize-minimize&#39;)())</code></pre>
+</details>
+<div class="desc"><p>Toggles between maximized and normal state.</p>
+<p>Executes the custom <code>onWindowMaximize</code> callback before changing state.
+Also updates the maximize button icon depending on the current state.</p></div>
+</dd>
+<dt id="QFlow.components.TitleBar.minimize"><code class="name flex">
+<span>def <span class="ident">minimize</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def minimize(self):
+    &#34;&#34;&#34;
+    Minimizes the parent window.
+
+    Executes the custom `onWindowMinimize` callback before minimizing.
+    &#34;&#34;&#34;
+    # Execute custom window minimize
+    self.onWindowMinimize()
+
+    # Minimize window
+    self.parent.showMinimized()</code></pre>
+</details>
+<div class="desc"><p>Minimizes the parent window.</p>
+<p>Executes the custom <code>onWindowMinimize</code> callback before minimizing.</p></div>
+</dd>
+<dt id="QFlow.components.TitleBar.mouseMoveEvent"><code class="name flex">
+<span>def <span class="ident">mouseMoveEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mouseMoveEvent(self, event):
+    &#34;&#34;&#34;
+    Handles mouse move events.
+
+    Moves the parent window when dragging the title bar.
+    &#34;&#34;&#34;
+    if self.startPos:
+        delta = event.globalPosition().toPoint() - self.startPos
+        self.parent.move(self.parent.pos() + delta)
+        self.startPos = event.globalPosition().toPoint()</code></pre>
+</details>
+<div class="desc"><p>Handles mouse move events.</p>
+<p>Moves the parent window when dragging the title bar.</p></div>
+</dd>
+<dt id="QFlow.components.TitleBar.mousePressEvent"><code class="name flex">
+<span>def <span class="ident">mousePressEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mousePressEvent(self, event):
+    &#34;&#34;&#34;
+    Handles mouse press events.
+
+    Stores the initial mouse position when the left button is pressed,
+    allowing the window to be dragged.
+    &#34;&#34;&#34;
+    if event.button() == Qt.LeftButton:
+        self.startPos = event.globalPosition().toPoint()</code></pre>
+</details>
+<div class="desc"><p>Handles mouse press events.</p>
+<p>Stores the initial mouse position when the left button is pressed,
+allowing the window to be dragged.</p></div>
+</dd>
+</dl>
+</dd>
 <dt id="QFlow.components.ToggleSwitch"><code class="flex name class">
 <span>class <span class="ident">ToggleSwitch</span></span>
 <span>(</span><span>parent,<br>width: int = 50,<br>height: int = 25,<br>bgColor: list[str] = ['#ccc', '#00c853'],<br>circleColor: str = '#fff',<br>checked: bool = False)</span>
@@ -1132,6 +1426,7 @@ Decorators can be used to define new properties or to modify existing ones.</p><
 <ul>
 <li><code><a title="QFlow.components.dialog" href="dialog/index.html">QFlow.components.dialog</a></code></li>
 <li><code><a title="QFlow.components.notify" href="notify/index.html">QFlow.components.notify</a></code></li>
+<li><code><a title="QFlow.components.titleBar" href="titleBar/index.html">QFlow.components.titleBar</a></code></li>
 <li><code><a title="QFlow.components.toggleSwitch" href="toggleSwitch/index.html">QFlow.components.toggleSwitch</a></code></li>
 </ul>
 </li>
@@ -1157,6 +1452,16 @@ Decorators can be used to define new properties or to modify existing ones.</p><
 <li><code><a title="QFlow.components.Notify.show" href="#QFlow.components.Notify.show">show</a></code></li>
 <li><code><a title="QFlow.components.Notify.updatePosition" href="#QFlow.components.Notify.updatePosition">updatePosition</a></code></li>
 <li><code><a title="QFlow.components.Notify.updateProgress" href="#QFlow.components.Notify.updateProgress">updateProgress</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="QFlow.components.TitleBar" href="#QFlow.components.TitleBar">TitleBar</a></code></h4>
+<ul class="">
+<li><code><a title="QFlow.components.TitleBar.close" href="#QFlow.components.TitleBar.close">close</a></code></li>
+<li><code><a title="QFlow.components.TitleBar.maximize" href="#QFlow.components.TitleBar.maximize">maximize</a></code></li>
+<li><code><a title="QFlow.components.TitleBar.minimize" href="#QFlow.components.TitleBar.minimize">minimize</a></code></li>
+<li><code><a title="QFlow.components.TitleBar.mouseMoveEvent" href="#QFlow.components.TitleBar.mouseMoveEvent">mouseMoveEvent</a></code></li>
+<li><code><a title="QFlow.components.TitleBar.mousePressEvent" href="#QFlow.components.TitleBar.mousePressEvent">mousePressEvent</a></code></li>
 </ul>
 </li>
 <li>

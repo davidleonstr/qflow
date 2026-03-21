@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>QFlow.components.titleBar API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>QFlow.components.titleBar</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="QFlow.components.titleBar.properties" href="properties.html">QFlow.components.titleBar.properties</a></code></dt>
+<dd>
+<div class="desc"><p>This file contains the constants and properties for the TitleBar object in this module …</p></div>
+</dd>
+<dt><code class="name"><a title="QFlow.components.titleBar.titleBar" href="titleBar.html">QFlow.components.titleBar.titleBar</a></code></dt>
+<dd>
+<div class="desc"><p>This module defines the TitleBar class, a custom window title bar
+for PyQt-PySide applications …</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="QFlow.components.titleBar.TitleBar"><code class="flex name class">
+<span>class <span class="ident">TitleBar</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@style(STYLE_PATH, True)
+class TitleBar(QWidget):
+    &#34;&#34;&#34;
+    Custom window title bar widget.
+
+    This class replaces the default system title bar and provides
+    customizable controls such as minimize, maximize, and close buttons.
+    It also allows attaching custom callback functions to window events.
+    &#34;&#34;&#34;
+
+    def __init__(
+            self, 
+            parent, 
+            title: str, 
+            icons: dict = ICONS,
+            contentsMargins: list = [10, 0, 0, 0],
+            spacing: int = 0,
+            fixedHeight: int = 35,
+            onWindowClose: Callable = lambda: (), 
+            onWindowMinimize: Callable = lambda: (), 
+            onWindowMaximize: Callable = lambda: ()
+        ):
+        &#34;&#34;&#34;
+        Initializes the TitleBar.
+
+        Args:
+            parent (QWidget): The parent window where the title bar is attached.
+            title (str): The text displayed as the window title.
+            icons (dict, optional): Dictionary containing icon factory functions. Defaults to ICONS.
+            contentsMargins (list, optional): Layout margins [left, top, right, bottom]. Defaults to [10, 0, 0, 0].
+            spacing (int, optional): Spacing between widgets in the layout. Defaults to 0.
+            fixedHeight (int, optional): Fixed height of the title bar. Defaults to 35.
+            onWindowClose (Callable, optional): Callback executed before closing the window.
+            onWindowMinimize (Callable, optional): Callback executed before minimizing the window.
+            onWindowMaximize (Callable, optional): Callback executed before maximizing/restoring the window.
+        &#34;&#34;&#34;
+        super().__init__(parent)
+
+        self.onWindowClose = onWindowClose
+        self.onWindowMinimize = onWindowMinimize
+        self.onWindowMaximize = onWindowMaximize
+
+        self.icons = icons
+
+        self.parent = parent
+        self.layout = QHBoxLayout(self)
+        self.layout.setContentsMargins(*contentsMargins)
+        self.layout.setSpacing(spacing)
+        self.setFixedHeight(fixedHeight)
+
+        self.title = QLabel(title)
+        self.title.setObjectName(&#39;titleBarTitle&#39;)
+        
+        self.btnMinimize = QPushButton(icon=self.icons.get(&#39;minimize&#39;)())
+        self.btnMaximize = QPushButton(icon=self.icons.get(&#39;maximize-default&#39;)())
+        self.btnClose = QPushButton(icon=self.icons.get(&#39;close&#39;)())
+
+        self.btnClose.setObjectName(&#39;titleBarCloseBtn&#39;)
+        self.btnMinimize.setObjectName(&#39;titleBarDefaultBtn&#39;)
+        self.btnMaximize.setObjectName(&#39;titleBarDefaultBtn&#39;)
+
+        self.btnMinimize.clicked.connect(self.minimize)
+        self.btnMaximize.clicked.connect(self.maximize)
+        self.btnClose.clicked.connect(self.close)
+
+        self.layout.addWidget(self.title)
+        self.layout.addStretch()
+        self.layout.addWidget(self.btnMinimize)
+        self.layout.addWidget(self.btnMaximize)
+        self.layout.addWidget(self.btnClose)
+
+        self.startPos = None
+
+    def close(self):
+        &#34;&#34;&#34;
+        Closes the parent window.
+
+        This method first executes the custom `onWindowClose` callback,
+        then closes the parent widget.
+        &#34;&#34;&#34;
+        # Execute custom window close
+        self.onWindowClose()
+
+        # Close window
+        self.parent.close()
+
+    def minimize(self):
+        &#34;&#34;&#34;
+        Minimizes the parent window.
+
+        Executes the custom `onWindowMinimize` callback before minimizing.
+        &#34;&#34;&#34;
+        # Execute custom window minimize
+        self.onWindowMinimize()
+
+        # Minimize window
+        self.parent.showMinimized()
+
+    def maximize(self):
+        &#34;&#34;&#34;
+        Toggles between maximized and normal state.
+
+        Executes the custom `onWindowMaximize` callback before changing state.
+        Also updates the maximize button icon depending on the current state.
+        &#34;&#34;&#34;
+        # Execute custom window maximize
+        self.onWindowMaximize()
+
+        if self.parent.isMaximized():
+            self.parent.showNormal()
+            self.btnMaximize.setIcon(self.icons.get(&#39;maximize-default&#39;)())
+        else:
+            self.parent.showMaximized()
+            self.btnMaximize.setIcon(self.icons.get(&#39;maximize-minimize&#39;)())
+
+    def mousePressEvent(self, event):
+        &#34;&#34;&#34;
+        Handles mouse press events.
+
+        Stores the initial mouse position when the left button is pressed,
+        allowing the window to be dragged.
+        &#34;&#34;&#34;
+        if event.button() == Qt.LeftButton:
+            self.startPos = event.globalPosition().toPoint()
+
+    def mouseMoveEvent(self, event):
+        &#34;&#34;&#34;
+        Handles mouse move events.
+
+        Moves the parent window when dragging the title bar.
+        &#34;&#34;&#34;
+        if self.startPos:
+            delta = event.globalPosition().toPoint() - self.startPos
+            self.parent.move(self.parent.pos() + delta)
+            self.startPos = event.globalPosition().toPoint()</code></pre>
+</details>
+<div class="desc"><p>Custom window title bar widget.</p>
+<p>This class replaces the default system title bar and provides
+customizable controls such as minimize, maximize, and close buttons.
+It also allows attaching custom callback functions to window events.</p>
+<p>Initializes the decorated class and applies the stylesheet.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>*args</code></strong></dt>
+<dd>Positional arguments passed to the original class initializer.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Keyword arguments passed to the original class initializer.</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.components.titleBar.TitleBar.close"><code class="name flex">
+<span>def <span class="ident">close</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def close(self):
+    &#34;&#34;&#34;
+    Closes the parent window.
+
+    This method first executes the custom `onWindowClose` callback,
+    then closes the parent widget.
+    &#34;&#34;&#34;
+    # Execute custom window close
+    self.onWindowClose()
+
+    # Close window
+    self.parent.close()</code></pre>
+</details>
+<div class="desc"><p>Closes the parent window.</p>
+<p>This method first executes the custom <code>onWindowClose</code> callback,
+then closes the parent widget.</p></div>
+</dd>
+<dt id="QFlow.components.titleBar.TitleBar.maximize"><code class="name flex">
+<span>def <span class="ident">maximize</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def maximize(self):
+    &#34;&#34;&#34;
+    Toggles between maximized and normal state.
+
+    Executes the custom `onWindowMaximize` callback before changing state.
+    Also updates the maximize button icon depending on the current state.
+    &#34;&#34;&#34;
+    # Execute custom window maximize
+    self.onWindowMaximize()
+
+    if self.parent.isMaximized():
+        self.parent.showNormal()
+        self.btnMaximize.setIcon(self.icons.get(&#39;maximize-default&#39;)())
+    else:
+        self.parent.showMaximized()
+        self.btnMaximize.setIcon(self.icons.get(&#39;maximize-minimize&#39;)())</code></pre>
+</details>
+<div class="desc"><p>Toggles between maximized and normal state.</p>
+<p>Executes the custom <code>onWindowMaximize</code> callback before changing state.
+Also updates the maximize button icon depending on the current state.</p></div>
+</dd>
+<dt id="QFlow.components.titleBar.TitleBar.minimize"><code class="name flex">
+<span>def <span class="ident">minimize</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def minimize(self):
+    &#34;&#34;&#34;
+    Minimizes the parent window.
+
+    Executes the custom `onWindowMinimize` callback before minimizing.
+    &#34;&#34;&#34;
+    # Execute custom window minimize
+    self.onWindowMinimize()
+
+    # Minimize window
+    self.parent.showMinimized()</code></pre>
+</details>
+<div class="desc"><p>Minimizes the parent window.</p>
+<p>Executes the custom <code>onWindowMinimize</code> callback before minimizing.</p></div>
+</dd>
+<dt id="QFlow.components.titleBar.TitleBar.mouseMoveEvent"><code class="name flex">
+<span>def <span class="ident">mouseMoveEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mouseMoveEvent(self, event):
+    &#34;&#34;&#34;
+    Handles mouse move events.
+
+    Moves the parent window when dragging the title bar.
+    &#34;&#34;&#34;
+    if self.startPos:
+        delta = event.globalPosition().toPoint() - self.startPos
+        self.parent.move(self.parent.pos() + delta)
+        self.startPos = event.globalPosition().toPoint()</code></pre>
+</details>
+<div class="desc"><p>Handles mouse move events.</p>
+<p>Moves the parent window when dragging the title bar.</p></div>
+</dd>
+<dt id="QFlow.components.titleBar.TitleBar.mousePressEvent"><code class="name flex">
+<span>def <span class="ident">mousePressEvent</span></span>(<span>self, event)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mousePressEvent(self, event):
+    &#34;&#34;&#34;
+    Handles mouse press events.
+
+    Stores the initial mouse position when the left button is pressed,
+    allowing the window to be dragged.
+    &#34;&#34;&#34;
+    if event.button() == Qt.LeftButton:
+        self.startPos = event.globalPosition().toPoint()</code></pre>
+</details>
+<div class="desc"><p>Handles mouse press events.</p>
+<p>Stores the initial mouse position when the left button is pressed,
+allowing the window to be dragged.</p></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="QFlow.components" href="../index.html">QFlow.components</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="QFlow.components.titleBar.properties" href="properties.html">QFlow.components.titleBar.properties</a></code></li>
+<li><code><a title="QFlow.components.titleBar.titleBar" href="titleBar.html">QFlow.components.titleBar.titleBar</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="QFlow.components.titleBar.TitleBar" href="#QFlow.components.titleBar.TitleBar">TitleBar</a></code></h4>
+<ul class="">
+<li><code><a title="QFlow.components.titleBar.TitleBar.close" href="#QFlow.components.titleBar.TitleBar.close">close</a></code></li>
+<li><code><a title="QFlow.components.titleBar.TitleBar.maximize" href="#QFlow.components.titleBar.TitleBar.maximize">maximize</a></code></li>
+<li><code><a title="QFlow.components.titleBar.TitleBar.minimize" href="#QFlow.components.titleBar.TitleBar.minimize">minimize</a></code></li>
+<li><code><a title="QFlow.components.titleBar.TitleBar.mouseMoveEvent" href="#QFlow.components.titleBar.TitleBar.mouseMoveEvent">mouseMoveEvent</a></code></li>
+<li><code><a title="QFlow.components.titleBar.TitleBar.mousePressEvent" href="#QFlow.components.titleBar.TitleBar.mousePressEvent">mousePressEvent</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
