@@ -45,7 +45,8 @@ class Notify(QWidget):
             opacity: float = 1.0,
             animatedEvents: Dict[str, bool] = {},
             animationValues: Dict[str, float] = {},
-            autoShow: bool = True
+            autoShow: bool = True,
+            toggleProgressBar: bool = True
         ):
         """
         Initializes a Notify object.
@@ -66,6 +67,7 @@ class Notify(QWidget):
             animatedEvents: (Dict[str, bool], optional): Default animations for events to {'fadeIn': True, 'fadeOut': True}.
             animationValues: (Dict[str, bool], optional): Default values for animations {'opacityIncreasedIn': 0.05, 'opacityReductionOut': 0.05}.
             autoShow: (bool, optional): Whether to show the notification automatically after creation. Default is True.
+            toggleProgressBar: (bool, optional): Show or hide progress bar from notifications.
         """
         super().__init__(parent)
         self.parent = parent
@@ -81,6 +83,7 @@ class Notify(QWidget):
         self.isShown = False
         self.autoShow = autoShow
         self.notificationsLimit = notificationsLimit
+        self.toggleProgressBar = toggleProgressBar
 
         self._animationValues = {
             'opacityIncreasedIn': 0.05,
@@ -128,19 +131,22 @@ class Notify(QWidget):
         else:
             raise KeyError(f"The color does not exist in Notify: '{color}'")
 
-        self.progressBar = QProgressBar(self.container)
+        if self.toggleProgressBar:
+            self.progressBar = QProgressBar(self.container)
 
         if type in STYLE_BAR:
-            self.progressBarStyle = STYLE_BAR[type]
+            if self.toggleProgressBar:
+                self.progressBarStyle = STYLE_BAR[type]
         else:
             raise KeyError(f"The type does not exist in Notify: '{type}'")
 
-        self.progressBar.setObjectName(self.progressBarStyle)
+        if self.toggleProgressBar:
+            self.progressBar.setObjectName(self.progressBarStyle)
 
-        self.progressBar.setFixedHeight(10)
-        self.progressBar.setTextVisible(False)
-        self.progressBar.setMaximum(self.duration)
-        self.progressBar.setValue(0)
+            self.progressBar.setFixedHeight(10)
+            self.progressBar.setTextVisible(False)
+            self.progressBar.setMaximum(self.duration)
+            self.progressBar.setValue(0)
 
         self.contentLayout = QHBoxLayout()
         self.contentLayout.setContentsMargins(0, 0, 0, 0)
@@ -150,7 +156,9 @@ class Notify(QWidget):
 
         self.containerLayout = QVBoxLayout(self.container)
         self.containerLayout.addLayout(self.contentLayout)
-        self.containerLayout.addWidget(self.progressBar)
+
+        if self.toggleProgressBar:
+            self.containerLayout.addWidget(self.progressBar)
 
         if self.items is not None:
             for widget in items:
@@ -289,7 +297,9 @@ class Notify(QWidget):
     def updateProgress(self) -> None:
         """Updates the progress bar and closes the notification when the duration ends."""
         self.elapsedTime += 30
-        self.progressBar.setValue(self.elapsedTime)
+
+        if self.toggleProgressBar:
+            self.progressBar.setValue(self.elapsedTime)
 
         if self.elapsedTime >= self.duration:
             self.timer.stop()

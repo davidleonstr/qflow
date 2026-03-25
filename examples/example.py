@@ -71,7 +71,7 @@ class QFlowApp(QFlow.App):
         })
 
         # A notification is created
-        Notify(message='Hello', parent=self)
+        Notify(message='Hello', parent=self, toggleProgressBar=False)
 
 @QFlow.window(
     name='secondaryWindow',
