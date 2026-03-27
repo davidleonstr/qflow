@@ -1,5 +1,5 @@
-from ..helpers.instanceArgs import InstanceArgs
-from ..helpers.sessionStorage import SessionStorage
+from ..helpers.store import InstanceArgs
+from ..helpers.store import SessionStorage
 
 SESSION_STORAGE = SessionStorage()
 """

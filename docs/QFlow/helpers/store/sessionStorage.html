@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 <meta name="generator" content="pdoc3 0.11.6">
-<title>QFlow.helpers API documentation</title>
+<title>QFlow.helpers.store.sessionStorage API documentation</title>
 <meta name="description" content="">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
@@ -33,22 +33,11 @@ el.replaceWith(d);
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>QFlow.helpers</code></h1>
+<h1 class="title">Module <code>QFlow.helpers.store.sessionStorage</code></h1>
 </header>
 <section id="section-intro">
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
-<dl>
-<dt><code class="name"><a title="QFlow.helpers.icon" href="icon.html">QFlow.helpers.icon</a></code></dt>
-<dd>
-<div class="desc"><p>This module defines the Icon class, which extends QPixmap to handle image loading and scaling …</p></div>
-</dd>
-<dt><code class="name"><a title="QFlow.helpers.store" href="store/index.html">QFlow.helpers.store</a></code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-</dl>
 </section>
 <section>
 </section>
@@ -57,62 +46,152 @@ el.replaceWith(d);
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="QFlow.helpers.Icon"><code class="flex name class">
-<span>class <span class="ident">Icon</span></span>
-<span>(</span><span>path: str, w: int, h: int)</span>
+<dt id="QFlow.helpers.store.sessionStorage.SessionStorage"><code class="flex name class">
+<span>class <span class="ident">SessionStorage</span></span>
 </code></dt>
 <dd>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class Icon(QPixmap):
+<pre><code class="python">@dataclass
+class SessionStorage:
     &#34;&#34;&#34;
-    Planned for package use only.
+    A class that simulates session storage in memory.
+
+    This class provides methods for storing, retrieving, and removing key-value pairs
+    in memory, which mimics a session storage mechanism. The storage is global across
+    all instances of the application.
+
+    Attributes:
+        _storage (dict): A dictionary to store session data.
+    &#34;&#34;&#34;
     
-    A QPixmap subclass that loads and scales an image if the file exists.
+    _storage = {}
 
-    This class checks whether the specified image file exists before loading it.
-    If the file is found, it scales the image while maintaining its aspect ratio.
-    Otherwise, it initializes an empty QPixmap.
-    &#34;&#34;&#34;
-
-    def __init__(self, path: str, w: int, h: int):
+    def getItem(self, item: str):
         &#34;&#34;&#34;
-        Initializes an Icon object.
+        Retrieves an item from the session storage.
 
         Args:
-            path (str): The file path of the image.
-            w (int): The desired width of the icon.
-            h (int): The desired height of the icon.
+            item (str): The key of the item to retrieve.
+
+        Returns:
+            The value associated with the provided key, or None if the key does not exist.
         &#34;&#34;&#34;
-        if os.path.exists(path):
-            pixmap = QPixmap(path).scaled(w, h, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
-            super().__init__(pixmap)
-        else:
-            super().__init__()</code></pre>
+        return self._storage.get(item)
+
+    def setItem(self, name: str, value) -&gt; None:
+        &#34;&#34;&#34;
+        Adds or updates an item in the session storage.
+
+        Args:
+            name (str): The key to store the item under.
+            value: The value to associate with the given key.
+        &#34;&#34;&#34;
+        self._storage[name] = value
+    
+    def removeItem(self, item: str) -&gt; None:
+        &#34;&#34;&#34;
+        Removes an item from the session storage.
+
+        Args:
+            item (str): The key of the item to remove.
+        &#34;&#34;&#34;
+        self._storage.pop(item, None)</code></pre>
 </details>
-<div class="desc"><p>Planned for package use only.</p>
-<p>A QPixmap subclass that loads and scales an image if the file exists.</p>
-<p>This class checks whether the specified image file exists before loading it.
-If the file is found, it scales the image while maintaining its aspect ratio.
-Otherwise, it initializes an empty QPixmap.</p>
-<p>Initializes an Icon object.</p>
+<div class="desc"><p>A class that simulates session storage in memory.</p>
+<p>This class provides methods for storing, retrieving, and removing key-value pairs
+in memory, which mimics a session storage mechanism. The storage is global across
+all instances of the application.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>_storage</code></strong> :&ensp;<code>dict</code></dt>
+<dd>A dictionary to store session data.</dd>
+</dl></div>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.helpers.store.sessionStorage.SessionStorage.getItem"><code class="name flex">
+<span>def <span class="ident">getItem</span></span>(<span>self, item: str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getItem(self, item: str):
+    &#34;&#34;&#34;
+    Retrieves an item from the session storage.
+
+    Args:
+        item (str): The key of the item to retrieve.
+
+    Returns:
+        The value associated with the provided key, or None if the key does not exist.
+    &#34;&#34;&#34;
+    return self._storage.get(item)</code></pre>
+</details>
+<div class="desc"><p>Retrieves an item from the session storage.</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
-<dd>The file path of the image.</dd>
-<dt><strong><code>w</code></strong> :&ensp;<code>int</code></dt>
-<dd>The desired width of the icon.</dd>
-<dt><strong><code>h</code></strong> :&ensp;<code>int</code></dt>
-<dd>The desired height of the icon.</dd>
+<dt><strong><code>item</code></strong> :&ensp;<code>str</code></dt>
+<dd>The key of the item to retrieve.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The value associated with the provided key, or None if the key does not exist.</p></div>
+</dd>
+<dt id="QFlow.helpers.store.sessionStorage.SessionStorage.removeItem"><code class="name flex">
+<span>def <span class="ident">removeItem</span></span>(<span>self, item: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def removeItem(self, item: str) -&gt; None:
+    &#34;&#34;&#34;
+    Removes an item from the session storage.
+
+    Args:
+        item (str): The key of the item to remove.
+    &#34;&#34;&#34;
+    self._storage.pop(item, None)</code></pre>
+</details>
+<div class="desc"><p>Removes an item from the session storage.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>item</code></strong> :&ensp;<code>str</code></dt>
+<dd>The key of the item to remove.</dd>
 </dl></div>
-<h3>Ancestors</h3>
-<ul class="hlist">
-<li>PyQt6.QtGui.QPixmap</li>
-<li>PyQt6.QtGui.QPaintDevice</li>
-<li>PyQt6.sip.simplewrapper</li>
-</ul>
+</dd>
+<dt id="QFlow.helpers.store.sessionStorage.SessionStorage.setItem"><code class="name flex">
+<span>def <span class="ident">setItem</span></span>(<span>self, name: str, value) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def setItem(self, name: str, value) -&gt; None:
+    &#34;&#34;&#34;
+    Adds or updates an item in the session storage.
+
+    Args:
+        name (str): The key to store the item under.
+        value: The value to associate with the given key.
+    &#34;&#34;&#34;
+    self._storage[name] = value</code></pre>
+</details>
+<div class="desc"><p>Adds or updates an item in the session storage.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The key to store the item under.</dd>
+<dt><strong><code>value</code></strong></dt>
+<dd>The value to associate with the given key.</dd>
+</dl></div>
+</dd>
+</dl>
 </dd>
 </dl>
 </section>
@@ -124,19 +203,18 @@ Otherwise, it initializes an empty QPixmap.</p>
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="QFlow" href="../index.html">QFlow</a></code></li>
-</ul>
-</li>
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
-<ul>
-<li><code><a title="QFlow.helpers.icon" href="icon.html">QFlow.helpers.icon</a></code></li>
-<li><code><a title="QFlow.helpers.store" href="store/index.html">QFlow.helpers.store</a></code></li>
+<li><code><a title="QFlow.helpers.store" href="index.html">QFlow.helpers.store</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="QFlow.helpers.Icon" href="#QFlow.helpers.Icon">Icon</a></code></h4>
+<h4><code><a title="QFlow.helpers.store.sessionStorage.SessionStorage" href="#QFlow.helpers.store.sessionStorage.SessionStorage">SessionStorage</a></code></h4>
+<ul class="">
+<li><code><a title="QFlow.helpers.store.sessionStorage.SessionStorage.getItem" href="#QFlow.helpers.store.sessionStorage.SessionStorage.getItem">getItem</a></code></li>
+<li><code><a title="QFlow.helpers.store.sessionStorage.SessionStorage.removeItem" href="#QFlow.helpers.store.sessionStorage.SessionStorage.removeItem">removeItem</a></code></li>
+<li><code><a title="QFlow.helpers.store.sessionStorage.SessionStorage.setItem" href="#QFlow.helpers.store.sessionStorage.SessionStorage.setItem">setItem</a></code></li>
+</ul>
 </li>
 </ul>
 </li>
