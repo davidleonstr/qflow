@@ -7,7 +7,7 @@ items from a session. The `session` decorator adds a `Session`
 attribute to a class, which allows easy access to the session storage.
 """
 
-from ..core.temp import SESSION_STORAGE
+from ..core.temp import SESSIONSTORAGE
 
 def session():
     """
@@ -41,11 +41,11 @@ def session():
                 **kwargs: Keyword arguments passed to the original class initializer.
             """
             originalInit(self, *args, **kwargs)
-            self.Session = SESSION_STORAGE
+            self.Session = SESSIONSTORAGE
 
         cls.__init__ = newInit
 
-        cls.Session = SESSION_STORAGE
+        cls.Session = SESSIONSTORAGE
 
         return cls
     

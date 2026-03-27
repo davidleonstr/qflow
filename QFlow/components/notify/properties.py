@@ -9,24 +9,24 @@ from ...utils import Source
 # Class for creating Pixmap icons
 from ...helpers.icon import Icon
 
-from ...core.flags import FROZEN_LIB
+from ...core.flags import FROZENLIB
 
 # Location of the file with the styles for the Notify object
-STYLE_PATH = Source('QFlow/components/notify/notify.qss', frozen=FROZEN_LIB).get()
+STYLE_PATH = Source('QFlow/components/notify/notify.qss', frozen=FROZENLIB).get()
 """Path to the file containing the styles for the Notify object."""
 
 # References to create the default icons of the Notify class
 ICONS = {
     'success': lambda: Icon(
-        Source('QFlow/components/notify/icons/check.png', frozen=FROZEN_LIB).get(), 
+        Source('QFlow/components/notify/icons/check.png', frozen=FROZENLIB).get(), 
         25, 25
     ),
     'error': lambda: Icon(
-        Source('QFlow/components/notify/icons/close.png', frozen=FROZEN_LIB).get(), 
+        Source('QFlow/components/notify/icons/close.png', frozen=FROZENLIB).get(), 
         25, 25
     ),
     'info': lambda: Icon(
-        Source('QFlow/components/notify/icons/information.png', frozen=FROZEN_LIB).get(), 
+        Source('QFlow/components/notify/icons/information.png', frozen=FROZENLIB).get(), 
     25, 25),
 }
 """

@@ -89,9 +89,9 @@ el.replaceWith(d);
                 or None if it doesn&#39;t exist.
         &#34;&#34;&#34;
         if name is not None:
-            return INSTANCE_ARGS.getArg(instance=self.identity, name=name)
+            return INSTANCEARGS.getArg(instance=self.identity, name=name)
         else:
-            return INSTANCE_ARGS.getArgs(instance=self.identity)
+            return INSTANCEARGS.getArgs(instance=self.identity)
     
     def set(self, name: str = None, value: Any = None, args: dict = None) -&gt; None:
         &#34;&#34;&#34;
@@ -109,9 +109,9 @@ el.replaceWith(d);
             None
         &#34;&#34;&#34;
         if args:
-            INSTANCE_ARGS.setArgs(instance=self.identity, args=args)
+            INSTANCEARGS.setArgs(instance=self.identity, args=args)
         else: 
-            INSTANCE_ARGS.setArg(instance=self.identity, name=name, value=value)
+            INSTANCEARGS.setArg(instance=self.identity, name=name, value=value)
     
     def exist(self, name: str) -&gt; bool:
         &#34;&#34;&#34;
@@ -123,11 +123,11 @@ el.replaceWith(d);
         Returns:
             bool: True if the parameter exists, False otherwise.
         &#34;&#34;&#34;
-        return INSTANCE_ARGS.existArg(instance=self.identity, name=name)
+        return INSTANCEARGS.existArg(instance=self.identity, name=name)
     
     def clear(self) -&gt; None:
         &#34;&#34;&#34;Clear all parameters&#34;&#34;&#34;
-        INSTANCE_ARGS.clearArgs(instance=self.identity)</code></pre>
+        INSTANCEARGS.clearArgs(instance=self.identity)</code></pre>
 </details>
 <div class="desc"><p>Manages parameters associated with a specific instance.</p>
 <p>This class provides an interface to get, set, and verify the existence
@@ -155,7 +155,7 @@ of parameters stored for a given instance.</p>
 </summary>
 <pre><code class="python">def clear(self) -&gt; None:
     &#34;&#34;&#34;Clear all parameters&#34;&#34;&#34;
-    INSTANCE_ARGS.clearArgs(instance=self.identity)</code></pre>
+    INSTANCEARGS.clearArgs(instance=self.identity)</code></pre>
 </details>
 <div class="desc"><p>Clear all parameters</p></div>
 </dd>
@@ -177,7 +177,7 @@ of parameters stored for a given instance.</p>
     Returns:
         bool: True if the parameter exists, False otherwise.
     &#34;&#34;&#34;
-    return INSTANCE_ARGS.existArg(instance=self.identity, name=name)</code></pre>
+    return INSTANCEARGS.existArg(instance=self.identity, name=name)</code></pre>
 </details>
 <div class="desc"><p>Checks if a parameter exists for the instance.</p>
 <h2 id="args">Args</h2>
@@ -213,9 +213,9 @@ of parameters stored for a given instance.</p>
             or None if it doesn&#39;t exist.
     &#34;&#34;&#34;
     if name is not None:
-        return INSTANCE_ARGS.getArg(instance=self.identity, name=name)
+        return INSTANCEARGS.getArg(instance=self.identity, name=name)
     else:
-        return INSTANCE_ARGS.getArgs(instance=self.identity)</code></pre>
+        return INSTANCEARGS.getArgs(instance=self.identity)</code></pre>
 </details>
 <div class="desc"><p>Gets one or all parameters from the instance.</p>
 <h2 id="args">Args</h2>
@@ -256,9 +256,9 @@ or None if it doesn't exist.</dd>
         None
     &#34;&#34;&#34;
     if args:
-        INSTANCE_ARGS.setArgs(instance=self.identity, args=args)
+        INSTANCEARGS.setArgs(instance=self.identity, args=args)
     else: 
-        INSTANCE_ARGS.setArg(instance=self.identity, name=name, value=value)</code></pre>
+        INSTANCEARGS.setArg(instance=self.identity, name=name, value=value)</code></pre>
 </details>
 <div class="desc"><p>Sets one or multiple parameters for the instance.</p>
 <h2 id="args">Args</h2>
