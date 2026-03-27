@@ -1030,7 +1030,7 @@ def removeAllLayouts(widget: QWidget):
                 raise Exception(f&#39;The screen `{screen}` does not have screenName attribute.&#39;)
             
             if args:
-                INSTANCE_ARGS.setArgs(instance=screen, args=args)
+                INSTANCEARGS.setArgs(instance=screen, args=args)
             
             self.stackedScreens.setCurrentWidget(screen)      
         else:
@@ -1136,7 +1136,7 @@ def removeAllLayouts(widget: QWidget):
             window.setWindowTitle(title)
 
             if args:
-                INSTANCE_ARGS.setArgs(instance=window, args=args)
+                INSTANCEARGS.setArgs(instance=window, args=args)
 
             window.show()
         else:                
@@ -1183,7 +1183,7 @@ def removeAllLayouts(widget: QWidget):
             self.windows[name].activateWindow()
 
             if args:
-                INSTANCE_ARGS.setArgs(instance=self.windows[name], args=args)
+                INSTANCEARGS.setArgs(instance=self.windows[name], args=args)
 
         else:
             raise Exception(f&#34;The window &#39;{name}&#39; does not exist.&#34;)
@@ -1489,7 +1489,7 @@ to the stacked widget for navigation.</p>
         window.setWindowTitle(title)
 
         if args:
-            INSTANCE_ARGS.setArgs(instance=window, args=args)
+            INSTANCEARGS.setArgs(instance=window, args=args)
 
         window.show()
     else:                
@@ -1913,7 +1913,7 @@ of the specified Window instance.</p>
             raise Exception(f&#39;The screen `{screen}` does not have screenName attribute.&#39;)
         
         if args:
-            INSTANCE_ARGS.setArgs(instance=screen, args=args)
+            INSTANCEARGS.setArgs(instance=screen, args=args)
         
         self.stackedScreens.setCurrentWidget(screen)      
     else:
@@ -1959,7 +1959,7 @@ of a previously added screen.</p>
         self.windows[name].activateWindow()
 
         if args:
-            INSTANCE_ARGS.setArgs(instance=self.windows[name], args=args)
+            INSTANCEARGS.setArgs(instance=self.windows[name], args=args)
 
     else:
         raise Exception(f&#34;The window &#39;{name}&#39; does not exist.&#34;)</code></pre>

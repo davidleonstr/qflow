@@ -7,7 +7,7 @@ from qtpy.QtGui import QIcon
 from qtpy.QtWidgets import QStackedWidget, QWidget, QMainWindow
 from qtpy.QtCore import QTimer, Qt
 from typing import Dict, Callable
-from ...core.temp import INSTANCE_ARGS
+from ...core.temp import INSTANCEARGS
 
 class Window(QMainWindow):
     """
@@ -166,7 +166,7 @@ class Window(QMainWindow):
                 raise Exception(f'The screen `{screen}` does not have screenName attribute.')
             
             if args:
-                INSTANCE_ARGS.setArgs(instance=screen, args=args)
+                INSTANCEARGS.setArgs(instance=screen, args=args)
             
             self.stackedScreens.setCurrentWidget(screen)      
         else:
@@ -272,7 +272,7 @@ class Window(QMainWindow):
             window.setWindowTitle(title)
 
             if args:
-                INSTANCE_ARGS.setArgs(instance=window, args=args)
+                INSTANCEARGS.setArgs(instance=window, args=args)
 
             window.show()
         else:                
@@ -319,7 +319,7 @@ class Window(QMainWindow):
             self.windows[name].activateWindow()
 
             if args:
-                INSTANCE_ARGS.setArgs(instance=self.windows[name], args=args)
+                INSTANCEARGS.setArgs(instance=self.windows[name], args=args)
 
         else:
             raise Exception(f"The window '{name}' does not exist.")

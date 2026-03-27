@@ -8,7 +8,7 @@ the stylesheet application.
 
 from ..utils.genericFile import GenericFile
 from ..utils.source import Source
-from ..core.flags import FROZEN_LIB
+from ..core.flags import FROZENLIB
 
 def style(style: str, path: bool = False, useFrozen: bool = False):
     """
@@ -52,7 +52,7 @@ def style(style: str, path: bool = False, useFrozen: bool = False):
 
             if path:
                 if useFrozen:
-                    styleSheet = GenericFile(Source(style, FROZEN_LIB)).readFile()
+                    styleSheet = GenericFile(Source(style, FROZENLIB)).readFile()
                 else:
                     styleSheet = GenericFile(style).readFile()
 

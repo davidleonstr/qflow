@@ -5,10 +5,10 @@ Modifying any property in this file requires making the same changes in related 
 """
 
 from ...utils import Source
-from ...core.flags import FROZEN_LIB
+from ...core.flags import FROZENLIB
 
 # Location of the file with the styles for the Notify object
-STYLE_PATH = Source('QFlow/components/dialog/dialog.qss', frozen=FROZEN_LIB).get()
+STYLE_PATH = Source('QFlow/components/dialog/dialog.qss', frozen=FROZENLIB).get()
 """Path to the file containing the styles for the Dialog object."""
 
 # Object names for each style

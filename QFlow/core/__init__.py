@@ -1,3 +1,3 @@
-from .flags import FROZEN_LIB
+from .flags import FROZENLIB
 
-__all__ = ['FROZEN_LIB']
+__all__ = ['FROZENLIB']

@@ -1,4 +1,4 @@
-from ..core.temp import INSTANCE_ARGS
+from ..core.temp import INSTANCEARGS
 from typing import Any
 
 class Params:
@@ -35,9 +35,9 @@ class Params:
                 or None if it doesn't exist.
         """
         if name is not None:
-            return INSTANCE_ARGS.getArg(instance=self.identity, name=name)
+            return INSTANCEARGS.getArg(instance=self.identity, name=name)
         else:
-            return INSTANCE_ARGS.getArgs(instance=self.identity)
+            return INSTANCEARGS.getArgs(instance=self.identity)
     
     def set(self, name: str = None, value: Any = None, args: dict = None) -> None:
         """
@@ -55,9 +55,9 @@ class Params:
             None
         """
         if args:
-            INSTANCE_ARGS.setArgs(instance=self.identity, args=args)
+            INSTANCEARGS.setArgs(instance=self.identity, args=args)
         else: 
-            INSTANCE_ARGS.setArg(instance=self.identity, name=name, value=value)
+            INSTANCEARGS.setArg(instance=self.identity, name=name, value=value)
     
     def exist(self, name: str) -> bool:
         """
@@ -69,8 +69,8 @@ class Params:
         Returns:
             bool: True if the parameter exists, False otherwise.
         """
-        return INSTANCE_ARGS.existArg(instance=self.identity, name=name)
+        return INSTANCEARGS.existArg(instance=self.identity, name=name)
     
     def clear(self) -> None:
         """Clear all parameters"""
-        INSTANCE_ARGS.clearArgs(instance=self.identity)
+        INSTANCEARGS.clearArgs(instance=self.identity)
