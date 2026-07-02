@@ -1,0 +1,1152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>examples.playground API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>examples.playground</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="examples.playground.DefaultTemplate"><code class="flex name class">
+<span>class <span class="ident">DefaultTemplate</span></span>
+<span>(</span><span>parent)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DefaultTemplate(QFlow.Template):
+    def __init__(self, parent):
+        super().__init__(parent)
+
+        self.titleBar = TitleBar(parent, title=&#39;QFlow Playground&#39;)
+
+        self.mainLayout = QVBoxLayout()
+        self.mainLayout.setContentsMargins(0, 0, 0, 0)
+        self.mainLayout.setSpacing(0)
+
+        self.screens = QStackedWidget()
+        self.screens.setObjectName(&#39;screens&#39;)
+
+        self.mainLayout.addWidget(self.titleBar)
+        self.mainLayout.addWidget(self.screens)
+        self.setLayout(self.mainLayout)</code></pre>
+</details>
+<div class="desc"><p>A class that represents a custom template for screens; its main characteristic is having a parent Window.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="QFlow.layouts.template.Template" href="../QFlow/layouts/template.html#QFlow.layouts.template.Template">Template</a></li>
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+</dd>
+<dt id="examples.playground.DialogScreen"><code class="flex name class">
+<span>class <span class="ident">DialogScreen</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@QFlow.screen(name=&#39;dialog&#39;, autoreloadUI=True, parentType=QFlow.App)
+class DialogScreen(QFlow.Screen):
+    def __init__(self, parent):
+        self.args[&#39;parent&#39;] = parent
+        super().__init__(**self.args)
+
+    def UI(self):
+        layout = QVBoxLayout()
+        layout.setSpacing(10)
+
+        colorCombo = QComboBox()
+        colorCombo.addItems([&#39;black&#39;, &#39;white&#39;])
+
+        widthSpin  = QSpinBox()
+        heightSpin = QSpinBox()
+        widthSpin.setRange(150, 600);  widthSpin.setValue(300);  widthSpin.setSuffix(&#39; px&#39;)
+        heightSpin.setRange(100, 500); heightSpin.setValue(200); heightSpin.setSuffix(&#39; px&#39;)
+
+        resultLabel = QLabel(&#39;Waiting for dialog action...&#39;)
+        resultLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        def openDialog():
+            dialogLayout = QVBoxLayout()
+
+            confirmLabel = QLabel(&#39;Do you confirm this action?&#39;)
+            confirmLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+            btnRow = QHBoxLayout()
+            confirmBtn = QPushButton(&#39;Confirm&#39;)
+            cancelBtn  = QPushButton(&#39;Cancel&#39;)
+            btnRow.addWidget(confirmBtn)
+            btnRow.addWidget(cancelBtn)
+
+            dialogLayout.addWidget(confirmLabel)
+            dialogLayout.addLayout(btnRow)
+
+            dlg = Dialog(
+                parent=self.parent(),
+                childrenLayout=dialogLayout,
+                color=colorCombo.currentText(),
+                fixedSize=[widthSpin.value(), heightSpin.value()],
+            )
+
+            confirmBtn.clicked.connect(lambda: (resultLabel.setText(&#39;Confirmed&#39;), dlg.close()))
+            cancelBtn.clicked.connect(lambda:  (resultLabel.setText(&#39;Cancelled&#39;), dlg.close()))
+            dlg.show()
+
+        openBtn = QPushButton(&#39;Open dialog&#39;)
+        openBtn.clicked.connect(openDialog)
+
+        backBtn = QPushButton(&#39;Back&#39;)
+        backBtn.clicked.connect(lambda: self.parent().setScreen(name=&#39;main&#39;))
+
+        optionsGroup = QGroupBox(&#39;Dialog options&#39;)
+        optionsLayout = QVBoxLayout()
+        for labelText, widget in [(&#39;Color:&#39;, colorCombo), (&#39;Width:&#39;, widthSpin), (&#39;Height:&#39;, heightSpin)]:
+            row = QHBoxLayout()
+            row.addWidget(QLabel(labelText))
+            row.addWidget(widget)
+            optionsLayout.addLayout(row)
+        optionsGroup.setLayout(optionsLayout)
+
+        layout.addWidget(optionsGroup)
+        layout.addWidget(openBtn)
+        layout.addWidget(resultLabel)
+        layout.addStretch()
+        layout.addWidget(backBtn)
+        self.setLayout(layout)</code></pre>
+</details>
+<div class="desc"><p>A class that provides screen properties and screen management capabilities.
+Can be used as a base class or through composition.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>QFlow.modules.screen.screen.Screen</li>
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="examples.playground.DialogScreen.UI"><code class="name flex">
+<span>def <span class="ident">UI</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def UI(self):
+    layout = QVBoxLayout()
+    layout.setSpacing(10)
+
+    colorCombo = QComboBox()
+    colorCombo.addItems([&#39;black&#39;, &#39;white&#39;])
+
+    widthSpin  = QSpinBox()
+    heightSpin = QSpinBox()
+    widthSpin.setRange(150, 600);  widthSpin.setValue(300);  widthSpin.setSuffix(&#39; px&#39;)
+    heightSpin.setRange(100, 500); heightSpin.setValue(200); heightSpin.setSuffix(&#39; px&#39;)
+
+    resultLabel = QLabel(&#39;Waiting for dialog action...&#39;)
+    resultLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+    def openDialog():
+        dialogLayout = QVBoxLayout()
+
+        confirmLabel = QLabel(&#39;Do you confirm this action?&#39;)
+        confirmLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        btnRow = QHBoxLayout()
+        confirmBtn = QPushButton(&#39;Confirm&#39;)
+        cancelBtn  = QPushButton(&#39;Cancel&#39;)
+        btnRow.addWidget(confirmBtn)
+        btnRow.addWidget(cancelBtn)
+
+        dialogLayout.addWidget(confirmLabel)
+        dialogLayout.addLayout(btnRow)
+
+        dlg = Dialog(
+            parent=self.parent(),
+            childrenLayout=dialogLayout,
+            color=colorCombo.currentText(),
+            fixedSize=[widthSpin.value(), heightSpin.value()],
+        )
+
+        confirmBtn.clicked.connect(lambda: (resultLabel.setText(&#39;Confirmed&#39;), dlg.close()))
+        cancelBtn.clicked.connect(lambda:  (resultLabel.setText(&#39;Cancelled&#39;), dlg.close()))
+        dlg.show()
+
+    openBtn = QPushButton(&#39;Open dialog&#39;)
+    openBtn.clicked.connect(openDialog)
+
+    backBtn = QPushButton(&#39;Back&#39;)
+    backBtn.clicked.connect(lambda: self.parent().setScreen(name=&#39;main&#39;))
+
+    optionsGroup = QGroupBox(&#39;Dialog options&#39;)
+    optionsLayout = QVBoxLayout()
+    for labelText, widget in [(&#39;Color:&#39;, colorCombo), (&#39;Width:&#39;, widthSpin), (&#39;Height:&#39;, heightSpin)]:
+        row = QHBoxLayout()
+        row.addWidget(QLabel(labelText))
+        row.addWidget(widget)
+        optionsLayout.addLayout(row)
+    optionsGroup.setLayout(optionsLayout)
+
+    layout.addWidget(optionsGroup)
+    layout.addWidget(openBtn)
+    layout.addWidget(resultLabel)
+    layout.addStretch()
+    layout.addWidget(backBtn)
+    self.setLayout(layout)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="examples.playground.MainScreen"><code class="flex name class">
+<span>class <span class="ident">MainScreen</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@QFlow.screen(name=&#39;main&#39;, autoreloadUI=True, parentType=QFlow.App)
+class MainScreen(QFlow.Screen):
+    def __init__(self, parent):
+        self.args[&#39;parent&#39;] = parent
+        super().__init__(**self.args)
+
+    def UI(self):
+        layout = QVBoxLayout()
+        layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        layout.setSpacing(12)
+
+        title = QLabel(&#39;What do you want to try?&#39;)
+        title.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        layout.addWidget(title)
+        layout.addSpacing(16)
+
+        menuItems = [
+            (&#39;Notifications&#39;,   &#39;notify&#39;),
+            (&#39;Dialogs&#39;,         &#39;dialog&#39;),
+            (&#39;Reactive state&#39;,  &#39;state&#39;),
+            (&#39;Windows&#39;,         &#39;window&#39;),
+        ]
+
+        for label, targetScreen in menuItems:
+            btn = QPushButton(label)
+            btn.setFixedWidth(220)
+            btn.clicked.connect(lambda _, t=targetScreen: self.parent().setScreen(name=t))
+            layout.addWidget(btn, alignment=Qt.AlignmentFlag.AlignCenter)
+
+        layout.addSpacing(16)
+
+        appLabel = QLabel(f&#39;Global application: {type(QFlow.globals.app)}&#39;)
+        appLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        layout.addWidget(appLabel)
+
+        self.setLayout(layout)</code></pre>
+</details>
+<div class="desc"><p>A class that provides screen properties and screen management capabilities.
+Can be used as a base class or through composition.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>QFlow.modules.screen.screen.Screen</li>
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="examples.playground.MainScreen.UI"><code class="name flex">
+<span>def <span class="ident">UI</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def UI(self):
+    layout = QVBoxLayout()
+    layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+    layout.setSpacing(12)
+
+    title = QLabel(&#39;What do you want to try?&#39;)
+    title.setAlignment(Qt.AlignmentFlag.AlignCenter)
+    layout.addWidget(title)
+    layout.addSpacing(16)
+
+    menuItems = [
+        (&#39;Notifications&#39;,   &#39;notify&#39;),
+        (&#39;Dialogs&#39;,         &#39;dialog&#39;),
+        (&#39;Reactive state&#39;,  &#39;state&#39;),
+        (&#39;Windows&#39;,         &#39;window&#39;),
+    ]
+
+    for label, targetScreen in menuItems:
+        btn = QPushButton(label)
+        btn.setFixedWidth(220)
+        btn.clicked.connect(lambda _, t=targetScreen: self.parent().setScreen(name=t))
+        layout.addWidget(btn, alignment=Qt.AlignmentFlag.AlignCenter)
+
+    layout.addSpacing(16)
+
+    appLabel = QLabel(f&#39;Global application: {type(QFlow.globals.app)}&#39;)
+    appLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+    layout.addWidget(appLabel)
+
+    self.setLayout(layout)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="examples.playground.NotifyScreen"><code class="flex name class">
+<span>class <span class="ident">NotifyScreen</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@QFlow.screen(name=&#39;notify&#39;, autoreloadUI=True, parentType=QFlow.App)
+class NotifyScreen(QFlow.Screen):
+    def __init__(self, parent):
+        self.args[&#39;parent&#39;] = parent
+        super().__init__(**self.args)
+
+    def UI(self):
+        layout = QVBoxLayout()
+        layout.setSpacing(10)
+
+        msgInput = QLineEdit()
+        msgInput.setPlaceholderText(&#39;Notification message...&#39;)
+        msgInput.setText(&#39;Hello from QFlow!&#39;)
+
+        typeCombo = QComboBox()
+        typeCombo.addItems([&#39;success&#39;, &#39;error&#39;, &#39;info&#39;])
+
+        colorCombo = QComboBox()
+        colorCombo.addItems([&#39;black&#39;, &#39;white&#39;])
+
+        posCombo = QComboBox()
+        posCombo.addItems([&#39;top-right&#39;, &#39;top-left&#39;, &#39;bottom-right&#39;, &#39;bottom-left&#39;])
+
+        durationSpin = QSpinBox()
+        durationSpin.setRange(500, 10000)
+        durationSpin.setSingleStep(500)
+        durationSpin.setValue(3000)
+        durationSpin.setSuffix(&#39; ms&#39;)
+
+        showProgressBar = QCheckBox(&#39;Show progress bar&#39;)
+        showProgressBar.setChecked(True)
+
+        def fireNotification():
+            Notify(
+                message=msgInput.text() or &#39;No message&#39;,
+                type=typeCombo.currentText(),
+                color=colorCombo.currentText(),
+                position=posCombo.currentText(),
+                duration=durationSpin.value(),
+                toggleProgressBar=showProgressBar.isChecked(),
+                parent=self.parent(),
+            )
+
+        fireBtn = QPushButton(&#39;Send notification&#39;)
+        fireBtn.clicked.connect(fireNotification)
+
+        backBtn = QPushButton(&#39;Back&#39;)
+        backBtn.clicked.connect(lambda: self.parent().setScreen(name=&#39;main&#39;))
+
+        optionsGroup = QGroupBox(&#39;Options&#39;)
+        optionsLayout = QVBoxLayout()
+
+        fields = [
+            (&#39;Message:&#39;,   msgInput),
+            (&#39;Type:&#39;,      typeCombo),
+            (&#39;Color:&#39;,     colorCombo),
+            (&#39;Position:&#39;,  posCombo),
+            (&#39;Duration:&#39;,  durationSpin),
+        ]
+        for labelText, widget in fields:
+            row = QHBoxLayout()
+            row.addWidget(QLabel(labelText))
+            row.addWidget(widget)
+            optionsLayout.addLayout(row)
+
+        optionsLayout.addWidget(showProgressBar)
+        optionsGroup.setLayout(optionsLayout)
+
+        layout.addWidget(optionsGroup)
+        layout.addWidget(fireBtn)
+        layout.addStretch()
+        layout.addWidget(backBtn)
+        self.setLayout(layout)</code></pre>
+</details>
+<div class="desc"><p>A class that provides screen properties and screen management capabilities.
+Can be used as a base class or through composition.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>QFlow.modules.screen.screen.Screen</li>
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="examples.playground.NotifyScreen.UI"><code class="name flex">
+<span>def <span class="ident">UI</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def UI(self):
+    layout = QVBoxLayout()
+    layout.setSpacing(10)
+
+    msgInput = QLineEdit()
+    msgInput.setPlaceholderText(&#39;Notification message...&#39;)
+    msgInput.setText(&#39;Hello from QFlow!&#39;)
+
+    typeCombo = QComboBox()
+    typeCombo.addItems([&#39;success&#39;, &#39;error&#39;, &#39;info&#39;])
+
+    colorCombo = QComboBox()
+    colorCombo.addItems([&#39;black&#39;, &#39;white&#39;])
+
+    posCombo = QComboBox()
+    posCombo.addItems([&#39;top-right&#39;, &#39;top-left&#39;, &#39;bottom-right&#39;, &#39;bottom-left&#39;])
+
+    durationSpin = QSpinBox()
+    durationSpin.setRange(500, 10000)
+    durationSpin.setSingleStep(500)
+    durationSpin.setValue(3000)
+    durationSpin.setSuffix(&#39; ms&#39;)
+
+    showProgressBar = QCheckBox(&#39;Show progress bar&#39;)
+    showProgressBar.setChecked(True)
+
+    def fireNotification():
+        Notify(
+            message=msgInput.text() or &#39;No message&#39;,
+            type=typeCombo.currentText(),
+            color=colorCombo.currentText(),
+            position=posCombo.currentText(),
+            duration=durationSpin.value(),
+            toggleProgressBar=showProgressBar.isChecked(),
+            parent=self.parent(),
+        )
+
+    fireBtn = QPushButton(&#39;Send notification&#39;)
+    fireBtn.clicked.connect(fireNotification)
+
+    backBtn = QPushButton(&#39;Back&#39;)
+    backBtn.clicked.connect(lambda: self.parent().setScreen(name=&#39;main&#39;))
+
+    optionsGroup = QGroupBox(&#39;Options&#39;)
+    optionsLayout = QVBoxLayout()
+
+    fields = [
+        (&#39;Message:&#39;,   msgInput),
+        (&#39;Type:&#39;,      typeCombo),
+        (&#39;Color:&#39;,     colorCombo),
+        (&#39;Position:&#39;,  posCombo),
+        (&#39;Duration:&#39;,  durationSpin),
+    ]
+    for labelText, widget in fields:
+        row = QHBoxLayout()
+        row.addWidget(QLabel(labelText))
+        row.addWidget(widget)
+        optionsLayout.addLayout(row)
+
+    optionsLayout.addWidget(showProgressBar)
+    optionsGroup.setLayout(optionsLayout)
+
+    layout.addWidget(optionsGroup)
+    layout.addWidget(fireBtn)
+    layout.addStretch()
+    layout.addWidget(backBtn)
+    self.setLayout(layout)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="examples.playground.QFlowApp"><code class="flex name class">
+<span>class <span class="ident">QFlowApp</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@QFlow.app(
+    name=&#39;App&#39;,
+    title=&#39;QFlow Playground&#39;,
+    geometry=[100, 50, 900, 650],
+    customTemplate=DefaultTemplate,
+    frameless=True,
+)
+@style(r&#39;QMainWindow { border: 1px solid #3e3e42; }&#39;)
+class QFlowApp(QFlow.App):
+    def __init__(self):
+        self.mainScreen     = MainScreen(parent=self)
+        self.notifyScreen   = NotifyScreen(parent=self)
+        self.dialogScreen   = DialogScreen(parent=self)
+        self.stateScreen    = StateScreen(parent=self)
+        self.windowScreen   = WindowScreen(parent=self)
+
+        screens = [
+            self.mainScreen, self.notifyScreen, self.dialogScreen,
+            self.stateScreen, self.windowScreen,
+        ]
+        for screen in screens:
+            self.addScreen(screen=screen)
+
+        self.setScreen(name=&#39;main&#39;)</code></pre>
+</details>
+<div class="desc"><p>An application class that extends Window functionality for main application windows.</p>
+<p>This class provides all the functionality of a Window plus additional application-level
+features like strict window management and enhanced screen handling.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>QFlow.modules.app.app.App</li>
+<li>QFlow.modules.window.window.Window</li>
+<li>PyQt6.QtWidgets.QMainWindow</li>
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+</dd>
+<dt id="examples.playground.SecondaryScreen"><code class="flex name class">
+<span>class <span class="ident">SecondaryScreen</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@QFlow.screen(name=&#39;secondaryScreen&#39;, autoreloadUI=True)
+class SecondaryScreen(QFlow.Screen):
+    def __init__(self, parent):
+        self.args[&#39;parent&#39;] = parent
+        super().__init__(**self.args)
+
+    def UI(self):
+        layout = QVBoxLayout()
+        layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        params = QFlow.hooks.Params(self.parent())
+        info   = params.get()
+
+        openedByLabel = QLabel(f&#34;Opened by: {info.get(&#39;openedBy&#39;, &#39;?&#39;)}&#34;)
+        openedByLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        toggle      = ToggleSwitch(parent=self)
+        toggleLabel = QLabel(&#39;Toggle: OFF&#39;)
+        toggleLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        def onTogglePress(event):
+            ToggleSwitch.mousePressEvent(toggle, event)
+
+            isOn = toggle.isChecked()
+            toggleLabel.setText(f&#39;Toggle: {&#39;ON&#39; if isOn else &#39;OFF&#39;}&#39;)
+
+        toggle.mousePressEvent = onTogglePress
+
+        closeBtn = QPushButton(&#39;Close window&#39;)
+        closeBtn.clicked.connect(self.parent().close)
+
+        layout.addWidget(openedByLabel)
+        layout.addSpacing(12)
+        layout.addWidget(toggle, alignment=Qt.AlignmentFlag.AlignCenter)
+        layout.addWidget(toggleLabel)
+        layout.addSpacing(12)
+        layout.addWidget(closeBtn)
+        self.setLayout(layout)</code></pre>
+</details>
+<div class="desc"><p>A class that provides screen properties and screen management capabilities.
+Can be used as a base class or through composition.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>QFlow.modules.screen.screen.Screen</li>
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="examples.playground.SecondaryScreen.UI"><code class="name flex">
+<span>def <span class="ident">UI</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def UI(self):
+    layout = QVBoxLayout()
+    layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+    params = QFlow.hooks.Params(self.parent())
+    info   = params.get()
+
+    openedByLabel = QLabel(f&#34;Opened by: {info.get(&#39;openedBy&#39;, &#39;?&#39;)}&#34;)
+    openedByLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+    toggle      = ToggleSwitch(parent=self)
+    toggleLabel = QLabel(&#39;Toggle: OFF&#39;)
+    toggleLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+    def onTogglePress(event):
+        ToggleSwitch.mousePressEvent(toggle, event)
+
+        isOn = toggle.isChecked()
+        toggleLabel.setText(f&#39;Toggle: {&#39;ON&#39; if isOn else &#39;OFF&#39;}&#39;)
+
+    toggle.mousePressEvent = onTogglePress
+
+    closeBtn = QPushButton(&#39;Close window&#39;)
+    closeBtn.clicked.connect(self.parent().close)
+
+    layout.addWidget(openedByLabel)
+    layout.addSpacing(12)
+    layout.addWidget(toggle, alignment=Qt.AlignmentFlag.AlignCenter)
+    layout.addWidget(toggleLabel)
+    layout.addSpacing(12)
+    layout.addWidget(closeBtn)
+    self.setLayout(layout)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="examples.playground.SecondaryWindow"><code class="flex name class">
+<span>class <span class="ident">SecondaryWindow</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@QFlow.window(
+    name=&#39;secondary&#39;,
+    title=&#39;Secondary window&#39;,
+    geometry=[160, 160, 400, 300],
+    strictClosingWindows=False,
+)
+class SecondaryWindow(QFlow.Window):
+    def __init__(self):
+        self.screen = SecondaryScreen(self)
+        self.addScreen(screen=self.screen)
+        self.setScreen(name=&#39;secondaryScreen&#39;)
+
+    def effect(self):
+        self.params = QFlow.hooks.Params(self)
+        title = self.params.get(&#39;windowName&#39;) or &#39;Secondary window&#39;
+        self.setWindowTitle(title)</code></pre>
+</details>
+<div class="desc"><p>A window class that provides window properties and screen management capabilities.</p>
+<p>This class allows you to configure the title, geometry, and icon of a window,
+while also providing built-in screen management functionality.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>QFlow.modules.window.window.Window</li>
+<li>PyQt6.QtWidgets.QMainWindow</li>
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="examples.playground.SecondaryWindow.effect"><code class="name flex">
+<span>def <span class="ident">effect</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def effect(self):
+    self.params = QFlow.hooks.Params(self)
+    title = self.params.get(&#39;windowName&#39;) or &#39;Secondary window&#39;
+    self.setWindowTitle(title)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="examples.playground.StateScreen"><code class="flex name class">
+<span>class <span class="ident">StateScreen</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@QFlow.screen(name=&#39;state&#39;, autoreloadUI=True, parentType=QFlow.App)
+class StateScreen(QFlow.Screen):
+    def __init__(self, parent):
+        self.args[&#39;parent&#39;] = parent
+        super().__init__(**self.args)
+
+    def UI(self):
+        layout = QVBoxLayout()
+        layout.setSpacing(10)
+
+        # Counter
+        counterGroup = QGroupBox(&#39;Counter (QFlow.stores.State)&#39;)
+        counterLayout = QVBoxLayout()
+
+        counterDisplay = QLabel(f&#39;Value: {counterState.get()}&#39;)
+        counterDisplay.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        counterState.subscribe(lambda v: counterDisplay.setText(f&#39;Value: {v}&#39;))
+
+        btnRow = QHBoxLayout()
+        decBtn = QPushButton(&#39;-&#39;)
+        incBtn = QPushButton(&#39;+&#39;)
+        rstBtn = QPushButton(&#39;Reset&#39;)
+        decBtn.clicked.connect(lambda: counterState.set(counterState.get() - 1))
+        incBtn.clicked.connect(lambda: counterState.set(counterState.get() + 1))
+        rstBtn.clicked.connect(lambda: counterState.set(0))
+        for btn in [decBtn, incBtn, rstBtn]:
+            btnRow.addWidget(btn)
+
+        counterLayout.addWidget(counterDisplay)
+        counterLayout.addLayout(btnRow)
+        counterGroup.setLayout(counterLayout)
+
+        # Reactive log
+        logGroup = QGroupBox(&#39;Reactive log&#39;)
+        logLayout = QVBoxLayout()
+
+        logList = QListWidget()
+        for entry in logState.get():
+            logList.addItem(entry)
+
+        def onLogChange(entries):
+            logList.clear()
+            for entry in entries:
+                logList.addItem(entry)
+            logList.scrollToBottom()
+
+        logState.subscribe(onLogChange)
+
+        logInput = QLineEdit()
+        logInput.setPlaceholderText(&#39;Type something and press Enter...&#39;)
+
+        def addLogEntry():
+            text = logInput.text().strip()
+            if text:
+                logState.set(logState.get() + [f&#39;{text}&#39;])
+                logInput.clear()
+
+        logInput.returnPressed.connect(addLogEntry)
+
+        clearBtn = QPushButton(&#39;Clear log&#39;)
+        clearBtn.clicked.connect(lambda: logState.set([]))
+
+        logLayout.addWidget(logList)
+        logLayout.addWidget(logInput)
+        logLayout.addWidget(clearBtn)
+        logGroup.setLayout(logLayout)
+
+        backBtn = QPushButton(&#39;Back&#39;)
+        backBtn.clicked.connect(lambda: self.parent().setScreen(name=&#39;main&#39;))
+
+        layout.addWidget(counterGroup)
+        layout.addWidget(logGroup)
+        layout.addStretch()
+        layout.addWidget(backBtn)
+        self.setLayout(layout)</code></pre>
+</details>
+<div class="desc"><p>A class that provides screen properties and screen management capabilities.
+Can be used as a base class or through composition.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>QFlow.modules.screen.screen.Screen</li>
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="examples.playground.StateScreen.UI"><code class="name flex">
+<span>def <span class="ident">UI</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def UI(self):
+    layout = QVBoxLayout()
+    layout.setSpacing(10)
+
+    # Counter
+    counterGroup = QGroupBox(&#39;Counter (QFlow.stores.State)&#39;)
+    counterLayout = QVBoxLayout()
+
+    counterDisplay = QLabel(f&#39;Value: {counterState.get()}&#39;)
+    counterDisplay.setAlignment(Qt.AlignmentFlag.AlignCenter)
+    counterState.subscribe(lambda v: counterDisplay.setText(f&#39;Value: {v}&#39;))
+
+    btnRow = QHBoxLayout()
+    decBtn = QPushButton(&#39;-&#39;)
+    incBtn = QPushButton(&#39;+&#39;)
+    rstBtn = QPushButton(&#39;Reset&#39;)
+    decBtn.clicked.connect(lambda: counterState.set(counterState.get() - 1))
+    incBtn.clicked.connect(lambda: counterState.set(counterState.get() + 1))
+    rstBtn.clicked.connect(lambda: counterState.set(0))
+    for btn in [decBtn, incBtn, rstBtn]:
+        btnRow.addWidget(btn)
+
+    counterLayout.addWidget(counterDisplay)
+    counterLayout.addLayout(btnRow)
+    counterGroup.setLayout(counterLayout)
+
+    # Reactive log
+    logGroup = QGroupBox(&#39;Reactive log&#39;)
+    logLayout = QVBoxLayout()
+
+    logList = QListWidget()
+    for entry in logState.get():
+        logList.addItem(entry)
+
+    def onLogChange(entries):
+        logList.clear()
+        for entry in entries:
+            logList.addItem(entry)
+        logList.scrollToBottom()
+
+    logState.subscribe(onLogChange)
+
+    logInput = QLineEdit()
+    logInput.setPlaceholderText(&#39;Type something and press Enter...&#39;)
+
+    def addLogEntry():
+        text = logInput.text().strip()
+        if text:
+            logState.set(logState.get() + [f&#39;{text}&#39;])
+            logInput.clear()
+
+    logInput.returnPressed.connect(addLogEntry)
+
+    clearBtn = QPushButton(&#39;Clear log&#39;)
+    clearBtn.clicked.connect(lambda: logState.set([]))
+
+    logLayout.addWidget(logList)
+    logLayout.addWidget(logInput)
+    logLayout.addWidget(clearBtn)
+    logGroup.setLayout(logLayout)
+
+    backBtn = QPushButton(&#39;Back&#39;)
+    backBtn.clicked.connect(lambda: self.parent().setScreen(name=&#39;main&#39;))
+
+    layout.addWidget(counterGroup)
+    layout.addWidget(logGroup)
+    layout.addStretch()
+    layout.addWidget(backBtn)
+    self.setLayout(layout)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="examples.playground.WindowScreen"><code class="flex name class">
+<span>class <span class="ident">WindowScreen</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@QFlow.screen(name=&#39;window&#39;, autoreloadUI=True, parentType=QFlow.App)
+class WindowScreen(QFlow.Screen):
+    def __init__(self, parent):
+        self.args[&#39;parent&#39;] = parent
+        super().__init__(**self.args)
+
+    def UI(self):
+        layout = QVBoxLayout()
+        layout.setSpacing(10)
+
+        statusLabel = QLabel(&#39;No windows open.&#39;)
+        statusLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+        titleInput = QLineEdit(&#39;Secondary window&#39;)
+        widthSpin  = QSpinBox(); widthSpin.setRange(200, 800);  widthSpin.setValue(400); widthSpin.setSuffix(&#39; px&#39;)
+        heightSpin = QSpinBox(); heightSpin.setRange(150, 600); heightSpin.setValue(300); heightSpin.setSuffix(&#39; px&#39;)
+
+        windowCount = [0]
+
+        def openWindow():
+            windowCount[0] += 1
+            windowName = f&#39;win-{windowCount[0]}&#39;
+            windowTitle = titleInput.text() or &#39;Secondary window&#39;
+
+            win = SecondaryWindow()
+            win.name           = windowName
+            win.title          = windowTitle
+            win.windowGeometry = [160, 160, widthSpin.value(), heightSpin.value()]
+
+            self.parent().createWindow(win, args={
+                &#39;windowName&#39;: windowTitle,
+                &#39;openedBy&#39;: &#39;WindowScreen&#39;,
+            })
+            statusLabel.setText(f&#39;Window &#34;{windowTitle}&#34; created (id: {windowName})&#39;)
+
+        def closeAllWindows():
+            for name in list(self.parent().getAllWindows().keys()):
+                self.parent().closeWindow(name)
+            statusLabel.setText(&#39;All windows closed.&#39;)
+            windowCount[0] = 0
+
+        openBtn     = QPushButton(&#39;Open new window&#39;)
+        closeAllBtn = QPushButton(&#39;Close all&#39;)
+        openBtn.clicked.connect(openWindow)
+        closeAllBtn.clicked.connect(closeAllWindows)
+
+        optionsGroup = QGroupBox(&#39;Window settings&#39;)
+        optionsLayout = QVBoxLayout()
+        for labelText, widget in [(&#39;Title:&#39;, titleInput), (&#39;Width:&#39;, widthSpin), (&#39;Height:&#39;, heightSpin)]:
+            row = QHBoxLayout()
+            row.addWidget(QLabel(labelText))
+            row.addWidget(widget)
+            optionsLayout.addLayout(row)
+        optionsGroup.setLayout(optionsLayout)
+
+        backBtn = QPushButton(&#39;Back&#39;)
+        backBtn.clicked.connect(lambda: self.parent().setScreen(name=&#39;main&#39;))
+
+        layout.addWidget(optionsGroup)
+        layout.addWidget(openBtn)
+        layout.addWidget(closeAllBtn)
+        layout.addWidget(statusLabel)
+        layout.addStretch()
+        layout.addWidget(backBtn)
+        self.setLayout(layout)</code></pre>
+</details>
+<div class="desc"><p>A class that provides screen properties and screen management capabilities.
+Can be used as a base class or through composition.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>QFlow.modules.screen.screen.Screen</li>
+<li>PyQt6.QtWidgets.QWidget</li>
+<li>PyQt6.QtCore.QObject</li>
+<li>PyQt6.sip.wrapper</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="examples.playground.WindowScreen.UI"><code class="name flex">
+<span>def <span class="ident">UI</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def UI(self):
+    layout = QVBoxLayout()
+    layout.setSpacing(10)
+
+    statusLabel = QLabel(&#39;No windows open.&#39;)
+    statusLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+
+    titleInput = QLineEdit(&#39;Secondary window&#39;)
+    widthSpin  = QSpinBox(); widthSpin.setRange(200, 800);  widthSpin.setValue(400); widthSpin.setSuffix(&#39; px&#39;)
+    heightSpin = QSpinBox(); heightSpin.setRange(150, 600); heightSpin.setValue(300); heightSpin.setSuffix(&#39; px&#39;)
+
+    windowCount = [0]
+
+    def openWindow():
+        windowCount[0] += 1
+        windowName = f&#39;win-{windowCount[0]}&#39;
+        windowTitle = titleInput.text() or &#39;Secondary window&#39;
+
+        win = SecondaryWindow()
+        win.name           = windowName
+        win.title          = windowTitle
+        win.windowGeometry = [160, 160, widthSpin.value(), heightSpin.value()]
+
+        self.parent().createWindow(win, args={
+            &#39;windowName&#39;: windowTitle,
+            &#39;openedBy&#39;: &#39;WindowScreen&#39;,
+        })
+        statusLabel.setText(f&#39;Window &#34;{windowTitle}&#34; created (id: {windowName})&#39;)
+
+    def closeAllWindows():
+        for name in list(self.parent().getAllWindows().keys()):
+            self.parent().closeWindow(name)
+        statusLabel.setText(&#39;All windows closed.&#39;)
+        windowCount[0] = 0
+
+    openBtn     = QPushButton(&#39;Open new window&#39;)
+    closeAllBtn = QPushButton(&#39;Close all&#39;)
+    openBtn.clicked.connect(openWindow)
+    closeAllBtn.clicked.connect(closeAllWindows)
+
+    optionsGroup = QGroupBox(&#39;Window settings&#39;)
+    optionsLayout = QVBoxLayout()
+    for labelText, widget in [(&#39;Title:&#39;, titleInput), (&#39;Width:&#39;, widthSpin), (&#39;Height:&#39;, heightSpin)]:
+        row = QHBoxLayout()
+        row.addWidget(QLabel(labelText))
+        row.addWidget(widget)
+        optionsLayout.addLayout(row)
+    optionsGroup.setLayout(optionsLayout)
+
+    backBtn = QPushButton(&#39;Back&#39;)
+    backBtn.clicked.connect(lambda: self.parent().setScreen(name=&#39;main&#39;))
+
+    layout.addWidget(optionsGroup)
+    layout.addWidget(openBtn)
+    layout.addWidget(closeAllBtn)
+    layout.addWidget(statusLabel)
+    layout.addStretch()
+    layout.addWidget(backBtn)
+    self.setLayout(layout)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="examples.playground.DefaultTemplate" href="#examples.playground.DefaultTemplate">DefaultTemplate</a></code></h4>
+</li>
+<li>
+<h4><code><a title="examples.playground.DialogScreen" href="#examples.playground.DialogScreen">DialogScreen</a></code></h4>
+<ul class="">
+<li><code><a title="examples.playground.DialogScreen.UI" href="#examples.playground.DialogScreen.UI">UI</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="examples.playground.MainScreen" href="#examples.playground.MainScreen">MainScreen</a></code></h4>
+<ul class="">
+<li><code><a title="examples.playground.MainScreen.UI" href="#examples.playground.MainScreen.UI">UI</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="examples.playground.NotifyScreen" href="#examples.playground.NotifyScreen">NotifyScreen</a></code></h4>
+<ul class="">
+<li><code><a title="examples.playground.NotifyScreen.UI" href="#examples.playground.NotifyScreen.UI">UI</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="examples.playground.QFlowApp" href="#examples.playground.QFlowApp">QFlowApp</a></code></h4>
+</li>
+<li>
+<h4><code><a title="examples.playground.SecondaryScreen" href="#examples.playground.SecondaryScreen">SecondaryScreen</a></code></h4>
+<ul class="">
+<li><code><a title="examples.playground.SecondaryScreen.UI" href="#examples.playground.SecondaryScreen.UI">UI</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="examples.playground.SecondaryWindow" href="#examples.playground.SecondaryWindow">SecondaryWindow</a></code></h4>
+<ul class="">
+<li><code><a title="examples.playground.SecondaryWindow.effect" href="#examples.playground.SecondaryWindow.effect">effect</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="examples.playground.StateScreen" href="#examples.playground.StateScreen">StateScreen</a></code></h4>
+<ul class="">
+<li><code><a title="examples.playground.StateScreen.UI" href="#examples.playground.StateScreen.UI">UI</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="examples.playground.WindowScreen" href="#examples.playground.WindowScreen">WindowScreen</a></code></h4>
+<ul class="">
+<li><code><a title="examples.playground.WindowScreen.UI" href="#examples.playground.WindowScreen.UI">UI</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

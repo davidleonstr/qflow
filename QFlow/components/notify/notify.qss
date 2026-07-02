@@ -1,0 +1,55 @@
+/* Styles for './notify.py' on './properties.py' */
+
+/* When QFrame it's black */
+#black-QFrame {
+    background-color: #252525;
+    border-radius: 4px;
+}
+/* When QFrame it's white */
+#white-QFrame {
+    background-color: #f7f7f7;
+    border-radius: 4px;
+}
+
+/* When QLabel it's white */
+#white-QLabel {
+    color: white; 
+    font-size: 14px; 
+    font-weight: normal;
+}
+/* When QLabel it's black */
+#black-QLabel {
+    color: black; 
+    font-size: 14px; 
+    font-weight: normal;
+}
+
+/* When the progress bar shows success */
+#success-QProgressBar {
+    border: none;
+    background: transparent;  
+}
+/* When the progress bar shows success */
+#success-QProgressBar::chunk {
+    background: #4CAF50;
+}
+
+/* When the progress bar shows error */
+#error-QProgressBar {
+    border: none;
+    background: transparent;  
+}
+/* When the progress bar shows error */
+#error-QProgressBar::chunk {
+    background: #af4c4c;
+} 
+
+/* When the progress bar shows information */
+#info-QProgressBar {
+    border: none;
+    background: transparent;  
+}
+/* When the progress bar shows information */
+#info-QProgressBar::chunk {
+    background: #4c7faf;
+} 

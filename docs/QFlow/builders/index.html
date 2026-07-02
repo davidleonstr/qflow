@@ -1,0 +1,1990 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>QFlow.builders API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>QFlow.builders</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="QFlow.builders.file" href="file.html">QFlow.builders.file</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="QFlow.builders.folder" href="folder.html">QFlow.builders.folder</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="QFlow.builders.icon" href="icon.html">QFlow.builders.icon</a></code></dt>
+<dd>
+<div class="desc"><p>This module defines the Icon class, which extends QPixmap to handle image loading and scaling …</p></div>
+</dd>
+<dt><code class="name"><a title="QFlow.builders.jsonf" href="jsonf.html">QFlow.builders.jsonf</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt><code class="name"><a title="QFlow.builders.object" href="object.html">QFlow.builders.object</a></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="QFlow.builders.File"><code class="flex name class">
+<span>class <span class="ident">File</span></span>
+<span>(</span><span>filepath)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class File:
+    &#34;&#34;&#34;
+    A generic file handler for reading, writing, and deleting files.
+    
+    This class provides a simple interface for common file operations with
+    configurable read/write modes and encoding.
+    
+    Attributes:
+        filepath (str): The path to the file to be managed.
+        readType (str): The mode for reading files. Defaults to &#39;r&#39;.
+        encoding (str): The encoding used for file operations. Defaults to &#39;utf-8&#39;.
+        writeType (str): The mode for writing files. Defaults to &#39;w&#39;.
+    &#34;&#34;&#34;
+    
+    def __init__(self, filepath) -&gt; None:
+        &#34;&#34;&#34;
+        Initializes the file handler with a specific filepath.
+        
+        Args:
+            filepath (str): The path to the file to be managed.
+        &#34;&#34;&#34;
+        self.filepath: str = filepath
+        self.readType: str = &#39;r&#39;
+        self.encoding: str = &#39;utf-8&#39;
+        self.writeType: str = &#39;w&#39;
+
+    def readFile(self, lines: bool = False) -&gt; str | list | None:
+        &#34;&#34;&#34;
+        Reads the content of the file.
+        
+        Args:
+            lines (bool, optional): If True, returns content as a list of lines.
+                If False, returns content as a single string. Defaults to False.
+        
+        Returns:
+            str | list | None: The file content as a string or list of lines,
+                depending on the lines parameter.
+        
+        Raises:
+            Exception: If the file is not found or an unexpected error occurs.
+        &#34;&#34;&#34;
+        try:
+            with open(file=self.filepath, mode=self.readType, encoding=self.encoding) as file:
+                return file.read() if not lines else file.readlines()
+        except FileNotFoundError:
+            raise Exception(f&#34;Error: File &#39;{self.filepath}&#39; does not exist.&#34;)
+        except Exception as e:
+            raise Exception(f&#34;Unexpected error reading file: &#39;{e}&#39;.&#34;)
+
+    def writeFile(self, data: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Writes data to the file.
+        
+        Args:
+            data (str): The content to write to the file.
+        
+        Returns:
+            bool: True if the write operation was successful.
+        
+        Raises:
+            Exception: If there are permission issues or an unexpected error occurs.
+        &#34;&#34;&#34;
+        try:
+            with open(file=self.filepath, mode=self.writeType, encoding=self.encoding) as file:
+                file.write(data)
+
+            return True
+        except PermissionError:
+            raise Exception(f&#34;Error: You do not have permissions to write to &#39;{self.filepath}&#39;.&#34;)
+        except Exception as e:
+            raise Exception(f&#34;Unexpected error writing to file: &#39;{e}&#39;.&#34;)
+
+    def deleteFile(self) -&gt; bool:
+        &#34;&#34;&#34;
+        Deletes the file if it exists.
+        
+        Returns:
+            bool: True if the file was successfully deleted, False if the file
+                does not exist.
+        &#34;&#34;&#34;
+        if os.path.exists(self.filepath):
+            os.remove(self.filepath)
+            return True
+        
+        return False</code></pre>
+</details>
+<div class="desc"><p>A generic file handler for reading, writing, and deleting files.</p>
+<p>This class provides a simple interface for common file operations with
+configurable read/write modes and encoding.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>filepath</code></strong> :&ensp;<code>str</code></dt>
+<dd>The path to the file to be managed.</dd>
+<dt><strong><code>readType</code></strong> :&ensp;<code>str</code></dt>
+<dd>The mode for reading files. Defaults to 'r'.</dd>
+<dt><strong><code>encoding</code></strong> :&ensp;<code>str</code></dt>
+<dd>The encoding used for file operations. Defaults to 'utf-8'.</dd>
+<dt><strong><code>writeType</code></strong> :&ensp;<code>str</code></dt>
+<dd>The mode for writing files. Defaults to 'w'.</dd>
+</dl>
+<p>Initializes the file handler with a specific filepath.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>filepath</code></strong> :&ensp;<code>str</code></dt>
+<dd>The path to the file to be managed.</dd>
+</dl></div>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.builders.File.deleteFile"><code class="name flex">
+<span>def <span class="ident">deleteFile</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def deleteFile(self) -&gt; bool:
+    &#34;&#34;&#34;
+    Deletes the file if it exists.
+    
+    Returns:
+        bool: True if the file was successfully deleted, False if the file
+            does not exist.
+    &#34;&#34;&#34;
+    if os.path.exists(self.filepath):
+        os.remove(self.filepath)
+        return True
+    
+    return False</code></pre>
+</details>
+<div class="desc"><p>Deletes the file if it exists.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the file was successfully deleted, False if the file
+does not exist.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.File.readFile"><code class="name flex">
+<span>def <span class="ident">readFile</span></span>(<span>self, lines: bool = False) ‑> str | list | None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def readFile(self, lines: bool = False) -&gt; str | list | None:
+    &#34;&#34;&#34;
+    Reads the content of the file.
+    
+    Args:
+        lines (bool, optional): If True, returns content as a list of lines.
+            If False, returns content as a single string. Defaults to False.
+    
+    Returns:
+        str | list | None: The file content as a string or list of lines,
+            depending on the lines parameter.
+    
+    Raises:
+        Exception: If the file is not found or an unexpected error occurs.
+    &#34;&#34;&#34;
+    try:
+        with open(file=self.filepath, mode=self.readType, encoding=self.encoding) as file:
+            return file.read() if not lines else file.readlines()
+    except FileNotFoundError:
+        raise Exception(f&#34;Error: File &#39;{self.filepath}&#39; does not exist.&#34;)
+    except Exception as e:
+        raise Exception(f&#34;Unexpected error reading file: &#39;{e}&#39;.&#34;)</code></pre>
+</details>
+<div class="desc"><p>Reads the content of the file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>lines</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If True, returns content as a list of lines.
+If False, returns content as a single string. Defaults to False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str | list | None</code></dt>
+<dd>The file content as a string or list of lines,
+depending on the lines parameter.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>Exception</code></dt>
+<dd>If the file is not found or an unexpected error occurs.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.File.writeFile"><code class="name flex">
+<span>def <span class="ident">writeFile</span></span>(<span>self, data: str) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def writeFile(self, data: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Writes data to the file.
+    
+    Args:
+        data (str): The content to write to the file.
+    
+    Returns:
+        bool: True if the write operation was successful.
+    
+    Raises:
+        Exception: If there are permission issues or an unexpected error occurs.
+    &#34;&#34;&#34;
+    try:
+        with open(file=self.filepath, mode=self.writeType, encoding=self.encoding) as file:
+            file.write(data)
+
+        return True
+    except PermissionError:
+        raise Exception(f&#34;Error: You do not have permissions to write to &#39;{self.filepath}&#39;.&#34;)
+    except Exception as e:
+        raise Exception(f&#34;Unexpected error writing to file: &#39;{e}&#39;.&#34;)</code></pre>
+</details>
+<div class="desc"><p>Writes data to the file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>str</code></dt>
+<dd>The content to write to the file.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the write operation was successful.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>Exception</code></dt>
+<dd>If there are permission issues or an unexpected error occurs.</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+<dt id="QFlow.builders.Folder"><code class="flex name class">
+<span>class <span class="ident">Folder</span></span>
+<span>(</span><span>folderpath: str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Folder:
+    &#34;&#34;&#34;
+    Class to manage folders easily.
+    Allows creating, deleting, copying, moving, and listing folder contents.
+    &#34;&#34;&#34;
+    
+    def __init__(self, folderpath: str):
+        &#34;&#34;&#34;
+        Initialize the folder manager.
+        
+        Args:
+            folderpath: Path to the folder
+        &#34;&#34;&#34;
+        self.folderpath = folderpath
+        self.path = Path(folderpath)
+    
+    def create(self, existOk: bool = True) -&gt; None:
+        &#34;&#34;&#34;
+        Create the folder.
+        
+        Args:
+            existOk: If True, don&#34;t raise error if folder already exists
+        
+        Raises:
+            FileExistsError: If folder exists and existOk is False
+        &#34;&#34;&#34;
+        try:
+            os.makedirs(self.folderpath, existOk=existOk)
+        except FileExistsError:
+            raise FileExistsError(f&#34;Folder &#39;{self.folderpath}&#39; already exists&#34;)
+    
+    def delete(self, confirm: bool = False) -&gt; bool:
+        &#34;&#34;&#34;
+        Delete the folder and all its contents.
+        
+        Args:
+            confirm: Safety flag to confirm deletion
+        
+        Returns:
+            True if deleted, False if folder doesn&#34;t exist
+        
+        Raises:
+            ValueError: If confirm is False (safety measure)
+        &#34;&#34;&#34;
+        if not confirm:
+            raise ValueError(&#34;Must set confirm=True to delete folder&#34;)
+        
+        if self.exists():
+            shutil.rmtree(self.folderpath)
+            return True
+        return False
+    
+    def exists(self) -&gt; bool:
+        &#34;&#34;&#34;
+        Check if the folder exists.
+        
+        Returns:
+            True if exists, False otherwise
+        &#34;&#34;&#34;
+        return os.path.exists(self.folderpath) and os.path.isdir(self.folderpath)
+    
+    def isEmpty(self) -&gt; bool:
+        &#34;&#34;&#34;
+        Check if the folder is empty.
+        
+        Returns:
+            True if empty, False otherwise
+        
+        Raises:
+            FileNotFoundError: If folder doesn&#34;t exist
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        return len(os.listdir(self.folderpath)) == 0
+    
+    def listContents(self, pattern: Optional[str] = None, recursive: bool = False) -&gt; List[str]:
+        &#34;&#34;&#34;
+        List contents of the folder.
+        
+        Args:
+            pattern: Optional pattern to filter files (e.g., &#34;*.txt&#34;)
+            recursive: If True, list contents recursively
+        
+        Returns:
+            List of file/folder names
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        if recursive:
+            contents = []
+            for root, dirs, files in os.walk(self.folderpath):
+                for item in dirs + files:
+                    fullPath = os.path.join(root, item)
+                    relPath = os.path.relpath(fullPath, self.folderpath)
+                    if pattern is None or fnmatch.fnmatch(item, pattern):
+                        contents.append(relPath)
+            return contents
+        else:
+            contents = os.listdir(self.folderpath)
+            if pattern:
+                contents = [item for item in contents if fnmatch.fnmatch(item, pattern)]
+            return contents
+    
+    def listFiles(self, pattern: Optional[str] = None, recursive: bool = False) -&gt; List[str]:
+        &#34;&#34;&#34;
+        List only files in the folder.
+        
+        Args:
+            pattern: Optional pattern to filter files (e.g., &#34;*.txt&#34;)
+            recursive: If True, list files recursively
+        
+        Returns:
+            List of absolute file paths
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        files = []
+        if recursive:
+            for root, _, filenames in os.walk(self.folderpath):
+                for filename in filenames:
+                    if pattern is None or fnmatch.fnmatch(filename, pattern):
+                        fullPath = os.path.join(root, filename)
+                        files.append(os.path.abspath(fullPath))
+        else:
+            for item in os.listdir(self.folderpath):
+                itemPath = os.path.join(self.folderpath, item)
+                if os.path.isfile(itemPath):
+                    if pattern is None or fnmatch.fnmatch(item, pattern):
+                        files.append(os.path.abspath(itemPath))
+        
+        return files
+    
+    def listFolders(self, recursive: bool = False) -&gt; List[str]:
+        &#34;&#34;&#34;
+        List only subfolders in the folder.
+        
+        Args:
+            recursive: If True, list folders recursively
+        
+        Returns:
+            List of folder names
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        folders = []
+        if recursive:
+            for root, dirnames, _ in os.walk(self.folderpath):
+                for dirname in dirnames:
+                    fullPath = os.path.join(root, dirname)
+                    relPath = os.path.relpath(fullPath, self.folderpath)
+                    folders.append(relPath)
+        else:
+            for item in os.listdir(self.folderpath):
+                itemPath = os.path.join(self.folderpath, item)
+                if os.path.isdir(itemPath):
+                    folders.append(item)
+        return folders
+    
+    def copyTo(self, destination: str) -&gt; None:
+        &#34;&#34;&#34;
+        Copy the folder to a new location.
+        
+        Args:
+            destination: Destination path
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        shutil.copytree(self.folderpath, destination)
+    
+    def moveTo(self, destination: str) -&gt; None:
+        &#34;&#34;&#34;
+        Move the folder to a new location.
+        
+        Args:
+            destination: Destination path
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        shutil.move(self.folderpath, destination)
+        self.folderpath = destination
+        self.path = Path(destination)
+    
+    def rename(self, newName: str) -&gt; None:
+        &#34;&#34;&#34;
+        Rename the folder.
+        
+        Args:
+            newName: New folder name
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        parent = os.path.dirname(self.folderpath)
+        newPath = os.path.join(parent, newName)
+        os.rename(self.folderpath, newPath)
+        self.folderpath = newPath
+        self.path = Path(newPath)
+    
+    def getSize(self) -&gt; int:
+        &#34;&#34;&#34;
+        Get total size of the folder in bytes.
+        
+        Returns:
+            Size in bytes
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        totalSize = 0
+        for dirpath, dirnames, filenames in os.walk(self.folderpath):
+            for filename in filenames:
+                filepath = os.path.join(dirpath, filename)
+                if os.path.exists(filepath):
+                    totalSize += os.path.getsize(filepath)
+        return totalSize
+    
+    def getSizeFormatted(self) -&gt; str:
+        &#34;&#34;&#34;
+        Get total size of the folder in human-readable format.
+        
+        Returns:
+            Size as formatted string (e.g., &#34;1.5 MB&#34;)
+        &#34;&#34;&#34;
+        size = self.getSize()
+        for unit in [&#34;B&#34;, &#34;KB&#34;, &#34;MB&#34;, &#34;GB&#34;, &#34;TB&#34;]:
+            if size &lt; 1024.0:
+                return f&#34;{size:.2f} {unit}&#34;
+            size /= 1024.0
+        return f&#34;{size:.2f} PB&#34;
+    
+    def countItems(self, recursive: bool = False) -&gt; dict:
+        &#34;&#34;&#34;
+        Count files and folders.
+        
+        Args:
+            recursive: If True, count recursively
+        
+        Returns:
+            Dictionary with &#34;files&#34; and &#34;folders&#34; counts
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        fileCount = 0
+        folderCount = 0
+        
+        if recursive:
+            for root, dirs, files in os.walk(self.folderpath):
+                fileCount += len(files)
+                folderCount += len(dirs)
+        else:
+            for item in os.listdir(self.folderpath):
+                itemPath = os.path.join(self.folderpath, item)
+                if os.path.isfile(itemPath):
+                    fileCount += 1
+                elif os.path.isdir(itemPath):
+                    folderCount += 1
+        
+        return {&#34;files&#34;: fileCount, &#34;folders&#34;: folderCount}
+    
+    def createSubfolder(self, subfolderName: str) -&gt; &#34;Folder&#34;:
+        &#34;&#34;&#34;
+        Create a subfolder inside this folder.
+        
+        Args:
+            subfolderName: Name of the subfolder
+        
+        Returns:
+            Folder instance for the new subfolder
+        &#34;&#34;&#34;
+        subfolderPath = os.path.join(self.folderpath, subfolderName)
+        subfolder = Folder(subfolderPath)
+        subfolder.create()
+        return subfolder
+    
+    def clear(self, confirm: bool = False) -&gt; None:
+        &#34;&#34;&#34;
+        Delete all contents of the folder but keep the folder itself.
+        
+        Args:
+            confirm: Safety flag to confirm clearing
+        
+        Raises:
+            ValueError: If confirm is False (safety measure)
+        &#34;&#34;&#34;
+        if not confirm:
+            raise ValueError(&#34;Must set confirm=True to clear folder&#34;)
+        
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        for item in os.listdir(self.folderpath):
+            itemPath = os.path.join(self.folderpath, item)
+            if os.path.isfile(itemPath):
+                os.remove(itemPath)
+            elif os.path.isdir(itemPath):
+                shutil.rmtree(itemPath)</code></pre>
+</details>
+<div class="desc"><p>Class to manage folders easily.
+Allows creating, deleting, copying, moving, and listing folder contents.</p>
+<p>Initialize the folder manager.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>folderpath</code></strong></dt>
+<dd>Path to the folder</dd>
+</dl></div>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.builders.Folder.clear"><code class="name flex">
+<span>def <span class="ident">clear</span></span>(<span>self, confirm: bool = False) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clear(self, confirm: bool = False) -&gt; None:
+    &#34;&#34;&#34;
+    Delete all contents of the folder but keep the folder itself.
+    
+    Args:
+        confirm: Safety flag to confirm clearing
+    
+    Raises:
+        ValueError: If confirm is False (safety measure)
+    &#34;&#34;&#34;
+    if not confirm:
+        raise ValueError(&#34;Must set confirm=True to clear folder&#34;)
+    
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    for item in os.listdir(self.folderpath):
+        itemPath = os.path.join(self.folderpath, item)
+        if os.path.isfile(itemPath):
+            os.remove(itemPath)
+        elif os.path.isdir(itemPath):
+            shutil.rmtree(itemPath)</code></pre>
+</details>
+<div class="desc"><p>Delete all contents of the folder but keep the folder itself.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>confirm</code></strong></dt>
+<dd>Safety flag to confirm clearing</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If confirm is False (safety measure)</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.Folder.copyTo"><code class="name flex">
+<span>def <span class="ident">copyTo</span></span>(<span>self, destination: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def copyTo(self, destination: str) -&gt; None:
+    &#34;&#34;&#34;
+    Copy the folder to a new location.
+    
+    Args:
+        destination: Destination path
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    shutil.copytree(self.folderpath, destination)</code></pre>
+</details>
+<div class="desc"><p>Copy the folder to a new location.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>destination</code></strong></dt>
+<dd>Destination path</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.Folder.countItems"><code class="name flex">
+<span>def <span class="ident">countItems</span></span>(<span>self, recursive: bool = False) ‑> dict</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def countItems(self, recursive: bool = False) -&gt; dict:
+    &#34;&#34;&#34;
+    Count files and folders.
+    
+    Args:
+        recursive: If True, count recursively
+    
+    Returns:
+        Dictionary with &#34;files&#34; and &#34;folders&#34; counts
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    fileCount = 0
+    folderCount = 0
+    
+    if recursive:
+        for root, dirs, files in os.walk(self.folderpath):
+            fileCount += len(files)
+            folderCount += len(dirs)
+    else:
+        for item in os.listdir(self.folderpath):
+            itemPath = os.path.join(self.folderpath, item)
+            if os.path.isfile(itemPath):
+                fileCount += 1
+            elif os.path.isdir(itemPath):
+                folderCount += 1
+    
+    return {&#34;files&#34;: fileCount, &#34;folders&#34;: folderCount}</code></pre>
+</details>
+<div class="desc"><p>Count files and folders.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>recursive</code></strong></dt>
+<dd>If True, count recursively</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Dictionary with "files" and "folders" counts</p></div>
+</dd>
+<dt id="QFlow.builders.Folder.create"><code class="name flex">
+<span>def <span class="ident">create</span></span>(<span>self, existOk: bool = True) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create(self, existOk: bool = True) -&gt; None:
+    &#34;&#34;&#34;
+    Create the folder.
+    
+    Args:
+        existOk: If True, don&#34;t raise error if folder already exists
+    
+    Raises:
+        FileExistsError: If folder exists and existOk is False
+    &#34;&#34;&#34;
+    try:
+        os.makedirs(self.folderpath, existOk=existOk)
+    except FileExistsError:
+        raise FileExistsError(f&#34;Folder &#39;{self.folderpath}&#39; already exists&#34;)</code></pre>
+</details>
+<div class="desc"><p>Create the folder.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>existOk</code></strong></dt>
+<dd>If True, don"t raise error if folder already exists</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>FileExistsError</code></dt>
+<dd>If folder exists and existOk is False</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.Folder.createSubfolder"><code class="name flex">
+<span>def <span class="ident">createSubfolder</span></span>(<span>self, subfolderName: str) ‑> <a title="QFlow.builders.folder.Folder" href="folder.html#QFlow.builders.folder.Folder">Folder</a></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def createSubfolder(self, subfolderName: str) -&gt; &#34;Folder&#34;:
+    &#34;&#34;&#34;
+    Create a subfolder inside this folder.
+    
+    Args:
+        subfolderName: Name of the subfolder
+    
+    Returns:
+        Folder instance for the new subfolder
+    &#34;&#34;&#34;
+    subfolderPath = os.path.join(self.folderpath, subfolderName)
+    subfolder = Folder(subfolderPath)
+    subfolder.create()
+    return subfolder</code></pre>
+</details>
+<div class="desc"><p>Create a subfolder inside this folder.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>subfolderName</code></strong></dt>
+<dd>Name of the subfolder</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Folder instance for the new subfolder</p></div>
+</dd>
+<dt id="QFlow.builders.Folder.delete"><code class="name flex">
+<span>def <span class="ident">delete</span></span>(<span>self, confirm: bool = False) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete(self, confirm: bool = False) -&gt; bool:
+    &#34;&#34;&#34;
+    Delete the folder and all its contents.
+    
+    Args:
+        confirm: Safety flag to confirm deletion
+    
+    Returns:
+        True if deleted, False if folder doesn&#34;t exist
+    
+    Raises:
+        ValueError: If confirm is False (safety measure)
+    &#34;&#34;&#34;
+    if not confirm:
+        raise ValueError(&#34;Must set confirm=True to delete folder&#34;)
+    
+    if self.exists():
+        shutil.rmtree(self.folderpath)
+        return True
+    return False</code></pre>
+</details>
+<div class="desc"><p>Delete the folder and all its contents.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>confirm</code></strong></dt>
+<dd>Safety flag to confirm deletion</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>True if deleted, False if folder doesn"t exist</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If confirm is False (safety measure)</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.Folder.exists"><code class="name flex">
+<span>def <span class="ident">exists</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exists(self) -&gt; bool:
+    &#34;&#34;&#34;
+    Check if the folder exists.
+    
+    Returns:
+        True if exists, False otherwise
+    &#34;&#34;&#34;
+    return os.path.exists(self.folderpath) and os.path.isdir(self.folderpath)</code></pre>
+</details>
+<div class="desc"><p>Check if the folder exists.</p>
+<h2 id="returns">Returns</h2>
+<p>True if exists, False otherwise</p></div>
+</dd>
+<dt id="QFlow.builders.Folder.getSize"><code class="name flex">
+<span>def <span class="ident">getSize</span></span>(<span>self) ‑> int</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSize(self) -&gt; int:
+    &#34;&#34;&#34;
+    Get total size of the folder in bytes.
+    
+    Returns:
+        Size in bytes
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    totalSize = 0
+    for dirpath, dirnames, filenames in os.walk(self.folderpath):
+        for filename in filenames:
+            filepath = os.path.join(dirpath, filename)
+            if os.path.exists(filepath):
+                totalSize += os.path.getsize(filepath)
+    return totalSize</code></pre>
+</details>
+<div class="desc"><p>Get total size of the folder in bytes.</p>
+<h2 id="returns">Returns</h2>
+<p>Size in bytes</p></div>
+</dd>
+<dt id="QFlow.builders.Folder.getSizeFormatted"><code class="name flex">
+<span>def <span class="ident">getSizeFormatted</span></span>(<span>self) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSizeFormatted(self) -&gt; str:
+    &#34;&#34;&#34;
+    Get total size of the folder in human-readable format.
+    
+    Returns:
+        Size as formatted string (e.g., &#34;1.5 MB&#34;)
+    &#34;&#34;&#34;
+    size = self.getSize()
+    for unit in [&#34;B&#34;, &#34;KB&#34;, &#34;MB&#34;, &#34;GB&#34;, &#34;TB&#34;]:
+        if size &lt; 1024.0:
+            return f&#34;{size:.2f} {unit}&#34;
+        size /= 1024.0
+    return f&#34;{size:.2f} PB&#34;</code></pre>
+</details>
+<div class="desc"><p>Get total size of the folder in human-readable format.</p>
+<h2 id="returns">Returns</h2>
+<p>Size as formatted string (e.g., "1.5 MB")</p></div>
+</dd>
+<dt id="QFlow.builders.Folder.isEmpty"><code class="name flex">
+<span>def <span class="ident">isEmpty</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isEmpty(self) -&gt; bool:
+    &#34;&#34;&#34;
+    Check if the folder is empty.
+    
+    Returns:
+        True if empty, False otherwise
+    
+    Raises:
+        FileNotFoundError: If folder doesn&#34;t exist
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    return len(os.listdir(self.folderpath)) == 0</code></pre>
+</details>
+<div class="desc"><p>Check if the folder is empty.</p>
+<h2 id="returns">Returns</h2>
+<p>True if empty, False otherwise</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>FileNotFoundError</code></dt>
+<dd>If folder doesn"t exist</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.Folder.listContents"><code class="name flex">
+<span>def <span class="ident">listContents</span></span>(<span>self, pattern: str | None = None, recursive: bool = False) ‑> List[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def listContents(self, pattern: Optional[str] = None, recursive: bool = False) -&gt; List[str]:
+    &#34;&#34;&#34;
+    List contents of the folder.
+    
+    Args:
+        pattern: Optional pattern to filter files (e.g., &#34;*.txt&#34;)
+        recursive: If True, list contents recursively
+    
+    Returns:
+        List of file/folder names
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    if recursive:
+        contents = []
+        for root, dirs, files in os.walk(self.folderpath):
+            for item in dirs + files:
+                fullPath = os.path.join(root, item)
+                relPath = os.path.relpath(fullPath, self.folderpath)
+                if pattern is None or fnmatch.fnmatch(item, pattern):
+                    contents.append(relPath)
+        return contents
+    else:
+        contents = os.listdir(self.folderpath)
+        if pattern:
+            contents = [item for item in contents if fnmatch.fnmatch(item, pattern)]
+        return contents</code></pre>
+</details>
+<div class="desc"><p>List contents of the folder.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>pattern</code></strong></dt>
+<dd>Optional pattern to filter files (e.g., "*.txt")</dd>
+<dt><strong><code>recursive</code></strong></dt>
+<dd>If True, list contents recursively</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>List of file/folder names</p></div>
+</dd>
+<dt id="QFlow.builders.Folder.listFiles"><code class="name flex">
+<span>def <span class="ident">listFiles</span></span>(<span>self, pattern: str | None = None, recursive: bool = False) ‑> List[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def listFiles(self, pattern: Optional[str] = None, recursive: bool = False) -&gt; List[str]:
+    &#34;&#34;&#34;
+    List only files in the folder.
+    
+    Args:
+        pattern: Optional pattern to filter files (e.g., &#34;*.txt&#34;)
+        recursive: If True, list files recursively
+    
+    Returns:
+        List of absolute file paths
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    files = []
+    if recursive:
+        for root, _, filenames in os.walk(self.folderpath):
+            for filename in filenames:
+                if pattern is None or fnmatch.fnmatch(filename, pattern):
+                    fullPath = os.path.join(root, filename)
+                    files.append(os.path.abspath(fullPath))
+    else:
+        for item in os.listdir(self.folderpath):
+            itemPath = os.path.join(self.folderpath, item)
+            if os.path.isfile(itemPath):
+                if pattern is None or fnmatch.fnmatch(item, pattern):
+                    files.append(os.path.abspath(itemPath))
+    
+    return files</code></pre>
+</details>
+<div class="desc"><p>List only files in the folder.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>pattern</code></strong></dt>
+<dd>Optional pattern to filter files (e.g., "*.txt")</dd>
+<dt><strong><code>recursive</code></strong></dt>
+<dd>If True, list files recursively</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>List of absolute file paths</p></div>
+</dd>
+<dt id="QFlow.builders.Folder.listFolders"><code class="name flex">
+<span>def <span class="ident">listFolders</span></span>(<span>self, recursive: bool = False) ‑> List[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def listFolders(self, recursive: bool = False) -&gt; List[str]:
+    &#34;&#34;&#34;
+    List only subfolders in the folder.
+    
+    Args:
+        recursive: If True, list folders recursively
+    
+    Returns:
+        List of folder names
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    folders = []
+    if recursive:
+        for root, dirnames, _ in os.walk(self.folderpath):
+            for dirname in dirnames:
+                fullPath = os.path.join(root, dirname)
+                relPath = os.path.relpath(fullPath, self.folderpath)
+                folders.append(relPath)
+    else:
+        for item in os.listdir(self.folderpath):
+            itemPath = os.path.join(self.folderpath, item)
+            if os.path.isdir(itemPath):
+                folders.append(item)
+    return folders</code></pre>
+</details>
+<div class="desc"><p>List only subfolders in the folder.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>recursive</code></strong></dt>
+<dd>If True, list folders recursively</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>List of folder names</p></div>
+</dd>
+<dt id="QFlow.builders.Folder.moveTo"><code class="name flex">
+<span>def <span class="ident">moveTo</span></span>(<span>self, destination: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def moveTo(self, destination: str) -&gt; None:
+    &#34;&#34;&#34;
+    Move the folder to a new location.
+    
+    Args:
+        destination: Destination path
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    shutil.move(self.folderpath, destination)
+    self.folderpath = destination
+    self.path = Path(destination)</code></pre>
+</details>
+<div class="desc"><p>Move the folder to a new location.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>destination</code></strong></dt>
+<dd>Destination path</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.Folder.rename"><code class="name flex">
+<span>def <span class="ident">rename</span></span>(<span>self, newName: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rename(self, newName: str) -&gt; None:
+    &#34;&#34;&#34;
+    Rename the folder.
+    
+    Args:
+        newName: New folder name
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    parent = os.path.dirname(self.folderpath)
+    newPath = os.path.join(parent, newName)
+    os.rename(self.folderpath, newPath)
+    self.folderpath = newPath
+    self.path = Path(newPath)</code></pre>
+</details>
+<div class="desc"><p>Rename the folder.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>newName</code></strong></dt>
+<dd>New folder name</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+<dt id="QFlow.builders.Icon"><code class="flex name class">
+<span>class <span class="ident">Icon</span></span>
+<span>(</span><span>path: str, w: int, h: int)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Icon(QPixmap):
+    &#34;&#34;&#34;
+    Planned for package use only.
+    
+    A QPixmap subclass that loads and scales an image if the file exists.
+
+    This class checks whether the specified image file exists before loading it.
+    If the file is found, it scales the image while maintaining its aspect ratio.
+    Otherwise, it initializes an empty QPixmap.
+    &#34;&#34;&#34;
+
+    def __init__(self, path: str, w: int, h: int):
+        &#34;&#34;&#34;
+        Initializes an Icon object.
+
+        Args:
+            path (str): The file path of the image.
+            w (int): The desired width of the icon.
+            h (int): The desired height of the icon.
+        &#34;&#34;&#34;
+        if os.path.exists(path):
+            pixmap = QPixmap(path).scaled(w, h, Qt.AspectRatioMode.KeepAspectRatio, Qt.TransformationMode.SmoothTransformation)
+            super().__init__(pixmap)
+        else:
+            super().__init__()</code></pre>
+</details>
+<div class="desc"><p>Planned for package use only.</p>
+<p>A QPixmap subclass that loads and scales an image if the file exists.</p>
+<p>This class checks whether the specified image file exists before loading it.
+If the file is found, it scales the image while maintaining its aspect ratio.
+Otherwise, it initializes an empty QPixmap.</p>
+<p>Initializes an Icon object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>str</code></dt>
+<dd>The file path of the image.</dd>
+<dt><strong><code>w</code></strong> :&ensp;<code>int</code></dt>
+<dd>The desired width of the icon.</dd>
+<dt><strong><code>h</code></strong> :&ensp;<code>int</code></dt>
+<dd>The desired height of the icon.</dd>
+</dl></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>PyQt6.QtGui.QPixmap</li>
+<li>PyQt6.QtGui.QPaintDevice</li>
+<li>PyQt6.sip.simplewrapper</li>
+</ul>
+</dd>
+<dt id="QFlow.builders.JSON"><code class="flex name class">
+<span>class <span class="ident">JSON</span></span>
+<span>(</span><span>filepath: str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class JSON:
+    &#34;&#34;&#34;
+    Class to manage JSON files easily.
+    Allows reading, writing, editing, and manipulating JSON files.
+    &#34;&#34;&#34;
+
+    def __init__(self, filepath: str):
+        self.filepath = filepath
+        self.data = None
+
+    @privatemethod
+    def resolve(self, data: Any, keys: list, create: bool = False) -&gt; tuple[Any, str]:
+        &#34;&#34;&#34;
+        Walk data following keys and return (parent, lastKey).
+
+        Args:
+            data:   Root object to traverse.
+            keys:   List of key segments already split by &#39;.&#39;.
+            create: If True, missing intermediate dicts are created.
+
+        Returns:
+            (parentNode, finalKey) so the caller can do parent[key].
+
+        Raises:
+            KeyError:  A segment does not exist and create=False.
+            TypeError: A segment exists but its value is not a dict.
+        &#34;&#34;&#34;
+        node = data
+        for key in keys[:-1]:
+            if isinstance(node, dict):
+                if key not in node:
+                    if create:
+                        node[key] = {}
+                    else:
+                        raise KeyError(f&#34;Key &#39;{key}&#39; not found.&#34;)
+                node = node[key]
+            else:
+                raise TypeError(f&#34;Expected a dict at &#39;{key}&#39;, got {type(node).__name__}.&#34;)
+        return node, keys[-1]
+
+    def read(self) -&gt; Dict[str, Any]:
+        try:
+            with open(self.filepath, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
+                self.data = json.load(f)
+            return self.data
+        except FileNotFoundError:
+            raise FileNotFoundError(f&#34;The file &#39;{self.filepath}&#39; does not exist.&#34;)
+        except json.JSONDecodeError as e:
+            raise json.JSONDecodeError(f&#34;Error decoding JSON: &#39;{e}&#39;&#34;, e.doc, e.pos)
+
+    def write(self, data: Dict[str, Any], indent: int = 4) -&gt; None:
+        with open(self.filepath, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+            json.dump(data, f, indent=indent, ensure_ascii=False)
+        self.data = data
+
+    def create(self, data: Dict[str, Any] = None, indent: int = 4) -&gt; None:
+        self.write(data or {}, indent)
+
+    def reload(self) -&gt; Dict[str, Any]:
+        return self.read()
+
+    def exists(self) -&gt; bool:
+        return os.path.exists(self.filepath)
+    
+    def getAll(self) -&gt; Dict[str, Any]:
+        &#34;&#34;&#34;
+        Get all data.
+        &#34;&#34;&#34;
+        if self.data is None:
+            self.read()
+
+        return self.data
+
+    def get(self, key: str, default: Any = None) -&gt; Any:
+        &#34;&#34;&#34;
+        Get a value using dot-notation key.
+        &#34;&#34;&#34;
+        if self.data is None:
+            self.read()
+        try:
+            parent, lastKey = self.resolve(self.data, key.split(&#39;.&#39;))
+            return parent.get(lastKey, default) if isinstance(parent, dict) else default
+        except (KeyError, TypeError):
+            return default
+
+    def set(self, key: str, value: Any) -&gt; None:
+        &#34;&#34;&#34;
+        Set a value using dot-notation key, creating intermediate dicts when needed.
+        &#34;&#34;&#34;
+        if self.data is None:
+            self.read()
+        parent, lastKey = self.resolve(self.data, key.split(&#39;.&#39;), create=True)
+        parent[lastKey] = value
+        self.write(self.data)
+
+    def delete(self, key: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Delete a key using dot-notation. Returns True if deleted, False if not found.
+        &#34;&#34;&#34;
+        if self.data is None:
+            self.read()
+        try:
+            parent, lastKey = self.resolve(self.data, key.split(&#39;.&#39;))
+            if isinstance(parent, dict) and lastKey in parent:
+                del parent[lastKey]
+                self.write(self.data)
+                return True
+            return False
+        except (KeyError, TypeError):
+            return False
+
+    def update(self, key: str, value: Any) -&gt; None:
+        &#34;&#34;&#34;Update a top-level key (use set() for nested keys).&#34;&#34;&#34;
+        if self.data is None:
+            self.read()
+        self.data[key] = value
+        self.write(self.data)
+
+    def merge(self, newData: Dict[str, Any]) -&gt; None:
+        if self.data is None:
+            self.read()
+        self.data.update(newData)
+        self.write(self.data)
+
+    def clear(self) -&gt; None:
+        self.data = {}
+        self.write(self.data)
+
+    def keys(self) -&gt; List[str]:
+        if self.data is None:
+            self.read()
+        return list(self.data.keys())
+
+    def values(self) -&gt; List[Any]:
+        if self.data is None:
+            self.read()
+        return list(self.data.values())
+
+    def items(self) -&gt; List[tuple]:
+        if self.data is None:
+            self.read()
+        return list(self.data.items())
+
+    def indexar(self, data: Any = None, root: Dict[str, Any] = None) -&gt; int:
+        &#34;&#34;&#34;
+        Traverse all values in the JSON and replace &#39;${key.key}/literal&#39;
+        references with their resolved value plus any surrounding literal text.
+
+        Args:
+            data: Current node (used internally for recursion).
+            root: JSON root (used internally to resolve paths).
+
+        Returns:
+            Number of replacements made.
+
+        Raises:
+            ValueError: If a reference does not exist in the JSON or points
+                        to a non-scalar value (dict or list).
+        &#34;&#34;&#34;
+        PATTERN = re.compile(r&#39;\$\{([^}]+)\}&#39;)
+
+        if root is None:
+            if self.data is None:
+                self.read()
+            root = self.data
+            data = self.data
+
+        def resolveRef(refKey: str) -&gt; str:
+            try:
+                parent, lastKey = self.resolve(root, refKey.split(&#39;.&#39;))
+            except (KeyError, TypeError):
+                raise ValueError(f&#34;Reference &#39;${{{refKey}}}&#39; does not exist in the JSON.&#34;)
+            if not isinstance(parent, dict) or lastKey not in parent:
+                raise ValueError(f&#34;Reference &#39;${{{refKey}}}&#39; does not exist in the JSON.&#34;)
+            value = parent[lastKey]
+            if isinstance(value, (dict, list)):
+                raise ValueError(
+                    f&#34;Reference &#39;${{{refKey}}}&#39; points to an object/list, not a scalar value.&#34;
+                )
+            return str(value)
+
+        def processNode(node: Any) -&gt; tuple[Any, int]:
+            count = 0
+
+            if isinstance(node, dict):
+                for key in node:
+                    node[key], subCount = processNode(node[key])
+                    count += subCount
+
+            elif isinstance(node, list):
+                for i, item in enumerate(node):
+                    node[i], subCount = processNode(item)
+                    count += subCount
+
+            elif isinstance(node, str) and &#39;${&#39; in node:
+                def replacer(match):
+                    nonlocal count
+                    count += 1
+                    return resolveRef(match.group(1))
+                node = PATTERN.sub(replacer, node)
+
+            return node, count
+
+        self.data, totalReplacements = processNode(data)
+        return totalReplacements</code></pre>
+</details>
+<div class="desc"><p>Class to manage JSON files easily.
+Allows reading, writing, editing, and manipulating JSON files.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.builders.JSON.clear"><code class="name flex">
+<span>def <span class="ident">clear</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clear(self) -&gt; None:
+    self.data = {}
+    self.write(self.data)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.JSON.create"><code class="name flex">
+<span>def <span class="ident">create</span></span>(<span>self, data: Dict[str, Any] = None, indent: int = 4) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create(self, data: Dict[str, Any] = None, indent: int = 4) -&gt; None:
+    self.write(data or {}, indent)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.JSON.delete"><code class="name flex">
+<span>def <span class="ident">delete</span></span>(<span>self, key: str) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete(self, key: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Delete a key using dot-notation. Returns True if deleted, False if not found.
+    &#34;&#34;&#34;
+    if self.data is None:
+        self.read()
+    try:
+        parent, lastKey = self.resolve(self.data, key.split(&#39;.&#39;))
+        if isinstance(parent, dict) and lastKey in parent:
+            del parent[lastKey]
+            self.write(self.data)
+            return True
+        return False
+    except (KeyError, TypeError):
+        return False</code></pre>
+</details>
+<div class="desc"><p>Delete a key using dot-notation. Returns True if deleted, False if not found.</p></div>
+</dd>
+<dt id="QFlow.builders.JSON.exists"><code class="name flex">
+<span>def <span class="ident">exists</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exists(self) -&gt; bool:
+    return os.path.exists(self.filepath)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.JSON.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>self, key: str, default: Any = None) ‑> Any</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get(self, key: str, default: Any = None) -&gt; Any:
+    &#34;&#34;&#34;
+    Get a value using dot-notation key.
+    &#34;&#34;&#34;
+    if self.data is None:
+        self.read()
+    try:
+        parent, lastKey = self.resolve(self.data, key.split(&#39;.&#39;))
+        return parent.get(lastKey, default) if isinstance(parent, dict) else default
+    except (KeyError, TypeError):
+        return default</code></pre>
+</details>
+<div class="desc"><p>Get a value using dot-notation key.</p></div>
+</dd>
+<dt id="QFlow.builders.JSON.getAll"><code class="name flex">
+<span>def <span class="ident">getAll</span></span>(<span>self) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAll(self) -&gt; Dict[str, Any]:
+    &#34;&#34;&#34;
+    Get all data.
+    &#34;&#34;&#34;
+    if self.data is None:
+        self.read()
+
+    return self.data</code></pre>
+</details>
+<div class="desc"><p>Get all data.</p></div>
+</dd>
+<dt id="QFlow.builders.JSON.indexar"><code class="name flex">
+<span>def <span class="ident">indexar</span></span>(<span>self, data: Any = None, root: Dict[str, Any] = None) ‑> int</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def indexar(self, data: Any = None, root: Dict[str, Any] = None) -&gt; int:
+    &#34;&#34;&#34;
+    Traverse all values in the JSON and replace &#39;${key.key}/literal&#39;
+    references with their resolved value plus any surrounding literal text.
+
+    Args:
+        data: Current node (used internally for recursion).
+        root: JSON root (used internally to resolve paths).
+
+    Returns:
+        Number of replacements made.
+
+    Raises:
+        ValueError: If a reference does not exist in the JSON or points
+                    to a non-scalar value (dict or list).
+    &#34;&#34;&#34;
+    PATTERN = re.compile(r&#39;\$\{([^}]+)\}&#39;)
+
+    if root is None:
+        if self.data is None:
+            self.read()
+        root = self.data
+        data = self.data
+
+    def resolveRef(refKey: str) -&gt; str:
+        try:
+            parent, lastKey = self.resolve(root, refKey.split(&#39;.&#39;))
+        except (KeyError, TypeError):
+            raise ValueError(f&#34;Reference &#39;${{{refKey}}}&#39; does not exist in the JSON.&#34;)
+        if not isinstance(parent, dict) or lastKey not in parent:
+            raise ValueError(f&#34;Reference &#39;${{{refKey}}}&#39; does not exist in the JSON.&#34;)
+        value = parent[lastKey]
+        if isinstance(value, (dict, list)):
+            raise ValueError(
+                f&#34;Reference &#39;${{{refKey}}}&#39; points to an object/list, not a scalar value.&#34;
+            )
+        return str(value)
+
+    def processNode(node: Any) -&gt; tuple[Any, int]:
+        count = 0
+
+        if isinstance(node, dict):
+            for key in node:
+                node[key], subCount = processNode(node[key])
+                count += subCount
+
+        elif isinstance(node, list):
+            for i, item in enumerate(node):
+                node[i], subCount = processNode(item)
+                count += subCount
+
+        elif isinstance(node, str) and &#39;${&#39; in node:
+            def replacer(match):
+                nonlocal count
+                count += 1
+                return resolveRef(match.group(1))
+            node = PATTERN.sub(replacer, node)
+
+        return node, count
+
+    self.data, totalReplacements = processNode(data)
+    return totalReplacements</code></pre>
+</details>
+<div class="desc"><p>Traverse all values in the JSON and replace '${key.key}/literal'
+references with their resolved value plus any surrounding literal text.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong></dt>
+<dd>Current node (used internally for recursion).</dd>
+<dt><strong><code>root</code></strong></dt>
+<dd>JSON root (used internally to resolve paths).</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Number of replacements made.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If a reference does not exist in the JSON or points
+to a non-scalar value (dict or list).</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.JSON.items"><code class="name flex">
+<span>def <span class="ident">items</span></span>(<span>self) ‑> List[tuple]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def items(self) -&gt; List[tuple]:
+    if self.data is None:
+        self.read()
+    return list(self.data.items())</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.JSON.keys"><code class="name flex">
+<span>def <span class="ident">keys</span></span>(<span>self) ‑> List[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def keys(self) -&gt; List[str]:
+    if self.data is None:
+        self.read()
+    return list(self.data.keys())</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.JSON.merge"><code class="name flex">
+<span>def <span class="ident">merge</span></span>(<span>self, newData: Dict[str, Any]) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def merge(self, newData: Dict[str, Any]) -&gt; None:
+    if self.data is None:
+        self.read()
+    self.data.update(newData)
+    self.write(self.data)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.JSON.read"><code class="name flex">
+<span>def <span class="ident">read</span></span>(<span>self) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; Dict[str, Any]:
+    try:
+        with open(self.filepath, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
+            self.data = json.load(f)
+        return self.data
+    except FileNotFoundError:
+        raise FileNotFoundError(f&#34;The file &#39;{self.filepath}&#39; does not exist.&#34;)
+    except json.JSONDecodeError as e:
+        raise json.JSONDecodeError(f&#34;Error decoding JSON: &#39;{e}&#39;&#34;, e.doc, e.pos)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.JSON.reload"><code class="name flex">
+<span>def <span class="ident">reload</span></span>(<span>self) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reload(self) -&gt; Dict[str, Any]:
+    return self.read()</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.JSON.resolve"><code class="name flex">
+<span>def <span class="ident">resolve</span></span>(<span>self, data: Any, keys: list, create: bool = False) ‑> tuple[typing.Any, str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@privatemethod
+def resolve(self, data: Any, keys: list, create: bool = False) -&gt; tuple[Any, str]:
+    &#34;&#34;&#34;
+    Walk data following keys and return (parent, lastKey).
+
+    Args:
+        data:   Root object to traverse.
+        keys:   List of key segments already split by &#39;.&#39;.
+        create: If True, missing intermediate dicts are created.
+
+    Returns:
+        (parentNode, finalKey) so the caller can do parent[key].
+
+    Raises:
+        KeyError:  A segment does not exist and create=False.
+        TypeError: A segment exists but its value is not a dict.
+    &#34;&#34;&#34;
+    node = data
+    for key in keys[:-1]:
+        if isinstance(node, dict):
+            if key not in node:
+                if create:
+                    node[key] = {}
+                else:
+                    raise KeyError(f&#34;Key &#39;{key}&#39; not found.&#34;)
+            node = node[key]
+        else:
+            raise TypeError(f&#34;Expected a dict at &#39;{key}&#39;, got {type(node).__name__}.&#34;)
+    return node, keys[-1]</code></pre>
+</details>
+<div class="desc"><p>Walk data following keys and return (parent, lastKey).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong></dt>
+<dd>Root object to traverse.</dd>
+<dt><strong><code>keys</code></strong></dt>
+<dd>List of key segments already split by '.'.</dd>
+<dt><strong><code>create</code></strong></dt>
+<dd>If True, missing intermediate dicts are created.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>(parentNode, finalKey) so the caller can do parent[key].</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>KeyError</code></dt>
+<dd>A segment does not exist and create=False.</dd>
+<dt><code>TypeError</code></dt>
+<dd>A segment exists but its value is not a dict.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.JSON.set"><code class="name flex">
+<span>def <span class="ident">set</span></span>(<span>self, key: str, value: Any) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set(self, key: str, value: Any) -&gt; None:
+    &#34;&#34;&#34;
+    Set a value using dot-notation key, creating intermediate dicts when needed.
+    &#34;&#34;&#34;
+    if self.data is None:
+        self.read()
+    parent, lastKey = self.resolve(self.data, key.split(&#39;.&#39;), create=True)
+    parent[lastKey] = value
+    self.write(self.data)</code></pre>
+</details>
+<div class="desc"><p>Set a value using dot-notation key, creating intermediate dicts when needed.</p></div>
+</dd>
+<dt id="QFlow.builders.JSON.update"><code class="name flex">
+<span>def <span class="ident">update</span></span>(<span>self, key: str, value: Any) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update(self, key: str, value: Any) -&gt; None:
+    &#34;&#34;&#34;Update a top-level key (use set() for nested keys).&#34;&#34;&#34;
+    if self.data is None:
+        self.read()
+    self.data[key] = value
+    self.write(self.data)</code></pre>
+</details>
+<div class="desc"><p>Update a top-level key (use set() for nested keys).</p></div>
+</dd>
+<dt id="QFlow.builders.JSON.values"><code class="name flex">
+<span>def <span class="ident">values</span></span>(<span>self) ‑> List[Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def values(self) -&gt; List[Any]:
+    if self.data is None:
+        self.read()
+    return list(self.data.values())</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.JSON.write"><code class="name flex">
+<span>def <span class="ident">write</span></span>(<span>self, data: Dict[str, Any], indent: int = 4) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def write(self, data: Dict[str, Any], indent: int = 4) -&gt; None:
+    with open(self.filepath, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+        json.dump(data, f, indent=indent, ensure_ascii=False)
+    self.data = data</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="QFlow.builders.Object"><code class="flex name class">
+<span>class <span class="ident">Object</span></span>
+<span>(</span><span>data: dict)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Object:
+    &#34;&#34;&#34;Class to create an object using a dictionary.&#34;&#34;&#34;
+    def __init__(self, data: dict):
+        self.obj = self.toNamespace(data)
+
+    def toNamespace(self, data):
+        if isinstance(data, dict):
+            return SimpleNamespace(**{k: self.toNamespace(v) for k, v in data.items()})
+        elif isinstance(data, list):
+            return [self.toNamespace(item) for item in data]
+        else:
+            return data</code></pre>
+</details>
+<div class="desc"><p>Class to create an object using a dictionary.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.builders.Object.toNamespace"><code class="name flex">
+<span>def <span class="ident">toNamespace</span></span>(<span>self, data)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def toNamespace(self, data):
+    if isinstance(data, dict):
+        return SimpleNamespace(**{k: self.toNamespace(v) for k, v in data.items()})
+    elif isinstance(data, list):
+        return [self.toNamespace(item) for item in data]
+    else:
+        return data</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="QFlow" href="../index.html">QFlow</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="QFlow.builders.file" href="file.html">QFlow.builders.file</a></code></li>
+<li><code><a title="QFlow.builders.folder" href="folder.html">QFlow.builders.folder</a></code></li>
+<li><code><a title="QFlow.builders.icon" href="icon.html">QFlow.builders.icon</a></code></li>
+<li><code><a title="QFlow.builders.jsonf" href="jsonf.html">QFlow.builders.jsonf</a></code></li>
+<li><code><a title="QFlow.builders.object" href="object.html">QFlow.builders.object</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="QFlow.builders.File" href="#QFlow.builders.File">File</a></code></h4>
+<ul class="">
+<li><code><a title="QFlow.builders.File.deleteFile" href="#QFlow.builders.File.deleteFile">deleteFile</a></code></li>
+<li><code><a title="QFlow.builders.File.readFile" href="#QFlow.builders.File.readFile">readFile</a></code></li>
+<li><code><a title="QFlow.builders.File.writeFile" href="#QFlow.builders.File.writeFile">writeFile</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="QFlow.builders.Folder" href="#QFlow.builders.Folder">Folder</a></code></h4>
+<ul class="two-column">
+<li><code><a title="QFlow.builders.Folder.clear" href="#QFlow.builders.Folder.clear">clear</a></code></li>
+<li><code><a title="QFlow.builders.Folder.copyTo" href="#QFlow.builders.Folder.copyTo">copyTo</a></code></li>
+<li><code><a title="QFlow.builders.Folder.countItems" href="#QFlow.builders.Folder.countItems">countItems</a></code></li>
+<li><code><a title="QFlow.builders.Folder.create" href="#QFlow.builders.Folder.create">create</a></code></li>
+<li><code><a title="QFlow.builders.Folder.createSubfolder" href="#QFlow.builders.Folder.createSubfolder">createSubfolder</a></code></li>
+<li><code><a title="QFlow.builders.Folder.delete" href="#QFlow.builders.Folder.delete">delete</a></code></li>
+<li><code><a title="QFlow.builders.Folder.exists" href="#QFlow.builders.Folder.exists">exists</a></code></li>
+<li><code><a title="QFlow.builders.Folder.getSize" href="#QFlow.builders.Folder.getSize">getSize</a></code></li>
+<li><code><a title="QFlow.builders.Folder.getSizeFormatted" href="#QFlow.builders.Folder.getSizeFormatted">getSizeFormatted</a></code></li>
+<li><code><a title="QFlow.builders.Folder.isEmpty" href="#QFlow.builders.Folder.isEmpty">isEmpty</a></code></li>
+<li><code><a title="QFlow.builders.Folder.listContents" href="#QFlow.builders.Folder.listContents">listContents</a></code></li>
+<li><code><a title="QFlow.builders.Folder.listFiles" href="#QFlow.builders.Folder.listFiles">listFiles</a></code></li>
+<li><code><a title="QFlow.builders.Folder.listFolders" href="#QFlow.builders.Folder.listFolders">listFolders</a></code></li>
+<li><code><a title="QFlow.builders.Folder.moveTo" href="#QFlow.builders.Folder.moveTo">moveTo</a></code></li>
+<li><code><a title="QFlow.builders.Folder.rename" href="#QFlow.builders.Folder.rename">rename</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="QFlow.builders.Icon" href="#QFlow.builders.Icon">Icon</a></code></h4>
+</li>
+<li>
+<h4><code><a title="QFlow.builders.JSON" href="#QFlow.builders.JSON">JSON</a></code></h4>
+<ul class="two-column">
+<li><code><a title="QFlow.builders.JSON.clear" href="#QFlow.builders.JSON.clear">clear</a></code></li>
+<li><code><a title="QFlow.builders.JSON.create" href="#QFlow.builders.JSON.create">create</a></code></li>
+<li><code><a title="QFlow.builders.JSON.delete" href="#QFlow.builders.JSON.delete">delete</a></code></li>
+<li><code><a title="QFlow.builders.JSON.exists" href="#QFlow.builders.JSON.exists">exists</a></code></li>
+<li><code><a title="QFlow.builders.JSON.get" href="#QFlow.builders.JSON.get">get</a></code></li>
+<li><code><a title="QFlow.builders.JSON.getAll" href="#QFlow.builders.JSON.getAll">getAll</a></code></li>
+<li><code><a title="QFlow.builders.JSON.indexar" href="#QFlow.builders.JSON.indexar">indexar</a></code></li>
+<li><code><a title="QFlow.builders.JSON.items" href="#QFlow.builders.JSON.items">items</a></code></li>
+<li><code><a title="QFlow.builders.JSON.keys" href="#QFlow.builders.JSON.keys">keys</a></code></li>
+<li><code><a title="QFlow.builders.JSON.merge" href="#QFlow.builders.JSON.merge">merge</a></code></li>
+<li><code><a title="QFlow.builders.JSON.read" href="#QFlow.builders.JSON.read">read</a></code></li>
+<li><code><a title="QFlow.builders.JSON.reload" href="#QFlow.builders.JSON.reload">reload</a></code></li>
+<li><code><a title="QFlow.builders.JSON.resolve" href="#QFlow.builders.JSON.resolve">resolve</a></code></li>
+<li><code><a title="QFlow.builders.JSON.set" href="#QFlow.builders.JSON.set">set</a></code></li>
+<li><code><a title="QFlow.builders.JSON.update" href="#QFlow.builders.JSON.update">update</a></code></li>
+<li><code><a title="QFlow.builders.JSON.values" href="#QFlow.builders.JSON.values">values</a></code></li>
+<li><code><a title="QFlow.builders.JSON.write" href="#QFlow.builders.JSON.write">write</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="QFlow.builders.Object" href="#QFlow.builders.Object">Object</a></code></h4>
+<ul class="">
+<li><code><a title="QFlow.builders.Object.toNamespace" href="#QFlow.builders.Object.toNamespace">toNamespace</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+#titleBarDefaultBtn {
+    border: none;
+    background-color: transparent;
+    color: white;
+    width: 45px;
+    height: 35px;
+}
+
+#titleBarCloseBtn {
+    border: none;
+    background-color: transparent;
+    color: white;
+    width: 45px;
+    height: 35px;
+}
+
+#titleBarCloseBtn:hover { 
+    background-color: #e81123; 
+}
+
+#titleBarDefaultBtn:hover {
+    background-color: #3e3e3e;
+}
+
+#titleBarTitle {
+    color: #cccccc; 
+    font-size: 12px;
+}

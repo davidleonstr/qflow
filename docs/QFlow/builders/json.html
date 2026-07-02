@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>QFlow.builders.json API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>QFlow.builders.json</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="QFlow.builders.json.JSON"><code class="flex name class">
+<span>class <span class="ident">JSON</span></span>
+<span>(</span><span>filepath: str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class JSON:
+    &#39;&#39;&#39;
+    Class to manage JSON files easily.
+    Allows reading, writing, editing, and manipulating JSON files.
+    &#39;&#39;&#39;
+
+    def __init__(self, filepath: str):
+        self.filepath = filepath
+        self.data = None
+
+    @privatemethod
+    def resolve(self, data: Any, keys: list, create: bool = False) -&gt; tuple[Any, str]:
+        &#34;&#34;&#34;
+        Walk data following keys and return (parent, lastKey).
+
+        Args:
+            data:   Root object to traverse.
+            keys:   List of key segments already split by &#39;.&#39;.
+            create: If True, missing intermediate dicts are created.
+
+        Returns:
+            (parentNode, finalKey) so the caller can do parent[key].
+
+        Raises:
+            KeyError:  A segment does not exist and create=False.
+            TypeError: A segment exists but its value is not a dict.
+        &#34;&#34;&#34;
+        node = data
+        for key in keys[:-1]:
+            if isinstance(node, dict):
+                if key not in node:
+                    if create:
+                        node[key] = {}
+                    else:
+                        raise KeyError(f&#34;Key &#39;{key}&#39; not found.&#34;)
+                node = node[key]
+            else:
+                raise TypeError(f&#34;Expected a dict at &#39;{key}&#39;, got {type(node).__name__}.&#34;)
+        return node, keys[-1]
+
+    def read(self) -&gt; Dict[str, Any]:
+        try:
+            with open(self.filepath, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
+                self.data = json.load(f)
+            return self.data
+        except FileNotFoundError:
+            raise FileNotFoundError(f&#34;The file &#39;{self.filepath}&#39; does not exist.&#34;)
+        except json.JSONDecodeError as e:
+            raise json.JSONDecodeError(f&#39;Error decoding JSON: {e}&#39;, e.doc, e.pos)
+
+    def write(self, data: Dict[str, Any], indent: int = 4) -&gt; None:
+        with open(self.filepath, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+            json.dump(data, f, indent=indent, ensure_ascii=False)
+        self.data = data
+
+    def create(self, data: Dict[str, Any] = None, indent: int = 4) -&gt; None:
+        self.write(data or {}, indent)
+
+    def reload(self) -&gt; Dict[str, Any]:
+        return self.read()
+
+    def exists(self) -&gt; bool:
+        return os.path.exists(self.filepath)
+
+    def get(self, key: str, default: Any = None) -&gt; Any:
+        &#34;&#34;&#34;
+        Get a value using dot-notation key.
+        &#34;&#34;&#34;
+        if self.data is None:
+            self.read()
+        try:
+            parent, lastKey = self.resolve(self.data, key.split(&#39;.&#39;))
+            return parent.get(lastKey, default) if isinstance(parent, dict) else default
+        except (KeyError, TypeError):
+            return default
+
+    def set(self, key: str, value: Any) -&gt; None:
+        &#34;&#34;&#34;
+        Set a value using dot-notation key, creating intermediate dicts when needed.
+        &#34;&#34;&#34;
+        if self.data is None:
+            self.read()
+        parent, lastKey = self.resolve(self.data, key.split(&#39;.&#39;), create=True)
+        parent[lastKey] = value
+        self.write(self.data)
+
+    def delete(self, key: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Delete a key using dot-notation. Returns True if deleted, False if not found.
+        &#34;&#34;&#34;
+        if self.data is None:
+            self.read()
+        try:
+            parent, lastKey = self.resolve(self.data, key.split(&#39;.&#39;))
+            if isinstance(parent, dict) and lastKey in parent:
+                del parent[lastKey]
+                self.write(self.data)
+                return True
+            return False
+        except (KeyError, TypeError):
+            return False
+
+    def update(self, key: str, value: Any) -&gt; None:
+        &#34;&#34;&#34;Update a top-level key (use set() for nested keys).&#34;&#34;&#34;
+        if self.data is None:
+            self.read()
+        self.data[key] = value
+        self.write(self.data)
+
+    def merge(self, newData: Dict[str, Any]) -&gt; None:
+        if self.data is None:
+            self.read()
+        self.data.update(newData)
+        self.write(self.data)
+
+    def clear(self) -&gt; None:
+        self.data = {}
+        self.write(self.data)
+
+    def keys(self) -&gt; List[str]:
+        if self.data is None:
+            self.read()
+        return list(self.data.keys())
+
+    def values(self) -&gt; List[Any]:
+        if self.data is None:
+            self.read()
+        return list(self.data.values())
+
+    def items(self) -&gt; List[tuple]:
+        if self.data is None:
+            self.read()
+        return list(self.data.items())
+
+    def indexar(self, data: Any = None, root: Dict[str, Any] = None) -&gt; int:
+        &#34;&#34;&#34;
+        Traverse all values in the JSON and replace &#39;${key.key}/literal&#39;
+        references with their resolved value plus any surrounding literal text.
+
+        Args:
+            data: Current node (used internally for recursion).
+            root: JSON root (used internally to resolve paths).
+
+        Returns:
+            Number of replacements made.
+
+        Raises:
+            ValueError: If a reference does not exist in the JSON or points
+                        to a non-scalar value (dict or list).
+        &#34;&#34;&#34;
+        PATTERN = re.compile(r&#39;\$\{([^}]+)\}&#39;)
+
+        if root is None:
+            if self.data is None:
+                self.read()
+            root = self.data
+            data = self.data
+
+        def resolveRef(refKey: str) -&gt; str:
+            try:
+                parent, lastKey = self.resolve(root, refKey.split(&#39;.&#39;))
+            except (KeyError, TypeError):
+                raise ValueError(f&#34;Reference &#39;${{{refKey}}}&#39; does not exist in the JSON.&#34;)
+            if not isinstance(parent, dict) or lastKey not in parent:
+                raise ValueError(f&#34;Reference &#39;${{{refKey}}}&#39; does not exist in the JSON.&#34;)
+            value = parent[lastKey]
+            if isinstance(value, (dict, list)):
+                raise ValueError(
+                    f&#34;Reference &#39;${{{refKey}}}&#39; points to an object/list, not a scalar value.&#34;
+                )
+            return str(value)
+
+        def processNode(node: Any) -&gt; tuple[Any, int]:
+            count = 0
+
+            if isinstance(node, dict):
+                for key in node:
+                    node[key], subCount = processNode(node[key])
+                    count += subCount
+
+            elif isinstance(node, list):
+                for i, item in enumerate(node):
+                    node[i], subCount = processNode(item)
+                    count += subCount
+
+            elif isinstance(node, str) and &#39;${&#39; in node:
+                def replacer(match):
+                    nonlocal count
+                    count += 1
+                    return resolveRef(match.group(1))
+                node = PATTERN.sub(replacer, node)
+
+            return node, count
+
+        self.data, totalReplacements = processNode(data)
+        self.write(self.data)
+        return totalReplacements</code></pre>
+</details>
+<div class="desc"><p>Class to manage JSON files easily.
+Allows reading, writing, editing, and manipulating JSON files.</p></div>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.builders.json.JSON.clear"><code class="name flex">
+<span>def <span class="ident">clear</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clear(self) -&gt; None:
+    self.data = {}
+    self.write(self.data)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.create"><code class="name flex">
+<span>def <span class="ident">create</span></span>(<span>self, data: Dict[str, Any] = None, indent: int = 4) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create(self, data: Dict[str, Any] = None, indent: int = 4) -&gt; None:
+    self.write(data or {}, indent)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.delete"><code class="name flex">
+<span>def <span class="ident">delete</span></span>(<span>self, key: str) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete(self, key: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Delete a key using dot-notation. Returns True if deleted, False if not found.
+    &#34;&#34;&#34;
+    if self.data is None:
+        self.read()
+    try:
+        parent, lastKey = self.resolve(self.data, key.split(&#39;.&#39;))
+        if isinstance(parent, dict) and lastKey in parent:
+            del parent[lastKey]
+            self.write(self.data)
+            return True
+        return False
+    except (KeyError, TypeError):
+        return False</code></pre>
+</details>
+<div class="desc"><p>Delete a key using dot-notation. Returns True if deleted, False if not found.</p></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.exists"><code class="name flex">
+<span>def <span class="ident">exists</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exists(self) -&gt; bool:
+    return os.path.exists(self.filepath)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>self, key: str, default: Any = None) ‑> Any</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get(self, key: str, default: Any = None) -&gt; Any:
+    &#34;&#34;&#34;
+    Get a value using dot-notation key.
+    &#34;&#34;&#34;
+    if self.data is None:
+        self.read()
+    try:
+        parent, lastKey = self.resolve(self.data, key.split(&#39;.&#39;))
+        return parent.get(lastKey, default) if isinstance(parent, dict) else default
+    except (KeyError, TypeError):
+        return default</code></pre>
+</details>
+<div class="desc"><p>Get a value using dot-notation key.</p></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.indexar"><code class="name flex">
+<span>def <span class="ident">indexar</span></span>(<span>self, data: Any = None, root: Dict[str, Any] = None) ‑> int</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def indexar(self, data: Any = None, root: Dict[str, Any] = None) -&gt; int:
+    &#34;&#34;&#34;
+    Traverse all values in the JSON and replace &#39;${key.key}/literal&#39;
+    references with their resolved value plus any surrounding literal text.
+
+    Args:
+        data: Current node (used internally for recursion).
+        root: JSON root (used internally to resolve paths).
+
+    Returns:
+        Number of replacements made.
+
+    Raises:
+        ValueError: If a reference does not exist in the JSON or points
+                    to a non-scalar value (dict or list).
+    &#34;&#34;&#34;
+    PATTERN = re.compile(r&#39;\$\{([^}]+)\}&#39;)
+
+    if root is None:
+        if self.data is None:
+            self.read()
+        root = self.data
+        data = self.data
+
+    def resolveRef(refKey: str) -&gt; str:
+        try:
+            parent, lastKey = self.resolve(root, refKey.split(&#39;.&#39;))
+        except (KeyError, TypeError):
+            raise ValueError(f&#34;Reference &#39;${{{refKey}}}&#39; does not exist in the JSON.&#34;)
+        if not isinstance(parent, dict) or lastKey not in parent:
+            raise ValueError(f&#34;Reference &#39;${{{refKey}}}&#39; does not exist in the JSON.&#34;)
+        value = parent[lastKey]
+        if isinstance(value, (dict, list)):
+            raise ValueError(
+                f&#34;Reference &#39;${{{refKey}}}&#39; points to an object/list, not a scalar value.&#34;
+            )
+        return str(value)
+
+    def processNode(node: Any) -&gt; tuple[Any, int]:
+        count = 0
+
+        if isinstance(node, dict):
+            for key in node:
+                node[key], subCount = processNode(node[key])
+                count += subCount
+
+        elif isinstance(node, list):
+            for i, item in enumerate(node):
+                node[i], subCount = processNode(item)
+                count += subCount
+
+        elif isinstance(node, str) and &#39;${&#39; in node:
+            def replacer(match):
+                nonlocal count
+                count += 1
+                return resolveRef(match.group(1))
+            node = PATTERN.sub(replacer, node)
+
+        return node, count
+
+    self.data, totalReplacements = processNode(data)
+    self.write(self.data)
+    return totalReplacements</code></pre>
+</details>
+<div class="desc"><p>Traverse all values in the JSON and replace '${key.key}/literal'
+references with their resolved value plus any surrounding literal text.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong></dt>
+<dd>Current node (used internally for recursion).</dd>
+<dt><strong><code>root</code></strong></dt>
+<dd>JSON root (used internally to resolve paths).</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Number of replacements made.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If a reference does not exist in the JSON or points
+to a non-scalar value (dict or list).</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.items"><code class="name flex">
+<span>def <span class="ident">items</span></span>(<span>self) ‑> List[tuple]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def items(self) -&gt; List[tuple]:
+    if self.data is None:
+        self.read()
+    return list(self.data.items())</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.keys"><code class="name flex">
+<span>def <span class="ident">keys</span></span>(<span>self) ‑> List[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def keys(self) -&gt; List[str]:
+    if self.data is None:
+        self.read()
+    return list(self.data.keys())</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.merge"><code class="name flex">
+<span>def <span class="ident">merge</span></span>(<span>self, newData: Dict[str, Any]) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def merge(self, newData: Dict[str, Any]) -&gt; None:
+    if self.data is None:
+        self.read()
+    self.data.update(newData)
+    self.write(self.data)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.read"><code class="name flex">
+<span>def <span class="ident">read</span></span>(<span>self) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read(self) -&gt; Dict[str, Any]:
+    try:
+        with open(self.filepath, &#39;r&#39;, encoding=&#39;utf-8&#39;) as f:
+            self.data = json.load(f)
+        return self.data
+    except FileNotFoundError:
+        raise FileNotFoundError(f&#34;The file &#39;{self.filepath}&#39; does not exist.&#34;)
+    except json.JSONDecodeError as e:
+        raise json.JSONDecodeError(f&#39;Error decoding JSON: {e}&#39;, e.doc, e.pos)</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.reload"><code class="name flex">
+<span>def <span class="ident">reload</span></span>(<span>self) ‑> Dict[str, Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reload(self) -&gt; Dict[str, Any]:
+    return self.read()</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.resolve"><code class="name flex">
+<span>def <span class="ident">resolve</span></span>(<span>self, data: Any, keys: list, create: bool = False) ‑> tuple[typing.Any, str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@privatemethod
+def resolve(self, data: Any, keys: list, create: bool = False) -&gt; tuple[Any, str]:
+    &#34;&#34;&#34;
+    Walk data following keys and return (parent, lastKey).
+
+    Args:
+        data:   Root object to traverse.
+        keys:   List of key segments already split by &#39;.&#39;.
+        create: If True, missing intermediate dicts are created.
+
+    Returns:
+        (parentNode, finalKey) so the caller can do parent[key].
+
+    Raises:
+        KeyError:  A segment does not exist and create=False.
+        TypeError: A segment exists but its value is not a dict.
+    &#34;&#34;&#34;
+    node = data
+    for key in keys[:-1]:
+        if isinstance(node, dict):
+            if key not in node:
+                if create:
+                    node[key] = {}
+                else:
+                    raise KeyError(f&#34;Key &#39;{key}&#39; not found.&#34;)
+            node = node[key]
+        else:
+            raise TypeError(f&#34;Expected a dict at &#39;{key}&#39;, got {type(node).__name__}.&#34;)
+    return node, keys[-1]</code></pre>
+</details>
+<div class="desc"><p>Walk data following keys and return (parent, lastKey).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong></dt>
+<dd>Root object to traverse.</dd>
+<dt><strong><code>keys</code></strong></dt>
+<dd>List of key segments already split by '.'.</dd>
+<dt><strong><code>create</code></strong></dt>
+<dd>If True, missing intermediate dicts are created.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>(parentNode, finalKey) so the caller can do parent[key].</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>KeyError</code></dt>
+<dd>A segment does not exist and create=False.</dd>
+<dt><code>TypeError</code></dt>
+<dd>A segment exists but its value is not a dict.</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.set"><code class="name flex">
+<span>def <span class="ident">set</span></span>(<span>self, key: str, value: Any) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set(self, key: str, value: Any) -&gt; None:
+    &#34;&#34;&#34;
+    Set a value using dot-notation key, creating intermediate dicts when needed.
+    &#34;&#34;&#34;
+    if self.data is None:
+        self.read()
+    parent, lastKey = self.resolve(self.data, key.split(&#39;.&#39;), create=True)
+    parent[lastKey] = value
+    self.write(self.data)</code></pre>
+</details>
+<div class="desc"><p>Set a value using dot-notation key, creating intermediate dicts when needed.</p></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.update"><code class="name flex">
+<span>def <span class="ident">update</span></span>(<span>self, key: str, value: Any) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update(self, key: str, value: Any) -&gt; None:
+    &#34;&#34;&#34;Update a top-level key (use set() for nested keys).&#34;&#34;&#34;
+    if self.data is None:
+        self.read()
+    self.data[key] = value
+    self.write(self.data)</code></pre>
+</details>
+<div class="desc"><p>Update a top-level key (use set() for nested keys).</p></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.values"><code class="name flex">
+<span>def <span class="ident">values</span></span>(<span>self) ‑> List[Any]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def values(self) -&gt; List[Any]:
+    if self.data is None:
+        self.read()
+    return list(self.data.values())</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+<dt id="QFlow.builders.json.JSON.write"><code class="name flex">
+<span>def <span class="ident">write</span></span>(<span>self, data: Dict[str, Any], indent: int = 4) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def write(self, data: Dict[str, Any], indent: int = 4) -&gt; None:
+    with open(self.filepath, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+        json.dump(data, f, indent=indent, ensure_ascii=False)
+    self.data = data</code></pre>
+</details>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="QFlow.builders" href="index.html">QFlow.builders</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="QFlow.builders.json.JSON" href="#QFlow.builders.json.JSON">JSON</a></code></h4>
+<ul class="two-column">
+<li><code><a title="QFlow.builders.json.JSON.clear" href="#QFlow.builders.json.JSON.clear">clear</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.create" href="#QFlow.builders.json.JSON.create">create</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.delete" href="#QFlow.builders.json.JSON.delete">delete</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.exists" href="#QFlow.builders.json.JSON.exists">exists</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.get" href="#QFlow.builders.json.JSON.get">get</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.indexar" href="#QFlow.builders.json.JSON.indexar">indexar</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.items" href="#QFlow.builders.json.JSON.items">items</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.keys" href="#QFlow.builders.json.JSON.keys">keys</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.merge" href="#QFlow.builders.json.JSON.merge">merge</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.read" href="#QFlow.builders.json.JSON.read">read</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.reload" href="#QFlow.builders.json.JSON.reload">reload</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.resolve" href="#QFlow.builders.json.JSON.resolve">resolve</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.set" href="#QFlow.builders.json.JSON.set">set</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.update" href="#QFlow.builders.json.JSON.update">update</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.values" href="#QFlow.builders.json.JSON.values">values</a></code></li>
+<li><code><a title="QFlow.builders.json.JSON.write" href="#QFlow.builders.json.JSON.write">write</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,949 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.6">
+<title>QFlow.builders.folder API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>QFlow.builders.folder</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="QFlow.builders.folder.Folder"><code class="flex name class">
+<span>class <span class="ident">Folder</span></span>
+<span>(</span><span>folderpath: str)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Folder:
+    &#34;&#34;&#34;
+    Class to manage folders easily.
+    Allows creating, deleting, copying, moving, and listing folder contents.
+    &#34;&#34;&#34;
+    
+    def __init__(self, folderpath: str):
+        &#34;&#34;&#34;
+        Initialize the folder manager.
+        
+        Args:
+            folderpath: Path to the folder
+        &#34;&#34;&#34;
+        self.folderpath = folderpath
+        self.path = Path(folderpath)
+    
+    def create(self, existOk: bool = True) -&gt; None:
+        &#34;&#34;&#34;
+        Create the folder.
+        
+        Args:
+            existOk: If True, don&#34;t raise error if folder already exists
+        
+        Raises:
+            FileExistsError: If folder exists and existOk is False
+        &#34;&#34;&#34;
+        try:
+            os.makedirs(self.folderpath, existOk=existOk)
+        except FileExistsError:
+            raise FileExistsError(f&#34;Folder &#39;{self.folderpath}&#39; already exists&#34;)
+    
+    def delete(self, confirm: bool = False) -&gt; bool:
+        &#34;&#34;&#34;
+        Delete the folder and all its contents.
+        
+        Args:
+            confirm: Safety flag to confirm deletion
+        
+        Returns:
+            True if deleted, False if folder doesn&#34;t exist
+        
+        Raises:
+            ValueError: If confirm is False (safety measure)
+        &#34;&#34;&#34;
+        if not confirm:
+            raise ValueError(&#34;Must set confirm=True to delete folder&#34;)
+        
+        if self.exists():
+            shutil.rmtree(self.folderpath)
+            return True
+        return False
+    
+    def exists(self) -&gt; bool:
+        &#34;&#34;&#34;
+        Check if the folder exists.
+        
+        Returns:
+            True if exists, False otherwise
+        &#34;&#34;&#34;
+        return os.path.exists(self.folderpath) and os.path.isdir(self.folderpath)
+    
+    def isEmpty(self) -&gt; bool:
+        &#34;&#34;&#34;
+        Check if the folder is empty.
+        
+        Returns:
+            True if empty, False otherwise
+        
+        Raises:
+            FileNotFoundError: If folder doesn&#34;t exist
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        return len(os.listdir(self.folderpath)) == 0
+    
+    def listContents(self, pattern: Optional[str] = None, recursive: bool = False) -&gt; List[str]:
+        &#34;&#34;&#34;
+        List contents of the folder.
+        
+        Args:
+            pattern: Optional pattern to filter files (e.g., &#34;*.txt&#34;)
+            recursive: If True, list contents recursively
+        
+        Returns:
+            List of file/folder names
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        if recursive:
+            contents = []
+            for root, dirs, files in os.walk(self.folderpath):
+                for item in dirs + files:
+                    fullPath = os.path.join(root, item)
+                    relPath = os.path.relpath(fullPath, self.folderpath)
+                    if pattern is None or fnmatch.fnmatch(item, pattern):
+                        contents.append(relPath)
+            return contents
+        else:
+            contents = os.listdir(self.folderpath)
+            if pattern:
+                contents = [item for item in contents if fnmatch.fnmatch(item, pattern)]
+            return contents
+    
+    def listFiles(self, pattern: Optional[str] = None, recursive: bool = False) -&gt; List[str]:
+        &#34;&#34;&#34;
+        List only files in the folder.
+        
+        Args:
+            pattern: Optional pattern to filter files (e.g., &#34;*.txt&#34;)
+            recursive: If True, list files recursively
+        
+        Returns:
+            List of absolute file paths
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        files = []
+        if recursive:
+            for root, _, filenames in os.walk(self.folderpath):
+                for filename in filenames:
+                    if pattern is None or fnmatch.fnmatch(filename, pattern):
+                        fullPath = os.path.join(root, filename)
+                        files.append(os.path.abspath(fullPath))
+        else:
+            for item in os.listdir(self.folderpath):
+                itemPath = os.path.join(self.folderpath, item)
+                if os.path.isfile(itemPath):
+                    if pattern is None or fnmatch.fnmatch(item, pattern):
+                        files.append(os.path.abspath(itemPath))
+        
+        return files
+    
+    def listFolders(self, recursive: bool = False) -&gt; List[str]:
+        &#34;&#34;&#34;
+        List only subfolders in the folder.
+        
+        Args:
+            recursive: If True, list folders recursively
+        
+        Returns:
+            List of folder names
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        folders = []
+        if recursive:
+            for root, dirnames, _ in os.walk(self.folderpath):
+                for dirname in dirnames:
+                    fullPath = os.path.join(root, dirname)
+                    relPath = os.path.relpath(fullPath, self.folderpath)
+                    folders.append(relPath)
+        else:
+            for item in os.listdir(self.folderpath):
+                itemPath = os.path.join(self.folderpath, item)
+                if os.path.isdir(itemPath):
+                    folders.append(item)
+        return folders
+    
+    def copyTo(self, destination: str) -&gt; None:
+        &#34;&#34;&#34;
+        Copy the folder to a new location.
+        
+        Args:
+            destination: Destination path
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        shutil.copytree(self.folderpath, destination)
+    
+    def moveTo(self, destination: str) -&gt; None:
+        &#34;&#34;&#34;
+        Move the folder to a new location.
+        
+        Args:
+            destination: Destination path
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        shutil.move(self.folderpath, destination)
+        self.folderpath = destination
+        self.path = Path(destination)
+    
+    def rename(self, newName: str) -&gt; None:
+        &#34;&#34;&#34;
+        Rename the folder.
+        
+        Args:
+            newName: New folder name
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        parent = os.path.dirname(self.folderpath)
+        newPath = os.path.join(parent, newName)
+        os.rename(self.folderpath, newPath)
+        self.folderpath = newPath
+        self.path = Path(newPath)
+    
+    def getSize(self) -&gt; int:
+        &#34;&#34;&#34;
+        Get total size of the folder in bytes.
+        
+        Returns:
+            Size in bytes
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        totalSize = 0
+        for dirpath, dirnames, filenames in os.walk(self.folderpath):
+            for filename in filenames:
+                filepath = os.path.join(dirpath, filename)
+                if os.path.exists(filepath):
+                    totalSize += os.path.getsize(filepath)
+        return totalSize
+    
+    def getSizeFormatted(self) -&gt; str:
+        &#34;&#34;&#34;
+        Get total size of the folder in human-readable format.
+        
+        Returns:
+            Size as formatted string (e.g., &#34;1.5 MB&#34;)
+        &#34;&#34;&#34;
+        size = self.getSize()
+        for unit in [&#34;B&#34;, &#34;KB&#34;, &#34;MB&#34;, &#34;GB&#34;, &#34;TB&#34;]:
+            if size &lt; 1024.0:
+                return f&#34;{size:.2f} {unit}&#34;
+            size /= 1024.0
+        return f&#34;{size:.2f} PB&#34;
+    
+    def countItems(self, recursive: bool = False) -&gt; dict:
+        &#34;&#34;&#34;
+        Count files and folders.
+        
+        Args:
+            recursive: If True, count recursively
+        
+        Returns:
+            Dictionary with &#34;files&#34; and &#34;folders&#34; counts
+        &#34;&#34;&#34;
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        fileCount = 0
+        folderCount = 0
+        
+        if recursive:
+            for root, dirs, files in os.walk(self.folderpath):
+                fileCount += len(files)
+                folderCount += len(dirs)
+        else:
+            for item in os.listdir(self.folderpath):
+                itemPath = os.path.join(self.folderpath, item)
+                if os.path.isfile(itemPath):
+                    fileCount += 1
+                elif os.path.isdir(itemPath):
+                    folderCount += 1
+        
+        return {&#34;files&#34;: fileCount, &#34;folders&#34;: folderCount}
+    
+    def createSubfolder(self, subfolderName: str) -&gt; &#34;Folder&#34;:
+        &#34;&#34;&#34;
+        Create a subfolder inside this folder.
+        
+        Args:
+            subfolderName: Name of the subfolder
+        
+        Returns:
+            Folder instance for the new subfolder
+        &#34;&#34;&#34;
+        subfolderPath = os.path.join(self.folderpath, subfolderName)
+        subfolder = Folder(subfolderPath)
+        subfolder.create()
+        return subfolder
+    
+    def clear(self, confirm: bool = False) -&gt; None:
+        &#34;&#34;&#34;
+        Delete all contents of the folder but keep the folder itself.
+        
+        Args:
+            confirm: Safety flag to confirm clearing
+        
+        Raises:
+            ValueError: If confirm is False (safety measure)
+        &#34;&#34;&#34;
+        if not confirm:
+            raise ValueError(&#34;Must set confirm=True to clear folder&#34;)
+        
+        if not self.exists():
+            raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+        
+        for item in os.listdir(self.folderpath):
+            itemPath = os.path.join(self.folderpath, item)
+            if os.path.isfile(itemPath):
+                os.remove(itemPath)
+            elif os.path.isdir(itemPath):
+                shutil.rmtree(itemPath)</code></pre>
+</details>
+<div class="desc"><p>Class to manage folders easily.
+Allows creating, deleting, copying, moving, and listing folder contents.</p>
+<p>Initialize the folder manager.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>folderpath</code></strong></dt>
+<dd>Path to the folder</dd>
+</dl></div>
+<h3>Methods</h3>
+<dl>
+<dt id="QFlow.builders.folder.Folder.clear"><code class="name flex">
+<span>def <span class="ident">clear</span></span>(<span>self, confirm: bool = False) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clear(self, confirm: bool = False) -&gt; None:
+    &#34;&#34;&#34;
+    Delete all contents of the folder but keep the folder itself.
+    
+    Args:
+        confirm: Safety flag to confirm clearing
+    
+    Raises:
+        ValueError: If confirm is False (safety measure)
+    &#34;&#34;&#34;
+    if not confirm:
+        raise ValueError(&#34;Must set confirm=True to clear folder&#34;)
+    
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    for item in os.listdir(self.folderpath):
+        itemPath = os.path.join(self.folderpath, item)
+        if os.path.isfile(itemPath):
+            os.remove(itemPath)
+        elif os.path.isdir(itemPath):
+            shutil.rmtree(itemPath)</code></pre>
+</details>
+<div class="desc"><p>Delete all contents of the folder but keep the folder itself.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>confirm</code></strong></dt>
+<dd>Safety flag to confirm clearing</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If confirm is False (safety measure)</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.copyTo"><code class="name flex">
+<span>def <span class="ident">copyTo</span></span>(<span>self, destination: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def copyTo(self, destination: str) -&gt; None:
+    &#34;&#34;&#34;
+    Copy the folder to a new location.
+    
+    Args:
+        destination: Destination path
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    shutil.copytree(self.folderpath, destination)</code></pre>
+</details>
+<div class="desc"><p>Copy the folder to a new location.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>destination</code></strong></dt>
+<dd>Destination path</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.countItems"><code class="name flex">
+<span>def <span class="ident">countItems</span></span>(<span>self, recursive: bool = False) ‑> dict</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def countItems(self, recursive: bool = False) -&gt; dict:
+    &#34;&#34;&#34;
+    Count files and folders.
+    
+    Args:
+        recursive: If True, count recursively
+    
+    Returns:
+        Dictionary with &#34;files&#34; and &#34;folders&#34; counts
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    fileCount = 0
+    folderCount = 0
+    
+    if recursive:
+        for root, dirs, files in os.walk(self.folderpath):
+            fileCount += len(files)
+            folderCount += len(dirs)
+    else:
+        for item in os.listdir(self.folderpath):
+            itemPath = os.path.join(self.folderpath, item)
+            if os.path.isfile(itemPath):
+                fileCount += 1
+            elif os.path.isdir(itemPath):
+                folderCount += 1
+    
+    return {&#34;files&#34;: fileCount, &#34;folders&#34;: folderCount}</code></pre>
+</details>
+<div class="desc"><p>Count files and folders.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>recursive</code></strong></dt>
+<dd>If True, count recursively</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Dictionary with "files" and "folders" counts</p></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.create"><code class="name flex">
+<span>def <span class="ident">create</span></span>(<span>self, existOk: bool = True) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create(self, existOk: bool = True) -&gt; None:
+    &#34;&#34;&#34;
+    Create the folder.
+    
+    Args:
+        existOk: If True, don&#34;t raise error if folder already exists
+    
+    Raises:
+        FileExistsError: If folder exists and existOk is False
+    &#34;&#34;&#34;
+    try:
+        os.makedirs(self.folderpath, existOk=existOk)
+    except FileExistsError:
+        raise FileExistsError(f&#34;Folder &#39;{self.folderpath}&#39; already exists&#34;)</code></pre>
+</details>
+<div class="desc"><p>Create the folder.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>existOk</code></strong></dt>
+<dd>If True, don"t raise error if folder already exists</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>FileExistsError</code></dt>
+<dd>If folder exists and existOk is False</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.createSubfolder"><code class="name flex">
+<span>def <span class="ident">createSubfolder</span></span>(<span>self, subfolderName: str) ‑> <a title="QFlow.builders.folder.Folder" href="#QFlow.builders.folder.Folder">Folder</a></span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def createSubfolder(self, subfolderName: str) -&gt; &#34;Folder&#34;:
+    &#34;&#34;&#34;
+    Create a subfolder inside this folder.
+    
+    Args:
+        subfolderName: Name of the subfolder
+    
+    Returns:
+        Folder instance for the new subfolder
+    &#34;&#34;&#34;
+    subfolderPath = os.path.join(self.folderpath, subfolderName)
+    subfolder = Folder(subfolderPath)
+    subfolder.create()
+    return subfolder</code></pre>
+</details>
+<div class="desc"><p>Create a subfolder inside this folder.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>subfolderName</code></strong></dt>
+<dd>Name of the subfolder</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Folder instance for the new subfolder</p></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.delete"><code class="name flex">
+<span>def <span class="ident">delete</span></span>(<span>self, confirm: bool = False) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete(self, confirm: bool = False) -&gt; bool:
+    &#34;&#34;&#34;
+    Delete the folder and all its contents.
+    
+    Args:
+        confirm: Safety flag to confirm deletion
+    
+    Returns:
+        True if deleted, False if folder doesn&#34;t exist
+    
+    Raises:
+        ValueError: If confirm is False (safety measure)
+    &#34;&#34;&#34;
+    if not confirm:
+        raise ValueError(&#34;Must set confirm=True to delete folder&#34;)
+    
+    if self.exists():
+        shutil.rmtree(self.folderpath)
+        return True
+    return False</code></pre>
+</details>
+<div class="desc"><p>Delete the folder and all its contents.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>confirm</code></strong></dt>
+<dd>Safety flag to confirm deletion</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>True if deleted, False if folder doesn"t exist</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If confirm is False (safety measure)</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.exists"><code class="name flex">
+<span>def <span class="ident">exists</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def exists(self) -&gt; bool:
+    &#34;&#34;&#34;
+    Check if the folder exists.
+    
+    Returns:
+        True if exists, False otherwise
+    &#34;&#34;&#34;
+    return os.path.exists(self.folderpath) and os.path.isdir(self.folderpath)</code></pre>
+</details>
+<div class="desc"><p>Check if the folder exists.</p>
+<h2 id="returns">Returns</h2>
+<p>True if exists, False otherwise</p></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.getSize"><code class="name flex">
+<span>def <span class="ident">getSize</span></span>(<span>self) ‑> int</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSize(self) -&gt; int:
+    &#34;&#34;&#34;
+    Get total size of the folder in bytes.
+    
+    Returns:
+        Size in bytes
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    totalSize = 0
+    for dirpath, dirnames, filenames in os.walk(self.folderpath):
+        for filename in filenames:
+            filepath = os.path.join(dirpath, filename)
+            if os.path.exists(filepath):
+                totalSize += os.path.getsize(filepath)
+    return totalSize</code></pre>
+</details>
+<div class="desc"><p>Get total size of the folder in bytes.</p>
+<h2 id="returns">Returns</h2>
+<p>Size in bytes</p></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.getSizeFormatted"><code class="name flex">
+<span>def <span class="ident">getSizeFormatted</span></span>(<span>self) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getSizeFormatted(self) -&gt; str:
+    &#34;&#34;&#34;
+    Get total size of the folder in human-readable format.
+    
+    Returns:
+        Size as formatted string (e.g., &#34;1.5 MB&#34;)
+    &#34;&#34;&#34;
+    size = self.getSize()
+    for unit in [&#34;B&#34;, &#34;KB&#34;, &#34;MB&#34;, &#34;GB&#34;, &#34;TB&#34;]:
+        if size &lt; 1024.0:
+            return f&#34;{size:.2f} {unit}&#34;
+        size /= 1024.0
+    return f&#34;{size:.2f} PB&#34;</code></pre>
+</details>
+<div class="desc"><p>Get total size of the folder in human-readable format.</p>
+<h2 id="returns">Returns</h2>
+<p>Size as formatted string (e.g., "1.5 MB")</p></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.isEmpty"><code class="name flex">
+<span>def <span class="ident">isEmpty</span></span>(<span>self) ‑> bool</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isEmpty(self) -&gt; bool:
+    &#34;&#34;&#34;
+    Check if the folder is empty.
+    
+    Returns:
+        True if empty, False otherwise
+    
+    Raises:
+        FileNotFoundError: If folder doesn&#34;t exist
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    return len(os.listdir(self.folderpath)) == 0</code></pre>
+</details>
+<div class="desc"><p>Check if the folder is empty.</p>
+<h2 id="returns">Returns</h2>
+<p>True if empty, False otherwise</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>FileNotFoundError</code></dt>
+<dd>If folder doesn"t exist</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.listContents"><code class="name flex">
+<span>def <span class="ident">listContents</span></span>(<span>self, pattern: str | None = None, recursive: bool = False) ‑> List[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def listContents(self, pattern: Optional[str] = None, recursive: bool = False) -&gt; List[str]:
+    &#34;&#34;&#34;
+    List contents of the folder.
+    
+    Args:
+        pattern: Optional pattern to filter files (e.g., &#34;*.txt&#34;)
+        recursive: If True, list contents recursively
+    
+    Returns:
+        List of file/folder names
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    if recursive:
+        contents = []
+        for root, dirs, files in os.walk(self.folderpath):
+            for item in dirs + files:
+                fullPath = os.path.join(root, item)
+                relPath = os.path.relpath(fullPath, self.folderpath)
+                if pattern is None or fnmatch.fnmatch(item, pattern):
+                    contents.append(relPath)
+        return contents
+    else:
+        contents = os.listdir(self.folderpath)
+        if pattern:
+            contents = [item for item in contents if fnmatch.fnmatch(item, pattern)]
+        return contents</code></pre>
+</details>
+<div class="desc"><p>List contents of the folder.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>pattern</code></strong></dt>
+<dd>Optional pattern to filter files (e.g., "*.txt")</dd>
+<dt><strong><code>recursive</code></strong></dt>
+<dd>If True, list contents recursively</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>List of file/folder names</p></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.listFiles"><code class="name flex">
+<span>def <span class="ident">listFiles</span></span>(<span>self, pattern: str | None = None, recursive: bool = False) ‑> List[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def listFiles(self, pattern: Optional[str] = None, recursive: bool = False) -&gt; List[str]:
+    &#34;&#34;&#34;
+    List only files in the folder.
+    
+    Args:
+        pattern: Optional pattern to filter files (e.g., &#34;*.txt&#34;)
+        recursive: If True, list files recursively
+    
+    Returns:
+        List of absolute file paths
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    files = []
+    if recursive:
+        for root, _, filenames in os.walk(self.folderpath):
+            for filename in filenames:
+                if pattern is None or fnmatch.fnmatch(filename, pattern):
+                    fullPath = os.path.join(root, filename)
+                    files.append(os.path.abspath(fullPath))
+    else:
+        for item in os.listdir(self.folderpath):
+            itemPath = os.path.join(self.folderpath, item)
+            if os.path.isfile(itemPath):
+                if pattern is None or fnmatch.fnmatch(item, pattern):
+                    files.append(os.path.abspath(itemPath))
+    
+    return files</code></pre>
+</details>
+<div class="desc"><p>List only files in the folder.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>pattern</code></strong></dt>
+<dd>Optional pattern to filter files (e.g., "*.txt")</dd>
+<dt><strong><code>recursive</code></strong></dt>
+<dd>If True, list files recursively</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>List of absolute file paths</p></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.listFolders"><code class="name flex">
+<span>def <span class="ident">listFolders</span></span>(<span>self, recursive: bool = False) ‑> List[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def listFolders(self, recursive: bool = False) -&gt; List[str]:
+    &#34;&#34;&#34;
+    List only subfolders in the folder.
+    
+    Args:
+        recursive: If True, list folders recursively
+    
+    Returns:
+        List of folder names
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    folders = []
+    if recursive:
+        for root, dirnames, _ in os.walk(self.folderpath):
+            for dirname in dirnames:
+                fullPath = os.path.join(root, dirname)
+                relPath = os.path.relpath(fullPath, self.folderpath)
+                folders.append(relPath)
+    else:
+        for item in os.listdir(self.folderpath):
+            itemPath = os.path.join(self.folderpath, item)
+            if os.path.isdir(itemPath):
+                folders.append(item)
+    return folders</code></pre>
+</details>
+<div class="desc"><p>List only subfolders in the folder.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>recursive</code></strong></dt>
+<dd>If True, list folders recursively</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>List of folder names</p></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.moveTo"><code class="name flex">
+<span>def <span class="ident">moveTo</span></span>(<span>self, destination: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def moveTo(self, destination: str) -&gt; None:
+    &#34;&#34;&#34;
+    Move the folder to a new location.
+    
+    Args:
+        destination: Destination path
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    shutil.move(self.folderpath, destination)
+    self.folderpath = destination
+    self.path = Path(destination)</code></pre>
+</details>
+<div class="desc"><p>Move the folder to a new location.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>destination</code></strong></dt>
+<dd>Destination path</dd>
+</dl></div>
+</dd>
+<dt id="QFlow.builders.folder.Folder.rename"><code class="name flex">
+<span>def <span class="ident">rename</span></span>(<span>self, newName: str) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rename(self, newName: str) -&gt; None:
+    &#34;&#34;&#34;
+    Rename the folder.
+    
+    Args:
+        newName: New folder name
+    &#34;&#34;&#34;
+    if not self.exists():
+        raise FileNotFoundError(f&#34;Folder &#39;{self.folderpath}&#39; does not exist&#34;)
+    
+    parent = os.path.dirname(self.folderpath)
+    newPath = os.path.join(parent, newName)
+    os.rename(self.folderpath, newPath)
+    self.folderpath = newPath
+    self.path = Path(newPath)</code></pre>
+</details>
+<div class="desc"><p>Rename the folder.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>newName</code></strong></dt>
+<dd>New folder name</dd>
+</dl></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="QFlow.builders" href="index.html">QFlow.builders</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="QFlow.builders.folder.Folder" href="#QFlow.builders.folder.Folder">Folder</a></code></h4>
+<ul class="two-column">
+<li><code><a title="QFlow.builders.folder.Folder.clear" href="#QFlow.builders.folder.Folder.clear">clear</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.copyTo" href="#QFlow.builders.folder.Folder.copyTo">copyTo</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.countItems" href="#QFlow.builders.folder.Folder.countItems">countItems</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.create" href="#QFlow.builders.folder.Folder.create">create</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.createSubfolder" href="#QFlow.builders.folder.Folder.createSubfolder">createSubfolder</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.delete" href="#QFlow.builders.folder.Folder.delete">delete</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.exists" href="#QFlow.builders.folder.Folder.exists">exists</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.getSize" href="#QFlow.builders.folder.Folder.getSize">getSize</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.getSizeFormatted" href="#QFlow.builders.folder.Folder.getSizeFormatted">getSizeFormatted</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.isEmpty" href="#QFlow.builders.folder.Folder.isEmpty">isEmpty</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.listContents" href="#QFlow.builders.folder.Folder.listContents">listContents</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.listFiles" href="#QFlow.builders.folder.Folder.listFiles">listFiles</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.listFolders" href="#QFlow.builders.folder.Folder.listFolders">listFolders</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.moveTo" href="#QFlow.builders.folder.Folder.moveTo">moveTo</a></code></li>
+<li><code><a title="QFlow.builders.folder.Folder.rename" href="#QFlow.builders.folder.Folder.rename">rename</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.6</a>.</p>
+</footer>
+</body>
+</html>
